@@ -1,0 +1,11 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dvm="using:UmlWizard.App.ViewModels.Dialogs"
+             x:Class="UmlWizard.App.Views.Dialogs.TextInputView"
+             x:DataType="dvm:TextInputViewModel"
+             Width="380">
+  <StackPanel Spacing="6">
+    <TextBlock Text="{Binding Prompt}" Classes="caption" />
+    <TextBox Text="{Binding Text}" />
+  </StackPanel>
+</UserControl>

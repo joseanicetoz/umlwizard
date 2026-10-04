@@ -1,0 +1,35 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:UmlWizard.App.ViewModels"
+             xmlns:mi="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:controls="using:UmlWizard.App.Controls"
+             x:Class="UmlWizard.App.Views.DrawingToolbar"
+             x:DataType="vm:DiagramViewModel">
+  <!-- The drawing tools of the active diagram; shown between the tab strip and the canvas. -->
+  <ListBox Classes="toolbox" ItemsSource="{Binding Tools}" SelectedItem="{Binding ActiveTool}">
+    <ListBox.ItemsPanel>
+      <ItemsPanelTemplate>
+        <WrapPanel Orientation="Horizontal" />
+      </ItemsPanelTemplate>
+    </ListBox.ItemsPanel>
+    <!-- Dividers cannot be selected. The tooltip is on the whole button, not on its content: a connector icon only
+         takes the pointer where it draws, i.e. on its thin line. -->
+    <ListBox.ItemContainerTheme>
+      <ControlTheme TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}" x:DataType="vm:ToolItem">
+        <Setter Property="IsEnabled" Value="{Binding !IsSeparator}" />
+        <Setter Property="ToolTip.Tip" Value="{Binding ToolTip}" />
+      </ControlTheme>
+    </ListBox.ItemContainerTheme>
+    <ListBox.ItemTemplate>
+      <DataTemplate x:DataType="vm:ToolItem">
+        <Panel>
+          <TextBlock Text="{Binding Label}" IsVisible="{Binding ShowsLabel}" />
+          <mi:MaterialIcon Kind="{Binding IconKind}" Width="18" Height="18" IsVisible="{Binding HasIcon}" />
+          <!-- Connector tools: the connector drawn as the canvas draws it -->
+          <controls:ConnectorIcon Connector="{Binding Connector}" IsVisible="{Binding HasConnector}" VerticalAlignment="Center" />
+          <Rectangle Width="1" Height="18" Fill="{DynamicResource ToolbarSeparatorBrush}" VerticalAlignment="Center" IsVisible="{Binding IsSeparator}" />
+        </Panel>
+      </DataTemplate>
+    </ListBox.ItemTemplate>
+  </ListBox>
+</UserControl>

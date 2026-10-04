@@ -1,0 +1,21 @@
+<Project>
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+
+  <!--
+    Plug-ins: code generators (UmlWizard.CodeGeneration.*) and code importers (UmlWizard.CodeImport.*), loaded by the
+    application from its plugins folder (see PluginAssemblies).
+  -->
+  <PropertyGroup>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <!-- The provider shown for each plug-in on the Languages tab of Help → About -->
+    <Company>UML Wizard</Company>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- The application provides these at run time: compile against them, do not ship copies. -->
+    <ProjectReference Include="$(MSBuildThisFileDirectory)../UmlWizard.Core/UmlWizard.Core.csproj" Private="false" />
+    <ProjectReference Include="$(MSBuildThisFileDirectory)../UmlWizard.CodeGeneration/UmlWizard.CodeGeneration.csproj" Private="false"
+                      Condition="$(MSBuildProjectName.StartsWith('UmlWizard.CodeGeneration.'))" />
+    <ProjectReference Include="$(MSBuildThisFileDirectory)../UmlWizard.CodeImport/UmlWizard.CodeImport.csproj" Private="false"
+                      Condition="$(MSBuildProjectName.StartsWith('UmlWizard.CodeImport.'))" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,143 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:res="using:UmlWizard.App.Resources"
+        xmlns:vm="using:UmlWizard.App.ViewModels"
+        xmlns:mi="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+        x:Class="UmlWizard.App.Views.AboutWindow"
+        x:DataType="vm:AboutViewModel"
+        Title="{Binding Title}"
+        Width="580" SizeToContent="Height"
+        WindowStartupLocation="CenterOwner"
+        CanResize="False"
+        CanMinimize="False"
+        ShowInTaskbar="False">
+  <DockPanel Margin="24,20,24,20">
+    <DockPanel DockPanel.Dock="Bottom" Margin="0,24,0,0">
+      <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Spacing="8">
+        <Button Content="{x:Static res:Strings.About_CopyDetails}" Command="{Binding CopyDetailsCommand}" MinWidth="100"
+                HorizontalContentAlignment="Center" ToolTip.Tip="{x:Static res:Strings.About_CopyDetails_Tip}" />
+        <Button Content="{x:Static res:Strings.Button_OK}" Classes="accent" IsDefault="True" IsCancel="True" MinWidth="80"
+                HorizontalContentAlignment="Center" Click="OnOk" />
+      </StackPanel>
+      <TextBlock Text="{x:Static res:Strings.About_Copied}" Classes="caption" VerticalAlignment="Center" Margin="0,0,12,0" IsVisible="{Binding Copied}" />
+    </DockPanel>
+
+    <StackPanel Spacing="16">
+      <StackPanel Orientation="Horizontal" Spacing="14">
+        <Border Width="48" Height="48" CornerRadius="8" Background="{DynamicResource LogoBackgroundBrush}" BorderBrush="{DynamicResource IconForegroundBrush}" BorderThickness="1">
+          <mi:MaterialIcon Kind="SitemapOutline" Width="30" Height="30" Foreground="{DynamicResource IconForegroundBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Border>
+        <StackPanel VerticalAlignment="Center" Spacing="2">
+          <TextBlock Text="{Binding ProductName}" FontSize="20" FontWeight="SemiBold" />
+          <TextBlock Text="{Binding Version, StringFormat={x:Static res:Strings.About_Version}}" />
+        </StackPanel>
+      </StackPanel>
+
+      <TextBlock Text="{Binding Description}" TextWrapping="Wrap" />
+
+      <!-- Fixed height, so the window does not change size when switching tabs -->
+      <TabControl x:Name="AboutTabs" Classes="dialog" Height="350" Padding="0,12,0,0">
+        <TabItem Header="{x:Static res:Strings.About_General}">
+          <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+            <Grid ColumnDefinitions="Auto,16,*" RowDefinitions="Auto,6,Auto,6,Auto,6,Auto,6,Auto,6,Auto,6,Auto">
+              <TextBlock Text="{x:Static res:Strings.About_Uml}" Classes="caption" VerticalAlignment="Center" />
+              <SelectableTextBlock Grid.Column="2" Text="{Binding UmlSupport}" TextWrapping="Wrap" />
+              <TextBlock Grid.Row="2" Text="{x:Static res:Strings.About_OperatingSystem}" Classes="caption" VerticalAlignment="Center" />
+              <SelectableTextBlock Grid.Row="2" Grid.Column="2" Text="{Binding OperatingSystem}" TextWrapping="Wrap" />
+              <TextBlock Grid.Row="4" Text="{x:Static res:Strings.About_Architecture}" Classes="caption" VerticalAlignment="Center" />
+              <SelectableTextBlock Grid.Row="4" Grid.Column="2" Text="{Binding Architecture}" />
+              <TextBlock Grid.Row="6" Text="{x:Static res:Strings.About_Runtime}" Classes="caption" VerticalAlignment="Center" />
+              <SelectableTextBlock Grid.Row="6" Grid.Column="2" Text="{Binding Runtime}" />
+              <TextBlock Grid.Row="8" Text="{x:Static res:Strings.About_UiFramework}" Classes="caption" VerticalAlignment="Center" />
+              <SelectableTextBlock Grid.Row="8" Grid.Column="2" Text="{Binding UiFramework}" />
+              <TextBlock Grid.Row="10" Text="{x:Static res:Strings.About_Licence}" Classes="caption" VerticalAlignment="Center" />
+              <SelectableTextBlock x:Name="LicenceText" Grid.Row="10" Grid.Column="2" Text="{Binding Licence}" TextWrapping="Wrap" />
+              <TextBlock Grid.Row="12" Text="{x:Static res:Strings.About_Website}" Classes="caption" VerticalAlignment="Center" />
+              <!-- A link once the website is a web address; plain text while it is a placeholder -->
+              <HyperlinkButton x:Name="WebsiteLink" Grid.Row="12" Grid.Column="2" Content="{Binding Website}" NavigateUri="{Binding WebsiteUri}"
+                               IsVisible="{Binding HasWebsiteLink}" Padding="0" />
+              <SelectableTextBlock x:Name="WebsiteText" Grid.Row="12" Grid.Column="2" Text="{Binding Website}"
+                                   IsVisible="{Binding !HasWebsiteLink}" />
+            </Grid>
+          </ScrollViewer>
+        </TabItem>
+        <TabItem x:Name="LanguagesTab" Header="{x:Static res:Strings.About_Languages}">
+          <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+            <!-- The installed language plug-ins: one row per code generator or code importer, with its DLL's version and provider -->
+            <StackPanel x:Name="LanguagesSection" Spacing="6" Grid.IsSharedSizeScope="True" Margin="0,0,16,0">
+              <TextBlock Classes="caption" TextWrapping="Wrap" Text="{x:Static res:Strings.About_Languages_Intro}" />
+              <TextBlock x:Name="NoLanguages" Text="{x:Static res:Strings.About_Languages_None}" IsVisible="{Binding !HasLanguagePlugins}" />
+              <Grid IsVisible="{Binding HasLanguagePlugins}" Margin="0,6,0,0">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="Auto" SharedSizeGroup="Language" />
+                  <ColumnDefinition Width="20" />
+                  <ColumnDefinition Width="Auto" SharedSizeGroup="Kind" />
+                  <ColumnDefinition Width="20" />
+                  <ColumnDefinition Width="Auto" SharedSizeGroup="Version" />
+                  <ColumnDefinition Width="20" />
+                  <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{x:Static res:Strings.About_Languages_Language}" Classes="caption" />
+                <TextBlock Grid.Column="2" Text="{x:Static res:Strings.About_Languages_Kind}" Classes="caption" />
+                <TextBlock Grid.Column="4" Text="{x:Static res:Strings.About_Languages_Version}" Classes="caption" />
+                <TextBlock Grid.Column="6" Text="{x:Static res:Strings.About_Languages_Provider}" Classes="caption" />
+              </Grid>
+              <ItemsControl x:Name="LanguageList" ItemsSource="{Binding LanguagePlugins}">
+                <ItemsControl.ItemTemplate>
+                  <DataTemplate x:DataType="vm:LanguagePlugin">
+                    <Grid ToolTip.Tip="{Binding File}" Background="Transparent" Margin="0,2">
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Language" />
+                        <ColumnDefinition Width="20" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Kind" />
+                        <ColumnDefinition Width="20" />
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Version" />
+                        <ColumnDefinition Width="20" />
+                        <ColumnDefinition Width="*" />
+                      </Grid.ColumnDefinitions>
+                      <TextBlock Text="{Binding Language}" FontWeight="SemiBold" />
+                      <TextBlock Grid.Column="2" Text="{Binding Kind}" />
+                      <TextBlock Grid.Column="4" Text="{Binding Version}" />
+                      <TextBlock Grid.Column="6" Text="{Binding Provider}" TextTrimming="CharacterEllipsis" />
+                    </Grid>
+                  </DataTemplate>
+                </ItemsControl.ItemTemplate>
+              </ItemsControl>
+              <StackPanel x:Name="PluginProblems" IsVisible="{Binding HasPluginProblems}" Spacing="4" Margin="0,8,0,0">
+                <TextBlock Text="{x:Static res:Strings.About_Languages_Problems}" Classes="caption" />
+                <ItemsControl ItemsSource="{Binding PluginProblems}">
+                  <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                      <SelectableTextBlock Text="{Binding}" TextWrapping="Wrap" Foreground="{DynamicResource ErrorForegroundBrush}" Margin="0,1" />
+                    </DataTemplate>
+                  </ItemsControl.ItemTemplate>
+                </ItemsControl>
+              </StackPanel>
+            </StackPanel>
+          </ScrollViewer>
+        </TabItem>
+        <TabItem Header="{x:Static res:Strings.About_Acknowledgements}">
+          <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+            <!-- Third-party components; the notices file has the full license texts -->
+            <StackPanel x:Name="AcknowledgementsSection" Spacing="6">
+              <TextBlock Classes="caption" TextWrapping="Wrap"
+                         Text="{x:Static res:Strings.About_AcknowledgementsIntro}" />
+              <ItemsControl ItemsSource="{Binding Acknowledgements}">
+                <ItemsControl.ItemTemplate>
+                  <DataTemplate x:DataType="vm:Acknowledgement">
+                    <DockPanel>
+                      <TextBlock DockPanel.Dock="Right" Text="{Binding License}" Classes="caption" VerticalAlignment="Center" Margin="12,0,0,0" />
+                      <HyperlinkButton Content="{Binding Name}" NavigateUri="{Binding Uri}" Padding="0,1" ToolTip.Tip="{Binding Url}" />
+                    </DockPanel>
+                  </DataTemplate>
+                </ItemsControl.ItemTemplate>
+              </ItemsControl>
+              <Button x:Name="NoticesButton" Content="{x:Static res:Strings.About_ThirdPartyNotices}" Click="OnShowNotices" IsVisible="{Binding HasNotices}"
+                      ToolTip.Tip="{x:Static res:Strings.About_ThirdPartyNotices_Tip}" HorizontalAlignment="Left" Margin="0,5,0,0" />
+            </StackPanel>
+          </ScrollViewer>
+        </TabItem>
+      </TabControl>
+    </StackPanel>
+  </DockPanel>
+</Window>

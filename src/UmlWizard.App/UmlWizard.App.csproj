@@ -1,0 +1,68 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>UmlWizard.App</RootNamespace>
+    <AssemblyName>UmlWizard</AssemblyName>
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    <Product>UML Wizard</Product>
+    <Description>A UML designer for class, sequence, state machine, activity, use case, component and deployment diagrams, with code generation and code import.</Description>
+    <Version>1.0.0</Version>
+    <!-- Only English: Roslyn would otherwise ship its compiler messages in 13 languages, which the app never shows. -->
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Shown in Help → About. The licence is LICENSE at the root of the repository; replace the website placeholder
+         with the real web address. -->
+    <AssemblyMetadata Include="Licence" Value="Apache License 2.0" />
+    <AssemblyMetadata Include="Website" Value="Not specified yet" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" />
+    <PackageReference Include="Avalonia.Desktop" />
+    <PackageReference Include="Avalonia.Skia" />
+    <PackageReference Include="Avalonia.Themes.Fluent" />
+    <PackageReference Include="Avalonia.Fonts.Inter" />
+    <PackageReference Include="CommunityToolkit.Mvvm" />
+    <PackageReference Include="Material.Icons.Avalonia" />
+    <!-- Shipped for the C# code import plug-in, which compiles against Roslyn and shares the application's copy. -->
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- The UI text; Strings.<culture>.resx files next to it hold translations. The Strings class is in
+         Strings.Designer.cs, which Rider and Visual Studio regenerate when Strings.resx is saved;
+         LocalizationTests.TheStringsClass_MatchesStringsResx fails when the two differ. -->
+    <EmbeddedResource Update="Resources\Strings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Update="Resources\Strings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="UmlWizard.App.Tests" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- UML Wizard's own licence and copyright notice, which the Apache License asks to hand on with every copy; as .txt
+         next to the executable, so they open in a text editor on every platform. -->
+    <None Include="..\..\LICENSE" Link="LICENSE.txt" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <None Include="..\..\NOTICE" Link="NOTICE.txt" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <!-- The licenses of the components the app ships with; the About dialog opens this file. -->
+    <None Include="..\..\docs\THIRD-PARTY-NOTICES.txt" Link="THIRD-PARTY-NOTICES.txt"
+          CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <!-- The how-to pages of the Help menu, opened in the browser. -->
+    <None Include="..\..\docs\help\*.html" Link="Help\%(Filename)%(Extension)"
+          CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UmlWizard.Core\UmlWizard.Core.csproj" />
+    <ProjectReference Include="..\UmlWizard.CodeGeneration\UmlWizard.CodeGeneration.csproj" />
+    <ProjectReference Include="..\UmlWizard.OpenApi\UmlWizard.OpenApi.csproj" />
+    <ProjectReference Include="..\UmlWizard.PlantUml\UmlWizard.PlantUml.csproj" />
+    <ProjectReference Include="..\UmlWizard.Ai\UmlWizard.Ai.csproj" />
+    <ProjectReference Include="..\UmlWizard.CodeImport\UmlWizard.CodeImport.csproj" />
+  </ItemGroup>
+  <Import Project="..\..\build\Plugins.targets" />
+</Project>

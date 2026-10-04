@@ -1,0 +1,37 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="using:UmlWizard.App.Resources"
+             xmlns:dvm="using:UmlWizard.App.ViewModels.Dialogs"
+             xmlns:mi="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             x:Class="UmlWizard.App.Views.Dialogs.TaggedValuesEditor"
+             x:DataType="dvm:TaggedValuesEditorViewModel">
+  <!-- Name/value rows of an element's tagged values; the parent sets the height -->
+  <DockPanel>
+    <Grid DockPanel.Dock="Top" ColumnDefinitions="180,*,40" Margin="6,0,6,2">
+      <TextBlock Text="{x:Static res:Strings.Label_Name}" Classes="caption" />
+      <TextBlock Grid.Column="1" Text="{x:Static res:Strings.Dialog_TaggedValues_Value}" Classes="caption" />
+    </Grid>
+    <Button DockPanel.Dock="Bottom" HorizontalAlignment="Left" Margin="0,6,0,0" Content="{x:Static res:Strings.Dialog_TaggedValues_Add}"
+            Command="{Binding AddCommand}" />
+    <Border BorderBrush="{DynamicResource DividerBrush}" BorderThickness="1" CornerRadius="4">
+      <Panel>
+        <TextBlock Text="{x:Static res:Strings.Dialog_TaggedValues_None}" Classes="caption" Margin="8,6"
+                   IsVisible="{Binding !Rows.Count}" />
+        <ScrollViewer>
+          <ItemsControl ItemsSource="{Binding Rows}">
+            <ItemsControl.ItemTemplate>
+              <DataTemplate x:DataType="dvm:TaggedValueRowViewModel">
+                <Grid ColumnDefinitions="180,*,40" Margin="4,3">
+                  <TextBox Margin="0,0,4,0" Text="{Binding Name}" />
+                  <TextBox Grid.Column="1" Margin="0,0,4,0" Text="{Binding Value}" />
+                  <Button Grid.Column="2" Classes="flat" ToolTip.Tip="{x:Static res:Strings.Tip_Remove}" Command="{Binding RemoveCommand}"
+                          Content="{mi:MaterialIconExt Kind=Close}" />
+                </Grid>
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+        </ScrollViewer>
+      </Panel>
+    </Border>
+  </DockPanel>
+</UserControl>

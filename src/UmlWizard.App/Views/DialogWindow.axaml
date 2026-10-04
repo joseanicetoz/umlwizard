@@ -1,0 +1,46 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:res="using:UmlWizard.App.Resources"
+        xmlns:dvm="using:UmlWizard.App.ViewModels.Dialogs"
+        xmlns:dialogs="using:UmlWizard.App.Views.Dialogs"
+        x:Class="UmlWizard.App.Views.DialogWindow"
+        x:DataType="dvm:DialogViewModel"
+        Title="{Binding Title}"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterOwner"
+        CanResize="False"
+        CanMinimize="False"
+        ShowInTaskbar="False"
+        MinWidth="420">
+  <Window.DataTemplates>
+    <DataTemplate DataType="dvm:ClassEditorViewModel"><dialogs:ClassEditorView /></DataTemplate>
+    <DataTemplate DataType="dvm:RelationshipEditorViewModel"><dialogs:RelationshipEditorView /></DataTemplate>
+    <DataTemplate DataType="dvm:LifelineEditorViewModel"><dialogs:LifelineEditorView /></DataTemplate>
+    <DataTemplate DataType="dvm:MessageEditorViewModel"><dialogs:MessageEditorView /></DataTemplate>
+    <DataTemplate DataType="dvm:ProjectPropertiesViewModel"><dialogs:ProjectPropertiesView /></DataTemplate>
+    <DataTemplate DataType="dvm:ImportCodeViewModel"><dialogs:ImportCodeView /></DataTemplate>
+    <DataTemplate DataType="dvm:NewDiagramViewModel"><dialogs:NewDiagramView /></DataTemplate>
+    <DataTemplate DataType="dvm:TextInputViewModel"><dialogs:TextInputView /></DataTemplate>
+    <DataTemplate DataType="dvm:FontEditorViewModel"><dialogs:FontEditorView /></DataTemplate>
+    <DataTemplate DataType="dvm:ShapeEditorViewModel"><dialogs:ShapeEditorView /></DataTemplate>
+    <DataTemplate DataType="dvm:ColorPickerViewModel"><dialogs:ColorPickerView /></DataTemplate>
+    <DataTemplate DataType="dvm:AiDiagramViewModel"><dialogs:AiDiagramView /></DataTemplate>
+    <DataTemplate DataType="dvm:MoveToViewModel"><dialogs:MoveToView /></DataTemplate>
+    <DataTemplate DataType="dvm:TextBoxEditorViewModel"><dialogs:TextBoxEditorView /></DataTemplate>
+    <DataTemplate DataType="dvm:DiagramPropertiesViewModel"><dialogs:DiagramPropertiesView /></DataTemplate>
+    <DataTemplate DataType="dvm:ExportPngViewModel"><dialogs:ExportPngView /></DataTemplate>
+    <DataTemplate DataType="dvm:GenerateCodeViewModel"><dialogs:GenerateCodeView /></DataTemplate>
+    <DataTemplate DataType="dvm:ExportOpenApiViewModel"><dialogs:ExportOpenApiView /></DataTemplate>
+  </Window.DataTemplates>
+
+  <DockPanel Margin="20">
+    <DockPanel DockPanel.Dock="Bottom" Margin="0,20,0,0">
+      <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Spacing="8">
+        <Button Content="{x:Static res:Strings.Button_OK}" Classes="accent" IsDefault="True" MinWidth="80" HorizontalContentAlignment="Center" Click="OnOk" />
+        <Button Content="{x:Static res:Strings.Button_Cancel}" IsCancel="True" MinWidth="80" HorizontalContentAlignment="Center" Click="OnCancel" />
+      </StackPanel>
+      <TextBlock Text="{Binding ErrorMessage}" Foreground="{DynamicResource ErrorForegroundBrush}" VerticalAlignment="Center" TextWrapping="Wrap" />
+    </DockPanel>
+    <ContentControl Content="{Binding}" />
+  </DockPanel>
+</Window>

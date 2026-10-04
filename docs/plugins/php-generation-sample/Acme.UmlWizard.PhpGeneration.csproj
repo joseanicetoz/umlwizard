@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <!-- Built to be loaded by UML Wizard at run time -->
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <!-- Shown as the provider on the Languages tab of Help → About -->
+    <Company>Acme</Company>
+    <!--
+      The folder of your UML Wizard installation, or its build output. Defaults to the build output of this repository;
+      pass another one with: dotnet build -p:UmlWizardDir="C:\Program Files\UML Wizard"
+    -->
+    <UmlWizardDir Condition="'$(UmlWizardDir)' == ''">$(MSBuildThisFileDirectory)..\..\..\src\UmlWizard.App\bin\$(Configuration)\net9.0</UmlWizardDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Compile against UML Wizard's code generation API and model; UML Wizard provides them at run time, so do not copy them. -->
+    <Reference Include="UmlWizard.CodeGeneration">
+      <HintPath>$(UmlWizardDir)\UmlWizard.CodeGeneration.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UmlWizard.Core">
+      <HintPath>$(UmlWizardDir)\UmlWizard.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

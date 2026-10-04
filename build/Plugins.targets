@@ -1,0 +1,33 @@
+<Project>
+  <!--
+    The built-in plug-ins, code generators (UmlWizard.CodeGeneration.*) and code importers (UmlWizard.CodeImport.*), are
+    plug-ins like any other: built before the importing project and copied to plugins/ next to it (on build and
+    publish), where PluginAssemblies finds them. Each is a single DLL directly in plugins/: the assemblies they use
+    (UmlWizard.Core, UmlWizard.CodeGeneration, UmlWizard.CodeImport, and Roslyn for C#) are the application's.
+  -->
+  <ItemGroup>
+    <BuiltInPlugin Include="$(MSBuildThisFileDirectory)..\src\Plugins\UmlWizard.CodeGeneration.*\UmlWizard.CodeGeneration.*.csproj" />
+    <BuiltInPlugin Include="$(MSBuildThisFileDirectory)..\src\Plugins\UmlWizard.CodeImport.*\UmlWizard.CodeImport.*.csproj" />
+    <ProjectReference Include="@(BuiltInPlugin)" ReferenceOutputAssembly="false" Private="false" />
+  </ItemGroup>
+  <Target Name="CopyBuiltInPlugins" AfterTargets="Build">
+    <MSBuild Projects="@(BuiltInPlugin)" Targets="GetTargetPath" Properties="Configuration=$(Configuration)">
+      <Output TaskParameter="TargetOutputs" ItemName="_PluginAssembly" />
+    </MSBuild>
+    <ItemGroup>
+      <_PluginFile Include="@(_PluginAssembly);@(_PluginAssembly->'%(RootDir)%(Directory)%(Filename).pdb')" />
+    </ItemGroup>
+    <!-- Only the plug-in's own DLL: the assemblies it uses are the application's. -->
+    <Copy SourceFiles="@(_PluginFile)" DestinationFolder="$(OutDir)plugins" SkipUnchangedFiles="true"
+          Condition="Exists('%(_PluginFile.Identity)')" />
+    <!-- Earlier builds put each one in plugins/<Name>/: left there, it would be loaded twice. -->
+    <RemoveDir Directories="$(OutDir)plugins\%(_PluginAssembly.Filename)" Condition="Exists('$(OutDir)plugins\%(_PluginAssembly.Filename)')" />
+  </Target>
+  <Target Name="PublishBuiltInPlugins" AfterTargets="Publish" DependsOnTargets="CopyBuiltInPlugins">
+    <ItemGroup>
+      <_PublishedPluginFile Include="$(OutDir)plugins\**\*" />
+    </ItemGroup>
+    <RemoveDir Directories="$(PublishDir)plugins\%(_PluginAssembly.Filename)" Condition="Exists('$(PublishDir)plugins\%(_PluginAssembly.Filename)')" />
+    <Copy SourceFiles="@(_PublishedPluginFile)" DestinationFolder="$(PublishDir)plugins\%(RecursiveDir)" SkipUnchangedFiles="true" />
+  </Target>
+</Project>

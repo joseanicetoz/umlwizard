@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>UmlWizard.CodeGeneration.Kotlin</RootNamespace>
+    <Description>UML Wizard code generator plug-in: Kotlin.</Description>
+  </PropertyGroup>
+</Project>

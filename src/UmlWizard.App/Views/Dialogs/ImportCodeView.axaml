@@ -1,0 +1,46 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="using:UmlWizard.App.Resources"
+             xmlns:dvm="using:UmlWizard.App.ViewModels.Dialogs"
+             xmlns:mi="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             x:Class="UmlWizard.App.Views.Dialogs.ImportCodeView"
+             x:DataType="dvm:ImportCodeViewModel"
+             Width="540">
+  <StackPanel Spacing="14">
+    <!-- What will be imported -->
+    <Grid ColumnDefinitions="100,*" RowDefinitions="Auto,8,Auto,8,Auto">
+      <TextBlock Classes="caption" Text="{x:Static res:Strings.Dialog_ImportCode_Source}" VerticalAlignment="Center" />
+      <SelectableTextBlock Grid.Column="1" Text="{Binding Source}" TextWrapping="Wrap" />
+      <!-- The language is chosen among those the folder has files of -->
+      <TextBlock Classes="caption" Grid.Row="2" Text="{x:Static res:Strings.Dialog_ImportCode_Language}" VerticalAlignment="Center" />
+      <ComboBox x:Name="LanguageBox" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}"
+                HorizontalAlignment="Stretch" />
+      <TextBlock Classes="caption" Grid.Row="4" Text="{x:Static res:Strings.Dialog_ImportCode_Files}" VerticalAlignment="Center" />
+      <TextBlock x:Name="FilesLine" Grid.Row="4" Grid.Column="1" Text="{Binding FilesLine}" />
+    </Grid>
+
+    <!-- What will not be imported -->
+    <Border Background="{DynamicResource ChromeBackgroundBrush}" BorderBrush="{DynamicResource DividerBrush}" BorderThickness="1" CornerRadius="4" Padding="10,8">
+      <DockPanel>
+        <mi:MaterialIcon DockPanel.Dock="Left" Kind="InformationOutline" Width="18" Height="18" VerticalAlignment="Top" Margin="0,1,8,0"
+                         Foreground="{DynamicResource WarningForegroundBrush}" />
+        <TextBlock x:Name="ImportNotice" Text="{Binding Notice}" TextWrapping="Wrap" />
+      </DockPanel>
+    </Border>
+
+    <!-- The new project -->
+    <Grid ColumnDefinitions="100,*" RowDefinitions="Auto,10,Auto,10,Auto,10,Auto">
+      <TextBlock Classes="caption" Text="{x:Static res:Strings.Label_Name}" VerticalAlignment="Center" />
+      <TextBox Grid.Column="1" Text="{Binding Name}" />
+      <TextBlock Classes="caption" Grid.Row="2" Text="{x:Static res:Strings.Label_Author}" VerticalAlignment="Center" />
+      <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Author}" />
+      <TextBlock Classes="caption" Grid.Row="4" Text="{x:Static res:Strings.Label_Description}" VerticalAlignment="Top" Margin="0,6,0,0" />
+      <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Description}" AcceptsReturn="True" TextWrapping="Wrap" Height="60" />
+      <TextBlock Classes="caption" Grid.Row="6" Text="{x:Static res:Strings.Label_Location}" VerticalAlignment="Center" />
+      <DockPanel Grid.Row="6" Grid.Column="1">
+        <Button DockPanel.Dock="Right" Content="{x:Static res:Strings.Button_Browse}" Margin="6,0,0,0" Command="{Binding BrowseLocationCommand}" />
+        <TextBox Text="{Binding Location}" />
+      </DockPanel>
+    </Grid>
+  </StackPanel>
+</UserControl>

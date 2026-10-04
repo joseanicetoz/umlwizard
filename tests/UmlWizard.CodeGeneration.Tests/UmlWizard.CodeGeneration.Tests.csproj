@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+    <!-- Compiles the generated C# -->
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+    <!-- SkiaSharp itself only ships the Windows and macOS native libraries; the app gets the Linux one from Avalonia. -->
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\UmlWizard.CodeGeneration\UmlWizard.CodeGeneration.csproj" />
+    <!-- The built-in code generators, tested directly and as plug-ins loaded from a folder -->
+    <ProjectReference Include="..\..\src\Plugins\UmlWizard.CodeGeneration.CSharp\UmlWizard.CodeGeneration.CSharp.csproj" />
+    <ProjectReference Include="..\..\src\Plugins\UmlWizard.CodeGeneration.Java\UmlWizard.CodeGeneration.Java.csproj" />
+    <ProjectReference Include="..\..\src\Plugins\UmlWizard.CodeGeneration.Ruby\UmlWizard.CodeGeneration.Ruby.csproj" />
+    <ProjectReference Include="..\..\src\Plugins\UmlWizard.CodeGeneration.Cpp\UmlWizard.CodeGeneration.Cpp.csproj" />
+    <ProjectReference Include="..\..\src\Plugins\UmlWizard.CodeGeneration.TypeScript\UmlWizard.CodeGeneration.TypeScript.csproj" />
+    <ProjectReference Include="..\..\src\Plugins\UmlWizard.CodeGeneration.Kotlin\UmlWizard.CodeGeneration.Kotlin.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\samples\**\*" LinkBase="samples" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

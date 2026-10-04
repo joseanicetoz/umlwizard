@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>UmlWizard.CodeImport.Cpp</RootNamespace>
+    <Description>UML Wizard code import plug-in: C++.</Description>
+  </PropertyGroup>
+</Project>

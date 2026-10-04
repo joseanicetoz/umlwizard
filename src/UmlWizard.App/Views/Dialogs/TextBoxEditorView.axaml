@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="using:UmlWizard.App.Resources"
+             xmlns:dvm="using:UmlWizard.App.ViewModels.Dialogs"
+             xmlns:dialogs="using:UmlWizard.App.Views.Dialogs"
+             x:Class="UmlWizard.App.Views.Dialogs.TextBoxEditorView"
+             x:DataType="dvm:TextBoxEditorViewModel"
+             Width="440">
+  <StackPanel Spacing="12">
+    <TextBox Text="{Binding Text}" AcceptsReturn="True" TextWrapping="Wrap" Height="110"
+             Watermark="{x:Static res:Strings.Dialog_EditTextBox_Text_Hint}" />
+    <Grid ColumnDefinitions="80,*" RowDefinitions="Auto,10,Auto">
+      <TextBlock Classes="caption" Text="{x:Static res:Strings.Dialog_EditTextBox_Horizontal}" VerticalAlignment="Center" />
+      <ComboBox Grid.Column="1" Width="130" ItemsSource="{x:Static dvm:EnumValues.HorizontalTextAlignments}"
+                SelectedItem="{Binding HorizontalAlignment}" />
+      <TextBlock Classes="caption" Grid.Row="2" Text="{x:Static res:Strings.Dialog_EditTextBox_Vertical}" VerticalAlignment="Center" />
+      <ComboBox Grid.Row="2" Grid.Column="1" Width="130" ItemsSource="{x:Static dvm:EnumValues.VerticalTextAlignments}"
+                SelectedItem="{Binding VerticalAlignment}" />
+    </Grid>
+    <Separator />
+    <dialogs:FontEditorView DataContext="{Binding Font}" />
+  </StackPanel>
+</UserControl>

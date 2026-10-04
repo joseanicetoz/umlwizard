@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>UmlWizard.CodeImport.TypeScript</RootNamespace>
+    <Description>UML Wizard code import plug-in: TypeScript.</Description>
+  </PropertyGroup>
+</Project>

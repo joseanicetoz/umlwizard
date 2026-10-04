@@ -1,0 +1,416 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:res="using:UmlWizard.App.Resources"
+        xmlns:app="using:UmlWizard.App"
+        xmlns:controls="using:UmlWizard.App.Controls"
+        xmlns:vm="using:UmlWizard.App.ViewModels"
+        xmlns:views="using:UmlWizard.App.Views"
+        xmlns:mi="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+        x:Class="UmlWizard.App.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Title="{Binding WindowTitle}"
+        Width="1280" Height="820" MinWidth="800" MinHeight="500"
+        WindowStartupLocation="CenterScreen">
+
+  <Window.KeyBindings>
+    <KeyBinding Gesture="{x:Static app:Shortcuts.SaveProject}" Command="{Binding SaveProjectCommand}" />
+    <KeyBinding Gesture="{x:Static app:Shortcuts.SaveProjectAs}" Command="{Binding SaveProjectAsCommand}" />
+    <KeyBinding Gesture="{x:Static app:Shortcuts.OpenProject}" Command="{Binding OpenProjectCommand}" />
+    <KeyBinding Gesture="{x:Static app:Shortcuts.NewProject}" Command="{Binding NewProjectCommand}" />
+    <KeyBinding Gesture="{x:Static app:Shortcuts.ToggleProjectExplorer}" Command="{Binding ToggleProjectExplorerCommand}" />
+    <KeyBinding Gesture="{x:Static app:Shortcuts.ToggleAiChat}" Command="{Binding ToggleAiChatCommand}" />
+    <KeyBinding Gesture="{x:Static app:Shortcuts.UserManual}" Command="{Binding UserManualCommand}" />
+    <KeyBinding Gesture="{x:Static app:Shortcuts.Preferences}" Command="{Binding PreferencesCommand}" />
+  </Window.KeyBindings>
+
+  <Panel>
+  <DockPanel>
+    <Menu x:Name="MainMenu" DockPanel.Dock="Top">
+      <MenuItem Header="{x:Static res:Strings.Menu_File}">
+        <MenuItem Header="{x:Static res:Strings.Menu_File_NewProject}" InputGesture="{x:Static app:Shortcuts.NewProject}" Command="{Binding NewProjectCommand}" Icon="{mi:MaterialIconExt Kind=FilePlusOutline}" />
+        <MenuItem Header="{x:Static res:Strings.Menu_File_OpenProject}" InputGesture="{x:Static app:Shortcuts.OpenProject}" Command="{Binding OpenProjectCommand}" Icon="{mi:MaterialIconExt Kind=FolderOpenOutline}" />
+        <MenuItem Header="{x:Static res:Strings.Menu_File_ImportFolder}" Command="{Binding ImportFolderCommand}" Icon="{mi:MaterialIconExt Kind=FolderDownloadOutline}"
+                  ToolTip.Tip="{x:Static res:Strings.Explorer_ImportFolder_Tip}" />
+        <MenuItem Header="{x:Static res:Strings.Menu_File_RecentProjects}" ItemsSource="{Binding RecentProjectsMenu}" IsEnabled="{Binding HasRecentProjects}" Icon="{mi:MaterialIconExt Kind=History}">
+          <MenuItem.ItemContainerTheme>
+            <ControlTheme TargetType="MenuItem" BasedOn="{StaticResource {x:Type MenuItem}}" x:DataType="vm:RecentProjectEntry">
+              <Setter Property="Header" Value="{Binding Header}" />
+              <Setter Property="Command" Value="{Binding Command}" />
+              <Setter Property="CommandParameter" Value="{Binding Parameter}" />
+              <Setter Property="ToolTip.Tip" Value="{Binding ToolTip}" />
+            </ControlTheme>
+          </MenuItem.ItemContainerTheme>
+        </MenuItem>
+        <Separator />
+        <MenuItem Header="{x:Static res:Strings.Menu_File_SaveProject}" InputGesture="{x:Static app:Shortcuts.SaveProject}" Command="{Binding SaveProjectCommand}" IsEnabled="{Binding HasProject}" Icon="{mi:MaterialIconExt Kind=ContentSaveOutline}" />
+        <MenuItem Header="{x:Static res:Strings.Menu_File_SaveProjectAs}" InputGesture="{x:Static app:Shortcuts.SaveProjectAs}" Command="{Binding SaveProjectAsCommand}" IsEnabled="{Binding HasProject}" Icon="{mi:MaterialIconExt Kind=ContentSaveEditOutline}" />
+        <Separator />
+        <MenuItem Header="{x:Static res:Strings.Menu_File_NewFolder}" Command="{Binding NewFolderCommand}" IsEnabled="{Binding HasProject}" Icon="{mi:MaterialIconExt Kind=FolderPlusOutline}" />
+        <MenuItem Header="{x:Static res:Strings.Menu_File_ProjectProperties}" Command="{Binding EditProjectPropertiesCommand}" IsEnabled="{Binding HasProject}" Icon="{mi:MaterialIconExt Kind=FileCogOutline}" />
+        <Separator />
+        <MenuItem Header="{x:Static res:Strings.Menu_File_CloseProject}" Command="{Binding CloseProjectCommand}" IsEnabled="{Binding HasProject}" Icon="{mi:MaterialIconExt Kind=FileRemoveOutline}" />
+        <Separator />
+        <MenuItem Header="{x:Static res:Strings.Menu_File_Preferences}" InputGesture="{x:Static app:Shortcuts.Preferences}" Command="{Binding PreferencesCommand}"
+                  Icon="{mi:MaterialIconExt Kind=CogOutline}" ToolTip.Tip="{x:Static res:Strings.Menu_File_Preferences_Tip}" />
+        <Separator />
+        <MenuItem Header="{x:Static res:Strings.Menu_File_Exit}" Command="{Binding ExitCommand}" Icon="{mi:MaterialIconExt Kind=ExitToApp}" />
+      </MenuItem>
+      <MenuItem Header="{x:Static res:Strings.Menu_Edit}" IsEnabled="{Binding HasActiveDiagram}">
+        <MenuItem Header="{x:Static res:Strings.Menu_Edit_Undo}" InputGesture="{x:Static app:Shortcuts.Undo}" Command="{Binding UndoCommand}" Icon="{mi:MaterialIconExt Kind=Undo}" />
+        <MenuItem Header="{x:Static res:Strings.Menu_Edit_Redo}" InputGesture="{x:Static app:Shortcuts.Redo}" Command="{Binding RedoCommand}" Icon="{mi:MaterialIconExt Kind=Redo}" />
+        <Separator />
+        <MenuItem Header="{x:Static res:Strings.Menu_Edit_Cut}" InputGesture="{x:Static app:Shortcuts.Cut}" Command="{Binding CutCommand}" Icon="{mi:MaterialIconExt Kind=ContentCut}" />
+        <MenuItem Header="{x:Static res:Strings.Menu_Edit_Copy}" InputGesture="{x:Static app:Shortcuts.Copy}" Command="{Binding CopyCommand}" Icon="{mi:MaterialIconExt Kind=ContentCopy}" />
+        <MenuItem Header="{x:Static res:Strings.Menu_Edit_Paste}" InputGesture="{x:Static app:Shortcuts.Paste}" Command="{Binding PasteCommand}" Icon="{mi:MaterialIconExt Kind=ContentPaste}" />
+        <MenuItem Header="{x:Static res:Strings.Menu_Edit_Delete}" InputGesture="{x:Static app:Shortcuts.Delete}" Command="{Binding DeleteCommand}" Icon="{mi:MaterialIconExt Kind=DeleteOutline}" />
+        <Separator />
+        <MenuItem Header="{x:Static res:Strings.Menu_Edit_EditElement}" InputGesture="Enter" Command="{Binding EditCommand}" Icon="{mi:MaterialIconExt Kind=PencilOutline}" />
+      </MenuItem>
+      <MenuItem Header="{x:Static res:Strings.Menu_View}">
+        <MenuItem Header="{x:Static res:Strings.Menu_View_ProjectExplorer}" ToggleType="CheckBox" InputGesture="{x:Static app:Shortcuts.ToggleProjectExplorer}"
+                  IsChecked="{Binding IsProjectExplorerVisible, Mode=TwoWay}" ToolTip.Tip="{x:Static res:Strings.Menu_View_ProjectExplorer_Tip}" />
+        <MenuItem Header="{x:Static res:Strings.Menu_View_AiChat}" ToggleType="CheckBox" InputGesture="{x:Static app:Shortcuts.ToggleAiChat}"
+                  IsChecked="{Binding IsAiChatVisible, Mode=TwoWay}" ToolTip.Tip="{x:Static res:Strings.Menu_View_AiChat_Tip}" />
+        <Separator />
+        <MenuItem Header="{x:Static res:Strings.Menu_View_Theme}" Icon="{mi:MaterialIconExt Kind=ThemeLightDark}">
+          <MenuItem Header="{x:Static res:Strings.Menu_View_Theme_System}" ToggleType="Radio" GroupName="Theme"
+                    IsChecked="{Binding IsSystemTheme, Mode=TwoWay}" ToolTip.Tip="{x:Static res:Strings.Menu_View_Theme_System_Tip}" />
+          <MenuItem Header="{x:Static res:Strings.Menu_View_Theme_Light}" ToggleType="Radio" GroupName="Theme" IsChecked="{Binding IsLightTheme, Mode=TwoWay}" />
+          <MenuItem Header="{x:Static res:Strings.Menu_View_Theme_Dark}" ToggleType="Radio" GroupName="Theme" IsChecked="{Binding IsDarkTheme, Mode=TwoWay}" />
+        </MenuItem>
+      </MenuItem>
+      <MenuItem Header="{x:Static res:Strings.Menu_Format}" IsEnabled="{Binding HasActiveDiagram}">
+        <MenuItem Header="{x:Static res:Strings.Menu_Format_Font}" Command="{Binding EditFontCommand}" Icon="{mi:MaterialIconExt Kind=FormatFont}"
+                  ToolTip.Tip="{x:Static res:Strings.Menu_Format_Font_Tip}" />
+        <MenuItem Header="{x:Static res:Strings.Menu_Format_DiagramFont}" Command="{Binding EditDiagramFontCommand}" Icon="{mi:MaterialIconExt Kind=FormatText}"
+                  ToolTip.Tip="{x:Static res:Strings.Menu_Format_DiagramFont_Tip}" />
+        <MenuItem Header="{x:Static res:Strings.Menu_Format_Shape}" Command="{Binding FormatShapeCommand}" Icon="{mi:MaterialIconExt Kind=FormatColorFill}"
+                  ToolTip.Tip="{x:Static res:Strings.Menu_Format_Shape_Tip}" />
+        <MenuItem Header="{x:Static res:Strings.Menu_Format_Line}" Command="{Binding FormatLineCommand}" Icon="{mi:MaterialIconExt Kind=FormatLineWeight}"
+                  ToolTip.Tip="{x:Static res:Strings.Menu_Format_Line_Tip}" />
+        <Separator />
+        <MenuItem Header="{x:Static res:Strings.Menu_Format_BringToFront}" InputGesture="{x:Static app:Shortcuts.BringToFront}" Command="{Binding BringToFrontCommand}"
+                  Icon="{mi:MaterialIconExt Kind=ArrangeBringToFront}" ToolTip.Tip="{x:Static res:Strings.Menu_Format_BringToFront_Tip}" />
+        <MenuItem Header="{x:Static res:Strings.Menu_Format_BringForward}" InputGesture="{x:Static app:Shortcuts.BringForward}" Command="{Binding BringForwardCommand}"
+                  Icon="{mi:MaterialIconExt Kind=ArrangeBringForward}" ToolTip.Tip="{x:Static res:Strings.Menu_Format_BringForward_Tip}" />
+        <MenuItem Header="{x:Static res:Strings.Menu_Format_SendBackward}" InputGesture="{x:Static app:Shortcuts.SendBackward}" Command="{Binding SendBackwardCommand}"
+                  Icon="{mi:MaterialIconExt Kind=ArrangeSendBackward}" ToolTip.Tip="{x:Static res:Strings.Menu_Format_SendBackward_Tip}" />
+        <MenuItem Header="{x:Static res:Strings.Menu_Format_SendToBack}" InputGesture="{x:Static app:Shortcuts.SendToBack}" Command="{Binding SendToBackCommand}"
+                  Icon="{mi:MaterialIconExt Kind=ArrangeSendToBack}" ToolTip.Tip="{x:Static res:Strings.Menu_Format_SendToBack_Tip}" />
+        <Separator />
+        <MenuItem Header="{x:Static res:Strings.Menu_Format_Arrange}" Command="{Binding ArrangeCommand}"
+                  Icon="{mi:MaterialIconExt Kind=SitemapOutline}" ToolTip.Tip="{x:Static res:Strings.Menu_Format_Arrange_Tip}" />
+      </MenuItem>
+      <MenuItem Header="{x:Static res:Strings.Menu_Diagram}" IsEnabled="{Binding HasProject}">
+        <MenuItem Header="{x:Static res:Strings.Menu_Diagram_NewDiagram}" ItemsSource="{Binding NewDiagramMenu}" Icon="{mi:MaterialIconExt Kind=Plus}">
+          <MenuItem.ItemContainerTheme>
+            <ControlTheme TargetType="MenuItem" BasedOn="{StaticResource {x:Type MenuItem}}" x:DataType="vm:NewDiagramEntry">
+              <Setter Property="Header" Value="{Binding Header}" />
+              <Setter Property="Command" Value="{Binding Command}" />
+              <Setter Property="CommandParameter" Value="{Binding Type}" />
+              <Setter Property="Icon">
+                <Template>
+                  <mi:MaterialIcon Kind="{Binding Icon}" />
+                </Template>
+              </Setter>
+            </ControlTheme>
+          </MenuItem.ItemContainerTheme>
+        </MenuItem>
+        <MenuItem Header="{x:Static res:Strings.Menu_Diagram_CreateWithAi}" Command="{Binding CreateDiagramWithAiCommand}" Icon="{mi:MaterialIconExt Kind=Creation}"
+                  ToolTip.Tip="{x:Static res:Strings.Menu_Diagram_CreateWithAi_Tip}" />
+        <Separator />
+        <MenuItem Header="{x:Static res:Strings.Menu_Diagram_Rename}" Command="{Binding RenameItemCommand}" IsEnabled="{Binding SelectedDiagramItem, Converter={x:Static ObjectConverters.IsNotNull}}" Icon="{mi:MaterialIconExt Kind=RenameOutline}" />
+        <MenuItem Header="{x:Static res:Strings.Menu_Diagram_MoveTo}" Command="{Binding MoveItemCommand}" IsEnabled="{Binding SelectedDiagramItem, Converter={x:Static ObjectConverters.IsNotNull}}" Icon="{mi:MaterialIconExt Kind=FolderMoveOutline}" />
+        <MenuItem Header="{x:Static res:Strings.Menu_Diagram_Delete}" Command="{Binding DeleteItemCommand}" IsEnabled="{Binding SelectedDiagramItem, Converter={x:Static ObjectConverters.IsNotNull}}" Icon="{mi:MaterialIconExt Kind=DeleteOutline}" />
+        <Separator />
+        <!-- Import creates diagrams from other formats; Export writes the selected diagram in one. -->
+        <MenuItem x:Name="ImportMenu" Header="{x:Static res:Strings.Menu_Diagram_Import}" Icon="{mi:MaterialIconExt Kind=FileImportOutline}">
+          <MenuItem Header="{x:Static res:Strings.Menu_Diagram_ImportOpenApi}" Command="{Binding ImportOpenApiCommand}"
+                    ToolTip.Tip="{x:Static res:Strings.Menu_Diagram_ImportOpenApi_Tip}" Icon="{mi:MaterialIconExt Kind=Api}" />
+          <MenuItem Header="{x:Static res:Strings.Menu_Diagram_ImportPlantUml}" Command="{Binding ImportPlantUmlCommand}"
+                    ToolTip.Tip="{x:Static res:Strings.Menu_Diagram_ImportPlantUml_Tip}" Icon="{mi:MaterialIconExt Kind=FileDocumentOutline}" />
+        </MenuItem>
+        <MenuItem x:Name="ExportMenu" Header="{x:Static res:Strings.Menu_Diagram_Export}" Icon="{mi:MaterialIconExt Kind=FileExportOutline}">
+          <MenuItem Header="{x:Static res:Strings.Menu_Diagram_ExportPng}" Command="{Binding ExportPngCommand}" IsEnabled="{Binding SelectedDiagramItem, Converter={x:Static ObjectConverters.IsNotNull}}"
+                    ToolTip.Tip="{x:Static res:Strings.Menu_Diagram_ExportPng_Tip}" Icon="{mi:MaterialIconExt Kind=FileImageOutline}" />
+          <MenuItem Header="{x:Static res:Strings.Menu_Diagram_ExportOpenApi}" Command="{Binding ExportOpenApiCommand}"
+                    ToolTip.Tip="{x:Static res:Strings.Menu_Diagram_ExportOpenApi_Tip}" Icon="{mi:MaterialIconExt Kind=Api}" />
+          <MenuItem Header="{x:Static res:Strings.Menu_Diagram_ExportPlantUml}" Command="{Binding ExportPlantUmlCommand}"
+                    ToolTip.Tip="{x:Static res:Strings.Menu_Diagram_ExportPlantUml_Tip}" Icon="{mi:MaterialIconExt Kind=FileDocumentOutline}" />
+        </MenuItem>
+        <MenuItem Header="{x:Static res:Strings.Menu_Diagram_GenerateCode}" Command="{Binding GenerateCodeCommand}"
+                  ToolTip.Tip="{x:Static res:Strings.Menu_Diagram_GenerateCode_Tip}" Icon="{mi:MaterialIconExt Kind=CodeBraces}" />
+        <Separator />
+        <MenuItem Header="{x:Static res:Strings.Menu_Diagram_CloseAll}" Command="{Binding CloseAllTabsCommand}" Icon="{mi:MaterialIconExt Kind=CloseBoxMultipleOutline}" />
+        <Separator />
+        <MenuItem Header="{x:Static res:Strings.Menu_Diagram_Properties}" Command="{Binding EditDiagramPropertiesCommand}" IsEnabled="{Binding SelectedDiagramItem, Converter={x:Static ObjectConverters.IsNotNull}}" Icon="{mi:MaterialIconExt Kind=CardTextOutline}" />
+      </MenuItem>
+      <MenuItem Header="{x:Static res:Strings.Menu_Help}">
+        <MenuItem Header="{x:Static res:Strings.Menu_Help_UserManual}" InputGesture="{x:Static app:Shortcuts.UserManual}" Command="{Binding UserManualCommand}"
+                  Icon="{mi:MaterialIconExt Kind=BookOpenPageVariantOutline}" ToolTip.Tip="{x:Static res:Strings.Menu_Help_UserManual_Tip}" />
+        <MenuItem Header="{x:Static res:Strings.Menu_Help_LearnUml}" Command="{Binding LearnUmlCommand}" Icon="{mi:MaterialIconExt Kind=SchoolOutline}" />
+        <Separator />
+        <MenuItem Header="{x:Static res:Strings.Menu_Help_OpenApiHowTo}" Command="{Binding OpenApiHowToCommand}" Icon="{mi:MaterialIconExt Kind=Api}" />
+        <MenuItem Header="{x:Static res:Strings.Menu_Help_PlantUmlHowTo}" Command="{Binding PlantUmlHowToCommand}" Icon="{mi:MaterialIconExt Kind=FileDocumentOutline}" />
+        <MenuItem Header="{x:Static res:Strings.Menu_Help_GeneratingCodeHowTo}" Command="{Binding GeneratingCodeHowToCommand}" Icon="{mi:MaterialIconExt Kind=CodeBraces}" />
+        <Separator />
+        <MenuItem Header="{x:Static res:Strings.Menu_Help_About}" Command="{Binding AboutCommand}" Icon="{mi:MaterialIconExt Kind=InformationOutline}" />
+      </MenuItem>
+    </Menu>
+
+    <!-- Main toolbar: project commands, then the commands of the active diagram (disabled while no tab is active);
+         below it the drawing tools (hidden while no tab is active) -->
+    <Border DockPanel.Dock="Top" Background="{DynamicResource ChromeBackgroundBrush}" BorderBrush="{DynamicResource DividerBrush}" BorderThickness="0,1,0,1" Padding="6,4">
+      <StackPanel Orientation="Horizontal" Spacing="2">
+        <Button x:Name="NewProjectButton" Classes="flat" Command="{Binding NewProjectCommand}"
+                ToolTip.Tip="{Binding Source={x:Static app:Shortcuts.NewProject}, Converter={x:Static app:Shortcuts.Tip}, ConverterParameter={x:Static res:Strings.Toolbar_NewProject}}">
+          <mi:MaterialIcon Kind="FilePlusOutline" />
+        </Button>
+        <Button x:Name="OpenProjectButton" Classes="flat" Command="{Binding OpenProjectCommand}"
+                ToolTip.Tip="{Binding Source={x:Static app:Shortcuts.OpenProject}, Converter={x:Static app:Shortcuts.Tip}, ConverterParameter={x:Static res:Strings.Toolbar_OpenProject}}">
+          <mi:MaterialIcon Kind="FolderOpenOutline" />
+        </Button>
+        <Rectangle Width="1" Height="18" Fill="{DynamicResource ToolbarSeparatorBrush}" Margin="6,0" VerticalAlignment="Center" />
+        <Button x:Name="SaveProjectButton" Classes="flat" Command="{Binding SaveProjectCommand}"
+                ToolTip.Tip="{Binding Source={x:Static app:Shortcuts.SaveProject}, Converter={x:Static app:Shortcuts.Tip}, ConverterParameter={x:Static res:Strings.Toolbar_SaveProject}}">
+          <mi:MaterialIcon Kind="ContentSaveOutline" />
+        </Button>
+        <!-- One button for every diagram type: pick the type from its drop-down -->
+        <DropDownButton x:Name="NewDiagramButton" Classes="flat" ToolTip.Tip="{x:Static res:Strings.Toolbar_NewDiagram}" IsEnabled="{Binding HasProject}">
+          <mi:MaterialIcon Kind="Plus" />
+          <DropDownButton.Flyout>
+            <MenuFlyout Placement="BottomEdgeAlignedLeft" ItemsSource="{Binding NewDiagramMenu}">
+              <MenuFlyout.ItemContainerTheme>
+                <ControlTheme TargetType="MenuItem" BasedOn="{StaticResource {x:Type MenuItem}}" x:DataType="vm:NewDiagramEntry">
+                  <Setter Property="Header" Value="{Binding Header}" />
+                  <Setter Property="Command" Value="{Binding Command}" />
+                  <Setter Property="CommandParameter" Value="{Binding Type}" />
+                  <Setter Property="Icon">
+                    <Template>
+                      <mi:MaterialIcon Kind="{Binding Icon}" />
+                    </Template>
+                  </Setter>
+                </ControlTheme>
+              </MenuFlyout.ItemContainerTheme>
+            </MenuFlyout>
+          </DropDownButton.Flyout>
+        </DropDownButton>
+        <Rectangle Width="1" Height="18" Fill="{DynamicResource ToolbarSeparatorBrush}" Margin="6,0" VerticalAlignment="Center" />
+        <Panel IsEnabled="{Binding HasActiveDiagram}">
+          <views:DiagramToolbar DataContext="{Binding ActiveDiagram}" />
+        </Panel>
+      </StackPanel>
+    </Border>
+
+    <Grid x:Name="Workspace" ColumnDefinitions="270,*,0">
+      <!-- Project Explorer: hidden and shown with View → Project Explorer (MainWindow.axaml.cs collapses its column) -->
+      <Border x:Name="ProjectExplorer" Grid.Column="0" IsVisible="{Binding IsProjectExplorerVisible}" Background="{DynamicResource PanelBackgroundBrush}" BorderBrush="{DynamicResource DividerBrush}" BorderThickness="0,0,1,0">
+        <DockPanel>
+          <DockPanel Margin="8,10,8,8">
+            <!-- Titled only while a project is open; without one, the panel only lists the recent projects -->
+            <TextBlock x:Name="ExplorerTitle" DockPanel.Dock="Top" Text="{x:Static res:Strings.Explorer_Title}" Classes="section" Margin="4,0,0,6"
+                       IsVisible="{Binding HasProject}" />
+            <Panel>
+              <!-- No project: only the recent projects, filling the panel (the start screen has the cards to create, open
+                   or import one); a click opens the project -->
+              <DockPanel IsVisible="{Binding !HasProject}">
+                <Border x:Name="RecentProjectsSection">
+                  <DockPanel>
+                    <TextBlock DockPanel.Dock="Top" Text="{x:Static res:Strings.Recent_Title}" Classes="section" Margin="4,0,0,6" />
+                    <TextBlock x:Name="NoRecentProjects" DockPanel.Dock="Top" IsVisible="{Binding !HasRecentProjects}" Classes="caption"
+                               TextWrapping="Wrap" Margin="4,2" Text="{x:Static res:Strings.Recent_None}" />
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+                      <ItemsControl ItemsSource="{Binding RecentProjectItems}">
+                        <ItemsControl.ItemTemplate>
+                          <DataTemplate x:DataType="vm:RecentProjectItem">
+                            <Button Classes="flat" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Padding="4,4"
+                                    Command="{Binding $parent[ItemsControl].((vm:MainWindowViewModel)DataContext).OpenRecentProjectCommand}"
+                                    CommandParameter="{Binding Path}" ToolTip.Tip="{Binding Path}">
+                              <!-- Right-click: copy the project next to it, or delete its file for good, after confirming -->
+                              <Button.ContextMenu>
+                                <ContextMenu>
+                                  <MenuItem x:Name="CopyRecentProjectMenuItem" Header="{x:Static res:Strings.Recent_CopyProject}"
+                                            Icon="{mi:MaterialIconExt Kind=ContentCopy}"
+                                            Command="{Binding Copy}" CommandParameter="{Binding Path}" />
+                                  <MenuItem x:Name="DeleteRecentProjectMenuItem" Header="{x:Static res:Strings.Recent_DeleteFile}"
+                                            Icon="{mi:MaterialIconExt Kind=DeleteForeverOutline}"
+                                            Command="{Binding Delete}" CommandParameter="{Binding Path}" />
+                                </ContextMenu>
+                              </Button.ContextMenu>
+                              <DockPanel>
+                                <mi:MaterialIcon Kind="BriefcaseOutline" Width="18" Height="18" Margin="0,0,8,0" VerticalAlignment="Center" Foreground="{DynamicResource IconForegroundBrush}" />
+                                <StackPanel>
+                                  <TextBlock Text="{Binding Name}" TextTrimming="CharacterEllipsis" />
+                                  <TextBlock Text="{Binding Folder}" Classes="caption" TextTrimming="CharacterEllipsis" />
+                                </StackPanel>
+                              </DockPanel>
+                            </Button>
+                          </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                      </ItemsControl>
+                    </ScrollViewer>
+                  </DockPanel>
+                </Border>
+              </DockPanel>
+
+              <DockPanel IsVisible="{Binding HasProject}">
+                <TextBlock DockPanel.Dock="Top" IsVisible="{Binding IsProjectEmpty}" Classes="caption" TextWrapping="Wrap"
+                           Margin="4,8" Text="{x:Static res:Strings.Explorer_Empty}" />
+  
+                <Panel>
+                  <TreeView x:Name="DiagramTree" ItemsSource="{Binding ExplorerNodes}" SelectedItem="{Binding SelectedNode}"
+                            Background="Transparent" DragDrop.AllowDrop="True">
+                    <TreeView.Styles>
+                      <Style Selector="TreeViewItem" x:DataType="vm:ProjectNodeViewModel">
+                        <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+                        <Setter Property="MinHeight" Value="0" />
+                      </Style>
+                      <!-- Folder a dragged diagram or folder will be dropped into -->
+                      <Style Selector="TreeViewItem.dropTarget /template/ Border#PART_LayoutRoot">
+                        <Setter Property="Background" Value="{DynamicResource DropTargetBackgroundBrush}" />
+                        <Setter Property="BorderBrush" Value="{DynamicResource DropIndicatorBrush}" />
+                        <Setter Property="BorderThickness" Value="1" />
+                      </Style>
+                    </TreeView.Styles>
+                    <TreeView.ContextMenu>
+                      <ContextMenu>
+                        <MenuItem Header="{x:Static res:Strings.Explorer_Open}" Icon="{mi:MaterialIconExt Kind=OpenInNew}" Command="{Binding OpenDiagramCommand}" CommandParameter="{x:Null}"
+                                  IsVisible="{Binding SelectedDiagramItem, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                        <MenuItem Header="{x:Static res:Strings.Explorer_NewFolder}" Icon="{mi:MaterialIconExt Kind=FolderPlusOutline}" Command="{Binding NewFolderCommand}" />
+                        <Separator />
+                        <MenuItem Header="{x:Static res:Strings.Explorer_Rename}" Icon="{mi:MaterialIconExt Kind=RenameOutline}" Command="{Binding RenameItemCommand}" />
+                        <MenuItem x:Name="CopyDiagramMenuItem" Header="{x:Static res:Strings.Explorer_CopyDiagram}" Icon="{mi:MaterialIconExt Kind=ContentCopy}"
+                                  Command="{Binding CopyDiagramCommand}" IsVisible="{Binding SelectedDiagramItem, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                        <MenuItem Header="{x:Static res:Strings.Explorer_MoveTo}" Icon="{mi:MaterialIconExt Kind=FolderMoveOutline}" Command="{Binding MoveItemCommand}"
+                                  IsVisible="{Binding !IsProjectRootSelected}" />
+                        <MenuItem Header="{x:Static res:Strings.Explorer_Delete}" Icon="{mi:MaterialIconExt Kind=DeleteOutline}" Command="{Binding DeleteItemCommand}"
+                                  IsVisible="{Binding !IsProjectRootSelected}" />
+                      </ContextMenu>
+                    </TreeView.ContextMenu>
+                    <TreeView.DataTemplates>
+                      <TreeDataTemplate DataType="vm:ProjectRootNodeViewModel" ItemsSource="{Binding Children}">
+                        <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,3">
+                          <mi:MaterialIcon Kind="{Binding Icon}" Width="18" Height="18" VerticalAlignment="Center" Foreground="{DynamicResource IconForegroundBrush}" />
+                          <TextBlock Text="{Binding Name}" FontWeight="Bold" VerticalAlignment="Center" />
+                        </StackPanel>
+                      </TreeDataTemplate>
+                      <TreeDataTemplate DataType="vm:FolderNodeViewModel" ItemsSource="{Binding Children}">
+                        <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,3">
+                          <mi:MaterialIcon Kind="{Binding Icon}" Width="18" Height="18" VerticalAlignment="Center" Foreground="{DynamicResource FolderIconBrush}" />
+                          <TextBlock Text="{Binding Name}" FontWeight="SemiBold" VerticalAlignment="Center" />
+                        </StackPanel>
+                      </TreeDataTemplate>
+                      <DataTemplate DataType="vm:DiagramItemViewModel">
+                        <StackPanel Orientation="Horizontal" Spacing="8" Margin="0,3" ToolTip.Tip="{Binding TypeName}">
+                          <mi:MaterialIcon Kind="{Binding Icon}" Width="18" Height="18" VerticalAlignment="Center" Foreground="{DynamicResource IconForegroundBrush}" />
+                          <TextBlock Text="{Binding Name}" VerticalAlignment="Center" />
+                        </StackPanel>
+                      </DataTemplate>
+                    </TreeView.DataTemplates>
+                  </TreeView>
+                  <!-- Where a dragged diagram will be inserted among the others -->
+                  <Canvas x:Name="DropLineLayer" IsHitTestVisible="False" ClipToBounds="True">
+                    <Border x:Name="DropLine" Height="2" CornerRadius="1" Background="{DynamicResource DropIndicatorBrush}" IsVisible="False" />
+                  </Canvas>
+                </Panel>
+              </DockPanel>
+            </Panel>
+          </DockPanel>
+        </DockPanel>
+      </Border>
+
+      <!-- Resizes the Project Explorer; overlays its right edge so it takes no space between the panel and the tabs -->
+      <GridSplitter Grid.Column="0" IsVisible="{Binding IsProjectExplorerVisible}" Width="5" HorizontalAlignment="Right" Background="Transparent" ResizeDirection="Columns" />
+
+      <!-- Open diagrams -->
+      <Panel Grid.Column="1">
+        <!-- Start screen, while no project is open: create, open or import one -->
+        <Grid x:Name="StartScreen" IsVisible="{Binding !HasProject}" RowDefinitions="2*,Auto,3*" Margin="24">
+          <WrapPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" ItemSpacing="24" LineSpacing="24">
+            <Button x:Name="NewProjectCard" Classes="startCard" Command="{Binding NewProjectCommand}">
+              <StackPanel Spacing="10">
+                <mi:MaterialIcon Kind="FilePlusOutline" HorizontalAlignment="Left" />
+                <TextBlock Text="{x:Static res:Strings.Start_NewProject}" FontWeight="SemiBold" TextWrapping="Wrap" />
+                <TextBlock Text="{x:Static res:Strings.Start_NewProject_Description}" Classes="caption" TextWrapping="Wrap" />
+              </StackPanel>
+            </Button>
+            <Button x:Name="OpenProjectCard" Classes="startCard" Command="{Binding OpenProjectCommand}">
+              <StackPanel Spacing="10">
+                <mi:MaterialIcon Kind="FolderOpenOutline" HorizontalAlignment="Left" />
+                <TextBlock Text="{x:Static res:Strings.Start_OpenProject}" FontWeight="SemiBold" TextWrapping="Wrap" />
+                <TextBlock Text="{x:Static res:Strings.Start_OpenProject_Description}" Classes="caption" TextWrapping="Wrap" />
+              </StackPanel>
+            </Button>
+            <Button x:Name="ImportFolderCard" Classes="startCard" Command="{Binding ImportFolderCommand}">
+              <StackPanel Spacing="10">
+                <mi:MaterialIcon Kind="FolderDownloadOutline" HorizontalAlignment="Left" />
+                <TextBlock Text="{x:Static res:Strings.Start_ImportFolder}" FontWeight="SemiBold" TextWrapping="Wrap" />
+                <TextBlock Text="{x:Static res:Strings.Start_ImportFolder_Description}" Classes="caption" TextWrapping="Wrap" />
+              </StackPanel>
+            </Button>
+          </WrapPanel>
+        </Grid>
+
+        <!-- A project without an active diagram: how to open one -->
+        <Panel IsVisible="{Binding HasProject}">
+          <TextBlock IsVisible="{Binding !HasActiveDiagram}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                     Foreground="{DynamicResource PlaceholderForegroundBrush}" TextAlignment="Center" TextWrapping="Wrap" Margin="24,0"
+                     Text="{Binding PlaceholderText}" />
+        </Panel>
+        <controls:DocumentTabControl x:Name="DocumentTabs" Classes="documents" ItemsSource="{Binding OpenDiagrams}" SelectedItem="{Binding ActiveDiagram}"
+                    IsVisible="{Binding HasOpenDiagrams}" Padding="0">
+          <controls:DocumentTabControl.ItemTemplate>
+            <DataTemplate x:DataType="vm:DiagramViewModel">
+              <StackPanel Orientation="Horizontal" Spacing="6">
+                <mi:MaterialIcon Kind="{Binding TypeIcon}" Width="16" Height="16" VerticalAlignment="Center" Foreground="{DynamicResource IconForegroundBrush}" />
+                <TextBlock Text="{Binding Title}" VerticalAlignment="Center" />
+                <Button Classes="flat" Command="{Binding CloseCommand}" ToolTip.Tip="{x:Static res:Strings.Tab_Close}" VerticalAlignment="Center" Padding="3">
+                  <mi:MaterialIcon Kind="Close" Width="14" Height="14" />
+                </Button>
+              </StackPanel>
+            </DataTemplate>
+          </controls:DocumentTabControl.ItemTemplate>
+          <controls:DocumentTabControl.ContentTemplate>
+            <!-- The drawing tools sit between the tab strip and the canvas of the active diagram -->
+            <DataTemplate x:DataType="vm:DiagramViewModel">
+              <DockPanel>
+                <Border DockPanel.Dock="Top" Background="{DynamicResource ChromeBackgroundBrush}" BorderBrush="{DynamicResource DividerBrush}" BorderThickness="0,0,0,1" Padding="6,3" MinHeight="36">
+                  <views:DrawingToolbar />
+                </Border>
+                <views:DiagramView />
+              </DockPanel>
+            </DataTemplate>
+          </controls:DocumentTabControl.ContentTemplate>
+        </controls:DocumentTabControl>
+      </Panel>
+
+      <!-- AI chat: shown and hidden with View → AI Chat (MainWindow.axaml.cs sizes its column); about the active diagram -->
+      <Border x:Name="AiChatHost" Grid.Column="2" IsVisible="{Binding IsAiChatVisible}" Background="{DynamicResource PanelBackgroundBrush}"
+              BorderBrush="{DynamicResource DividerBrush}" BorderThickness="1,0,0,0">
+        <Panel>
+          <views:AiChatPanel x:Name="AiChat" DataContext="{Binding ActiveDiagram.Chat}" IsVisible="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).HasActiveDiagram}" />
+          <TextBlock Text="{x:Static res:Strings.AiChat_NoDiagram}" Classes="caption" TextWrapping="Wrap" Margin="12"
+                     IsVisible="{Binding !HasActiveDiagram}" />
+        </Panel>
+      </Border>
+      <GridSplitter Grid.Column="2" IsVisible="{Binding IsAiChatVisible}" Width="5" HorizontalAlignment="Left" Background="Transparent" ResizeDirection="Columns" />
+    </Grid>
+  </DockPanel>
+
+  <!-- While a long task runs (Create with AI, Import Source Folder, Arrange): the window waits and shows how far the task
+       is (a moving bar when that cannot be told), and Cancel stops it -->
+  <Border x:Name="BusyOverlay" IsVisible="{Binding IsBusy}" Background="#66000000">
+    <Border Background="{DynamicResource WindowBackgroundBrush}" BorderBrush="{DynamicResource DividerBrush}" BorderThickness="1"
+            CornerRadius="8" Padding="24,20" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="360">
+      <StackPanel Spacing="14">
+        <TextBlock x:Name="BusyText" Text="{Binding BusyText}" TextWrapping="Wrap" MaxWidth="420" />
+        <ProgressBar x:Name="BusyProgressBar" Minimum="0" Maximum="1" Value="{Binding BusyProgress, TargetNullValue=0}"
+                     IsIndeterminate="{Binding BusyProgress, Converter={x:Static ObjectConverters.IsNull}}"
+                     ShowProgressText="{Binding BusyProgress, Converter={x:Static ObjectConverters.IsNotNull}}" />
+        <Button x:Name="CancelBusyButton" Content="{x:Static res:Strings.Button_Cancel}" Command="{Binding CancelBusyCommand}" HorizontalAlignment="Right" MinWidth="80"
+                HorizontalContentAlignment="Center" />
+      </StackPanel>
+    </Border>
+  </Border>
+  </Panel>
+</Window>

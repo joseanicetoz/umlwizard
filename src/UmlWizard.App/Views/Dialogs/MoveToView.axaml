@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dvm="using:UmlWizard.App.ViewModels.Dialogs"
+             xmlns:mi="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             x:Class="UmlWizard.App.Views.Dialogs.MoveToView"
+             x:DataType="dvm:MoveToViewModel"
+             Width="380">
+  <DockPanel>
+    <TextBlock DockPanel.Dock="Top" Text="{Binding Prompt}" Margin="0,0,0,8" TextTrimming="CharacterEllipsis" />
+    <Border BorderBrush="{DynamicResource DividerBrush}" BorderThickness="1">
+      <ListBox ItemsSource="{Binding Targets}" SelectedItem="{Binding Selected}" Height="260">
+        <ListBox.ItemTemplate>
+          <DataTemplate x:DataType="dvm:MoveTarget">
+            <StackPanel Orientation="Horizontal" Spacing="8" Margin="{Binding Indent}">
+              <mi:MaterialIcon Kind="{Binding Icon}" Width="18" Height="18" VerticalAlignment="Center" Foreground="{DynamicResource IconForegroundBrush}" />
+              <TextBlock Text="{Binding Label}" VerticalAlignment="Center" />
+            </StackPanel>
+          </DataTemplate>
+        </ListBox.ItemTemplate>
+      </ListBox>
+    </Border>
+  </DockPanel>
+</UserControl>

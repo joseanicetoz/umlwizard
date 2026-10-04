@@ -1,0 +1,226 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:res="using:UmlWizard.App.Resources"
+        xmlns:vm="using:UmlWizard.App.ViewModels"
+        xmlns:controls="using:UmlWizard.App.Controls"
+        xmlns:mi="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+        x:Class="UmlWizard.App.Views.PreferencesWindow"
+        x:DataType="vm:PreferencesViewModel"
+        Title="{Binding Title}"
+        Width="680" Height="600" MinWidth="560" MinHeight="420"
+        WindowStartupLocation="CenterOwner"
+        CanMinimize="False"
+        CanMaximize="False"
+        ShowInTaskbar="False">
+  <Window.Styles>
+    <!-- A setting: its label on the left, in the caption style of the field labels of every dialog, and its control on the right -->
+    <Style Selector="TextBlock.label">
+      <Setter Property="VerticalAlignment" Value="Center" />
+      <Setter Property="Margin" Value="0,0,12,0" />
+    </Style>
+    <!-- A failed connection test -->
+    <Style Selector="TextBlock.error">
+      <Setter Property="Foreground" Value="{DynamicResource ErrorForegroundBrush}" />
+    </Style>
+  </Window.Styles>
+
+  <Window.DataTemplates>
+    <!-- A colour: the colour box (its swatch opens the colour picker; empty for the default) and a button back to the default -->
+    <DataTemplate DataType="vm:ColorSetting">
+      <StackPanel Orientation="Horizontal" Spacing="8">
+        <controls:ColorBox Text="{Binding Text}" DefaultColor="{Binding DefaultHex}" EditCommand="{Binding EditCommand}" />
+        <Button Classes="flat" Command="{Binding UseDefaultCommand}" IsVisible="{Binding !IsDefault}" VerticalAlignment="Center"
+                ToolTip.Tip="{x:Static res:Strings.Preferences_UseDefault_Tip}">
+          <mi:MaterialIcon Kind="Restore" />
+        </Button>
+      </StackPanel>
+    </DataTemplate>
+  </Window.DataTemplates>
+
+  <DockPanel Margin="20,12,20,16">
+    <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
+      <Button x:Name="CloseButton" Content="{x:Static res:Strings.Button_Close}" Classes="accent" IsDefault="True" IsCancel="True"
+              MinWidth="80" HorizontalContentAlignment="Center" Click="OnClose" />
+    </StackPanel>
+
+    <TabControl x:Name="PreferencesTabs" Classes="dialog" Padding="0,16,0,0">
+      <!-- General -->
+      <TabItem x:Name="GeneralTab" Header="{x:Static res:Strings.Preferences_General}">
+        <Grid ColumnDefinitions="120,*" RowDefinitions="Auto,12,Auto" VerticalAlignment="Top">
+          <TextBlock Classes="caption label" Text="{x:Static res:Strings.Preferences_ProjectsFolder}" />
+          <TextBox x:Name="ProjectsFolderBox" Grid.Column="1" Text="{Binding ProjectsFolder}" Watermark="{Binding ProjectsFolderWatermark}"
+                   ToolTip.Tip="{x:Static res:Strings.Preferences_ProjectsFolder_Tip}">
+            <TextBox.InnerRightContent>
+              <Button Classes="flat" Command="{Binding BrowseProjectsFolderCommand}" ToolTip.Tip="{x:Static res:Strings.Button_Browse}" Margin="0,0,4,0">
+                <mi:MaterialIcon Kind="FolderOpenOutline" />
+              </Button>
+            </TextBox.InnerRightContent>
+          </TextBox>
+
+          <TextBlock Grid.Row="2" Classes="caption label" Text="{x:Static res:Strings.Preferences_DisplayLanguage}" />
+          <ComboBox x:Name="DisplayLanguageBox" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" IsTextSearchEnabled="True"
+                    ItemsSource="{Binding DisplayLanguages}" SelectedItem="{Binding SelectedDisplayLanguage}"
+                    ToolTip.Tip="{x:Static res:Strings.Preferences_DisplayLanguage_Tip}" />
+        </Grid>
+      </TabItem>
+
+      <!-- Appearance: of the application itself -->
+      <TabItem x:Name="AppearanceTab" Header="{x:Static res:Strings.Preferences_Appearance}">
+        <Grid ColumnDefinitions="120,*" RowDefinitions="Auto,12,Auto,12,Auto,8,Auto,16,Auto" VerticalAlignment="Top">
+          <TextBlock Classes="caption label" Text="{x:Static res:Strings.Preferences_Theme}" />
+          <ComboBox x:Name="ThemeBox" Grid.Column="1" HorizontalAlignment="Stretch" ItemsSource="{Binding Themes}" SelectedItem="{Binding SelectedTheme}" />
+
+          <TextBlock Grid.Row="2" Classes="caption label" Text="{x:Static res:Strings.Preferences_Font}" />
+          <ComboBox x:Name="FontBox" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" IsTextSearchEnabled="True" MaxDropDownHeight="320"
+                    ItemsSource="{Binding Fonts}" SelectedItem="{Binding SelectedFont}" ToolTip.Tip="{x:Static res:Strings.Preferences_Font_Tip}" />
+
+          <TextBlock Grid.Row="4" Classes="caption label" Text="{x:Static res:Strings.Preferences_FontSize}" />
+          <NumericUpDown x:Name="FontSizeBox" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Width="190"
+                         Value="{Binding FontSize}" Minimum="{Binding MinimumFontSize}" Maximum="{Binding MaximumFontSize}"
+                         Increment="1" FormatString="0" Watermark="{Binding FontSizeWatermark}" />
+
+          <TextBlock Grid.Row="6" Grid.Column="1" Classes="caption" TextWrapping="Wrap" Text="{x:Static res:Strings.Preferences_Font_Note}" />
+
+          <!-- A small sample window in the chosen font and size. Controls take their size from the theme, so each is given it. -->
+          <TextBlock Grid.Row="8" Classes="caption label" VerticalAlignment="Top" Margin="0,8,12,0" Text="{x:Static res:Strings.Preferences_Preview}" />
+          <Border x:Name="FontPreview" Grid.Row="8" Grid.Column="1" BorderBrush="{DynamicResource DividerBrush}" BorderThickness="1" CornerRadius="6"
+                  Background="{DynamicResource WindowBackgroundBrush}" ClipToBounds="True">
+            <DockPanel>
+              <Border DockPanel.Dock="Top" Background="{DynamicResource ChromeBackgroundBrush}" BorderBrush="{DynamicResource DividerBrush}"
+                      BorderThickness="0,0,0,1" Padding="10,4">
+                <TextBlock Text="{x:Static res:Strings.App_Name}" FontFamily="{Binding PreviewFontFamily}" FontSize="{Binding PreviewFontSize}" />
+              </Border>
+              <StackPanel Margin="12,10" Spacing="8">
+                <TextBlock x:Name="PreviewText" Text="{x:Static res:Strings.Preferences_Preview_Sample}" TextWrapping="Wrap"
+                           FontFamily="{Binding PreviewFontFamily}" FontSize="{Binding PreviewFontSize}" />
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                  <TextBox Text="{x:Static res:Strings.Preferences_Preview_TextBox}" IsReadOnly="True" Width="150" Focusable="False"
+                           FontFamily="{Binding PreviewFontFamily}" FontSize="{Binding PreviewFontSize}" />
+                  <CheckBox Content="{x:Static res:Strings.Preferences_Preview_CheckBox}" IsChecked="True" IsHitTestVisible="False"
+                            FontFamily="{Binding PreviewFontFamily}" FontSize="{Binding PreviewFontSize}" />
+                  <Button Content="{x:Static res:Strings.Preferences_Preview_Button}" IsHitTestVisible="False" Focusable="False"
+                          FontFamily="{Binding PreviewFontFamily}" FontSize="{Binding PreviewFontSize}" />
+                </StackPanel>
+              </StackPanel>
+            </DockPanel>
+          </Border>
+        </Grid>
+      </TabItem>
+
+      <!-- Diagram: the default look of the shapes, per diagram type -->
+      <TabItem x:Name="DiagramTab" Header="{x:Static res:Strings.Preferences_Diagram}">
+        <DockPanel>
+          <TextBlock DockPanel.Dock="Top" Classes="caption" TextWrapping="Wrap" Margin="0,0,0,10" Text="{x:Static res:Strings.Preferences_Diagram_Intro}" />
+          <Border DockPanel.Dock="Left" Width="190" BorderBrush="{DynamicResource DividerBrush}" BorderThickness="0,0,1,0" Margin="0,0,16,0">
+            <ListBox x:Name="DiagramTypeList" ItemsSource="{Binding DiagramPages}" SelectedItem="{Binding SelectedDiagramPage}" Background="Transparent">
+              <ListBox.ItemTemplate>
+                <DataTemplate x:DataType="vm:DiagramStylePage">
+                  <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+              </ListBox.ItemTemplate>
+            </ListBox>
+          </Border>
+          <ScrollViewer HorizontalScrollBarVisibility="Disabled" DataContext="{Binding SelectedDiagramPage}" >
+            <!-- The labels share one column, as wide as the longest (e.g. Execution environment) -->
+            <StackPanel x:Name="DiagramPage" x:DataType="vm:DiagramStylePage" Spacing="8" Margin="0,0,12,0"
+                        Grid.IsSharedSizeScope="True">
+              <TextBlock Text="{x:Static res:Strings.Preferences_Fill}" Classes="section" />
+              <ItemsControl x:Name="FillList" ItemsSource="{Binding Fills}">
+                <ItemsControl.ItemTemplate>
+                  <DataTemplate x:DataType="vm:ColorSetting">
+                    <Grid Margin="0,0,0,8">
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" MinWidth="120" SharedSizeGroup="Label" />
+                        <ColumnDefinition Width="*" />
+                      </Grid.ColumnDefinitions>
+                      <TextBlock Classes="caption label" Text="{Binding Label}" />
+                      <ContentControl Grid.Column="1" Content="{Binding}" />
+                    </Grid>
+                  </DataTemplate>
+                </ItemsControl.ItemTemplate>
+              </ItemsControl>
+
+              <TextBlock Text="{x:Static res:Strings.Preferences_Border}" Classes="section" Margin="0,8,0,0" />
+              <Grid RowDefinitions="Auto,8,Auto">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="Auto" MinWidth="120" SharedSizeGroup="Label" />
+                  <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Classes="caption label" Text="{x:Static res:Strings.Preferences_Border}" />
+                <ContentControl x:Name="BorderSetting" Grid.Column="1" Content="{Binding Border}" />
+                <TextBlock Grid.Row="2" Classes="caption label" Text="{x:Static res:Strings.Preferences_Thickness}" />
+                <NumericUpDown x:Name="BorderWidthBox" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Width="190"
+                               Value="{Binding BorderWidth}" Minimum="{Binding MinimumBorderWidth}" Maximum="{Binding MaximumBorderWidth}"
+                               Increment="0.5" FormatString="0.0#" Watermark="{Binding BorderWidthWatermark}" />
+              </Grid>
+
+              <Button x:Name="ResetDiagramButton" Content="{x:Static res:Strings.Preferences_ResetDiagram}" Command="{Binding ResetCommand}"
+                      ToolTip.Tip="{x:Static res:Strings.Preferences_ResetDiagram_Tip}" HorizontalAlignment="Left" Margin="0,12,0,0" />
+            </StackPanel>
+          </ScrollViewer>
+        </DockPanel>
+      </TabItem>
+
+      <!-- AI: the service the AI commands use; nothing is sent anywhere while it is None -->
+      <TabItem x:Name="AiTab" Header="{x:Static res:Strings.Preferences_Ai}">
+        <StackPanel Spacing="16">
+          <!-- The warning, which must be accepted before the service can be set up -->
+          <Border x:Name="AiWarning" Background="{DynamicResource WarningBackgroundBrush}" BorderBrush="{DynamicResource WarningBorderBrush}"
+                  BorderThickness="1" CornerRadius="{DynamicResource ControlCornerRadius}" Padding="12,10">
+            <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,8,Auto">
+              <mi:MaterialIcon Kind="AlertOutline" Width="22" Height="22" VerticalAlignment="Top" Margin="0,0,10,0"
+                               Foreground="{DynamicResource WarningForegroundBrush}" />
+              <TextBlock Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Center" Text="{x:Static res:Strings.Preferences_Ai_Privacy}" />
+              <CheckBox x:Name="AiAcceptBox" Grid.Row="2" Grid.Column="1" Content="{x:Static res:Strings.Preferences_Ai_Accept}"
+                        IsChecked="{Binding AiWarningAccepted}" />
+            </Grid>
+          </Border>
+
+          <Grid ColumnDefinitions="120,*" RowDefinitions="Auto,12,Auto,12,Auto,12,Auto,12,Auto,6,Auto,16,Auto,Auto" VerticalAlignment="Top"
+                IsEnabled="{Binding AiWarningAccepted}">
+            <TextBlock Classes="caption label" Text="{x:Static res:Strings.Preferences_Ai_Service}" />
+            <ComboBox x:Name="AiProviderBox" Grid.Column="1" HorizontalAlignment="Stretch"
+                      ItemsSource="{Binding AiProviderOptions}" SelectedItem="{Binding SelectedAiProvider}" />
+
+            <TextBlock Grid.Row="2" Classes="caption label" Text="{x:Static res:Strings.Preferences_Ai_Endpoint}" IsVisible="{Binding IsAiEnabled}" />
+            <TextBox x:Name="AiEndpointBox" Grid.Row="2" Grid.Column="1" Text="{Binding AiEndpoint}" Watermark="{Binding AiEndpointWatermark}"
+                     IsVisible="{Binding IsAiEnabled}" ToolTip.Tip="{x:Static res:Strings.Preferences_Ai_Endpoint_Tip}" />
+
+            <TextBlock Grid.Row="4" Classes="caption label" Text="{x:Static res:Strings.Preferences_Ai_Model}" IsVisible="{Binding IsAiEnabled}" />
+            <TextBox x:Name="AiModelBox" Grid.Row="4" Grid.Column="1" Text="{Binding AiModel}" Watermark="{Binding AiModelWatermark}"
+                     IsVisible="{Binding IsAiEnabled}" ToolTip.Tip="{x:Static res:Strings.Preferences_Ai_Model_Tip}" />
+
+            <TextBlock Grid.Row="6" Classes="caption label" Text="{x:Static res:Strings.Preferences_Ai_Changes}" IsVisible="{Binding IsAiEnabled}" />
+            <ComboBox x:Name="AiChangeModeBox" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Stretch" IsVisible="{Binding IsAiEnabled}"
+                      ItemsSource="{Binding AiChangeModeOptions}" SelectedItem="{Binding SelectedAiChangeMode}"
+                      ToolTip.Tip="{x:Static res:Strings.Preferences_Ai_Changes_Tip}" />
+
+            <TextBlock Grid.Row="8" Classes="caption label" Text="{x:Static res:Strings.Preferences_Ai_ApiKey}" IsVisible="{Binding IsAiEnabled}" />
+            <TextBox x:Name="ApiKeyBox" Grid.Row="8" Grid.Column="1" Text="{Binding ApiKey}" PasswordChar="•"
+                     RevealPassword="{Binding IsApiKeyRevealed}" IsVisible="{Binding IsAiEnabled}">
+              <TextBox.InnerRightContent>
+                <!-- Shows the key as typed, to check it; hidden again when the service changes or the window reopens -->
+                <Button x:Name="RevealApiKeyButton" Classes="flat" Command="{Binding ToggleApiKeyRevealedCommand}"
+                        ToolTip.Tip="{Binding RevealApiKeyTip}" Margin="0,0,4,0">
+                  <Panel>
+                    <mi:MaterialIcon Kind="EyeOutline" IsVisible="{Binding !IsApiKeyRevealed}" />
+                    <mi:MaterialIcon Kind="EyeOffOutline" IsVisible="{Binding IsApiKeyRevealed}" />
+                  </Panel>
+                </Button>
+              </TextBox.InnerRightContent>
+            </TextBox>
+            <TextBlock Grid.Row="10" Grid.Column="1" Classes="caption" TextWrapping="Wrap" Text="{Binding ApiKeyNote}" IsVisible="{Binding IsAiEnabled}" />
+
+            <StackPanel Grid.Row="12" Grid.Column="1" Orientation="Horizontal" Spacing="12" IsVisible="{Binding IsAiEnabled}">
+              <Button x:Name="TestConnectionButton" Content="{x:Static res:Strings.Preferences_Ai_Test}" Command="{Binding TestConnectionCommand}" />
+              <ProgressBar IsIndeterminate="True" Width="80" VerticalAlignment="Center" IsVisible="{Binding IsTesting}" />
+            </StackPanel>
+            <TextBlock x:Name="TestResultText" Grid.Row="13" Grid.Column="1" TextWrapping="Wrap" Margin="0,6,0,0"
+                       Text="{Binding TestResult}" IsVisible="{Binding TestResult, Converter={x:Static ObjectConverters.IsNotNull}}"
+                       Classes.error="{Binding TestFailed}" />
+          </Grid>
+        </StackPanel>
+      </TabItem>
+    </TabControl>
+  </DockPanel>
+</Window>

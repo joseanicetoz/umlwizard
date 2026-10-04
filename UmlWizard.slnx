@@ -1,0 +1,59 @@
+<Solution>
+  <Folder Name="/build/">
+    <File Path="build/Plugins.targets" />
+  </Folder>
+  <Folder Name="/docs/" />
+  <Folder Name="/docs/help/">
+    <File Path="docs/help/generating-code-how-to.html" />
+    <File Path="docs/help/learn-uml.html" />
+    <File Path="docs/help/openapi-how-to.html" />
+    <File Path="docs/help/plantuml-how-to.html" />
+    <File Path="docs/help/user-manual.html" />
+  </Folder>
+  <Folder Name="/docs/plugins/">
+    <File Path="docs/plugins/writing-a-codegeneration-plugin.md" />
+    <File Path="docs/plugins/writing-a-codeimport-plugin.md" />
+    <Project Path="docs/plugins/php-generation-sample/Acme.UmlWizard.PhpGeneration.csproj">
+      <BuildDependency Project="src/UmlWizard.App/UmlWizard.App.csproj" />
+    </Project>
+    <Project Path="docs/plugins/php-import-sample/Acme.UmlWizard.PhpImport.csproj">
+      <BuildDependency Project="src/UmlWizard.App/UmlWizard.App.csproj" />
+    </Project>
+  </Folder>
+  <Folder Name="/src/">
+    <File Path="LICENSE" />
+    <File Path="NOTICE" />
+    <File Path="README.md" />
+    <Project Path="src/UmlWizard.App/UmlWizard.App.csproj" />
+    <Project Path="src/UmlWizard.CodeGeneration/UmlWizard.CodeGeneration.csproj" />
+    <Project Path="src/UmlWizard.CodeImport/UmlWizard.CodeImport.csproj" />
+    <Project Path="src/UmlWizard.Core/UmlWizard.Core.csproj" />
+    <Project Path="src/UmlWizard.OpenApi/UmlWizard.OpenApi.csproj" />
+    <Project Path="src/UmlWizard.PlantUml/UmlWizard.PlantUml.csproj" />
+    <Project Path="src/UmlWizard.Ai/UmlWizard.Ai.csproj" />
+  </Folder>
+  <Folder Name="/src/Plugins/">
+    <File Path="src/Plugins/Directory.Build.props" />
+    <Project Path="src/Plugins/UmlWizard.CodeGeneration.Cpp/UmlWizard.CodeGeneration.Cpp.csproj" />
+    <Project Path="src/Plugins/UmlWizard.CodeGeneration.CSharp/UmlWizard.CodeGeneration.CSharp.csproj" />
+    <Project Path="src/Plugins/UmlWizard.CodeGeneration.Java/UmlWizard.CodeGeneration.Java.csproj" />
+    <Project Path="src/Plugins/UmlWizard.CodeGeneration.Kotlin/UmlWizard.CodeGeneration.Kotlin.csproj" />
+    <Project Path="src/Plugins/UmlWizard.CodeGeneration.Ruby/UmlWizard.CodeGeneration.Ruby.csproj" />
+    <Project Path="src/Plugins/UmlWizard.CodeGeneration.TypeScript/UmlWizard.CodeGeneration.TypeScript.csproj" />
+    <Project Path="src/Plugins/UmlWizard.CodeImport.Cpp/UmlWizard.CodeImport.Cpp.csproj" />
+    <Project Path="src/Plugins/UmlWizard.CodeImport.CSharp/UmlWizard.CodeImport.CSharp.csproj" />
+    <Project Path="src/Plugins/UmlWizard.CodeImport.Java/UmlWizard.CodeImport.Java.csproj" />
+    <Project Path="src/Plugins/UmlWizard.CodeImport.Kotlin/UmlWizard.CodeImport.Kotlin.csproj" />
+    <Project Path="src/Plugins/UmlWizard.CodeImport.Ruby/UmlWizard.CodeImport.Ruby.csproj" />
+    <Project Path="src/Plugins/UmlWizard.CodeImport.TypeScript/UmlWizard.CodeImport.TypeScript.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/UmlWizard.App.Tests/UmlWizard.App.Tests.csproj" />
+    <Project Path="tests/UmlWizard.CodeGeneration.Tests/UmlWizard.CodeGeneration.Tests.csproj" />
+    <Project Path="tests/UmlWizard.CodeImport.Tests/UmlWizard.CodeImport.Tests.csproj" />
+    <Project Path="tests/UmlWizard.Core.Tests/UmlWizard.Core.Tests.csproj" />
+    <Project Path="tests/UmlWizard.OpenApi.Tests/UmlWizard.OpenApi.Tests.csproj" />
+    <Project Path="tests/UmlWizard.PlantUml.Tests/UmlWizard.PlantUml.Tests.csproj" />
+    <Project Path="tests/UmlWizard.Ai.Tests/UmlWizard.Ai.Tests.csproj" />
+  </Folder>
+</Solution>

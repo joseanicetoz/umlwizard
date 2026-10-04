@@ -1,0 +1,112 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="using:UmlWizard.App.Resources"
+             xmlns:dvm="using:UmlWizard.App.ViewModels.Dialogs"
+             xmlns:controls="using:UmlWizard.App.Controls"
+             x:Class="UmlWizard.App.Views.Dialogs.ColorPickerView"
+             x:DataType="dvm:ColorPickerViewModel">
+  <UserControl.Styles>
+    <!-- The round colours of the basic and custom colours -->
+    <Style Selector="Button.colorDot">
+      <Setter Property="Width" Value="24" />
+      <Setter Property="Height" Value="24" />
+      <Setter Property="Padding" Value="0" />
+      <Setter Property="Margin" Value="0,0,6,6" />
+      <Setter Property="MinHeight" Value="0" />
+      <Setter Property="CornerRadius" Value="12" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="BorderBrush" Value="{DynamicResource DividerBrush}" />
+    </Style>
+    <Style Selector="Button.colorDot:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="Background" Value="{Binding $parent[Button].Background}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource DropIndicatorBrush}" />
+      <Setter Property="BorderThickness" Value="2" />
+    </Style>
+    <Style Selector="Button.colorDot:pressed /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="Background" Value="{Binding $parent[Button].Background}" />
+    </Style>
+    <!-- A number's label, before its box -->
+    <Style Selector="TextBlock.fieldLabel">
+      <Setter Property="VerticalAlignment" Value="Center" />
+      <Setter Property="HorizontalAlignment" Value="Right" />
+      <Setter Property="Margin" Value="0,0,8,0" />
+    </Style>
+    <Style Selector="NumericUpDown.colorNumber">
+      <Setter Property="Width" Value="76" />
+      <Setter Property="FormatString" Value="0" />
+      <Setter Property="ShowButtonSpinner" Value="False" />
+    </Style>
+  </UserControl.Styles>
+
+  <Grid ColumnDefinitions="Auto,28,Auto">
+    <!-- Left: the basic colours, then the user's colours and the button that adds the colour to them -->
+    <DockPanel Width="240">
+      <StackPanel DockPanel.Dock="Top" Spacing="8">
+        <TextBlock Text="{x:Static res:Strings.ColorPicker_BasicColors}" Classes="section" />
+        <ItemsControl x:Name="BasicColors" ItemsSource="{x:Static dvm:ColorPickerViewModel.BasicColors}">
+          <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
+          </ItemsControl.ItemsPanel>
+          <ItemsControl.ItemTemplate>
+            <DataTemplate x:DataType="dvm:ColorSwatch">
+              <Button Classes="colorDot" Background="{Binding Brush}" ToolTip.Tip="{Binding Hex}"
+                      Command="{Binding $parent[ItemsControl].((dvm:ColorPickerViewModel)DataContext).PickCommand}" CommandParameter="{Binding}" />
+            </DataTemplate>
+          </ItemsControl.ItemTemplate>
+        </ItemsControl>
+      </StackPanel>
+
+      <StackPanel DockPanel.Dock="Bottom" Spacing="8">
+        <TextBlock Text="{x:Static res:Strings.ColorPicker_CustomColors}" Classes="section" />
+        <ItemsControl x:Name="CustomColors" ItemsSource="{Binding CustomColors}">
+          <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
+          </ItemsControl.ItemsPanel>
+          <ItemsControl.ItemTemplate>
+            <DataTemplate x:DataType="dvm:CustomColorSlot">
+              <Panel Width="24" Height="24" Margin="0,0,6,6">
+                <Button Classes="colorDot" Margin="0" Background="{Binding Brush}" ToolTip.Tip="{Binding Hex}" IsVisible="{Binding !IsEmpty}"
+                        Command="{Binding $parent[ItemsControl].((dvm:ColorPickerViewModel)DataContext).PickCustomCommand}" CommandParameter="{Binding}" />
+                <Ellipse Stroke="{DynamicResource CaptionForegroundBrush}" StrokeThickness="1" StrokeDashArray="2,2" IsVisible="{Binding IsEmpty}" />
+              </Panel>
+            </DataTemplate>
+          </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <Button x:Name="AddCustomColorButton" Content="{x:Static res:Strings.ColorPicker_AddCustom}" Command="{Binding AddCustomColorCommand}"
+                HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Margin="0,0,6,0" CornerRadius="6"
+                ToolTip.Tip="{x:Static res:Strings.ColorPicker_AddCustom_Tip}" />
+      </StackPanel>
+    </DockPanel>
+
+    <!-- Right: hue and saturation with the brightness beside them; below, the colour itself and in numbers -->
+    <StackPanel Grid.Column="2" Spacing="16">
+      <Grid ColumnDefinitions="*,10,Auto">
+        <controls:ColorSpectrum x:Name="Spectrum" Width="300" Height="220" Hue="{Binding Hue}" Saturation="{Binding Saturation}" />
+        <controls:ColorValueSlider x:Name="ValueSlider" Grid.Column="2" Hue="{Binding Hue}" Saturation="{Binding Saturation}" Value="{Binding Value}" />
+      </Grid>
+
+      <Grid ColumnDefinitions="72,16,Auto,Auto,16,Auto,Auto" RowDefinitions="Auto,8,Auto,8,Auto,12,Auto">
+        <Border x:Name="Preview" Grid.RowSpan="5" Background="{Binding PreviewBrush}" CornerRadius="8"
+                BorderBrush="{DynamicResource DividerBrush}" BorderThickness="1" />
+
+        <TextBlock Grid.Column="2" Classes="caption fieldLabel" Text="{x:Static res:Strings.ColorPicker_Hue}" />
+        <NumericUpDown x:Name="HueBox" Grid.Column="3" Classes="colorNumber" Value="{Binding HueField}" Minimum="0" Maximum="360" />
+        <TextBlock Grid.Row="2" Grid.Column="2" Classes="caption fieldLabel" Text="{x:Static res:Strings.ColorPicker_Saturation}" />
+        <NumericUpDown x:Name="SaturationBox" Grid.Row="2" Grid.Column="3" Classes="colorNumber" Value="{Binding SaturationField}" Minimum="0" Maximum="100" />
+        <TextBlock Grid.Row="4" Grid.Column="2" Classes="caption fieldLabel" Text="{x:Static res:Strings.ColorPicker_Value}" />
+        <NumericUpDown x:Name="ValueBox" Grid.Row="4" Grid.Column="3" Classes="colorNumber" Value="{Binding ValueField}" Minimum="0" Maximum="100" />
+
+        <TextBlock Grid.Column="5" Classes="caption fieldLabel" Text="{x:Static res:Strings.ColorPicker_Red}" />
+        <NumericUpDown x:Name="RedBox" Grid.Column="6" Classes="colorNumber" Value="{Binding Red}" Minimum="0" Maximum="255" />
+        <TextBlock Grid.Row="2" Grid.Column="5" Classes="caption fieldLabel" Text="{x:Static res:Strings.ColorPicker_Green}" />
+        <NumericUpDown x:Name="GreenBox" Grid.Row="2" Grid.Column="6" Classes="colorNumber" Value="{Binding Green}" Minimum="0" Maximum="255" />
+        <TextBlock Grid.Row="4" Grid.Column="5" Classes="caption fieldLabel" Text="{x:Static res:Strings.ColorPicker_Blue}" />
+        <NumericUpDown x:Name="BlueBox" Grid.Row="4" Grid.Column="6" Classes="colorNumber" Value="{Binding Blue}" Minimum="0" Maximum="255" />
+
+        <TextBlock Grid.Row="6" Grid.Column="2" Classes="caption fieldLabel" Text="{x:Static res:Strings.ColorPicker_Hex}" />
+        <TextBox x:Name="HexBox" Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="4" Text="{Binding HexText}" MaxLength="9"
+                 ToolTip.Tip="{x:Static res:Strings.ColorPicker_Hex_Tip}" />
+      </Grid>
+    </StackPanel>
+  </Grid>
+</UserControl>

@@ -1,0 +1,17 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="using:UmlWizard.App.Resources"
+             xmlns:dvm="using:UmlWizard.App.ViewModels.Dialogs"
+             x:Class="UmlWizard.App.Views.Dialogs.LifelineEditorView"
+             x:DataType="dvm:LifelineEditorViewModel"
+             Width="400">
+  <Grid ColumnDefinitions="90,*" RowDefinitions="Auto,10,Auto,10,Auto">
+    <TextBlock Classes="caption" Text="{x:Static res:Strings.Label_Name}" VerticalAlignment="Center" />
+    <TextBox Grid.Column="1" Text="{Binding Name}" />
+    <TextBlock Classes="caption" Grid.Row="2" Text="{x:Static res:Strings.Label_Type}" VerticalAlignment="Center" />
+    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Type}" Watermark="{x:Static res:Strings.Dialog_EditLifeline_Type_Hint}" />
+    <TextBlock Classes="caption" Grid.Row="4" Text="{x:Static res:Strings.Label_Kind}" VerticalAlignment="Center" />
+    <ComboBox Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch"
+              ItemsSource="{x:Static dvm:EnumValues.LifelineKinds}" SelectedItem="{Binding Kind}" />
+  </Grid>
+</UserControl>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Import and Export PlantUML — UML Wizard</title>
+<style>
+  :root { --bg: #ffffff; --fg: #1f2933; --muted: #5f6b7a; --rule: #d9dce1; --code: #f3f4f6; --accent: #3d7bd9; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #1b1d21; --fg: #e4e7eb; --muted: #9aa5b4; --rule: #3a3f47; --code: #2b2e33; --accent: #5b9bf0; }
+  }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.6 "Segoe UI", system-ui, sans-serif; }
+  main { max-width: 820px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  h2 { font-size: 19px; margin: 32px 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--rule); }
+  .lead { color: var(--muted); margin-top: 0; }
+  code { background: var(--code); padding: 1px 5px; border-radius: 4px; font-size: 13px; }
+  .ui { font-weight: 600; }
+  ol li, ul li { margin: 4px 0; }
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { text-align: left; vertical-align: top; padding: 6px 10px; border-bottom: 1px solid var(--rule); }
+  th { color: var(--muted); font-weight: 600; }
+  .tip { border-left: 3px solid var(--accent); padding: 4px 12px; margin: 16px 0; color: var(--muted); }
+  h3 { font-size: 16px; margin: 20px 0 6px; }
+  pre { background: var(--code); padding: 10px 12px; border-radius: 6px; overflow-x: auto; font-size: 13px; line-height: 1.45; }
+  pre code { background: none; padding: 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>How to Import and Export PlantUML</h1>
+<p class="lead">Exchange any diagram with <a href="https://plantuml.com">PlantUML</a> text: turn a PlantUML file into diagrams, and a diagram into PlantUML.</p>
+
+<h2>Import a PlantUML file</h2>
+<ol>
+  <li>In the <span class="ui">Project Explorer</span>, select the folder the new diagrams should go into (or a diagram in that folder).</li>
+  <li>Choose <span class="ui">Diagram → Import → PlantUML…</span></li>
+  <li>Pick the file (<code>.puml</code>, <code>.plantuml</code>, <code>.pu</code>, <code>.iuml</code>, <code>.wsd</code> or <code>.txt</code>).</li>
+</ol>
+<p>Each diagram of the file, from <code>@startuml</code> to <code>@enduml</code>, becomes a diagram, laid out automatically.
+Its kind is recognised from its content, as PlantUML does. Its <code>title</code> names it; without one, the file does.
+The import then lists anything it could not keep.</p>
+
+<h2>Export a diagram as PlantUML</h2>
+<ol>
+  <li>Select a diagram of any kind in the <span class="ui">Project Explorer</span>. If it is open, it is exported as shown, including unsaved changes.</li>
+  <li>Choose <span class="ui">Diagram → Export → PlantUML…</span> and pick the file.</li>
+</ol>
+<p>The diagram's name becomes its <code>title</code>. The export lists anything PlantUML has no place for.</p>
+
+<h2>How the diagrams map</h2>
+<div class="table-wrap">
+<table>
+  <tr><th>Diagram</th><th>PlantUML</th></tr>
+  <tr><td>Class</td><td><code>class</code>, <code>abstract class</code>, <code>interface</code>, <code>enum</code> with their members (<code>-name : Type</code>, <code>{static}</code>, <code>{abstract}</code>) and stereotypes; relationships <code>--|&gt;</code>, <code>..|&gt;</code>, <code>--&gt;</code>, <code>..&gt;</code>, <code>o--</code>, <code>*--</code>, <code>--</code> with multiplicities and labels</td></tr>
+  <tr><td>Sequence</td><td><code>actor</code>, <code>participant</code>; messages <code>-&gt;</code> (synchronous), <code>-&gt;&gt;</code> (asynchronous), <code>--&gt;</code> (reply), <code>create</code></td></tr>
+  <tr><td>State machine</td><td><code>state</code>, <code>&lt;&lt;choice&gt;&gt;</code>, <code>[*]</code> (the initial state before an arrow, the final state after one), transitions with their labels</td></tr>
+  <tr><td>Activity</td><td><code>start</code>, <code>:action;</code>, <code>stop</code>, <code>if … else … endif</code>, <code>fork … end fork</code>, <code>while</code>, <code>repeat</code> (see below)</td></tr>
+  <tr><td>Use case</td><td><code>actor</code>, <code>usecase</code>, <code>rectangle</code> for the system, <code>&lt;&lt;include&gt;&gt;</code>, <code>&lt;&lt;extend&gt;&gt;</code>, <code>--|&gt;</code></td></tr>
+  <tr><td>Component</td><td><code>component</code>, <code>interface</code>; <code>..&gt;</code> (dependency), <code>..|&gt;</code> (realization), <code>--</code></td></tr>
+  <tr><td>Deployment</td><td><code>node</code> (<code>&lt;&lt;device&gt;&gt;</code>, <code>&lt;&lt;executionEnvironment&gt;&gt;</code>), <code>artifact</code>, <code>component</code>, nested in braces; <code>--</code> (communication path), <code>&lt;&lt;deploy&gt;&gt;</code>, <code>&lt;&lt;manifest&gt;&gt;</code></td></tr>
+  <tr><td>Every kind</td><td>Notes, with what they are attached to</td></tr>
+</table>
+</div>
+<p>Elements nested in a system or a deployment node are written nested in its braces; imported ones are laid out inside it.
+The import also reads what people often write by hand: Java-style members (<code>String name</code>), <code>class A extends B</code>,
+the short forms <code>:Actor:</code>, <code>(Use case)</code>, <code>[Component]</code> and <code>() Interface</code>, <code>return</code> in
+sequence diagrams, and the older activity syntax (<code>(*) --&gt; "Action"</code>).</p>
+
+<h2>Activity diagrams</h2>
+<p>PlantUML writes an activity as structured text, where UML Wizard draws a graph. The export finds the structure in
+the graph: a decision with several outgoing flows becomes <code>if … elseif … else … endif</code>, up to the node where
+its branches meet again; a fork becomes <code>fork … end fork</code>; a loop becomes <code>while</code> (the decision at its
+top) or <code>repeat … repeat while</code> (the decision at its end). Guards such as <code>[guest]</code> become the labels of
+the branches. A flow that the structured text cannot express, such as a jump into the middle of another branch, is left
+out and named in the notes. The import turns the structure back into decisions, merges, forks, joins and loops.</p>
+<p class="tip">A UML decision has no text of its own, so the condition of an imported <code>if (in stock?) then (yes)</code> is
+left out when the branch has a label (<code>[yes]</code>); without one, the condition becomes the guard.</p>
+
+<h2>What is left out</h2>
+<ul>
+  <li><strong>On export:</strong> text boxes, fonts, colours and line styles, tagged values, and notes attached to relationships
+    in the kinds of diagram where PlantUML attaches notes only to elements.</li>
+  <li><strong>On import:</strong> styling (<code>skinparam</code>, colours, <code>hide</code>), combined fragments, boxes and references of
+    sequence diagrams (their messages are kept), composite states (their states are kept beside them), history states,
+    swimlanes and partitions (their actions are kept), packages (a class keeps its package as the tagged value
+    <code>namespace</code>), and <code>!include</code>. Lines that are not understood are named in the notes.</li>
+</ul>
+
+<p class="tip">An exported file is ordinary PlantUML: render it with PlantUML itself, keep it next to the code, or paste it
+into any tool that reads PlantUML.</p>
+</main>
+</body>
+</html>

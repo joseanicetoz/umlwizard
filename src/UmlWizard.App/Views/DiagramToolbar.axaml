@@ -1,0 +1,72 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="using:UmlWizard.App.Resources"
+             xmlns:app="using:UmlWizard.App"
+             xmlns:vm="using:UmlWizard.App.ViewModels"
+             xmlns:mi="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             x:Class="UmlWizard.App.Views.DiagramToolbar"
+             x:DataType="vm:DiagramViewModel">
+  <!-- Commands of the active diagram (undo, clipboard, zoom, stacking order); shown in the main toolbar. -->
+  <StackPanel Orientation="Horizontal" Spacing="2" VerticalAlignment="Center">
+    <Button Classes="flat" ToolTip.Tip="{Binding Source={x:Static app:Shortcuts.Undo}, Converter={x:Static app:Shortcuts.Tip}, ConverterParameter={x:Static res:Strings.Toolbar_Undo}}" Command="{Binding UndoCommand}">
+      <mi:MaterialIcon Kind="Undo" />
+    </Button>
+    <Button Classes="flat" ToolTip.Tip="{Binding Source={x:Static app:Shortcuts.Redo}, Converter={x:Static app:Shortcuts.Tip}, ConverterParameter={x:Static res:Strings.Toolbar_Redo}}" Command="{Binding RedoCommand}">
+      <mi:MaterialIcon Kind="Redo" />
+    </Button>
+    <Rectangle Width="1" Height="18" Fill="{DynamicResource ToolbarSeparatorBrush}" Margin="6,0" />
+    <Button Classes="flat" ToolTip.Tip="{Binding Source={x:Static app:Shortcuts.Cut}, Converter={x:Static app:Shortcuts.Tip}, ConverterParameter={x:Static res:Strings.Toolbar_Cut}}" Command="{Binding CutCommand}">
+      <mi:MaterialIcon Kind="ContentCut" />
+    </Button>
+    <Button Classes="flat" ToolTip.Tip="{Binding Source={x:Static app:Shortcuts.Copy}, Converter={x:Static app:Shortcuts.Tip}, ConverterParameter={x:Static res:Strings.Toolbar_Copy}}" Command="{Binding CopyCommand}">
+      <mi:MaterialIcon Kind="ContentCopy" />
+    </Button>
+    <Button Classes="flat" ToolTip.Tip="{Binding Source={x:Static app:Shortcuts.Paste}, Converter={x:Static app:Shortcuts.Tip}, ConverterParameter={x:Static res:Strings.Toolbar_Paste}}" Command="{Binding PasteCommand}">
+      <mi:MaterialIcon Kind="ContentPaste" />
+    </Button>
+    <Rectangle Width="1" Height="18" Fill="{DynamicResource ToolbarSeparatorBrush}" Margin="6,0" />
+    <Button Classes="flat" ToolTip.Tip="{Binding Source={x:Static app:Shortcuts.ZoomOut}, Converter={x:Static app:Shortcuts.Tip}, ConverterParameter={x:Static res:Strings.Toolbar_ZoomOut}}" Command="{Binding ZoomOutCommand}">
+      <mi:MaterialIcon Kind="MagnifyMinusOutline" />
+    </Button>
+    <!-- Clicking the zoom level goes back to 100% -->
+    <Button x:Name="ZoomLevelButton" Classes="flat zoomLevel" MinWidth="44" HorizontalContentAlignment="Center" Content="{Binding ZoomText}"
+            ToolTip.Tip="{Binding Source={x:Static app:Shortcuts.ZoomReset}, Converter={x:Static app:Shortcuts.Tip}, ConverterParameter={x:Static res:Strings.Toolbar_ZoomLevel}}"
+            Command="{Binding ZoomResetCommand}" />
+    <Button Classes="flat" ToolTip.Tip="{Binding Source={x:Static app:Shortcuts.ZoomIn}, Converter={x:Static app:Shortcuts.Tip}, ConverterParameter={x:Static res:Strings.Toolbar_ZoomIn}}" Command="{Binding ZoomInCommand}">
+      <mi:MaterialIcon Kind="MagnifyPlusOutline" />
+    </Button>
+    <Button Classes="flat" ToolTip.Tip="{Binding Source={x:Static app:Shortcuts.ZoomReset}, Converter={x:Static app:Shortcuts.Tip}, ConverterParameter={x:Static res:Strings.Toolbar_ActualSize}}" Command="{Binding ZoomResetCommand}">
+      <mi:MaterialIcon Kind="Magnify" />
+    </Button>
+    <Button Classes="flat" ToolTip.Tip="{x:Static res:Strings.Toolbar_Fit}" Command="{Binding ZoomFitCommand}">
+      <mi:MaterialIcon Kind="FitToScreenOutline" />
+    </Button>
+    <Rectangle Width="1" Height="18" Fill="{DynamicResource ToolbarSeparatorBrush}" Margin="6,0" />
+    <Button x:Name="EditButton" Classes="flat" ToolTip.Tip="{x:Static res:Strings.Toolbar_Edit}" Command="{Binding EditCommand}">
+      <mi:MaterialIcon Kind="PencilOutline" />
+    </Button>
+    <Button x:Name="FontButton" Classes="flat" ToolTip.Tip="{x:Static res:Strings.Toolbar_Font}" Command="{Binding EditFontCommand}">
+      <mi:MaterialIcon Kind="FormatFont" />
+    </Button>
+    <Button x:Name="ShapeButton" Classes="flat" ToolTip.Tip="{x:Static res:Strings.Toolbar_Shape}" Command="{Binding FormatShapeCommand}">
+      <mi:MaterialIcon Kind="FormatColorFill" />
+    </Button>
+    <Button x:Name="LineButton" Classes="flat" ToolTip.Tip="{x:Static res:Strings.Toolbar_Line}" Command="{Binding FormatLineCommand}">
+      <mi:MaterialIcon Kind="FormatLineWeight" />
+    </Button>
+    <!-- Stacking order of the selected node -->
+    <Rectangle Width="1" Height="18" Fill="{DynamicResource ToolbarSeparatorBrush}" Margin="6,0" />
+    <Button Classes="flat" ToolTip.Tip="{Binding Source={x:Static app:Shortcuts.BringToFront}, Converter={x:Static app:Shortcuts.Tip}, ConverterParameter={x:Static res:Strings.Toolbar_BringToFront}}" Command="{Binding BringToFrontCommand}">
+      <mi:MaterialIcon Kind="ArrangeBringToFront" />
+    </Button>
+    <Button Classes="flat" ToolTip.Tip="{Binding Source={x:Static app:Shortcuts.BringForward}, Converter={x:Static app:Shortcuts.Tip}, ConverterParameter={x:Static res:Strings.Toolbar_BringForward}}" Command="{Binding BringForwardCommand}">
+      <mi:MaterialIcon Kind="ArrangeBringForward" />
+    </Button>
+    <Button Classes="flat" ToolTip.Tip="{Binding Source={x:Static app:Shortcuts.SendBackward}, Converter={x:Static app:Shortcuts.Tip}, ConverterParameter={x:Static res:Strings.Toolbar_SendBackward}}" Command="{Binding SendBackwardCommand}">
+      <mi:MaterialIcon Kind="ArrangeSendBackward" />
+    </Button>
+    <Button Classes="flat" ToolTip.Tip="{Binding Source={x:Static app:Shortcuts.SendToBack}, Converter={x:Static app:Shortcuts.Tip}, ConverterParameter={x:Static res:Strings.Toolbar_SendToBack}}" Command="{Binding SendToBackCommand}">
+      <mi:MaterialIcon Kind="ArrangeSendToBack" />
+    </Button>
+  </StackPanel>
+</UserControl>

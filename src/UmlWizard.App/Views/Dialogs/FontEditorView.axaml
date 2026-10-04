@@ -1,0 +1,29 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="using:UmlWizard.App.Resources"
+             xmlns:dvm="using:UmlWizard.App.ViewModels.Dialogs"
+             x:Class="UmlWizard.App.Views.Dialogs.FontEditorView"
+             x:DataType="dvm:FontEditorViewModel"
+             Width="440">
+  <StackPanel Spacing="12">
+    <CheckBox Content="{Binding InheritLabel}" IsChecked="{Binding UseInherited}" />
+    <Grid ColumnDefinitions="80,*" RowDefinitions="Auto,10,Auto,10,Auto" IsEnabled="{Binding IsCustom}">
+      <TextBlock Classes="caption" Text="{x:Static res:Strings.Dialog_Font_Font}" VerticalAlignment="Center" />
+      <ComboBox Grid.Column="1" ItemsSource="{Binding Families}" SelectedItem="{Binding Family}"
+                HorizontalAlignment="Stretch" MaxDropDownHeight="320" />
+      <TextBlock Classes="caption" Grid.Row="2" Text="{x:Static res:Strings.Dialog_Font_Size}" VerticalAlignment="Center" />
+      <NumericUpDown Grid.Row="2" Grid.Column="1" Value="{Binding Size}" Minimum="{Binding MinSize}"
+                     Maximum="{Binding MaxSize}" Increment="1" FormatString="0.#" Width="130" HorizontalAlignment="Left" />
+      <TextBlock Classes="caption" Grid.Row="4" Text="{x:Static res:Strings.Dialog_Font_Style}" VerticalAlignment="Center" />
+      <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" Spacing="20">
+        <CheckBox Content="{x:Static res:Strings.Dialog_Font_Bold}" IsChecked="{Binding Bold}" />
+        <CheckBox Content="{x:Static res:Strings.Dialog_Font_Italic}" IsChecked="{Binding Italic}" />
+      </StackPanel>
+    </Grid>
+    <Border BorderBrush="{DynamicResource DividerBrush}" BorderThickness="1" Background="{DynamicResource DiagramBackgroundBrush}" Padding="12,0" Height="90" ClipToBounds="True">
+      <TextBlock Text="{x:Static res:Strings.Dialog_Font_Sample}" VerticalAlignment="Center" Foreground="{DynamicResource DiagramTextBrush}"
+                 FontFamily="{Binding PreviewFamily}" FontSize="{Binding PreviewSize}"
+                 FontWeight="{Binding PreviewWeight}" FontStyle="{Binding PreviewStyle}" />
+    </Border>
+  </StackPanel>
+</UserControl>

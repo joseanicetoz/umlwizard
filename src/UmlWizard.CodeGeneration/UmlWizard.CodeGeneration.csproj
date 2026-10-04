@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Code generation from class diagrams: the code model, the helpers languages share, and the plug-in API
+    (ICodeGenerator) with the loader of plug-ins. Kept out of UmlWizard.Core so the model does not carry it; plug-ins
+    compile against this assembly and UmlWizard.Core, which the application shares with them at run time.
+  -->
+  <PropertyGroup>
+    <RootNamespace>UmlWizard.CodeGeneration</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UmlWizard.Core\UmlWizard.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="UmlWizard.CodeGeneration.Tests" />
+  </ItemGroup>
+</Project>

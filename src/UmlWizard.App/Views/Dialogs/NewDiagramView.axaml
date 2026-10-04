@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="using:UmlWizard.App.Resources"
+             xmlns:dvm="using:UmlWizard.App.ViewModels.Dialogs"
+             xmlns:vm="using:UmlWizard.App.ViewModels"
+             xmlns:model="using:UmlWizard.Core.Model"
+             x:Class="UmlWizard.App.Views.Dialogs.NewDiagramView"
+             x:DataType="dvm:NewDiagramViewModel"
+             Width="400">
+  <Grid ColumnDefinitions="90,*" RowDefinitions="Auto,10,Auto">
+    <TextBlock Classes="caption" Text="{x:Static res:Strings.Label_Name}" VerticalAlignment="Center" />
+    <TextBox Grid.Column="1" Text="{Binding Name}" />
+    <TextBlock Classes="caption" Grid.Row="2" Text="{x:Static res:Strings.Label_Type}" VerticalAlignment="Center" />
+    <ComboBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch"
+              ItemsSource="{x:Static dvm:EnumValues.DiagramTypes}" SelectedItem="{Binding Type}">
+      <ComboBox.ItemTemplate>
+        <DataTemplate x:DataType="model:DiagramType">
+          <TextBlock Text="{Binding Converter={x:Static vm:DiagramTypeInfo.NameConverter}}" />
+        </DataTemplate>
+      </ComboBox.ItemTemplate>
+    </ComboBox>
+  </Grid>
+</UserControl>

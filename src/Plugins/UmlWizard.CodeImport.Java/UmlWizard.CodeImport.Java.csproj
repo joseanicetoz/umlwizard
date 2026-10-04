@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>UmlWizard.CodeImport.Java</RootNamespace>
+    <Description>UML Wizard code import plug-in: Java.</Description>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,208 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:app="using:UmlWizard.App"
+             x:Class="UmlWizard.App.App"
+             Name="UML Wizard"
+             RequestedThemeVariant="Default">
+  <!--
+    The application's own colours, for the light and dark themes. Use them with DynamicResource so they follow a theme
+    change. Default follows the operating system until the saved choice is applied at start-up (see App.axaml.cs).
+    The diagram canvas uses RenderTheme; DiagramBackgroundBrush and DiagramTextBrush match its colours.
+  -->
+  <Application.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+          <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#FFFFFF" />
+          <SolidColorBrush x:Key="DividerBrush" Color="#D9DCE1" />
+          <!-- The dividers between toolbar groups: a little darker than the borders, on the chrome background -->
+          <SolidColorBrush x:Key="ToolbarSeparatorBrush" Color="#BFC4CC" />
+          <SolidColorBrush x:Key="ChromeBackgroundBrush" Color="#F3F4F6" />
+          <SolidColorBrush x:Key="PanelBackgroundBrush" Color="#F7F8FA" />
+          <SolidColorBrush x:Key="CaptionForegroundBrush" Color="#5F6B7A" />
+          <SolidColorBrush x:Key="PlaceholderForegroundBrush" Color="#8A94A3" />
+          <SolidColorBrush x:Key="DisabledIconBrush" Color="#B4BAC3" />
+          <SolidColorBrush x:Key="IconForegroundBrush" Color="#44546A" />
+          <SolidColorBrush x:Key="FolderIconBrush" Color="#C08A1E" />
+          <SolidColorBrush x:Key="DropTargetBackgroundBrush" Color="#D6E4F5" />
+          <SolidColorBrush x:Key="DropIndicatorBrush" Color="#3D7BD9" />
+          <SolidColorBrush x:Key="ErrorForegroundBrush" Color="#C62828" />
+          <SolidColorBrush x:Key="WarningForegroundBrush" Color="#B26A00" />
+          <SolidColorBrush x:Key="WarningBackgroundBrush" Color="#FFF4C2" />
+          <SolidColorBrush x:Key="WarningBorderBrush" Color="#EBCF6E" />
+          <SolidColorBrush x:Key="SuccessForegroundBrush" Color="#2E7D32" />
+          <SolidColorBrush x:Key="LogoBackgroundBrush" Color="#E8EEF9" />
+          <SolidColorBrush x:Key="DiagramBackgroundBrush" Color="#FFFFFF" />
+          <SolidColorBrush x:Key="DiagramTextBrush" Color="#1F2933" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+          <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#1B1D21" />
+          <SolidColorBrush x:Key="DividerBrush" Color="#3A3F47" />
+          <SolidColorBrush x:Key="ToolbarSeparatorBrush" Color="#555B65" />
+          <SolidColorBrush x:Key="ChromeBackgroundBrush" Color="#2B2E33" />
+          <SolidColorBrush x:Key="PanelBackgroundBrush" Color="#25282C" />
+          <SolidColorBrush x:Key="CaptionForegroundBrush" Color="#9AA5B4" />
+          <SolidColorBrush x:Key="PlaceholderForegroundBrush" Color="#8C96A5" />
+          <SolidColorBrush x:Key="DisabledIconBrush" Color="#5C636E" />
+          <SolidColorBrush x:Key="IconForegroundBrush" Color="#A9B6C6" />
+          <SolidColorBrush x:Key="FolderIconBrush" Color="#D9A441" />
+          <SolidColorBrush x:Key="DropTargetBackgroundBrush" Color="#1F3A5F" />
+          <SolidColorBrush x:Key="DropIndicatorBrush" Color="#5B9BF0" />
+          <SolidColorBrush x:Key="ErrorForegroundBrush" Color="#F28B82" />
+          <SolidColorBrush x:Key="WarningForegroundBrush" Color="#E8A33D" />
+          <SolidColorBrush x:Key="WarningBackgroundBrush" Color="#3D3414" />
+          <SolidColorBrush x:Key="WarningBorderBrush" Color="#6B5A1E" />
+          <SolidColorBrush x:Key="SuccessForegroundBrush" Color="#66BB6A" />
+          <SolidColorBrush x:Key="LogoBackgroundBrush" Color="#2B3A52" />
+          <SolidColorBrush x:Key="DiagramBackgroundBrush" Color="#1E2126" />
+          <SolidColorBrush x:Key="DiagramTextBrush" Color="#E6EAF0" />
+        </ResourceDictionary>
+      </ResourceDictionary.ThemeDictionaries>
+    </ResourceDictionary>
+  </Application.Resources>
+
+  <!-- Enum values (e.g. in combo boxes) are shown by their display names from the string resources -->
+  <Application.DataTemplates>
+    <app:EnumDataTemplate />
+  </Application.DataTemplates>
+
+  <Application.Styles>
+    <FluentTheme />
+    <materialIcons:MaterialIconStyles />
+
+    <!-- Fluent's dark windows are black; a dark grey matches the panels and the canvas -->
+    <Style Selector=":is(Window)">
+      <Setter Property="Background" Value="{DynamicResource WindowBackgroundBrush}" />
+    </Style>
+
+    <Style Selector="ListBox.toolbox">
+      <Setter Property="Background" Value="Transparent" />
+    </Style>
+    <Style Selector="ListBox.toolbox ListBoxItem">
+      <Setter Property="Padding" Value="10,5" />
+      <Setter Property="Margin" Value="1,0" />
+      <Setter Property="CornerRadius" Value="4" />
+      <Setter Property="MinHeight" Value="0" />
+    </Style>
+
+    <!-- The theme leaves 2px under the tab strip; let the tab separators meet the line above the canvas -->
+    <Style Selector="TabControl.documents /template/ ItemsPresenter#PART_ItemsPresenter">
+      <Setter Property="Margin" Value="0" />
+    </Style>
+    <!-- Tabs inside dialogs: Fluent's 24 px light headers are sized for page navigation, too big here -->
+    <Style Selector="TabControl.dialog TabItem">
+      <Setter Property="FontSize" Value="16" />
+      <Setter Property="FontWeight" Value="Normal" />
+      <Setter Property="MinHeight" Value="36" />
+      <Setter Property="Padding" Value="12,0" />
+    </Style>
+
+    <Style Selector="TabControl.documents TabItem">
+      <Setter Property="FontSize" Value="13" />
+      <Setter Property="MinHeight" Value="34" />
+      <Setter Property="Padding" Value="10,0,4,0" />
+      <!-- Vertical line after each tab -->
+      <Setter Property="BorderBrush" Value="{DynamicResource DividerBrush}" />
+      <Setter Property="BorderThickness" Value="0,0,1,0" />
+    </Style>
+
+    <Style Selector="Button.flat">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Padding" Value="5,3" />
+      <Setter Property="MinHeight" Value="0" />
+    </Style>
+
+    <!-- Disabled flat buttons keep a transparent background; only their icon or text is greyed out -->
+    <Style Selector="Button.flat:disabled /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderBrush" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource DisabledIconBrush}" />
+    </Style>
+
+    <!-- The zoom level resets the zoom when clicked; at 100% there is nothing to reset, but the level stays readable -->
+    <Style Selector="Button.flat.zoomLevel:disabled /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}" />
+    </Style>
+    <Style Selector="DropDownButton.flat">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="Padding" Value="5,3" />
+      <Setter Property="MinHeight" Value="0" />
+    </Style>
+    <Style Selector="DropDownButton.flat materialIcons|MaterialIcon">
+      <Setter Property="Width" Value="18" />
+      <Setter Property="Height" Value="18" />
+    </Style>
+
+    <Style Selector="Button.flat materialIcons|MaterialIcon">
+      <Setter Property="Width" Value="18" />
+      <Setter Property="Height" Value="18" />
+    </Style>
+
+    <!-- The colour buttons of a palette (Format → Shape, Preferences → Diagram) -->
+    <Style Selector="Button.swatch">
+      <Setter Property="Width" Value="24" />
+      <Setter Property="Height" Value="24" />
+      <Setter Property="Padding" Value="0" />
+      <Setter Property="Margin" Value="0,0,4,4" />
+      <Setter Property="MinHeight" Value="0" />
+      <Setter Property="CornerRadius" Value="3" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="BorderBrush" Value="{DynamicResource DividerBrush}" />
+    </Style>
+    <!-- Keep the swatch's own colour when hovered or pressed; outline it instead -->
+    <Style Selector="Button.swatch:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="Background" Value="{Binding $parent[Button].Background}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource DropIndicatorBrush}" />
+    </Style>
+    <Style Selector="Button.swatch:pressed /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="Background" Value="{Binding $parent[Button].Background}" />
+    </Style>
+
+    <!-- The cards of the start screen (no project open): a square tile with an icon, a title and a line about it -->
+    <Style Selector="Button.startCard">
+      <Setter Property="Width" Value="184" />
+      <Setter Property="Height" Value="176" />
+      <Setter Property="Padding" Value="16" />
+      <Setter Property="CornerRadius" Value="8" />
+      <Setter Property="Background" Value="{DynamicResource PanelBackgroundBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource DividerBrush}" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+      <Setter Property="VerticalContentAlignment" Value="Stretch" />
+      <Setter Property="Cursor" Value="Hand" />
+    </Style>
+    <Style Selector="Button.startCard:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="Background" Value="{DynamicResource ChromeBackgroundBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource DropIndicatorBrush}" />
+    </Style>
+    <Style Selector="Button.startCard:pressed /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="Background" Value="{DynamicResource DropTargetBackgroundBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource DropIndicatorBrush}" />
+    </Style>
+    <Style Selector="Button.startCard materialIcons|MaterialIcon">
+      <Setter Property="Width" Value="36" />
+      <Setter Property="Height" Value="36" />
+      <Setter Property="Foreground" Value="{DynamicResource DropIndicatorBrush}" />
+    </Style>
+
+    <Style Selector="TextBlock.caption">
+      <Setter Property="FontSize" Value="11" />
+      <Setter Property="Foreground" Value="{DynamicResource CaptionForegroundBrush}" />
+    </Style>
+
+    <Style Selector="TextBlock.section">
+      <Setter Property="FontWeight" Value="SemiBold" />
+      <Setter Property="Margin" Value="0,4,0,0" />
+    </Style>
+
+    <Style Selector="TextBox.inline">
+      <Setter Property="MinHeight" Value="0" />
+      <Setter Property="MinWidth" Value="0" />
+      <Setter Property="Padding" Value="3,0" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+      <Setter Property="CornerRadius" Value="2" />
+    </Style>
+  </Application.Styles>
+</Application>

@@ -1,0 +1,2388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="App_Name" xml:space="preserve">
+    <value>UML Wizard</value>
+    <comment>Product name; usually not translated.</comment>
+  </data>
+  <data name="App_WindowTitleWithProject" xml:space="preserve">
+    <value>{0} — UML Wizard</value>
+    <comment>{0} = project name.</comment>
+  </data>
+  <data name="App_Untitled" xml:space="preserve">
+    <value>Untitled</value>
+    <comment>File name for a diagram whose name has no usable characters.</comment>
+  </data>
+  <data name="Button_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Button_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Button_Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Button_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Button_Continue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="Button_Browse" xml:space="preserve">
+    <value>Browse…</value>
+  </data>
+  <data name="Button_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Label_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Label_Kind" xml:space="preserve">
+    <value>Kind</value>
+  </data>
+  <data name="Label_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Label_Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="Dialog_ProjectProperties_Version_Watermark" xml:space="preserve">
+    <value>e.g. 1.0.0</value>
+  </data>
+  <data name="Label_Author" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="Label_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Label_Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="Label_Label" xml:space="preserve">
+    <value>Label</value>
+    <comment>The text shown on a connection.</comment>
+  </data>
+  <data name="Label_Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="Label_Folder" xml:space="preserve">
+    <value>Folder</value>
+  </data>
+  <data name="Label_Visibility" xml:space="preserve">
+    <value>Visibility</value>
+  </data>
+  <data name="Tip_Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Tip_WithShortcut" xml:space="preserve">
+    <value>{0} ({1})</value>
+    <comment>Tooltip with a keyboard shortcut; {0} = what the button does, {1} = the shortcut.</comment>
+  </data>
+  <data name="Menu_File" xml:space="preserve">
+    <value>_File</value>
+  </data>
+  <data name="Menu_File_NewProject" xml:space="preserve">
+    <value>_New Project…</value>
+  </data>
+  <data name="Menu_File_OpenProject" xml:space="preserve">
+    <value>_Open Project…</value>
+  </data>
+  <data name="Menu_File_ImportFolder" xml:space="preserve">
+    <value>Import So_urce Folder…</value>
+  </data>
+  <data name="Menu_File_RecentProjects" xml:space="preserve">
+    <value>Recent _Projects</value>
+  </data>
+  <data name="Menu_File_ClearRecentProjects" xml:space="preserve">
+    <value>_Clear Recent Projects</value>
+  </data>
+  <data name="Menu_File_SaveProject" xml:space="preserve">
+    <value>_Save Project</value>
+  </data>
+  <data name="Menu_File_SaveProjectAs" xml:space="preserve">
+    <value>Save Project _As…</value>
+  </data>
+  <data name="Menu_File_NewFolder" xml:space="preserve">
+    <value>New _Folder…</value>
+  </data>
+  <data name="Menu_File_ProjectProperties" xml:space="preserve">
+    <value>Project Propert_ies…</value>
+  </data>
+  <data name="Menu_File_Preferences" xml:space="preserve">
+    <value>Pr_eferences…</value>
+  </data>
+  <data name="Menu_File_Preferences_Tip" xml:space="preserve">
+    <value>Projects folder, display language, theme, font and the default colours of diagrams</value>
+  </data>
+  <data name="Preferences_Title" xml:space="preserve">
+    <value>Preferences</value>
+  </data>
+  <data name="Preferences_General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="Preferences_Appearance" xml:space="preserve">
+    <value>Appearance</value>
+  </data>
+  <data name="Preferences_Diagram" xml:space="preserve">
+    <value>Diagram</value>
+  </data>
+  <data name="Preferences_ProjectsFolder" xml:space="preserve">
+    <value>Projects folder</value>
+  </data>
+  <data name="Preferences_ProjectsFolder_Tip" xml:space="preserve">
+    <value>Where new projects are created, and imported ones go, unless you choose another folder. Empty for your Documents folder.</value>
+  </data>
+  <data name="Preferences_ProjectsFolder_Pick" xml:space="preserve">
+    <value>Projects Folder</value>
+  </data>
+  <data name="Preferences_DisplayLanguage" xml:space="preserve">
+    <value>Display language</value>
+  </data>
+  <data name="Preferences_DisplayLanguage_Tip" xml:space="preserve">
+    <value>The language of menus, panels and dialogs; type to find one. English only so far.</value>
+  </data>
+  <data name="Preferences_Theme" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="Preferences_Theme_System" xml:space="preserve">
+    <value>System (as set in the operating system)</value>
+  </data>
+  <data name="Preferences_Theme_Light" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="Preferences_Theme_Dark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="Preferences_Font" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="Preferences_Font_Tip" xml:space="preserve">
+    <value>The font of menus, panels and dialogs; type to find one</value>
+  </data>
+  <data name="Preferences_FontSize" xml:space="preserve">
+    <value>Font size</value>
+  </data>
+  <data name="Preferences_DefaultFont" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="Preferences_DefaultValue" xml:space="preserve">
+    <value>Default ({0})</value>
+    <comment>{0} = the default value, e.g. 14.</comment>
+  </data>
+  <data name="Preferences_Font_Note" xml:space="preserve">
+    <value>The font of menus, panels and dialogs. Diagrams have a font of their own: Format → Diagram Font.</value>
+  </data>
+  <data name="Preferences_Preview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="Preferences_Preview_Sample" xml:space="preserve">
+    <value>The quick brown fox jumps over the lazy dog. 0123456789</value>
+  </data>
+  <data name="Preferences_Preview_TextBox" xml:space="preserve">
+    <value>Text box</value>
+  </data>
+  <data name="Preferences_Preview_CheckBox" xml:space="preserve">
+    <value>Check box</value>
+  </data>
+  <data name="Preferences_Preview_Button" xml:space="preserve">
+    <value>Button</value>
+  </data>
+  <data name="Preferences_Diagram_Intro" xml:space="preserve">
+    <value>The colours shapes get unless they have their own (Format → Shape…). They apply in light and dark mode, and to exported images.</value>
+  </data>
+  <data name="Preferences_Fill" xml:space="preserve">
+    <value>Fill</value>
+  </data>
+  <data name="Preferences_Border" xml:space="preserve">
+    <value>Border</value>
+  </data>
+  <data name="Preferences_Thickness" xml:space="preserve">
+    <value>Thickness</value>
+  </data>
+  <data name="Preferences_ResetDiagram" xml:space="preserve">
+    <value>Reset to Defaults</value>
+  </data>
+  <data name="Preferences_ResetDiagram_Tip" xml:space="preserve">
+    <value>Put the fills, border and thickness of this diagram type back to the theme's</value>
+  </data>
+  <data name="Preferences_PickColor_Tip" xml:space="preserve">
+    <value>Pick a colour</value>
+  </data>
+  <data name="Preferences_UseDefault_Tip" xml:space="preserve">
+    <value>Use the default colour</value>
+  </data>
+  <data name="Preferences_Color_Tip" xml:space="preserve">
+    <value>#RRGGBB, or empty for the default</value>
+  </data>
+  <data name="Preferences_Fill_Class" xml:space="preserve">
+    <value>Class</value>
+  </data>
+  <data name="Preferences_Fill_AbstractClass" xml:space="preserve">
+    <value>Abstract class</value>
+  </data>
+  <data name="Preferences_Fill_Interface" xml:space="preserve">
+    <value>Interface</value>
+  </data>
+  <data name="Preferences_Fill_Enumeration" xml:space="preserve">
+    <value>Enumeration</value>
+  </data>
+  <data name="Preferences_Fill_Lifeline" xml:space="preserve">
+    <value>Lifeline</value>
+  </data>
+  <data name="Preferences_Fill_State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="Preferences_Fill_Choice" xml:space="preserve">
+    <value>Choice</value>
+  </data>
+  <data name="Preferences_Fill_Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="Preferences_Fill_Decision" xml:space="preserve">
+    <value>Decision / merge</value>
+  </data>
+  <data name="Preferences_Fill_UseCase" xml:space="preserve">
+    <value>Use case</value>
+  </data>
+  <data name="Preferences_Fill_SystemBoundary" xml:space="preserve">
+    <value>System boundary</value>
+  </data>
+  <data name="Preferences_Fill_Component" xml:space="preserve">
+    <value>Component</value>
+  </data>
+  <data name="Preferences_Fill_Node" xml:space="preserve">
+    <value>Node</value>
+  </data>
+  <data name="Preferences_Fill_Device" xml:space="preserve">
+    <value>Device</value>
+  </data>
+  <data name="Preferences_Fill_ExecutionEnvironment" xml:space="preserve">
+    <value>Execution environment</value>
+  </data>
+  <data name="Preferences_Fill_Artifact" xml:space="preserve">
+    <value>Artifact</value>
+  </data>
+  <data name="Preferences_Fill_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="Preferences_Ai" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="Preferences_Ai_Service" xml:space="preserve">
+    <value>Service</value>
+  </data>
+  <data name="Preferences_Ai_None" xml:space="preserve">
+    <value>None (AI off)</value>
+  </data>
+  <data name="Preferences_Ai_Anthropic" xml:space="preserve">
+    <value>Anthropic (Claude)</value>
+  </data>
+  <data name="Preferences_Ai_OpenAi" xml:space="preserve">
+    <value>OpenAI-compatible (OpenAI, Ollama, LM Studio, …)</value>
+  </data>
+  <data name="Preferences_Ai_Endpoint" xml:space="preserve">
+    <value>Endpoint</value>
+  </data>
+  <data name="Preferences_Ai_Endpoint_Tip" xml:space="preserve">
+    <value>The service's address; empty for the default. For Ollama: http://localhost:11434/v1, for LM Studio: http://localhost:1234/v1</value>
+  </data>
+  <data name="Preferences_Ai_Model" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="Preferences_Ai_Model_Tip" xml:space="preserve">
+    <value>The model to use; empty for the default</value>
+  </data>
+  <data name="Preferences_Ai_Model_Example" xml:space="preserve">
+    <value>e.g. gpt-4o-mini, or llama3.1 for Ollama</value>
+  </data>
+  <data name="Preferences_Ai_Changes" xml:space="preserve">
+    <value>Changes</value>
+  </data>
+  <data name="Preferences_Ai_Changes_Tools" xml:space="preserve">
+    <value>With tool calls (recommended)</value>
+  </data>
+  <data name="Preferences_Ai_Changes_Whole" xml:space="preserve">
+    <value>As a whole diagram, for models without tool calling</value>
+  </data>
+  <data name="Preferences_Ai_Changes_Tip" xml:space="preserve">
+    <value>How the AI changes diagrams in the chat. Choose the whole diagram when the model cannot call tools, as with some local models: it then answers with the revised diagram in PlantUML, matched by name.</value>
+  </data>
+  <data name="Preferences_Ai_ApiKey" xml:space="preserve">
+    <value>API key</value>
+  </data>
+  <data name="Preferences_Ai_Key_Stored" xml:space="preserve">
+    <value>Kept in your system's credential store, not in the settings. Without one, the {0} environment variable is used; local servers need none.</value>
+    <comment>{0} = the environment variable, e.g. ANTHROPIC_API_KEY.</comment>
+  </data>
+  <data name="Preferences_Ai_Key_NotStored" xml:space="preserve">
+    <value>This system has no credential store UML Wizard can use, so the key is only kept until UML Wizard closes; set the {0} environment variable instead.</value>
+    <comment>{0} = the environment variable, e.g. ANTHROPIC_API_KEY.</comment>
+  </data>
+  <data name="Preferences_Ai_Test" xml:space="preserve">
+    <value>Test Connection</value>
+  </data>
+  <data name="Preferences_Ai_Testing" xml:space="preserve">
+    <value>Asking {0}…</value>
+    <comment>{0} = the AI service and model.</comment>
+  </data>
+  <data name="Preferences_Ai_Test_Ok" xml:space="preserve">
+    <value>{0} answered: the connection works.</value>
+    <comment>{0} = the AI service and model.</comment>
+  </data>
+  <data name="Preferences_Ai_Privacy" xml:space="preserve">
+    <value>AI commands such as Diagram → Create with AI send what you describe to this service, and only when you use them. A local model (Ollama, LM Studio) keeps everything on this computer.</value>
+  </data>
+  <data name="Preferences_Ai_ShowKey" xml:space="preserve">
+    <value>Show the API key</value>
+  </data>
+  <data name="Preferences_Ai_HideKey" xml:space="preserve">
+    <value>Hide the API key</value>
+  </data>
+  <data name="Preferences_Ai_Accept" xml:space="preserve">
+    <value>I accept</value>
+  </data>
+  <data name="Message_AiTurnOff_Title" xml:space="preserve">
+    <value>Turn Off AI</value>
+  </data>
+  <data name="Message_AiTurnOff" xml:space="preserve">
+    <value>The AI service cannot be used without accepting the warning.
+
+If you continue, the AI configuration ({0}) and its API key are removed, and the AI service is set back to None.</value>
+    <comment>{0} = the AI service, e.g. Anthropic (Claude).</comment>
+  </data>
+  <data name="AiChat_Title" xml:space="preserve">
+    <value>AI Chat</value>
+  </data>
+  <data name="AiChat_Note_CanEdit" xml:space="preserve">
+    <value>Your messages and this diagram are sent to {0}. It answers questions and can change the diagram; you apply its changes.</value>
+    <comment>{0} = the AI service and model.</comment>
+  </data>
+  <data name="AiChat_Consent" xml:space="preserve">
+    <value>Your messages and the diagrams of the project "{0}" will be sent to {1}. Allow this for the project?</value>
+    <comment>{0} = the project's name, {1} = the AI service and model.</comment>
+  </data>
+  <data name="AiChat_Consent_Allow" xml:space="preserve">
+    <value>Allow for This Project</value>
+  </data>
+  <data name="AiChat_NotSetUp" xml:space="preserve">
+    <value>No AI service is set up yet. Set one up to ask questions about your diagrams and have them changed.</value>
+  </data>
+  <data name="AiChat_SetUp" xml:space="preserve">
+    <value>Set Up AI…</value>
+  </data>
+  <data name="AiChat_Send_Tip" xml:space="preserve">
+    <value>Send (Ctrl+Enter, or ⌘+Enter on macOS)</value>
+  </data>
+  <data name="AiChat_Stop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="AiChat_Stopped" xml:space="preserve">
+    <value>Stopped; nothing from that request was kept.</value>
+  </data>
+  <data name="AiChat_Input_Watermark" xml:space="preserve">
+    <value>Ask about the diagram, or for a change, e.g. Add a Payment class that Order is composed of.</value>
+  </data>
+  <data name="AiChat_Empty" xml:space="preserve">
+    <value>Ask a question about this diagram, have it explained or reviewed, or ask for changes.</value>
+  </data>
+  <data name="AiChat_Changes" xml:space="preserve">
+    <value>Proposed changes</value>
+  </data>
+  <data name="AiChat_Apply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="AiChat_Apply_Tip" xml:space="preserve">
+    <value>Apply the changes to the diagram; Undo takes them all back</value>
+  </data>
+  <data name="AiChat_Discard" xml:space="preserve">
+    <value>Discard</value>
+  </data>
+  <data name="AiChat_NoDiagram" xml:space="preserve">
+    <value>Open a diagram to chat about it.</value>
+  </data>
+  <data name="Menu_File_CloseProject" xml:space="preserve">
+    <value>_Close Project</value>
+  </data>
+  <data name="Menu_File_Exit" xml:space="preserve">
+    <value>E_xit</value>
+  </data>
+  <data name="Menu_Edit" xml:space="preserve">
+    <value>_Edit</value>
+  </data>
+  <data name="Menu_Edit_Undo" xml:space="preserve">
+    <value>_Undo</value>
+  </data>
+  <data name="Menu_Edit_Redo" xml:space="preserve">
+    <value>_Redo</value>
+  </data>
+  <data name="Menu_Edit_Cut" xml:space="preserve">
+    <value>Cu_t</value>
+  </data>
+  <data name="Menu_Edit_Copy" xml:space="preserve">
+    <value>_Copy</value>
+  </data>
+  <data name="Menu_Edit_Paste" xml:space="preserve">
+    <value>_Paste</value>
+  </data>
+  <data name="Menu_Edit_Delete" xml:space="preserve">
+    <value>_Delete</value>
+  </data>
+  <data name="Menu_Edit_EditElement" xml:space="preserve">
+    <value>_Edit Element…</value>
+  </data>
+  <data name="Menu_View" xml:space="preserve">
+    <value>_View</value>
+  </data>
+  <data name="Menu_View_ProjectExplorer" xml:space="preserve">
+    <value>_Project Explorer</value>
+  </data>
+  <data name="Menu_View_ProjectExplorer_Tip" xml:space="preserve">
+    <value>Show or hide the project's folders and diagrams on the left</value>
+  </data>
+  <data name="Menu_View_AiChat" xml:space="preserve">
+    <value>_AI Chat</value>
+  </data>
+  <data name="Menu_View_AiChat_Tip" xml:space="preserve">
+    <value>Show or hide the AI chat about the active diagram, on the right</value>
+  </data>
+  <data name="Menu_View_Theme" xml:space="preserve">
+    <value>_Theme</value>
+  </data>
+  <data name="Menu_View_Theme_System" xml:space="preserve">
+    <value>_System</value>
+  </data>
+  <data name="Menu_View_Theme_System_Tip" xml:space="preserve">
+    <value>Light or dark, as set in the operating system</value>
+  </data>
+  <data name="Menu_View_Theme_Light" xml:space="preserve">
+    <value>_Light</value>
+  </data>
+  <data name="Menu_View_Theme_Dark" xml:space="preserve">
+    <value>_Dark</value>
+  </data>
+  <data name="Menu_Format" xml:space="preserve">
+    <value>F_ormat</value>
+  </data>
+  <data name="Menu_Format_Font" xml:space="preserve">
+    <value>_Font…</value>
+  </data>
+  <data name="Menu_Format_Font_Tip" xml:space="preserve">
+    <value>Font of the selected element (select an element first)</value>
+  </data>
+  <data name="Menu_Format_Shape" xml:space="preserve">
+    <value>_Shape…</value>
+  </data>
+  <data name="Menu_Format_Shape_Tip" xml:space="preserve">
+    <value>Fill and border of the selected element (select an element first)</value>
+  </data>
+  <data name="Menu_Format_Line" xml:space="preserve">
+    <value>_Line…</value>
+  </data>
+  <data name="Menu_Format_Line_Tip" xml:space="preserve">
+    <value>Colour and thickness of the selected line (select a relationship, message or connector first)</value>
+  </data>
+  <data name="Menu_Format_DiagramFont" xml:space="preserve">
+    <value>_Diagram Font…</value>
+  </data>
+  <data name="Menu_Format_DiagramFont_Tip" xml:space="preserve">
+    <value>Font of all elements without a font of their own</value>
+  </data>
+  <data name="Menu_Format_BringToFront" xml:space="preserve">
+    <value>Bring to Fro_nt</value>
+  </data>
+  <data name="Menu_Format_BringToFront_Tip" xml:space="preserve">
+    <value>Draw the selected node, note or text box above all others</value>
+  </data>
+  <data name="Menu_Format_BringForward" xml:space="preserve">
+    <value>Bring _Forward</value>
+  </data>
+  <data name="Menu_Format_BringForward_Tip" xml:space="preserve">
+    <value>Draw the selected node above the next one it overlaps</value>
+  </data>
+  <data name="Menu_Format_SendBackward" xml:space="preserve">
+    <value>Send _Backward</value>
+  </data>
+  <data name="Menu_Format_SendBackward_Tip" xml:space="preserve">
+    <value>Draw the selected node below the next one it overlaps</value>
+  </data>
+  <data name="Menu_Format_SendToBack" xml:space="preserve">
+    <value>Send to Bac_k</value>
+  </data>
+  <data name="Menu_Format_SendToBack_Tip" xml:space="preserve">
+    <value>Draw the selected node, note or text box below all others</value>
+  </data>
+  <data name="Menu_Format_Arrange" xml:space="preserve">
+    <value>_Arrange Diagram</value>
+  </data>
+  <data name="Menu_Format_Arrange_Tip" xml:space="preserve">
+    <value>Rearrange the whole diagram so that it reads well, with as few crossing lines as possible (Undo puts it back)</value>
+  </data>
+  <data name="Menu_Diagram" xml:space="preserve">
+    <value>_Diagram</value>
+  </data>
+  <data name="Menu_Diagram_NewDiagram" xml:space="preserve">
+    <value>_New Diagram</value>
+  </data>
+  <data name="Menu_Diagram_CreateWithAi" xml:space="preserve">
+    <value>_Create with AI…</value>
+  </data>
+  <data name="Menu_Diagram_CreateWithAi_Tip" xml:space="preserve">
+    <value>Describe a diagram and let the AI service of Preferences → AI draw it</value>
+  </data>
+  <data name="Dialog_AiDiagram_Title" xml:space="preserve">
+    <value>Create Diagram with AI</value>
+  </data>
+  <data name="Dialog_AiDiagram_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Dialog_AiDiagram_Description_Example" xml:space="preserve">
+    <value>e.g. The lifecycle of an online order: created, paid, shipped and delivered; it can be cancelled until it is shipped.</value>
+  </data>
+  <data name="Dialog_AiDiagram_AnyType" xml:space="preserve">
+    <value>Let the AI choose</value>
+  </data>
+  <data name="Dialog_AiDiagram_Service" xml:space="preserve">
+    <value>The description is sent to {0}. The diagram is added to the selected folder; check it before you rely on it.</value>
+    <comment>{0} = the AI service and model, e.g. Claude (claude-sonnet-5-5).</comment>
+  </data>
+  <data name="Dialog_AiDiagram_NeedsDescription" xml:space="preserve">
+    <value>Describe the diagram.</value>
+  </data>
+  <data name="Menu_Diagram_NewDiagramEntry" xml:space="preserve">
+    <value>{0}…</value>
+    <comment>An entry of the new-diagram menus; {0} = diagram type, e.g. "Class diagram".</comment>
+  </data>
+  <data name="Menu_Diagram_Rename" xml:space="preserve">
+    <value>_Rename…</value>
+  </data>
+  <data name="Menu_Diagram_MoveTo" xml:space="preserve">
+    <value>_Move To…</value>
+  </data>
+  <data name="Menu_Diagram_Delete" xml:space="preserve">
+    <value>_Delete…</value>
+  </data>
+  <data name="Menu_Diagram_ExportPng" xml:space="preserve">
+    <value>PNG _Image…</value>
+  </data>
+  <data name="Menu_Diagram_GenerateCode" xml:space="preserve">
+    <value>_Generate Code…</value>
+  </data>
+  <data name="Menu_Diagram_GenerateCode_Tip" xml:space="preserve">
+    <value>Generate source code for the class diagram selected in the explorer</value>
+  </data>
+  <data name="Menu_Diagram_CloseAll" xml:space="preserve">
+    <value>Close _All Diagrams</value>
+  </data>
+  <data name="Menu_Diagram_Properties" xml:space="preserve">
+    <value>_Properties…</value>
+  </data>
+  <data name="Menu_Help" xml:space="preserve">
+    <value>_Help</value>
+  </data>
+  <data name="Menu_Help_About" xml:space="preserve">
+    <value>_About UML Wizard…</value>
+  </data>
+  <data name="AppMenu_About" xml:space="preserve">
+    <value>About UML Wizard</value>
+    <comment>The first item of the macOS application menu (no mnemonic or ellipsis there).</comment>
+  </data>
+  <data name="AppMenu_Preferences" xml:space="preserve">
+    <value>Preferences…</value>
+  </data>
+  <data name="Menu_Help_LearnUml" xml:space="preserve">
+    <value>_Learn UML</value>
+  </data>
+  <data name="Menu_Help_UserManual" xml:space="preserve">
+    <value>_User Manual</value>
+  </data>
+  <data name="Menu_Help_UserManual_Tip" xml:space="preserve">
+    <value>How to use UML Wizard: projects, drawing, formatting, importing and exporting, code generation</value>
+  </data>
+  <data name="Menu_Help_OpenApiHowTo" xml:space="preserve">
+    <value>How to _Import and Export OpenAPI</value>
+  </data>
+  <data name="Menu_Help_GeneratingCodeHowTo" xml:space="preserve">
+    <value>How to _Generate Code</value>
+  </data>
+  <data name="Help_LearnUml" xml:space="preserve">
+    <value>Learn UML</value>
+  </data>
+  <data name="Help_UserManual" xml:space="preserve">
+    <value>User Manual</value>
+  </data>
+  <data name="Help_OpenApiHowTo" xml:space="preserve">
+    <value>How to Import and Export OpenAPI</value>
+  </data>
+  <data name="Menu_Help_PlantUmlHowTo" xml:space="preserve">
+    <value>How to Import and Export _PlantUML</value>
+  </data>
+  <data name="Help_PlantUmlHowTo" xml:space="preserve">
+    <value>How to Import and Export PlantUML</value>
+  </data>
+  <data name="Help_GeneratingCodeHowTo" xml:space="preserve">
+    <value>How to Generate Code</value>
+  </data>
+  <data name="Message_HelpPageNotOpened" xml:space="preserve">
+    <value>The help page could not be opened:
+{0}</value>
+    <comment>{0} = path of the help page.</comment>
+  </data>
+  <data name="Toolbar_NewProject" xml:space="preserve">
+    <value>New project</value>
+  </data>
+  <data name="Toolbar_OpenProject" xml:space="preserve">
+    <value>Open project</value>
+  </data>
+  <data name="Toolbar_SaveProject" xml:space="preserve">
+    <value>Save project</value>
+  </data>
+  <data name="Toolbar_NewDiagram" xml:space="preserve">
+    <value>New diagram</value>
+  </data>
+  <data name="Toolbar_Undo" xml:space="preserve">
+    <value>Undo</value>
+  </data>
+  <data name="Toolbar_Redo" xml:space="preserve">
+    <value>Redo</value>
+  </data>
+  <data name="Toolbar_Cut" xml:space="preserve">
+    <value>Cut</value>
+  </data>
+  <data name="Toolbar_Copy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="Toolbar_Paste" xml:space="preserve">
+    <value>Paste</value>
+  </data>
+  <data name="Toolbar_ZoomOut" xml:space="preserve">
+    <value>Zoom out</value>
+  </data>
+  <data name="Toolbar_ZoomIn" xml:space="preserve">
+    <value>Zoom in</value>
+  </data>
+  <data name="Toolbar_ZoomLevel" xml:space="preserve">
+    <value>Zoom level: click to go back to 100%</value>
+  </data>
+  <data name="Toolbar_ActualSize" xml:space="preserve">
+    <value>Actual size</value>
+  </data>
+  <data name="Toolbar_Fit" xml:space="preserve">
+    <value>Fit diagram to window</value>
+  </data>
+  <data name="Toolbar_Edit" xml:space="preserve">
+    <value>Edit the selected element (Enter)</value>
+  </data>
+  <data name="Toolbar_Font" xml:space="preserve">
+    <value>Font of the selected element</value>
+  </data>
+  <data name="Toolbar_Shape" xml:space="preserve">
+    <value>Fill and border of the selected element</value>
+  </data>
+  <data name="Toolbar_Line" xml:space="preserve">
+    <value>Colour and thickness of the selected line</value>
+  </data>
+  <data name="Toolbar_BringToFront" xml:space="preserve">
+    <value>Bring to front</value>
+  </data>
+  <data name="Toolbar_BringForward" xml:space="preserve">
+    <value>Bring forward</value>
+  </data>
+  <data name="Toolbar_SendBackward" xml:space="preserve">
+    <value>Send backward</value>
+  </data>
+  <data name="Toolbar_SendToBack" xml:space="preserve">
+    <value>Send to back</value>
+  </data>
+  <data name="Explorer_ImportFolder_Tip" xml:space="preserve">
+    <value>Create a project with a class diagram from a folder of C#, C++, Java, Kotlin, Ruby or TypeScript source files</value>
+  </data>
+  <data name="Explorer_Title" xml:space="preserve">
+    <value>Project Explorer</value>
+  </data>
+  <data name="Explorer_Empty" xml:space="preserve">
+    <value>The project has no diagrams yet. Use + on the toolbar (or Diagram → New Diagram) to create one; right-click here or use File → New Folder to organise them.</value>
+  </data>
+  <data name="Explorer_Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="Explorer_NewFolder" xml:space="preserve">
+    <value>New Folder…</value>
+  </data>
+  <data name="Explorer_CopyDiagram" xml:space="preserve">
+    <value>Copy Diagram</value>
+  </data>
+  <data name="Explorer_CopyDiagram_Name" xml:space="preserve">
+    <value>{0} (copy)</value>
+    <comment>The name of a copied diagram; {0} = the name of the diagram copied.</comment>
+  </data>
+  <data name="Explorer_Rename" xml:space="preserve">
+    <value>Rename…</value>
+  </data>
+  <data name="Explorer_MoveTo" xml:space="preserve">
+    <value>Move To…</value>
+  </data>
+  <data name="Explorer_Delete" xml:space="preserve">
+    <value>Delete…</value>
+  </data>
+  <data name="Tab_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Placeholder_DiagramNotOpen" xml:space="preserve">
+    <value>This diagram is not open. Click it in the explorer to open it, or pick a tab.</value>
+  </data>
+  <data name="Placeholder_NoDiagram" xml:space="preserve">
+    <value>Create or open a project, then click a diagram to open it.</value>
+  </data>
+  <data name="Context_Cut" xml:space="preserve">
+    <value>Cut</value>
+  </data>
+  <data name="Context_Copy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="Context_Paste" xml:space="preserve">
+    <value>Paste</value>
+  </data>
+  <data name="Context_Edit" xml:space="preserve">
+    <value>Edit…</value>
+  </data>
+  <data name="Context_Font" xml:space="preserve">
+    <value>Font…</value>
+  </data>
+  <data name="Context_Shape" xml:space="preserve">
+    <value>Shape…</value>
+  </data>
+  <data name="Context_Line" xml:space="preserve">
+    <value>Line…</value>
+  </data>
+  <data name="Context_DiagramFont" xml:space="preserve">
+    <value>Diagram Font…</value>
+  </data>
+  <data name="Context_Arrange" xml:space="preserve">
+    <value>Arrange Diagram</value>
+  </data>
+  <data name="Context_BringToFront" xml:space="preserve">
+    <value>Bring to Front</value>
+  </data>
+  <data name="Context_BringForward" xml:space="preserve">
+    <value>Bring Forward</value>
+  </data>
+  <data name="Context_SendBackward" xml:space="preserve">
+    <value>Send Backward</value>
+  </data>
+  <data name="Context_SendToBack" xml:space="preserve">
+    <value>Send to Back</value>
+  </data>
+  <data name="Status_PlaceTool" xml:space="preserve">
+    <value>Click on the canvas to place: {0}. Esc cancels.</value>
+    <comment>{0} = tool name.</comment>
+  </data>
+  <data name="Status_ConnectorTool" xml:space="preserve">
+    <value>{0}. Esc cancels.</value>
+    <comment>{0} = tool description.</comment>
+  </data>
+  <data name="Status_Selected" xml:space="preserve">
+    <value>Selected: {0} — double-click to edit in place, right-click for Cut / Copy / Edit</value>
+    <comment>{0} = the selected element, e.g. "Class Order".</comment>
+  </data>
+  <data name="Status_Idle" xml:space="preserve">
+    <value>Double-click an element to edit in place · drag empty space to pan · {0}+wheel to zoom</value>
+    <comment>{0} = Ctrl or ⌘.</comment>
+  </data>
+  <data name="Describe_Named" xml:space="preserve">
+    <value>{0} {1}</value>
+    <comment>{0} = element kind, {1} = its name, e.g. "Class Order".</comment>
+  </data>
+  <data name="Describe_Connection" xml:space="preserve">
+    <value>{0} {1} → {2}</value>
+    <comment>{0} = connection kind, {1} = source, {2} = target.</comment>
+  </data>
+  <data name="Describe_Lifeline" xml:space="preserve">
+    <value>Lifeline {0}</value>
+    <comment>{0} = lifeline, e.g. "order : Order".</comment>
+  </data>
+  <data name="Describe_Message" xml:space="preserve">
+    <value>{0} message {1}</value>
+    <comment>{0} = message kind, {1} = message text.</comment>
+  </data>
+  <data name="Describe_TextBox" xml:space="preserve">
+    <value>Text box "{0}"</value>
+    <comment>{0} = start of the text.</comment>
+  </data>
+  <data name="Describe_Note" xml:space="preserve">
+    <value>Note "{0}"</value>
+    <comment>{0} = start of the text.</comment>
+  </data>
+  <data name="Describe_NoteAttachment" xml:space="preserve">
+    <value>Note attachment</value>
+  </data>
+  <data name="Tool_Select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="Tool_Select_Tip" xml:space="preserve">
+    <value>Select: select, move and resize elements</value>
+  </data>
+  <data name="Tool_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="Tool_Note_Tip" xml:space="preserve">
+    <value>Note: add a UML note (comment); drag its corner handle to resize it</value>
+  </data>
+  <data name="Tool_AttachNote" xml:space="preserve">
+    <value>Attach Note</value>
+  </data>
+  <data name="Tool_AttachNote_Tip" xml:space="preserve">
+    <value>Attach Note: drag from a note to the element it describes, or from the element to the note</value>
+  </data>
+  <data name="Tool_TextBox" xml:space="preserve">
+    <value>Text Box</value>
+  </data>
+  <data name="Tool_TextBox_Tip" xml:space="preserve">
+    <value>Text Box: add a text label; drag its corner handle to resize it</value>
+  </data>
+  <data name="Tool_Class" xml:space="preserve">
+    <value>Class</value>
+  </data>
+  <data name="Tool_Class_Tip" xml:space="preserve">
+    <value>Add a class</value>
+  </data>
+  <data name="Tool_AbstractClass" xml:space="preserve">
+    <value>Abstract</value>
+  </data>
+  <data name="Tool_AbstractClass_Tip" xml:space="preserve">
+    <value>Add an abstract class</value>
+  </data>
+  <data name="Tool_Interface" xml:space="preserve">
+    <value>Interface</value>
+  </data>
+  <data name="Tool_Interface_Tip" xml:space="preserve">
+    <value>Add an interface</value>
+  </data>
+  <data name="Tool_Enumeration" xml:space="preserve">
+    <value>Enum</value>
+  </data>
+  <data name="Tool_Enumeration_Tip" xml:space="preserve">
+    <value>Add an enumeration</value>
+  </data>
+  <data name="Tool_Association" xml:space="preserve">
+    <value>Association</value>
+  </data>
+  <data name="Tool_Association_Tip" xml:space="preserve">
+    <value>Association: drag from one class to another</value>
+  </data>
+  <data name="Tool_DirectedAssociation" xml:space="preserve">
+    <value>Directed</value>
+  </data>
+  <data name="Tool_DirectedAssociation_Tip" xml:space="preserve">
+    <value>Directed association: drag from the owner to the referenced class</value>
+  </data>
+  <data name="Tool_Inheritance" xml:space="preserve">
+    <value>Inheritance</value>
+  </data>
+  <data name="Tool_Inheritance_Tip" xml:space="preserve">
+    <value>Generalization: drag from the subclass to the base class</value>
+  </data>
+  <data name="Tool_Realization" xml:space="preserve">
+    <value>Realization</value>
+  </data>
+  <data name="Tool_Realization_Tip" xml:space="preserve">
+    <value>Realization: drag from the implementing class to the interface</value>
+  </data>
+  <data name="Tool_Aggregation" xml:space="preserve">
+    <value>Aggregation</value>
+  </data>
+  <data name="Tool_Aggregation_Tip" xml:space="preserve">
+    <value>Aggregation: drag from the whole to the part</value>
+  </data>
+  <data name="Tool_Composition" xml:space="preserve">
+    <value>Composition</value>
+  </data>
+  <data name="Tool_Composition_Tip" xml:space="preserve">
+    <value>Composition: drag from the whole to the part</value>
+  </data>
+  <data name="Tool_Dependency" xml:space="preserve">
+    <value>Dependency</value>
+  </data>
+  <data name="Tool_Dependency_Tip" xml:space="preserve">
+    <value>Dependency: drag from the dependent class to the class it uses</value>
+  </data>
+  <data name="Tool_Lifeline" xml:space="preserve">
+    <value>Lifeline</value>
+  </data>
+  <data name="Tool_Lifeline_Tip" xml:space="preserve">
+    <value>Add an object lifeline</value>
+  </data>
+  <data name="Tool_Actor" xml:space="preserve">
+    <value>Actor</value>
+  </data>
+  <data name="Tool_Actor_Tip" xml:space="preserve">
+    <value>Add an actor lifeline</value>
+  </data>
+  <data name="Tool_SyncMessage" xml:space="preserve">
+    <value>Sync</value>
+  </data>
+  <data name="Tool_SyncMessage_Tip" xml:space="preserve">
+    <value>Synchronous call: drag from the sender to the receiver</value>
+  </data>
+  <data name="Tool_AsyncMessage" xml:space="preserve">
+    <value>Async</value>
+  </data>
+  <data name="Tool_AsyncMessage_Tip" xml:space="preserve">
+    <value>Asynchronous message: drag from the sender to the receiver</value>
+  </data>
+  <data name="Tool_ReplyMessage" xml:space="preserve">
+    <value>Reply</value>
+  </data>
+  <data name="Tool_ReplyMessage_Tip" xml:space="preserve">
+    <value>Reply: drag from the callee back to the caller</value>
+  </data>
+  <data name="Tool_CreateMessage" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Tool_CreateMessage_Tip" xml:space="preserve">
+    <value>Create message: drag from the creator to the created object</value>
+  </data>
+  <data name="Tool_Node_Initial" xml:space="preserve">
+    <value>Initial</value>
+  </data>
+  <data name="Tool_Node_Final" xml:space="preserve">
+    <value>Final</value>
+  </data>
+  <data name="Tool_Node_ForkJoin" xml:space="preserve">
+    <value>Fork/Join</value>
+  </data>
+  <data name="Tool_Node_UseCase" xml:space="preserve">
+    <value>Use Case</value>
+  </data>
+  <data name="Tool_Node_SystemBoundary" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="Tool_Node_ExecutionEnvironment" xml:space="preserve">
+    <value>Environment</value>
+  </data>
+  <data name="Tool_Node_Other_Tip" xml:space="preserve">
+    <value>Add a {0}</value>
+    <comment>{0} = node kind.</comment>
+  </data>
+  <data name="Tool_Node_State_Tip" xml:space="preserve">
+    <value>Add a state</value>
+  </data>
+  <data name="Tool_Node_InitialState_Tip" xml:space="preserve">
+    <value>Add the initial pseudostate, where the state machine starts</value>
+  </data>
+  <data name="Tool_Node_FinalState_Tip" xml:space="preserve">
+    <value>Add a final state</value>
+  </data>
+  <data name="Tool_Node_Choice_Tip" xml:space="preserve">
+    <value>Add a choice: outgoing transitions carry guards</value>
+  </data>
+  <data name="Tool_Node_Action_Tip" xml:space="preserve">
+    <value>Add an action</value>
+  </data>
+  <data name="Tool_Node_InitialNode_Tip" xml:space="preserve">
+    <value>Add the initial node, where the activity starts</value>
+  </data>
+  <data name="Tool_Node_ActivityFinal_Tip" xml:space="preserve">
+    <value>Add an activity final node</value>
+  </data>
+  <data name="Tool_Node_Decision_Tip" xml:space="preserve">
+    <value>Add a decision or merge node</value>
+  </data>
+  <data name="Tool_Node_ForkJoin_Tip" xml:space="preserve">
+    <value>Add a fork or join bar; drag its corner handle to make it longer or vertical</value>
+  </data>
+  <data name="Tool_Node_Actor_Tip" xml:space="preserve">
+    <value>Add an actor</value>
+  </data>
+  <data name="Tool_Node_UseCase_Tip" xml:space="preserve">
+    <value>Add a use case</value>
+  </data>
+  <data name="Tool_Node_SystemBoundary_Tip" xml:space="preserve">
+    <value>Add a system boundary; use cases inside move with it</value>
+  </data>
+  <data name="Tool_Node_Component_Tip" xml:space="preserve">
+    <value>Add a component</value>
+  </data>
+  <data name="Tool_Node_Interface_Tip" xml:space="preserve">
+    <value>Add an interface (lollipop)</value>
+  </data>
+  <data name="Tool_Node_Node_Tip" xml:space="preserve">
+    <value>Add a node (a 3-D box); what lies inside it moves with it</value>
+  </data>
+  <data name="Tool_Node_Device_Tip" xml:space="preserve">
+    <value>Add a device node («device»); what lies inside it moves with it</value>
+    <comment>Keep the UML keyword «device» as is.</comment>
+  </data>
+  <data name="Tool_Node_ExecutionEnvironment_Tip" xml:space="preserve">
+    <value>Add an execution environment («executionEnvironment»), e.g. a runtime or container, usually inside a node</value>
+    <comment>Keep the UML keyword «executionEnvironment» as is.</comment>
+  </data>
+  <data name="Tool_Node_Artifact_Tip" xml:space="preserve">
+    <value>Add an artifact («artifact»): a file that is deployed, e.g. a program or a database</value>
+    <comment>Keep the UML keyword «artifact» as is.</comment>
+  </data>
+  <data name="Tool_Edge_ControlFlow" xml:space="preserve">
+    <value>Flow</value>
+  </data>
+  <data name="Tool_Edge_CommunicationPath" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="Tool_Edge_Transition_Tip" xml:space="preserve">
+    <value>Transition: drag from one state to the next (or back onto the same state)</value>
+  </data>
+  <data name="Tool_Edge_ControlFlow_Tip" xml:space="preserve">
+    <value>Control flow: drag from one node to the next</value>
+  </data>
+  <data name="Tool_Edge_Association_Tip" xml:space="preserve">
+    <value>Association: drag between the two elements</value>
+  </data>
+  <data name="Tool_Edge_Include_Tip" xml:space="preserve">
+    <value>Include: drag from the including use case to the included one</value>
+  </data>
+  <data name="Tool_Edge_Extend_Tip" xml:space="preserve">
+    <value>Extend: drag from the extending use case to the extended one</value>
+  </data>
+  <data name="Tool_Edge_Generalization_Tip" xml:space="preserve">
+    <value>Generalization: drag from the specific to the general actor or use case</value>
+  </data>
+  <data name="Tool_Edge_Dependency_Tip" xml:space="preserve">
+    <value>Dependency: drag from the dependent element to the one it uses</value>
+  </data>
+  <data name="Tool_Edge_Realization_Tip" xml:space="preserve">
+    <value>Realization: drag from the component to the interface it provides</value>
+  </data>
+  <data name="Tool_Edge_CommunicationPath_Tip" xml:space="preserve">
+    <value>Communication path: drag between two nodes; label it with the protocol, e.g. HTTPS</value>
+  </data>
+  <data name="Tool_Edge_Deploy_Tip" xml:space="preserve">
+    <value>Deploy: drag from an artifact to the node it is deployed on (or place it inside the node)</value>
+  </data>
+  <data name="Tool_Edge_Manifest_Tip" xml:space="preserve">
+    <value>Manifest: drag from an artifact to the component it implements</value>
+  </data>
+  <data name="DiagramType_Class" xml:space="preserve">
+    <value>Class diagram</value>
+  </data>
+  <data name="DiagramType_Sequence" xml:space="preserve">
+    <value>Sequence diagram</value>
+  </data>
+  <data name="DiagramType_StateMachine" xml:space="preserve">
+    <value>State machine diagram</value>
+  </data>
+  <data name="DiagramType_Activity" xml:space="preserve">
+    <value>Activity diagram</value>
+  </data>
+  <data name="DiagramType_UseCase" xml:space="preserve">
+    <value>Use case diagram</value>
+  </data>
+  <data name="DiagramType_Component" xml:space="preserve">
+    <value>Component diagram</value>
+  </data>
+  <data name="DiagramType_Deployment" xml:space="preserve">
+    <value>Deployment diagram</value>
+  </data>
+  <data name="DiagramName_Class" xml:space="preserve">
+    <value>ClassDiagram</value>
+    <comment>Start of the name of a new diagram, numbered: ClassDiagram1. No spaces.</comment>
+  </data>
+  <data name="DiagramName_Sequence" xml:space="preserve">
+    <value>SequenceDiagram</value>
+    <comment>See DiagramName_Class.</comment>
+  </data>
+  <data name="DiagramName_StateMachine" xml:space="preserve">
+    <value>StateMachine</value>
+    <comment>See DiagramName_Class.</comment>
+  </data>
+  <data name="DiagramName_Activity" xml:space="preserve">
+    <value>ActivityDiagram</value>
+    <comment>See DiagramName_Class.</comment>
+  </data>
+  <data name="DiagramName_UseCase" xml:space="preserve">
+    <value>UseCaseDiagram</value>
+    <comment>See DiagramName_Class.</comment>
+  </data>
+  <data name="DiagramName_Component" xml:space="preserve">
+    <value>ComponentDiagram</value>
+    <comment>See DiagramName_Class.</comment>
+  </data>
+  <data name="DiagramName_Deployment" xml:space="preserve">
+    <value>DeploymentDiagram</value>
+    <comment>See DiagramName_Class.</comment>
+  </data>
+  <data name="Enum_UmlVisibility_Public" xml:space="preserve">
+    <value>Public</value>
+  </data>
+  <data name="Enum_UmlVisibility_Private" xml:space="preserve">
+    <value>Private</value>
+  </data>
+  <data name="Enum_UmlVisibility_Protected" xml:space="preserve">
+    <value>Protected</value>
+  </data>
+  <data name="Enum_UmlVisibility_Package" xml:space="preserve">
+    <value>Package</value>
+  </data>
+  <data name="Enum_ClassifierKind_Class" xml:space="preserve">
+    <value>Class</value>
+  </data>
+  <data name="Enum_ClassifierKind_AbstractClass" xml:space="preserve">
+    <value>AbstractClass</value>
+  </data>
+  <data name="Enum_ClassifierKind_Interface" xml:space="preserve">
+    <value>Interface</value>
+  </data>
+  <data name="Enum_ClassifierKind_Enumeration" xml:space="preserve">
+    <value>Enumeration</value>
+  </data>
+  <data name="Enum_RelationshipKind_Association" xml:space="preserve">
+    <value>Association</value>
+  </data>
+  <data name="Enum_RelationshipKind_DirectedAssociation" xml:space="preserve">
+    <value>DirectedAssociation</value>
+  </data>
+  <data name="Enum_RelationshipKind_Inheritance" xml:space="preserve">
+    <value>Inheritance</value>
+  </data>
+  <data name="Enum_RelationshipKind_Realization" xml:space="preserve">
+    <value>Realization</value>
+  </data>
+  <data name="Enum_RelationshipKind_Aggregation" xml:space="preserve">
+    <value>Aggregation</value>
+  </data>
+  <data name="Enum_RelationshipKind_Composition" xml:space="preserve">
+    <value>Composition</value>
+  </data>
+  <data name="Enum_RelationshipKind_Dependency" xml:space="preserve">
+    <value>Dependency</value>
+  </data>
+  <data name="Enum_LifelineKind_Object" xml:space="preserve">
+    <value>Object</value>
+  </data>
+  <data name="Enum_LifelineKind_Actor" xml:space="preserve">
+    <value>Actor</value>
+  </data>
+  <data name="Enum_MessageKind_Synchronous" xml:space="preserve">
+    <value>Synchronous</value>
+  </data>
+  <data name="Enum_MessageKind_Asynchronous" xml:space="preserve">
+    <value>Asynchronous</value>
+  </data>
+  <data name="Enum_MessageKind_Reply" xml:space="preserve">
+    <value>Reply</value>
+  </data>
+  <data name="Enum_MessageKind_Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Enum_HorizontalTextAlignment_Left" xml:space="preserve">
+    <value>Left</value>
+  </data>
+  <data name="Enum_HorizontalTextAlignment_Center" xml:space="preserve">
+    <value>Center</value>
+  </data>
+  <data name="Enum_HorizontalTextAlignment_Right" xml:space="preserve">
+    <value>Right</value>
+  </data>
+  <data name="Enum_VerticalTextAlignment_Top" xml:space="preserve">
+    <value>Top</value>
+  </data>
+  <data name="Enum_VerticalTextAlignment_Middle" xml:space="preserve">
+    <value>Middle</value>
+  </data>
+  <data name="Enum_VerticalTextAlignment_Bottom" xml:space="preserve">
+    <value>Bottom</value>
+  </data>
+  <data name="Enum_GraphNodeKind_State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="Enum_GraphNodeKind_InitialState" xml:space="preserve">
+    <value>InitialState</value>
+  </data>
+  <data name="Enum_GraphNodeKind_FinalState" xml:space="preserve">
+    <value>FinalState</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Choice" xml:space="preserve">
+    <value>Choice</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="Enum_GraphNodeKind_InitialNode" xml:space="preserve">
+    <value>InitialNode</value>
+  </data>
+  <data name="Enum_GraphNodeKind_ActivityFinal" xml:space="preserve">
+    <value>ActivityFinal</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Decision" xml:space="preserve">
+    <value>Decision</value>
+  </data>
+  <data name="Enum_GraphNodeKind_ForkJoin" xml:space="preserve">
+    <value>ForkJoin</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Actor" xml:space="preserve">
+    <value>Actor</value>
+  </data>
+  <data name="Enum_GraphNodeKind_UseCase" xml:space="preserve">
+    <value>UseCase</value>
+  </data>
+  <data name="Enum_GraphNodeKind_SystemBoundary" xml:space="preserve">
+    <value>SystemBoundary</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Component" xml:space="preserve">
+    <value>Component</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Interface" xml:space="preserve">
+    <value>Interface</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Node" xml:space="preserve">
+    <value>Node</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Device" xml:space="preserve">
+    <value>Device</value>
+  </data>
+  <data name="Enum_GraphNodeKind_ExecutionEnvironment" xml:space="preserve">
+    <value>ExecutionEnvironment</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Artifact" xml:space="preserve">
+    <value>Artifact</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Transition" xml:space="preserve">
+    <value>Transition</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_ControlFlow" xml:space="preserve">
+    <value>ControlFlow</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Association" xml:space="preserve">
+    <value>Association</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Include" xml:space="preserve">
+    <value>Include</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Extend" xml:space="preserve">
+    <value>Extend</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Generalization" xml:space="preserve">
+    <value>Generalization</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Dependency" xml:space="preserve">
+    <value>Dependency</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Realization" xml:space="preserve">
+    <value>Realization</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_CommunicationPath" xml:space="preserve">
+    <value>CommunicationPath</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Deploy" xml:space="preserve">
+    <value>Deploy</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Manifest" xml:space="preserve">
+    <value>Manifest</value>
+  </data>
+  <data name="Message_UnsavedChanges_Title" xml:space="preserve">
+    <value>Unsaved Changes</value>
+  </data>
+  <data name="Message_UnsavedChanges_Many" xml:space="preserve">
+    <value>Save changes to the following diagrams?
+
+{0}</value>
+    <comment>{0} = list of diagram names, one per line.</comment>
+  </data>
+  <data name="Message_UnsavedChanges_One" xml:space="preserve">
+    <value>Save changes to '{0}'?</value>
+    <comment>{0} = diagram name.</comment>
+  </data>
+  <data name="Message_ProjectExists" xml:space="preserve">
+    <value>A project already exists at
+{0}</value>
+    <comment>{0} = folder path.</comment>
+  </data>
+  <data name="Message_ProjectNotCreated" xml:space="preserve">
+    <value>The project could not be created.
+{0}</value>
+    <comment>{0} = error details.</comment>
+  </data>
+  <data name="Message_ProjectNotOpened" xml:space="preserve">
+    <value>The project could not be opened.
+{0}</value>
+    <comment>{0} = error details.</comment>
+  </data>
+  <data name="Message_ProjectNotSaved" xml:space="preserve">
+    <value>The project file could not be saved.
+{0}</value>
+    <comment>{0} = error details.</comment>
+  </data>
+  <data name="Message_RecentProjectMissing_Title" xml:space="preserve">
+    <value>Open Recent Project</value>
+  </data>
+  <data name="Recent_CopyProject" xml:space="preserve">
+    <value>Copy Project</value>
+  </data>
+  <data name="Recent_CopyProject_Name" xml:space="preserve">
+    <value>{0} (copy)</value>
+    <comment>The name of a copied project, and of its file; {0} = the name of the project copied.</comment>
+  </data>
+  <data name="Recent_CopyProject_NameNumbered" xml:space="preserve">
+    <value>{0} (copy {1})</value>
+    <comment>The name of a copied project when "(copy)" is taken; {0} = the name of the project copied, {1} = 2, 3, …</comment>
+  </data>
+  <data name="Message_ProjectNotCopied" xml:space="preserve">
+    <value>The project could not be copied:
+{0}
+
+{1}</value>
+    <comment>{0} = full path of the project file, {1} = the reason.</comment>
+  </data>
+  <data name="Recent_DeleteFile" xml:space="preserve">
+    <value>Delete Project File…</value>
+  </data>
+  <data name="Message_DeleteProjectFile_Title" xml:space="preserve">
+    <value>Delete Project File</value>
+  </data>
+  <data name="Message_DeleteProjectFile" xml:space="preserve">
+    <value>Delete the project '{0}' permanently?
+{1}
+
+The file is deleted for good, not moved to the Recycle Bin or Trash. This cannot be undone, and the file cannot be restored.</value>
+    <comment>{0} = project name, {1} = full path of the project file.</comment>
+  </data>
+  <data name="Message_ProjectFileNotDeleted" xml:space="preserve">
+    <value>The project file could not be deleted:
+{0}
+
+{1}</value>
+    <comment>{0} = full path of the project file, {1} = the reason.</comment>
+  </data>
+  <data name="Message_RecentProjectMissing" xml:space="preserve">
+    <value>The project could not be found:
+{0}
+
+Remove it from the list of recent projects?</value>
+    <comment>{0} = file path.</comment>
+  </data>
+  <data name="Message_InvalidDiagram" xml:space="preserve">
+    <value>The file is not a valid diagram.
+{0}</value>
+    <comment>{0} = error details.</comment>
+  </data>
+  <data name="Message_DiagramNotAdded" xml:space="preserve">
+    <value>The diagram could not be added to the project.
+{0}</value>
+    <comment>{0} = error details.</comment>
+  </data>
+  <data name="Message_DeleteFolder_Title" xml:space="preserve">
+    <value>Delete Folder</value>
+  </data>
+  <data name="Message_DeleteFolder" xml:space="preserve">
+    <value>Delete the folder '{0}'?
+Its diagrams and subfolders are moved to {1}.</value>
+    <comment>{0} = folder name, {1} = Message_DeleteFolder_ToFolder or Message_DeleteFolder_ToTopLevel.</comment>
+  </data>
+  <data name="Message_DeleteFolder_ToFolder" xml:space="preserve">
+    <value>'{0}'</value>
+    <comment>{0} = name of the parent folder.</comment>
+  </data>
+  <data name="Message_DeleteFolder_ToTopLevel" xml:space="preserve">
+    <value>the top level</value>
+  </data>
+  <data name="Message_DeleteDiagram_Title" xml:space="preserve">
+    <value>Delete Diagram</value>
+  </data>
+  <data name="Message_DeleteDiagram" xml:space="preserve">
+    <value>Delete '{0}' from the project?
+This cannot be undone.</value>
+    <comment>{0} = diagram name.</comment>
+  </data>
+  <data name="Message_ReplaceFile" xml:space="preserve">
+    <value>The file '{0}' already exists in
+{1}
+
+Do you want to replace it?</value>
+    <comment>{0} = file name, {1} = folder.</comment>
+  </data>
+  <data name="Picker_OpenProject" xml:space="preserve">
+    <value>Open Project</value>
+  </data>
+  <data name="Picker_SaveProjectAs" xml:space="preserve">
+    <value>Save Project As</value>
+  </data>
+  <data name="Picker_ImportDiagram" xml:space="preserve">
+    <value>Import Diagram</value>
+  </data>
+  <data name="Picker_ProjectFiles" xml:space="preserve">
+    <value>UML Wizard project</value>
+    <comment>Name of the file type in open and save dialogs.</comment>
+  </data>
+  <data name="Picker_DiagramFiles" xml:space="preserve">
+    <value>UML Wizard diagram</value>
+    <comment>Name of the file type in open dialogs.</comment>
+  </data>
+  <data name="Picker_ProjectLocation" xml:space="preserve">
+    <value>Choose the project location</value>
+  </data>
+  <data name="Picker_OutputFolder" xml:space="preserve">
+    <value>Choose the output folder</value>
+  </data>
+  <data name="Dialog_NewProject_Title" xml:space="preserve">
+    <value>New Project</value>
+  </data>
+  <data name="Dialog_NewProject_DefaultName" xml:space="preserve">
+    <value>NewProject</value>
+    <comment>Name suggested for a new project; it becomes a folder and file name.</comment>
+  </data>
+  <data name="Dialog_ProjectProperties_Title" xml:space="preserve">
+    <value>Project Properties</value>
+  </data>
+  <data name="Dialog_ProjectProperties_CopyFolder_Tip" xml:space="preserve">
+    <value>The folder of the project file. Click to copy it to the clipboard.</value>
+  </data>
+  <data name="Dialog_ProjectProperties_Copied" xml:space="preserve">
+    <value>Copied</value>
+    <comment>Shown briefly after the project folder was copied to the clipboard.</comment>
+  </data>
+  <data name="Dialog_SaveProject_Title" xml:space="preserve">
+    <value>Save Project</value>
+  </data>
+  <data name="Dialog_Project_NeedsName" xml:space="preserve">
+    <value>The project needs a name.</value>
+  </data>
+  <data name="Dialog_Project_NeedsLocation" xml:space="preserve">
+    <value>Choose an existing folder as location.</value>
+  </data>
+  <data name="Dialog_NewDiagram_Title" xml:space="preserve">
+    <value>New Diagram</value>
+  </data>
+  <data name="Dialog_NewDiagram_NeedsName" xml:space="preserve">
+    <value>The diagram needs a name.</value>
+  </data>
+  <data name="Dialog_DiagramProperties_Title" xml:space="preserve">
+    <value>Diagram Properties</value>
+  </data>
+  <data name="Dialog_DiagramProperties_NeedsName" xml:space="preserve">
+    <value>Enter a name for the diagram.</value>
+  </data>
+  <data name="Dialog_NewFolder_Title" xml:space="preserve">
+    <value>New Folder</value>
+  </data>
+  <data name="Dialog_NewFolder_DefaultName" xml:space="preserve">
+    <value>New Folder</value>
+  </data>
+  <data name="Dialog_RenameFolder_Title" xml:space="preserve">
+    <value>Rename Folder</value>
+  </data>
+  <data name="Dialog_RenameDiagram_Title" xml:space="preserve">
+    <value>Rename Diagram</value>
+  </data>
+  <data name="Dialog_FolderName" xml:space="preserve">
+    <value>Folder name</value>
+  </data>
+  <data name="Dialog_DiagramName" xml:space="preserve">
+    <value>Diagram name</value>
+  </data>
+  <data name="Recent_Title" xml:space="preserve">
+    <value>Recent Projects</value>
+  </data>
+  <data name="Recent_None" xml:space="preserve">
+    <value>No recent projects yet. Projects you create or open are listed here.</value>
+  </data>
+  <data name="Start_NewProject" xml:space="preserve">
+    <value>Create a New Project</value>
+  </data>
+  <data name="Start_NewProject_Description" xml:space="preserve">
+    <value>Start an empty project, then add diagrams to it.</value>
+  </data>
+  <data name="Start_OpenProject" xml:space="preserve">
+    <value>Open an Existing Project</value>
+  </data>
+  <data name="Start_OpenProject_Description" xml:space="preserve">
+    <value>Open a UML Wizard project file (.umlwiz).</value>
+  </data>
+  <data name="Start_ImportFolder" xml:space="preserve">
+    <value>Import Source Folder</value>
+  </data>
+  <data name="Start_ImportFolder_Description" xml:space="preserve">
+    <value>Create a class diagram from a folder of C#, C++, Java, Kotlin, Ruby or TypeScript code.</value>
+  </data>
+  <data name="Splash_Loading" xml:space="preserve">
+    <value>Starting…</value>
+  </data>
+  <data name="Dialog_RenameProject_Title" xml:space="preserve">
+    <value>Rename Project</value>
+  </data>
+  <data name="Dialog_ProjectName" xml:space="preserve">
+    <value>Project name</value>
+  </data>
+  <data name="Dialog_TextInput_NeedsValue" xml:space="preserve">
+    <value>Enter a value.</value>
+  </data>
+  <data name="Dialog_MoveTo_Title" xml:space="preserve">
+    <value>Move To</value>
+  </data>
+  <data name="Dialog_MoveTo_Prompt" xml:space="preserve">
+    <value>Move '{0}' to:</value>
+    <comment>{0} = diagram or folder name.</comment>
+  </data>
+  <data name="Dialog_MoveTo_TopLevel" xml:space="preserve">
+    <value>(Top level)</value>
+  </data>
+  <data name="Dialog_MoveTo_NeedsDestination" xml:space="preserve">
+    <value>Choose a destination.</value>
+  </data>
+  <data name="Dialog_EditClass_Title" xml:space="preserve">
+    <value>Edit Class</value>
+  </data>
+  <data name="Dialog_EditClass_Stereotype" xml:space="preserve">
+    <value>Stereotype</value>
+  </data>
+  <data name="Dialog_EditClass_Stereotype_Hint" xml:space="preserve">
+    <value>optional, e.g. entity</value>
+  </data>
+  <data name="Dialog_EditClass_Attributes" xml:space="preserve">
+    <value>Attributes</value>
+  </data>
+  <data name="Dialog_EditClass_AddAttribute" xml:space="preserve">
+    <value>+ Add attribute</value>
+  </data>
+  <data name="Dialog_EditClass_Operations" xml:space="preserve">
+    <value>Operations</value>
+  </data>
+  <data name="Dialog_EditClass_AddOperation" xml:space="preserve">
+    <value>+ Add operation</value>
+  </data>
+  <data name="Dialog_EditClass_DefaultValue" xml:space="preserve">
+    <value>Default value</value>
+  </data>
+  <data name="Dialog_EditClass_Static" xml:space="preserve">
+    <value>Static</value>
+  </data>
+  <data name="Dialog_EditClass_Abstract" xml:space="preserve">
+    <value>Abstract</value>
+  </data>
+  <data name="Dialog_EditClass_Parameters" xml:space="preserve">
+    <value>Parameters (name: Type, …)</value>
+  </data>
+  <data name="Dialog_EditClass_ReturnType" xml:space="preserve">
+    <value>Return type</value>
+  </data>
+  <data name="Dialog_EditClass_NewAttributeName" xml:space="preserve">
+    <value>attribute{0}</value>
+    <comment>Name of a new attribute; {0} = number. No spaces.</comment>
+  </data>
+  <data name="Dialog_EditClass_NewOperationName" xml:space="preserve">
+    <value>operation{0}</value>
+    <comment>Name of a new operation; {0} = number. No spaces.</comment>
+  </data>
+  <data name="Dialog_EditClass_NeedsName" xml:space="preserve">
+    <value>The class needs a name.</value>
+  </data>
+  <data name="Dialog_EditClass_AttributeNeedsName" xml:space="preserve">
+    <value>Every attribute needs a name.</value>
+  </data>
+  <data name="Dialog_EditClass_OperationNeedsName" xml:space="preserve">
+    <value>Every operation needs a name.</value>
+  </data>
+  <data name="Dialog_EditRelationship_Title" xml:space="preserve">
+    <value>Edit Relationship</value>
+  </data>
+  <data name="Dialog_EditRelationship_FromTo" xml:space="preserve">
+    <value>From → To</value>
+  </data>
+  <data name="Dialog_EditRelationship_SourceMultiplicity" xml:space="preserve">
+    <value>Source multiplicity</value>
+  </data>
+  <data name="Dialog_EditRelationship_SourceMultiplicity_Hint" xml:space="preserve">
+    <value>e.g. 1</value>
+  </data>
+  <data name="Dialog_EditRelationship_TargetMultiplicity" xml:space="preserve">
+    <value>Target multiplicity</value>
+  </data>
+  <data name="Dialog_EditRelationship_TargetMultiplicity_Hint" xml:space="preserve">
+    <value>e.g. 0..*</value>
+  </data>
+  <data name="Dialog_EditLifeline_Title" xml:space="preserve">
+    <value>Edit Lifeline</value>
+  </data>
+  <data name="Dialog_EditLifeline_Type_Hint" xml:space="preserve">
+    <value>classifier, e.g. OrderService</value>
+  </data>
+  <data name="Dialog_EditLifeline_NeedsNameOrType" xml:space="preserve">
+    <value>Enter a name, a type or both.</value>
+  </data>
+  <data name="Dialog_EditMessage_Title" xml:space="preserve">
+    <value>Edit Message</value>
+  </data>
+  <data name="Dialog_EditMessage_Text_Hint" xml:space="preserve">
+    <value>e.g. placeOrder(order)</value>
+  </data>
+  <data name="Dialog_EditMessage_From" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="Dialog_EditMessage_To" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="Dialog_EditMessage_NeedsLifelines" xml:space="preserve">
+    <value>Choose the sending and receiving lifelines.</value>
+  </data>
+  <data name="Dialog_EditNote_Title" xml:space="preserve">
+    <value>Edit Note</value>
+  </data>
+  <data name="Dialog_EditTextBox_Title" xml:space="preserve">
+    <value>Edit Text Box</value>
+  </data>
+  <data name="Dialog_EditTextBox_Text_Hint" xml:space="preserve">
+    <value>Text; press Enter for a new line</value>
+  </data>
+  <data name="Dialog_EditTextBox_Horizontal" xml:space="preserve">
+    <value>Horizontal</value>
+  </data>
+  <data name="Dialog_EditTextBox_Vertical" xml:space="preserve">
+    <value>Vertical</value>
+  </data>
+  <data name="Dialog_RenameElement_Title" xml:space="preserve">
+    <value>Rename {0}</value>
+    <comment>{0} = the element, e.g. "State Paid".</comment>
+  </data>
+  <data name="Dialog_EditEdge_Title" xml:space="preserve">
+    <value>Edit {0}</value>
+    <comment>{0} = connection kind, e.g. "Transition".</comment>
+  </data>
+  <data name="Dialog_EditEdge_TransitionLabel" xml:space="preserve">
+    <value>Label (trigger [guard] / effect)</value>
+    <comment>Keep the brackets and slash: they are UML syntax.</comment>
+  </data>
+  <data name="Dialog_EditEdge_GuardLabel" xml:space="preserve">
+    <value>Guard, e.g. [approved]</value>
+  </data>
+  <data name="Dialog_Font_Title" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="Dialog_Font_ElementTitle" xml:space="preserve">
+    <value>Font — {0}</value>
+    <comment>{0} = the element, e.g. "Class Order".</comment>
+  </data>
+  <data name="Dialog_Shape_Title" xml:space="preserve">
+    <value>Format Shape — {0}</value>
+    <comment>{0} = the element, e.g. "Class Order".</comment>
+  </data>
+  <data name="ColorPicker_Title" xml:space="preserve">
+    <value>Edit Colour — {0}</value>
+    <comment>{0} = what the colour is for, e.g. Fill or Border.</comment>
+  </data>
+  <data name="ColorPicker_Hex_Tip" xml:space="preserve">
+    <value>The colour as #RRGGBB</value>
+  </data>
+  <data name="ColorPicker_Hex" xml:space="preserve">
+    <value>Hex</value>
+  </data>
+  <data name="ColorPicker_Red" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="ColorPicker_Green" xml:space="preserve">
+    <value>Green</value>
+  </data>
+  <data name="ColorPicker_Blue" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="ColorPicker_Hue" xml:space="preserve">
+    <value>Hue</value>
+  </data>
+  <data name="ColorPicker_Saturation" xml:space="preserve">
+    <value>Saturation</value>
+  </data>
+  <data name="ColorPicker_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ColorPicker_BasicColors" xml:space="preserve">
+    <value>Basic colours</value>
+  </data>
+  <data name="ColorPicker_CustomColors" xml:space="preserve">
+    <value>Custom colours</value>
+  </data>
+  <data name="ColorPicker_AddCustom" xml:space="preserve">
+    <value>Add to Custom Colours</value>
+  </data>
+  <data name="ColorPicker_AddCustom_Tip" xml:space="preserve">
+    <value>Add the colour to the custom colours</value>
+  </data>
+  <data name="ColorBox_Edit_Tip" xml:space="preserve">
+    <value>Choose a colour</value>
+  </data>
+  <data name="Dialog_Shape_Fill" xml:space="preserve">
+    <value>Fill</value>
+  </data>
+  <data name="Dialog_Shape_Border" xml:space="preserve">
+    <value>Border</value>
+  </data>
+  <data name="Dialog_Line_Title" xml:space="preserve">
+    <value>Format Line — {0}</value>
+    <comment>{0} = the connector, e.g. "Association".</comment>
+  </data>
+  <data name="Dialog_Shape_Line" xml:space="preserve">
+    <value>Line</value>
+  </data>
+  <data name="Dialog_Shape_DefaultFill" xml:space="preserve">
+    <value>Default fill</value>
+  </data>
+  <data name="Dialog_Shape_DefaultBorder" xml:space="preserve">
+    <value>Default colour</value>
+  </data>
+  <data name="Dialog_Shape_DefaultColor_Tip" xml:space="preserve">
+    <value>The colour of the current scheme for this kind of element</value>
+  </data>
+  <data name="Dialog_Shape_None" xml:space="preserve">
+    <value>(none)</value>
+  </data>
+  <data name="Dialog_Shape_Thickness" xml:space="preserve">
+    <value>Thickness</value>
+  </data>
+  <data name="Dialog_Shape_Sample" xml:space="preserve">
+    <value>Sample</value>
+  </data>
+  <data name="Dialog_Shape_Reset" xml:space="preserve">
+    <value>Reset to Defaults</value>
+  </data>
+  <data name="Dialog_Shape_InvalidColor" xml:space="preserve">
+    <value>Enter colours as #RRGGBB, e.g. #E8EEF9.</value>
+  </data>
+  <data name="Dialog_Shape_WidthRange" xml:space="preserve">
+    <value>The thickness must be between {0} and {1}.</value>
+    <comment>{0}, {1} = the smallest and largest thickness.</comment>
+  </data>
+  <data name="Dialog_Font_DiagramTitle" xml:space="preserve">
+    <value>Diagram Font</value>
+  </data>
+  <data name="Dialog_Font_Font" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="Dialog_Font_Size" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="Dialog_Font_Style" xml:space="preserve">
+    <value>Style</value>
+  </data>
+  <data name="Dialog_Font_Bold" xml:space="preserve">
+    <value>Bold</value>
+  </data>
+  <data name="Dialog_Font_Italic" xml:space="preserve">
+    <value>Italic</value>
+  </data>
+  <data name="Dialog_Font_Sample" xml:space="preserve">
+    <value>Order  +total: decimal  #pay(amount): bool</value>
+    <comment>Preview text in the chosen font; UML-like, may stay as is.</comment>
+  </data>
+  <data name="Dialog_Font_DefaultFamily" xml:space="preserve">
+    <value>(Default)</value>
+    <comment>The first entry of the font list: the default font.</comment>
+  </data>
+  <data name="Dialog_Font_UseDiagramFont" xml:space="preserve">
+    <value>Use the diagram font</value>
+  </data>
+  <data name="Dialog_Font_UseDefaultFont" xml:space="preserve">
+    <value>Use the default font</value>
+  </data>
+  <data name="Dialog_Font_SizeRange" xml:space="preserve">
+    <value>Enter a size between {0} and {1}.</value>
+    <comment>{0} and {1} = the smallest and largest size.</comment>
+  </data>
+  <data name="Dialog_Export_Title" xml:space="preserve">
+    <value>Export as PNG</value>
+  </data>
+  <data name="Dialog_Export_Prompt" xml:space="preserve">
+    <value>Export '{0}' as a PNG image.</value>
+    <comment>{0} = diagram name.</comment>
+  </data>
+  <data name="Dialog_Export_OutputFolder" xml:space="preserve">
+    <value>Output folder</value>
+  </data>
+  <data name="Dialog_Export_Browse_Tip" xml:space="preserve">
+    <value>Choose the folder</value>
+  </data>
+  <data name="Dialog_Export_OutputFolder_Hint" xml:space="preserve">
+    <value>Full path of a folder</value>
+  </data>
+  <data name="Dialog_Export_FileName" xml:space="preserve">
+    <value>File name</value>
+  </data>
+  <data name="Dialog_Export_FileName_Hint" xml:space="preserve">
+    <value>diagram.png</value>
+  </data>
+  <data name="Dialog_Export_FileExists" xml:space="preserve">
+    <value>File already exists</value>
+  </data>
+  <data name="Dialog_Export_FileExists_Tip" xml:space="preserve">
+    <value>A file with this name is already in the folder</value>
+  </data>
+  <data name="Dialog_Export_Transparent" xml:space="preserve">
+    <value>Transparent background</value>
+  </data>
+  <data name="Dialog_Export_Transparent_Note" xml:space="preserve">
+    <value>Shapes filled white and the backgrounds of labels stay white.</value>
+  </data>
+  <data name="Dialog_Export_NeedsFolder" xml:space="preserve">
+    <value>Enter or choose the output folder.</value>
+  </data>
+  <data name="Dialog_Export_NeedsFileName" xml:space="preserve">
+    <value>Enter a file name.</value>
+  </data>
+  <data name="Dialog_Export_InvalidFileName" xml:space="preserve">
+    <value>The file name contains characters that are not allowed.</value>
+  </data>
+  <data name="Dialog_Export_FolderMissing" xml:space="preserve">
+    <value>The output folder does not exist.</value>
+  </data>
+  <data name="About_Title" xml:space="preserve">
+    <value>About {0}</value>
+    <comment>{0} = product name.</comment>
+  </data>
+  <data name="About_Description" xml:space="preserve">
+    <value>A UML designer for class, sequence, state machine, activity, use case, component and deployment diagrams, with code generation and code import.</value>
+  </data>
+  <data name="About_General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="About_Languages" xml:space="preserve">
+    <value>Languages</value>
+  </data>
+  <data name="About_Languages_Intro" xml:space="preserve">
+    <value>The code generators and code importers installed from the plugins folders. Each language is a plug-in DLL; hover a row for its file.</value>
+  </data>
+  <data name="About_Languages_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="About_Languages_Kind" xml:space="preserve">
+    <value>Plug-in</value>
+  </data>
+  <data name="About_Languages_Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="About_Languages_Provider" xml:space="preserve">
+    <value>Provider</value>
+  </data>
+  <data name="About_Languages_Generation" xml:space="preserve">
+    <value>Code generation</value>
+  </data>
+  <data name="About_Languages_Import" xml:space="preserve">
+    <value>Code import</value>
+  </data>
+  <data name="About_Languages_NoProvider" xml:space="preserve">
+    <value>Not specified</value>
+    <comment>Provider of a plug-in whose DLL names no company.</comment>
+  </data>
+  <data name="About_Languages_None" xml:space="preserve">
+    <value>No language plug-ins are installed.</value>
+  </data>
+  <data name="About_Languages_Problems" xml:space="preserve">
+    <value>These plug-ins could not be loaded:</value>
+  </data>
+  <data name="About_Acknowledgements" xml:space="preserve">
+    <value>Acknowledgements</value>
+  </data>
+  <data name="About_Uml" xml:space="preserve">
+    <value>UML</value>
+  </data>
+  <data name="About_OperatingSystem" xml:space="preserve">
+    <value>Operating system</value>
+  </data>
+  <data name="About_Architecture" xml:space="preserve">
+    <value>Architecture</value>
+  </data>
+  <data name="About_ProcessArchitecture" xml:space="preserve">
+    <value>{0} process on {1}</value>
+    <comment>{0} = architecture of the app process, {1} = of the operating system, e.g. "x64 process on arm64".</comment>
+  </data>
+  <data name="About_Runtime" xml:space="preserve">
+    <value>Runtime</value>
+  </data>
+  <data name="About_UiFramework" xml:space="preserve">
+    <value>UI framework</value>
+  </data>
+  <data name="About_Licence" xml:space="preserve">
+    <value>Licence</value>
+  </data>
+  <data name="About_Website" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="About_NotSpecified" xml:space="preserve">
+    <value>Not specified yet</value>
+  </data>
+  <data name="About_UnknownVersion" xml:space="preserve">
+    <value>unknown</value>
+  </data>
+  <data name="About_Version" xml:space="preserve">
+    <value>Version {0}</value>
+    <comment>{0} = version number.</comment>
+  </data>
+  <data name="About_UmlSupport" xml:space="preserve">
+    <value>UML 2.5.1 notation (subset): class, sequence, state machine, activity, use case, component and deployment diagrams</value>
+  </data>
+  <data name="About_AcknowledgementsIntro" xml:space="preserve">
+    <value>UML Wizard is built with these open source components. Icons: Material Design Icons by Pictogrammers.</value>
+  </data>
+  <data name="About_ThirdPartyNotices" xml:space="preserve">
+    <value>Third-Party Notices…</value>
+  </data>
+  <data name="About_ThirdPartyNotices_Tip" xml:space="preserve">
+    <value>The full license texts of every third-party component</value>
+  </data>
+  <data name="About_CopyDetails" xml:space="preserve">
+    <value>Copy Details</value>
+  </data>
+  <data name="About_CopyDetails_Tip" xml:space="preserve">
+    <value>Copy the version and system information</value>
+  </data>
+  <data name="About_Copied" xml:space="preserve">
+    <value>Copied to the clipboard.</value>
+  </data>
+  <data name="About_DetailLine" xml:space="preserve">
+    <value>{0}: {1}</value>
+    <comment>One line of the copied details; {0} = label, {1} = value.</comment>
+  </data>
+  <data name="Dialog_GenerateCode_Title" xml:space="preserve">
+    <value>Generate Code</value>
+  </data>
+  <data name="Dialog_GenerateCode_Prompt" xml:space="preserve">
+    <value>Generate source code for the classes of '{0}'.</value>
+    <comment>{0} = diagram name.</comment>
+  </data>
+  <data name="Dialog_GenerateCode_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Dialog_GenerateCode_Namespace" xml:space="preserve">
+    <value>Namespace</value>
+    <comment>C# and C++.</comment>
+  </data>
+  <data name="Dialog_GenerateCode_Package" xml:space="preserve">
+    <value>Package</value>
+    <comment>Java.</comment>
+  </data>
+  <data name="Dialog_GenerateCode_Module" xml:space="preserve">
+    <value>Module</value>
+    <comment>Ruby.</comment>
+  </data>
+  <data name="Dialog_GenerateCode_Namespace_Hint" xml:space="preserve">
+    <value>optional, e.g. Shop.Domain</value>
+  </data>
+  <data name="Dialog_GenerateCode_OutputFolder" xml:space="preserve">
+    <value>Output folder</value>
+  </data>
+  <data name="Dialog_GenerateCode_OutputFolder_Hint" xml:space="preserve">
+    <value>Full path of a folder; it is created if needed</value>
+  </data>
+  <data name="Dialog_GenerateCode_Browse_Tip" xml:space="preserve">
+    <value>Choose the folder</value>
+  </data>
+  <data name="Dialog_GenerateCode_FileCount" xml:space="preserve">
+    <value>Files to write: {0}</value>
+    <comment>{0} = number of files.</comment>
+  </data>
+  <data name="Dialog_GenerateCode_ExistingCount" xml:space="preserve">
+    <value>Files to write: {0} · Replacing existing files: {1}</value>
+    <comment>{0} = number of files, {1} = how many of them already exist.</comment>
+  </data>
+  <data name="Dialog_GenerateCode_Replaces" xml:space="preserve">
+    <value>replaces existing file</value>
+  </data>
+  <data name="Dialog_GenerateCode_Warnings" xml:space="preserve">
+    <value>Notes on the generated code</value>
+  </data>
+  <data name="Dialog_GenerateCode_NoWarnings" xml:space="preserve">
+    <value>Everything in the diagram can be expressed in this language.</value>
+  </data>
+  <data name="Dialog_GenerateCode_NeedsFolder" xml:space="preserve">
+    <value>Enter or choose the output folder.</value>
+  </data>
+  <data name="Dialog_GenerateCode_InvalidFolder" xml:space="preserve">
+    <value>The output folder is not a valid full path.</value>
+  </data>
+  <data name="Dialog_GenerateCode_InvalidNamespace" xml:space="preserve">
+    <value>Use letters, digits and underscores, with parts separated by . or ::</value>
+  </data>
+  <data name="Dialog_GenerateCode_NoClasses" xml:space="preserve">
+    <value>The diagram has no classes, interfaces or enumerations to generate.</value>
+  </data>
+  <data name="Message_ReplaceGeneratedFiles" xml:space="preserve">
+    <value>{0} of the files already exist in
+{1}
+
+Do you want to replace them?</value>
+    <comment>{0} = number of existing files, {1} = folder.</comment>
+  </data>
+  <data name="Message_CodeGenerated" xml:space="preserve">
+    <value>Files written: {0}
+Folder: {1}</value>
+    <comment>{0} = number of files, {1} = folder.</comment>
+  </data>
+  <data name="Message_NoCodeGenerators" xml:space="preserve">
+    <value>No code generator plug-ins were found in
+{0}
+
+Put a code generator plug-in DLL in one of these folders and start UML Wizard again.</value>
+    <comment>{0} = the plug-ins folders, one per line.</comment>
+  </data>
+  <data name="Message_CodeGeneratorFailed" xml:space="preserve">
+    <value>The {0} code generator failed: {1}</value>
+    <comment>{0} = language, {1} = error message.</comment>
+  </data>
+  <data name="Dialog_TaggedValues" xml:space="preserve">
+    <value>Tagged values</value>
+  </data>
+  <data name="Dialog_TaggedValues_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="Dialog_TaggedValues_Add" xml:space="preserve">
+    <value>Add Tagged Value</value>
+  </data>
+  <data name="Dialog_TaggedValues_None" xml:space="preserve">
+    <value>No tagged values.</value>
+  </data>
+  <data name="Dialog_EditClass_TaggedValuesOf" xml:space="preserve">
+    <value>Tagged values of {0}</value>
+    <comment>{0} = the class, attribute or operation, e.g. "the class" or "attribute name".</comment>
+  </data>
+  <data name="Dialog_EditClass_TheClass" xml:space="preserve">
+    <value>the class</value>
+  </data>
+  <data name="Dialog_EditClass_AttributeOwner" xml:space="preserve">
+    <value>attribute {0}</value>
+  </data>
+  <data name="Dialog_EditClass_OperationOwner" xml:space="preserve">
+    <value>operation {0}</value>
+  </data>
+  <data name="Dialog_EditClass_Method" xml:space="preserve">
+    <value>Method</value>
+  </data>
+  <data name="Dialog_EditClass_Method_Tip" xml:space="preserve">
+    <value>The HTTP method when the operation is a web API endpoint</value>
+  </data>
+  <data name="Dialog_EditClass_Path" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="Dialog_EditClass_Path_Hint" xml:space="preserve">
+    <value>/orders/{id}</value>
+  </data>
+  <data name="Menu_Diagram_ImportOpenApi" xml:space="preserve">
+    <value>_OpenAPI…</value>
+  </data>
+  <data name="Menu_Diagram_ImportOpenApi_Tip" xml:space="preserve">
+    <value>Create a class diagram from an OpenAPI 3.x or Swagger 2.0 description (YAML or JSON)</value>
+  </data>
+  <data name="Menu_Diagram_ExportOpenApi" xml:space="preserve">
+    <value>_OpenAPI…</value>
+  </data>
+  <data name="Menu_Diagram_ExportOpenApi_Tip" xml:space="preserve">
+    <value>Write the selected class diagram as an OpenAPI 3.0 description</value>
+  </data>
+  <data name="Menu_Diagram_Import" xml:space="preserve">
+    <value>_Import</value>
+  </data>
+  <data name="Menu_Diagram_Export" xml:space="preserve">
+    <value>_Export</value>
+  </data>
+  <data name="Menu_Diagram_ExportPng_Tip" xml:space="preserve">
+    <value>Save the selected diagram as a PNG image</value>
+  </data>
+  <data name="Menu_Diagram_ImportPlantUml" xml:space="preserve">
+    <value>_PlantUML…</value>
+  </data>
+  <data name="Menu_Diagram_ImportPlantUml_Tip" xml:space="preserve">
+    <value>Create diagrams from a PlantUML file: class, sequence, state, activity, use case, component and deployment diagrams</value>
+  </data>
+  <data name="Menu_Diagram_ExportPlantUml" xml:space="preserve">
+    <value>_PlantUML…</value>
+  </data>
+  <data name="Menu_Diagram_ExportPlantUml_Tip" xml:space="preserve">
+    <value>Write the selected diagram as PlantUML</value>
+  </data>
+  <data name="Picker_ImportPlantUml" xml:space="preserve">
+    <value>Import PlantUML</value>
+  </data>
+  <data name="Picker_ExportPlantUml" xml:space="preserve">
+    <value>Export PlantUML</value>
+  </data>
+  <data name="Picker_PlantUmlFiles" xml:space="preserve">
+    <value>PlantUML files</value>
+  </data>
+  <data name="Message_InvalidPlantUml" xml:space="preserve">
+    <value>The file could not be read as PlantUML: {0}</value>
+    <comment>{0} = the reason.</comment>
+  </data>
+  <data name="Message_PlantUmlImportNotes" xml:space="preserve">
+    <value>Created {0}. Some parts of the PlantUML could not be kept:
+
+{1}</value>
+    <comment>{0} = the new diagrams' names in quotes, {1} = one note per line.</comment>
+  </data>
+  <data name="Message_AiNotSetUp" xml:space="preserve">
+    <value>No AI service is set up yet. Set one up in Preferences → AI now?</value>
+  </data>
+  <data name="Message_FindingSourceFiles" xml:space="preserve">
+    <value>Looking for source files in {0}…</value>
+    <comment>{0} = folder name.</comment>
+  </data>
+  <data name="Message_ImportReading" xml:space="preserve">
+    <value>Reading {0:N0} of {1:N0} source files…</value>
+    <comment>{0} = files read so far, {1} = all files.</comment>
+  </data>
+  <data name="Message_ImportParsing" xml:space="preserve">
+    <value>Reading the declarations in {0:N0} {1} files…</value>
+    <comment>{0} = number of files, {1} = language, e.g. C#.</comment>
+  </data>
+  <data name="Message_ImportLayingOut" xml:space="preserve">
+    <value>Laying out {0:N0} classes…</value>
+    <comment>{0} = number of classes.</comment>
+  </data>
+  <data name="Message_Arranging" xml:space="preserve">
+    <value>Arranging '{0}'…</value>
+    <comment>{0} = diagram name.</comment>
+  </data>
+  <data name="Message_WritingFiles" xml:space="preserve">
+    <value>Writing {0:N0} of {1:N0} files…</value>
+    <comment>{0} = files written so far, {1} = all files.</comment>
+  </data>
+  <data name="Message_CodeGenerationCancelled" xml:space="preserve">
+    <value>Generating the code was cancelled. Some of the files may already have been written to:
+{0}</value>
+    <comment>{0} = the output folder.</comment>
+  </data>
+  <data name="Message_AiWorking" xml:space="preserve">
+    <value>Creating the diagram with {0}…</value>
+    <comment>{0} = the AI service and model.</comment>
+  </data>
+  <data name="Message_AiDiagramDescription" xml:space="preserve">
+    <value>Created with {0} from: {1}</value>
+    <comment>{0} = the AI service and model; {1} = the description the user gave.</comment>
+  </data>
+  <data name="Message_PlantUmlExported" xml:space="preserve">
+    <value>The PlantUML was written to {0}.</value>
+    <comment>{0} = file path.</comment>
+  </data>
+  <data name="Message_PlantUmlExportedWithNotes" xml:space="preserve">
+    <value>The PlantUML was written to {0}. Notes:
+
+{1}</value>
+    <comment>{0} = file path, {1} = one note per line.</comment>
+  </data>
+  <data name="Picker_ImportOpenApi" xml:space="preserve">
+    <value>Import OpenAPI</value>
+  </data>
+  <data name="Picker_OpenApiFiles" xml:space="preserve">
+    <value>OpenAPI description</value>
+  </data>
+  <data name="Dialog_ImportCode_Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="Dialog_ImportCode_DefaultDescription" xml:space="preserve">
+    <value>Imported from {0}.</value>
+    <comment>{0} = the folder name.</comment>
+  </data>
+  <data name="Dialog_ImportCode_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Dialog_ImportCode_Files" xml:space="preserve">
+    <value>Files</value>
+  </data>
+  <data name="Dialog_ImportCode_LanguageLine" xml:space="preserve">
+    <value>{0} ({1} files)</value>
+    <comment>{0} = language, e.g. "Java"; {1} = number of its files in the folder.</comment>
+  </data>
+  <data name="Dialog_ImportCode_FilesLine" xml:space="preserve">
+    <value>{0} {1} files</value>
+    <comment>{0} = number of files; {1} = language, e.g. "12 Java files".</comment>
+  </data>
+  <data name="Dialog_ImportCode_LanguageLine_One" xml:space="preserve">
+    <value>{0} (1 file)</value>
+    <comment>{0} = language, e.g. "Ruby".</comment>
+  </data>
+  <data name="Dialog_ImportCode_FilesLine_One" xml:space="preserve">
+    <value>1 {0} file</value>
+    <comment>{0} = language, e.g. "1 Ruby file".</comment>
+  </data>
+  <data name="Dialog_ImportCode_Notice" xml:space="preserve">
+    <value>The code becomes a class diagram of its classes, interfaces and enumerations. Only {0} source files ({1}) are read: other files are skipped. The code is not built, so method bodies, comments and other details a class diagram cannot show are left out. When the import is done, a summary lists everything that was left out.</value>
+    <comment>{0} = language, e.g. "C#"; {1} = its file extensions, e.g. ".cs".</comment>
+  </data>
+  <data name="Dialog_ImportFolder_Title" xml:space="preserve">
+    <value>Import Source Folder</value>
+  </data>
+  <data name="Picker_ImportFolder" xml:space="preserve">
+    <value>Import Source Folder</value>
+  </data>
+  <data name="Message_NoSourceFiles" xml:space="preserve">
+    <value>{0} has no source files of a language that can be imported ({1}).</value>
+    <comment>{0} = the folder; {1} = the languages, e.g. "C#, C++, Java, Kotlin, Ruby, TypeScript".</comment>
+  </data>
+  <data name="Message_NoCodeImporter" xml:space="preserve">
+    <value>{0} cannot be imported: no code import plug-in for {1} is in {2} or {3}.</value>
+    <comment>{0} = the folder; {1} = Message_NoCodeImporter_AnyLanguage; {2} = the application's plug-ins folder; {3} = the user's plug-ins folder.</comment>
+  </data>
+  <data name="Message_NoCodeImporter_AnyLanguage" xml:space="preserve">
+    <value>any language</value>
+  </data>
+  <data name="Message_NoTypesFound" xml:space="preserve">
+    <value>No classes, interfaces, enumerations, structs or records were found in {0}, so no project was created.</value>
+    <comment>{0} = the project file name.</comment>
+  </data>
+  <data name="Message_CodeImported" xml:space="preserve">
+    <value>Imported {0}
+
+Not imported, or shown differently:
+{1}</value>
+    <comment>{0} = what was imported, e.g. "12 classes, 3 interfaces and 2 enumerations from Shop.Domain.csproj (40 files)."; {1} = one note per line.</comment>
+  </data>
+  <data name="Message_InvalidOpenApi" xml:space="preserve">
+    <value>The file could not be read as an OpenAPI description: {0}</value>
+    <comment>{0} = the reason.</comment>
+  </data>
+  <data name="Message_OpenApiImportNotes" xml:space="preserve">
+    <value>The diagram '{0}' was created. Some parts of the description could not be kept:
+
+{1}</value>
+    <comment>{0} = diagram name, {1} = one note per line.</comment>
+  </data>
+  <data name="Dialog_ExportOpenApi_Title" xml:space="preserve">
+    <value>Export OpenAPI</value>
+  </data>
+  <data name="Dialog_ExportOpenApi_Prompt" xml:space="preserve">
+    <value>Export '{0}' as an OpenAPI 3.0 description: its classes and enumerations as schemas, and the operations of «api» interfaces as endpoints.</value>
+  </data>
+  <data name="Dialog_ExportOpenApi_FileName_Hint" xml:space="preserve">
+    <value>openapi.yaml</value>
+  </data>
+  <data name="Dialog_ExportOpenApi_Format_Note" xml:space="preserve">
+    <value>The extension chooses the format: .yaml or .yml for YAML, .json for JSON.</value>
+  </data>
+  <data name="Dialog_ExportOpenApi_ApiTitle" xml:space="preserve">
+    <value>API title</value>
+  </data>
+  <data name="Dialog_ExportOpenApi_Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="Dialog_ExportOpenApi_NeedsTitle" xml:space="preserve">
+    <value>Enter the title of the API.</value>
+  </data>
+  <data name="Dialog_ExportOpenApi_NeedsVersion" xml:space="preserve">
+    <value>Enter the version of the API.</value>
+  </data>
+  <data name="Message_OpenApiExported" xml:space="preserve">
+    <value>The OpenAPI description was written to {0}.</value>
+  </data>
+  <data name="Message_OpenApiExportedWithNotes" xml:space="preserve">
+    <value>The OpenAPI description was written to {0}. Notes:
+
+{1}</value>
+    <comment>{0} = file path, {1} = one note per line.</comment>
+  </data>
+</root>

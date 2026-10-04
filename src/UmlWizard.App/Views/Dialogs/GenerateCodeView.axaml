@@ -1,0 +1,81 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="using:UmlWizard.App.Resources"
+             xmlns:dvm="using:UmlWizard.App.ViewModels.Dialogs"
+             xmlns:cg="using:UmlWizard.CodeGeneration"
+             xmlns:mi="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             x:Class="UmlWizard.App.Views.Dialogs.GenerateCodeView"
+             x:DataType="dvm:GenerateCodeViewModel"
+             Width="540">
+  <!-- The file list and the notes have fixed heights, so the dialog keeps its size when the language changes -->
+  <StackPanel Spacing="12">
+    <TextBlock Text="{Binding Prompt}" TextWrapping="Wrap" />
+
+    <Grid ColumnDefinitions="100,*" RowDefinitions="Auto,8,Auto,8,Auto">
+      <TextBlock Classes="caption" Text="{x:Static res:Strings.Dialog_GenerateCode_Language}" VerticalAlignment="Center" />
+      <!-- One entry per installed code generator plug-in -->
+      <ComboBox x:Name="LanguageBox" Grid.Column="1" Width="160" ItemsSource="{Binding Languages}"
+                SelectedItem="{Binding Language}">
+        <ComboBox.ItemTemplate>
+          <DataTemplate x:DataType="cg:ICodeGenerator">
+            <TextBlock Text="{Binding DisplayName}" />
+          </DataTemplate>
+        </ComboBox.ItemTemplate>
+      </ComboBox>
+
+      <TextBlock Classes="caption" Grid.Row="2" Text="{Binding NamespaceLabel}" VerticalAlignment="Center" />
+      <TextBox x:Name="NamespaceBox" Grid.Row="2" Grid.Column="1" Text="{Binding Namespace}"
+               Watermark="{x:Static res:Strings.Dialog_GenerateCode_Namespace_Hint}" />
+
+      <TextBlock Classes="caption" Grid.Row="4" Text="{x:Static res:Strings.Dialog_GenerateCode_OutputFolder}" VerticalAlignment="Center" />
+      <DockPanel Grid.Row="4" Grid.Column="1">
+        <Button x:Name="BrowseButton" DockPanel.Dock="Right" Content="{x:Static res:Strings.Button_Browse}" Margin="6,0,0,0"
+                Command="{Binding BrowseFolderCommand}" ToolTip.Tip="{x:Static res:Strings.Dialog_GenerateCode_Browse_Tip}" />
+        <TextBox x:Name="OutputFolderBox" Text="{Binding OutputFolder}" Watermark="{x:Static res:Strings.Dialog_GenerateCode_OutputFolder_Hint}" />
+      </DockPanel>
+    </Grid>
+
+    <StackPanel Spacing="4">
+      <TextBlock x:Name="FileSummary" Classes="caption" Text="{Binding FileSummary}" />
+      <Border BorderBrush="{DynamicResource DividerBrush}" BorderThickness="1" Height="150">
+        <ScrollViewer>
+          <ItemsControl x:Name="FileList" ItemsSource="{Binding Files}" Margin="8,4">
+            <ItemsControl.ItemTemplate>
+              <DataTemplate x:DataType="dvm:GeneratedFileItem">
+                <DockPanel Margin="0,2">
+                  <TextBlock Classes="caption" DockPanel.Dock="Right" Text="{x:Static res:Strings.Dialog_GenerateCode_Replaces}"
+                             Foreground="{DynamicResource ErrorForegroundBrush}" Margin="12,0,0,0" VerticalAlignment="Center" IsVisible="{Binding Exists}" />
+                  <mi:MaterialIcon Kind="FileCodeOutline" Width="16" Height="16" Foreground="{DynamicResource IconForegroundBrush}" Margin="0,0,6,0" />
+                  <TextBlock Text="{Binding Path}" FontFamily="Cascadia Mono, Consolas, Menlo, monospace" FontSize="12"
+                             VerticalAlignment="Center" TextTrimming="CharacterEllipsis" />
+                </DockPanel>
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+        </ScrollViewer>
+      </Border>
+    </StackPanel>
+
+    <StackPanel Spacing="4">
+      <TextBlock Classes="caption" Text="{x:Static res:Strings.Dialog_GenerateCode_Warnings}" />
+      <Border x:Name="WarningsBox" BorderBrush="{DynamicResource DividerBrush}" BorderThickness="1" Height="96" Padding="8,6">
+        <Panel>
+          <TextBlock Classes="caption" Text="{x:Static res:Strings.Dialog_GenerateCode_NoWarnings}" IsVisible="{Binding !HasWarnings}" />
+          <ScrollViewer IsVisible="{Binding HasWarnings}">
+            <ItemsControl x:Name="WarningList" ItemsSource="{Binding Warnings}">
+              <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="x:String">
+                  <DockPanel Margin="0,1">
+                    <mi:MaterialIcon DockPanel.Dock="Left" Kind="AlertOutline" Width="14" Height="14" Foreground="{DynamicResource WarningForegroundBrush}"
+                                     Margin="0,1,6,0" VerticalAlignment="Top" />
+                    <TextBlock Text="{Binding}" TextWrapping="Wrap" FontSize="12" />
+                  </DockPanel>
+                </DataTemplate>
+              </ItemsControl.ItemTemplate>
+            </ItemsControl>
+          </ScrollViewer>
+        </Panel>
+      </Border>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

@@ -1,0 +1,506 @@
+using System.Text.RegularExpressions;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using UmlWizard.CodeGeneration;
+using UmlWizard.CodeGeneration.Cpp;
+using UmlWizard.CodeGeneration.CSharp;
+using UmlWizard.CodeGeneration.Java;
+using UmlWizard.CodeGeneration.Kotlin;
+using UmlWizard.CodeGeneration.Ruby;
+using UmlWizard.CodeGeneration.TypeScript;
+using UmlWizard.Core.Model;
+using UmlWizard.Core.Serialization;
+
+namespace UmlWizard.CodeGeneration.Tests;
+
+public sealed partial class CodeGenerationTests
+{
+    /// <summary>
+    /// An abstract Entity, an IPayable interface, an OrderStatus enumeration, and an Order that inherits from Entity,
+    /// realizes IPayable, is composed of OrderLines and is placed by a Customer; a note is attached to Order.
+    /// </summary>
+    private static ClassDiagramModel Shop()
+    {
+        var entity = new UmlClass
+        {
+            Name = "Entity",
+            Kind = ClassifierKind.AbstractClass,
+            Attributes = { new UmlAttribute { Name = "id", Type = "Guid", Visibility = UmlVisibility.Protected } },
+            Operations = { new UmlOperation { Name = "validate", ReturnType = "bool", IsAbstract = true } },
+        };
+        var payable = new UmlClass
+        {
+            Name = "IPayable",
+            Kind = ClassifierKind.Interface,
+            Operations = { new UmlOperation { Name = "pay", ReturnType = "bool", Parameters = { new UmlParameter { Name = "amount", Type = "decimal" } } } },
+        };
+        var status = new UmlClass
+        {
+            Name = "OrderStatus",
+            Kind = ClassifierKind.Enumeration,
+            Attributes = { new UmlAttribute { Name = "New" }, new UmlAttribute { Name = "Paid" } },
+        };
+        var order = new UmlClass
+        {
+            Name = "Order",
+            Attributes =
+            {
+                new UmlAttribute { Name = "number", Type = "string" },
+                new UmlAttribute { Name = "status", Type = "OrderStatus", DefaultValue = "New" },
+                new UmlAttribute { Name = "count", Type = "int", Visibility = UmlVisibility.Public, IsStatic = true },
+            },
+            Operations =
+            {
+                new UmlOperation { Name = "Order", Visibility = UmlVisibility.Private, Parameters = { new UmlParameter { Name = "number", Type = "string" } } },
+                new UmlOperation { Name = "total", ReturnType = "decimal" },
+                new UmlOperation { Name = "validate", ReturnType = "bool" },
+            },
+        };
+        var line = new UmlClass { Name = "OrderLine", Attributes = { new UmlAttribute { Name = "quantity", Type = "int" } } };
+        var customer = new UmlClass { Name = "Customer", Stereotype = "aggregate root" };
+        var note = new NoteElement { Text = "An order of a customer." };
+
+        return new ClassDiagramModel
+        {
+            Classes = { entity, payable, status, order, line, customer },
+            Relationships =
+            {
+                new UmlRelationship { Kind = RelationshipKind.Inheritance, SourceId = order.Id, TargetId = entity.Id },
+                new UmlRelationship { Kind = RelationshipKind.Realization, SourceId = order.Id, TargetId = payable.Id },
+                new UmlRelationship { Kind = RelationshipKind.Composition, SourceId = order.Id, TargetId = line.Id, TargetMultiplicity = "1..*" },
+                new UmlRelationship
+                {
+                    Kind = RelationshipKind.Association, SourceId = customer.Id, TargetId = order.Id, Label = "places",
+                    SourceMultiplicity = "1", TargetMultiplicity = "0..*",
+                },
+            },
+            Notes = { note },
+            NoteAttachments = { new NoteAttachment { NoteId = note.Id, TargetId = order.Id } },
+        };
+    }
+
+    /// <summary>The built-in code generator plug-ins.</summary>
+    private static readonly ICodeGenerator[] Generators =
+        [new CSharpCodeGenerator(), new JavaCodeGenerator(), new RubyCodeGenerator(), new CppCodeGenerator(), new TypeScriptCodeGenerator(), new KotlinCodeGenerator()];
+
+    private static ICodeGenerator Language(string id) => Generators.Single(g => g.Id == id);
+
+    private static CodeGenerationResult Generate(string language, ClassDiagramModel? diagram = null, string? ns = "Shop.Domain") =>
+        CodeGenerator.Generate(diagram ?? Shop(), Language(language), new CodeGenerationOptions(ns, "Shop"));
+
+    private static string File(CodeGenerationResult result, string path) =>
+        Assert.Single(result.Files, f => f.Path == path).Content;
+
+    [Fact]
+    public void CSharp_OneFilePerType_WithPropertiesFieldsEndsAndStubs()
+    {
+        var result = Generate("CSharp");
+
+        Assert.Equal(["Entity.cs", "IPayable.cs", "OrderStatus.cs", "Order.cs", "OrderLine.cs", "Customer.cs"], result.Files.Select(f => f.Path));
+        var order = File(result, "Order.cs");
+        Assert.StartsWith("// Generated by UML Wizard from the class diagram \"Shop\".\n", order);
+        Assert.Contains("namespace Shop.Domain;", order);
+        Assert.Contains("/// <summary>\n/// An order of a customer.\n/// </summary>\npublic class Order : Entity, IPayable\n{", order);
+        Assert.Contains("    private string _number;", order);
+        Assert.Contains("    private OrderStatus _status = OrderStatus.New;", order);
+        Assert.Contains("    public static int Count { get; set; }", order);
+        Assert.Contains("    private List<OrderLine> _orderLines = new();", order);
+        Assert.Contains("    /// <summary>places</summary>\n    private Customer _customer;", order);
+        Assert.Contains("    private Order(string number)\n    {\n    }", order);
+        Assert.Contains("    public override bool Validate()\n    {\n        throw new NotImplementedException();\n    }", order);
+
+        // Order does not list pay(), but has to implement it for IPayable.
+        Assert.Contains("    public bool Pay(decimal amount)", order);
+        Assert.Contains("using System.Collections.Generic;", order);
+
+        Assert.Contains("public abstract class Entity", File(result, "Entity.cs"));
+        Assert.Contains("    public abstract bool Validate();", File(result, "Entity.cs"));
+        Assert.Contains("    protected Guid Id { get; set; }", File(result, "Entity.cs"));
+        Assert.Contains("public interface IPayable\n{\n    bool Pay(decimal amount);\n}", File(result, "IPayable.cs"));
+        Assert.Contains("public enum OrderStatus\n{\n    New,\n    Paid,\n}", File(result, "OrderStatus.cs"));
+        Assert.Contains("/// Stereotype: «aggregate root»", File(result, "Customer.cs"));
+        Assert.Contains("    private List<Order> _orders = new();", File(result, "Customer.cs"));
+        Assert.Empty(result.Warnings);
+    }
+
+    [Fact]
+    public void Java_FollowsThePackageInFolders_AndUsesJavaNames()
+    {
+        var result = Generate("Java");
+
+        var order = File(result, "shop/domain/Order.java");
+        Assert.Contains("package shop.domain;", order);
+        Assert.Contains("import java.util.ArrayList;\nimport java.util.List;", order);
+        Assert.Contains("public class Order extends Entity implements IPayable {", order);
+        Assert.Contains("    private OrderStatus status = OrderStatus.NEW;", order);
+        Assert.Contains("    public static int count;", order);
+        Assert.Contains("    private List<OrderLine> orderLines = new ArrayList<>();", order);
+        Assert.Contains("    @Override\n    public boolean validate() {\n        throw new UnsupportedOperationException(\"Not implemented\");\n    }", order);
+        Assert.Contains("    @Override\n    public boolean pay(BigDecimal amount) {", order);
+        Assert.Contains("import java.math.BigDecimal;", order);
+        Assert.Contains("/**\n * An order of a customer.\n */", order);
+
+        Assert.Contains("public enum OrderStatus {\n    NEW,\n    PAID;\n}", File(result, "shop/domain/OrderStatus.java"));
+        Assert.Contains("    public abstract boolean validate();", File(result, "shop/domain/Entity.java"));
+        Assert.Contains("import java.util.UUID;", File(result, "shop/domain/Entity.java"));
+    }
+
+    [Fact]
+    public void Cpp_HeaderAndSource_PointersCompositionsAndVirtualFunctions()
+    {
+        var result = Generate("Cpp");
+
+        Assert.DoesNotContain(result.Files, f => f.Path is "IPayable.cpp" or "OrderStatus.cpp" or "Customer.cpp");
+        var header = File(result, "Order.h");
+        Assert.Contains("#pragma once", header);
+        Assert.Contains("#include \"Entity.h\"\n#include \"IPayable.h\"\n#include \"OrderLine.h\"\n#include \"OrderStatus.h\"", header);
+        Assert.Contains("class Customer;", header);
+        Assert.Contains("namespace Shop::Domain {", header);
+        Assert.Contains("class Order : public Entity, public IPayable {\npublic:\n    double total();", header);
+        Assert.Contains("    inline static int count;\n\nprivate:", header);
+        Assert.Contains("    bool validate() override;", header);
+        Assert.Contains("    bool pay(double amount) override;", header);
+        Assert.Contains("private:\n    explicit Order(std::string number);", header);
+        Assert.Contains("    OrderStatus status = OrderStatus::New;", header);
+        Assert.Contains("    std::vector<std::unique_ptr<OrderLine>> orderLines;", header);
+        Assert.Contains("    /// places\n    Customer* customer;", header);
+
+        var source = File(result, "Order.cpp");
+        Assert.Contains("#include \"Order.h\"", source);
+        Assert.Contains("Order::Order(std::string number) {\n}", source);
+        Assert.Contains("bool Order::validate() {\n    throw std::logic_error(\"Not implemented\");\n}", source);
+
+        var entity = File(result, "Entity.h");
+        Assert.Contains("    virtual ~Entity() = default;", entity);
+        Assert.Contains("    virtual bool validate() = 0;", entity);
+        Assert.Contains("enum class OrderStatus {\n    New,\n    Paid,\n};", File(result, "OrderStatus.h"));
+    }
+
+    [Fact]
+    public void Ruby_SnakeCaseFilesInModules_AccessorsAndInitialize()
+    {
+        var result = Generate("Ruby");
+
+        var order = File(result, "shop/domain/order.rb");
+        Assert.StartsWith("# frozen_string_literal: true\n", order);
+        Assert.Contains("require_relative 'entity'\nrequire_relative 'i_payable'\nrequire_relative 'order_status'", order);
+        Assert.Contains("module Shop\n  module Domain\n    # An order of a customer.\n    class Order < Entity\n      include IPayable", order);
+        Assert.Contains("      class << self\n        # @return [Integer]\n        attr_accessor :count\n      end", order);
+        Assert.Contains("      # @return [Array<OrderLine>]\n      attr_accessor :order_lines", order);
+        Assert.Contains(
+            "      # @param number [String]\n      def initialize(number)\n        super()\n        @status = OrderStatus::NEW\n        @order_lines = []\n      end\n" +
+            "      private_class_method :new",
+            order);
+        Assert.Contains("      def pay(amount)\n        raise NotImplementedError, \"Order#pay is not implemented\"\n      end", order);
+        Assert.Contains("      private\n\n      # @return [String]\n      attr_accessor :number", order);
+
+        Assert.Contains("NEW = :new\n      PAID = :paid\n\n      ALL = [NEW, PAID].freeze", File(result, "shop/domain/order_status.rb"));
+        Assert.Contains("raise NotImplementedError, \"#{self.class} must implement validate\"", File(result, "shop/domain/entity.rb"));
+    }
+
+    [Fact]
+    public void TypeScript_ModulesInFolders_ImportsPropertiesAndStubs()
+    {
+        var result = Generate("TypeScript");
+
+        var order = File(result, "shop/domain/Order.ts");
+        Assert.StartsWith("// Generated by UML Wizard from the class diagram \"Shop\".\n\n", order);
+        Assert.Contains(
+            "import type { Customer } from './Customer';\nimport { Entity } from './Entity';\nimport type { IPayable } from './IPayable';\n" +
+            "import type { OrderLine } from './OrderLine';\nimport { OrderStatus } from './OrderStatus';\n",
+            order);
+        Assert.Contains("/**\n * An order of a customer.\n */\nexport class Order extends Entity implements IPayable {", order);
+        Assert.Contains("    private number!: string;", order);
+        Assert.Contains("    private status: OrderStatus = OrderStatus.New;", order);
+        Assert.Contains("    public static count: number;", order);
+        Assert.Contains("    private orderLines: OrderLine[] = [];", order);
+        Assert.Contains("    /** places */\n    private customer!: Customer;", order);
+        Assert.Contains("    private constructor(number: string) {\n        super();\n    }", order);
+        Assert.Contains("    public override validate(): boolean {\n        throw new Error('Not implemented');\n    }", order);
+        Assert.Contains("    public pay(amount: number): boolean {", order);
+
+        Assert.Contains("export abstract class Entity {\n    protected id!: string;\n\n    public abstract validate(): boolean;\n}", File(result, "shop/domain/Entity.ts"));
+        Assert.Contains("export interface IPayable {\n    pay(amount: number): boolean;\n}", File(result, "shop/domain/IPayable.ts"));
+        Assert.Contains("export enum OrderStatus {\n    New,\n    Paid,\n}", File(result, "shop/domain/OrderStatus.ts"));
+        Assert.Contains("import type { Order } from './Order';", File(result, "shop/domain/Customer.ts"));
+        Assert.Empty(result.Warnings);
+    }
+
+    [Fact]
+    public void Kotlin_PackagesInFolders_OpenClassesCompanionsAndInitializedProperties()
+    {
+        var result = Generate("Kotlin");
+
+        var order = File(result, "shop/domain/Order.kt");
+        Assert.Contains("package shop.domain\n\nimport java.math.BigDecimal\n", order);
+        Assert.Contains("/**\n * An order of a customer.\n */\nclass Order : Entity, IPayable {", order);
+        Assert.Contains("    private lateinit var number: String", order);
+        Assert.Contains("    private var status: OrderStatus = OrderStatus.NEW", order);
+        Assert.Contains("    private val orderLines: MutableList<OrderLine> = mutableListOf()", order);
+        Assert.Contains("    /** places */\n    private lateinit var customer: Customer", order);
+        Assert.Contains("    private constructor(number: String) : super() {\n    }", order);
+        Assert.Contains("    fun total(): BigDecimal {\n        TODO(\"Not implemented\")\n    }", order);
+        Assert.Contains("    override fun validate(): Boolean {", order);
+        Assert.Contains("    override fun pay(amount: BigDecimal): Boolean {", order);
+        Assert.Contains("    companion object {\n        var count: Int = 0\n    }", order);
+
+        var entity = File(result, "shop/domain/Entity.kt");
+        Assert.Contains("abstract class Entity {\n    protected lateinit var id: UUID\n\n    abstract fun validate(): Boolean\n}", entity);
+        Assert.Contains("import java.util.UUID", entity);
+        Assert.Contains("enum class OrderStatus {\n    NEW,\n    PAID\n}", File(result, "shop/domain/OrderStatus.kt"));
+        Assert.Contains("    private var quantity: Int = 0", File(result, "shop/domain/OrderLine.kt"));
+        Assert.Empty(result.Warnings);
+    }
+
+    /// <summary>
+    /// An interface with a property and a static attribute, a class that implements it, enumerations with number and
+    /// string values, and a class with package visibility, overloads, number defaults and keywords as names.
+    /// </summary>
+    private static ClassDiagramModel Specials()
+    {
+        var named = new UmlClass
+        {
+            Name = "Named",
+            Kind = ClassifierKind.Interface,
+            Attributes =
+            {
+                new UmlAttribute { Name = "name", Type = "string", Visibility = UmlVisibility.Public },
+                new UmlAttribute { Name = "prefix", Type = "string", Visibility = UmlVisibility.Public, IsStatic = true, DefaultValue = "\"N-\"" },
+            },
+        };
+        var tag = new UmlClass { Name = "Tag" };
+        var level = new UmlClass
+        {
+            Name = "Level",
+            Kind = ClassifierKind.Enumeration,
+            Attributes = { new UmlAttribute { Name = "Low", DefaultValue = "1" }, new UmlAttribute { Name = "High", DefaultValue = "2" } },
+        };
+        var color = new UmlClass
+        {
+            Name = "Color",
+            Kind = ClassifierKind.Enumeration,
+            Attributes = { new UmlAttribute { Name = "Red", DefaultValue = "'r'" }, new UmlAttribute { Name = "Green", DefaultValue = "'g'" } },
+        };
+        var metric = new UmlClass
+        {
+            Name = "Metric",
+            Attributes =
+            {
+                new UmlAttribute { Name = "ratio", Type = "double", DefaultValue = "1" },
+                new UmlAttribute { Name = "price", Type = "decimal", DefaultValue = "0" },
+                new UmlAttribute { Name = "object", Type = "int", Visibility = UmlVisibility.Package },
+            },
+            Operations =
+            {
+                new UmlOperation { Name = "log", Parameters = { new UmlParameter { Name = "function", Type = "string" } } },
+                new UmlOperation { Name = "log", Parameters = { new UmlParameter { Name = "message", Type = "string" }, new UmlParameter { Name = "level", Type = "Level" } } },
+            },
+        };
+
+        return new ClassDiagramModel
+        {
+            Classes = { named, tag, level, color, metric },
+            Relationships = { new UmlRelationship { Kind = RelationshipKind.Realization, SourceId = tag.Id, TargetId = named.Id } },
+        };
+    }
+
+    [Fact]
+    public void TypeScript_InterfacePropertiesEnumValuesAndWhatItCannotExpress()
+    {
+        var result = Generate("TypeScript", Specials(), ns: null);
+
+        Assert.Contains("export interface Named {\n    name: string;\n}", File(result, "Named.ts"));
+        Assert.Contains("export class Tag implements Named {\n    public name!: string;\n}", File(result, "Tag.ts"));
+        Assert.Contains("export enum Level {\n    Low = 1,\n    High = 2,\n}", File(result, "Level.ts"));
+        Assert.Contains("export enum Color {\n    Red = 'r',\n    Green = 'g',\n}", File(result, "Color.ts"));
+
+        var metric = File(result, "Metric.ts");
+        Assert.Contains("    private ratio: number = 1;", metric);
+        Assert.Contains("    public object!: number;", metric);
+        Assert.Contains("    public log(function_: string): void {", metric);
+        Assert.DoesNotContain("message", metric);
+        Assert.Equal(
+            [
+                "Named.prefix: TypeScript interfaces cannot have static members; the attribute is not generated.",
+                "Metric.object: TypeScript has no package visibility; it is generated as public.",
+                "Metric.log: TypeScript methods cannot be overloaded; only the first one is generated.",
+            ],
+            result.Warnings);
+    }
+
+    [Fact]
+    public void Kotlin_InterfacePropertiesEnumValuesAndTypedDefaults()
+    {
+        var result = Generate("Kotlin", Specials(), ns: null);
+
+        Assert.Contains("interface Named {\n    val name: String\n\n    companion object {\n        var prefix: String = \"N-\"\n    }\n}", File(result, "Named.kt"));
+        Assert.Contains("class Tag : Named {\n    override lateinit var name: String\n}", File(result, "Tag.kt"));
+        Assert.Contains("enum class Level(val value: Int) {\n    LOW(1),\n    HIGH(2)\n}", File(result, "Level.kt"));
+        Assert.Contains("enum class Color(val value: String) {\n    RED(\"r\"),\n    GREEN(\"g\")\n}", File(result, "Color.kt"));
+
+        var metric = File(result, "Metric.kt");
+        Assert.Contains("    private var ratio: Double = 1.0", metric);
+        Assert.Contains("    private var price: BigDecimal = BigDecimal(\"0\")", metric);
+        Assert.Contains("    internal var `object`: Int = 0", metric);
+        Assert.Contains("    fun log(function: String) {", metric);
+        Assert.Contains("    fun log(message: String, level: Level) {", metric);
+        Assert.Empty(result.Warnings);
+    }
+
+    [Fact]
+    public void WithoutANamespace_FilesAreAtTheTopOfTheOutputFolder()
+    {
+        Assert.All(Generators.Select(g => g.Id), language =>
+            Assert.All(Generate(language, ns: " ").Files, f => Assert.DoesNotContain('/', f.Path)));
+        Assert.DoesNotContain("namespace", File(Generate("CSharp", ns: null), "Order.cs"));
+    }
+
+    [Theory]
+    [InlineData("CSharp", true)]
+    [InlineData("Java", true)]
+    [InlineData("Ruby", true)]
+    [InlineData("TypeScript", true)]
+    [InlineData("Kotlin", true)]
+    [InlineData("Cpp", false)]
+    public void SecondBaseClasses_AreReported_WhereTheLanguageAllowsOnlyOne(string language, bool reported)
+    {
+        var a = new UmlClass { Name = "A" };
+        var b = new UmlClass { Name = "B" };
+        var c = new UmlClass { Name = "C" };
+        var diagram = new ClassDiagramModel
+        {
+            Classes = { a, b, c },
+            Relationships =
+            {
+                new UmlRelationship { Kind = RelationshipKind.Inheritance, SourceId = c.Id, TargetId = a.Id },
+                new UmlRelationship { Kind = RelationshipKind.Inheritance, SourceId = c.Id, TargetId = b.Id },
+            },
+        };
+
+        var result = Generate(language, diagram, ns: null);
+
+        Assert.Equal(reported, result.Warnings.Any(w => w.StartsWith("C: the language allows one base class; B is not inherited")));
+        if (!reported)
+        {
+            Assert.Contains("class C : public A, public B {", File(result, "C.h"));
+        }
+    }
+
+    [Fact]
+    public void TypesThatAreNotInTheDiagram_AreReported_OncePerName()
+    {
+        var diagram = new ClassDiagramModel
+        {
+            Classes =
+            {
+                new UmlClass { Name = "Cart", Attributes = { new UmlAttribute { Name = "items", Type = "List<Item>" } } },
+                new UmlClass { Name = "Shelf", Operations = { new UmlOperation { Name = "take", ReturnType = "Item" } } },
+            },
+        };
+
+        var warning = Assert.Single(Generate("Java", diagram).Warnings);
+        Assert.Equal("Item (used by Cart, Shelf) is not a class of the diagram; it is used as written.", warning);
+    }
+
+    [Fact]
+    public void AssociationEnds_AreNamedAfterTheOtherClass_UnlessAnAttributeAlreadyHoldsIt()
+    {
+        var person = new UmlClass { Name = "Person", Attributes = { new UmlAttribute { Name = "home", Type = "Address" } } };
+        var address = new UmlClass { Name = "Address" };
+        var company = new UmlClass { Name = "Company" };
+        var diagram = new ClassDiagramModel
+        {
+            Classes = { person, address, company },
+            Relationships =
+            {
+                new UmlRelationship { Kind = RelationshipKind.DirectedAssociation, SourceId = person.Id, TargetId = address.Id },
+                new UmlRelationship { Kind = RelationshipKind.Aggregation, SourceId = company.Id, TargetId = address.Id, TargetMultiplicity = "*" },
+                new UmlRelationship { Kind = RelationshipKind.Aggregation, SourceId = company.Id, TargetId = address.Id, TargetMultiplicity = "0..1" },
+            },
+        };
+
+        var result = Generate("CSharp", diagram);
+
+        Assert.DoesNotContain("_address", File(result, "Person.cs"));
+        Assert.Contains("private List<Address> _addresses = new();", File(result, "Company.cs"));
+        Assert.Contains("private Address _address;", File(result, "Company.cs"));
+    }
+
+    [Theory]
+    [InlineData("orderLines", "order_lines", "OrderLines", "ORDER_LINES")]
+    [InlineData("HTTPServer", "http_server", "HttpServer", "HTTP_SERVER")]
+    [InlineData("order line", "order_line", "OrderLine", "ORDER_LINE")]
+    [InlineData("get_instance", "get_instance", "GetInstance", "GET_INSTANCE")]
+    public void Naming_ConvertsBetweenCases(string name, string snake, string pascal, string upperSnake)
+    {
+        Assert.Equal(snake, Naming.Snake(name));
+        Assert.Equal(pascal, Naming.Pascal(name));
+        Assert.Equal(upperSnake, Naming.UpperSnake(name));
+        Assert.Equal(char.ToLowerInvariant(pascal[0]) + pascal[1..], Naming.Camel(name));
+    }
+
+    [Theory]
+    [InlineData("item", "items")]
+    [InlineData("address", "addresses")]
+    [InlineData("entry", "entries")]
+    [InlineData("key", "keys")]
+    [InlineData("box", "boxes")]
+    public void Naming_PluralsForCollections(string word, string plural) => Assert.Equal(plural, Naming.Plural(word));
+
+    [Fact]
+    public void TypeExpressions_AndMultiplicities_AreParsed()
+    {
+        var map = TypeExpression.Parse("Map<string, List<Order>>")!;
+        Assert.Equal(["Map", "string", "List", "Order"], map.Names());
+        Assert.Equal(2, TypeExpression.Parse("int[][]")!.ArrayRank);
+        Assert.Null(TypeExpression.Parse("List<"));
+        Assert.Null(TypeExpression.Parse("  "));
+
+        Assert.True(Multiplicity.Parse("*").IsMany);
+        Assert.True(Multiplicity.Parse("1..*").IsMany);
+        Assert.True(Multiplicity.Parse("2").IsMany);
+        Assert.False(Multiplicity.Parse("1").IsMany);
+        Assert.False(Multiplicity.Parse(null).IsMany);
+        Assert.True(Multiplicity.Parse("0..1").IsOptional);
+    }
+
+    [GeneratedRegex(@"^(\w+) \(used by")]
+    private static partial Regex UnknownType();
+
+    /// <summary>
+    /// The C# generated for the shop above and for every class diagram of the samples compiles. Types the diagrams use
+    /// without declaring them (reported as warnings) are declared as empty classes.
+    /// </summary>
+    [Fact]
+    public void GeneratedCSharp_Compiles()
+    {
+        var diagrams = new List<ClassDiagramModel> { Shop() };
+        foreach (var sample in new[] { Path.Combine("OnlineShop", "OnlineShop.umlwiz"), Path.Combine("GangOfFour", "GangOfFour.umlwiz") })
+        {
+            var project = ProjectSerializer.Load(Path.Combine(AppContext.BaseDirectory, "samples", sample));
+            diagrams.AddRange(project.Diagrams.Select(d => d.Model).OfType<ClassDiagramModel>());
+        }
+
+        var sources = new List<string>();
+        for (var i = 0; i < diagrams.Count; i++)
+        {
+            var ns = $"Generated.Diagram{i}";
+            var result = CodeGenerator.Generate(diagrams[i], Language("CSharp"), new CodeGenerationOptions(ns, $"Diagram {i}"));
+            sources.AddRange(result.Files.Select(f => f.Content));
+            sources.AddRange(result.Warnings.Select(w => UnknownType().Match(w)).Where(m => m.Success)
+                .Select(m => $"namespace {ns} {{ public class {m.Groups[1].Value} {{ }} }}"));
+        }
+
+        var references = ((string)AppContext.GetData("TRUSTED_PLATFORM_ASSEMBLIES")!).Split(Path.PathSeparator)
+            .Select(path => MetadataReference.CreateFromFile(path));
+        var compilation = CSharpCompilation.Create(
+            "Generated",
+            sources.Select(s => CSharpSyntaxTree.ParseText(s)),
+            references,
+            new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
+
+        var errors = compilation.GetDiagnostics().Where(d => d.Severity == DiagnosticSeverity.Error).Select(d => d.ToString()).ToList();
+        Assert.True(diagrams.Count > 20);
+        Assert.True(errors.Count == 0, string.Join("\n", errors));
+    }
+}

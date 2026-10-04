@@ -1,0 +1,132 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="using:UmlWizard.App.Resources"
+             xmlns:vm="using:UmlWizard.App.ViewModels"
+             xmlns:c="using:UmlWizard.App.Controls"
+             xmlns:mi="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             x:Class="UmlWizard.App.Views.AiChatPanel"
+             x:DataType="vm:AiChatViewModel">
+  <UserControl.Styles>
+    <!-- The user's messages on the right, the AI's on the left, errors in red -->
+    <!-- The chat reads in a smaller font than the rest of the window; corners match the text boxes -->
+    <Style Selector="Border.bubble">
+      <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+      <Setter Property="Padding" Value="10,7" />
+      <Setter Property="Margin" Value="0,0,0,8" />
+    </Style>
+    <Style Selector="Border.user">
+      <Setter Property="Background" Value="{DynamicResource DropTargetBackgroundBrush}" />
+      <Setter Property="HorizontalAlignment" Value="Right" />
+      <Setter Property="Margin" Value="32,0,0,8" />
+    </Style>
+    <Style Selector="Border.assistant">
+      <Setter Property="Background" Value="{DynamicResource ChromeBackgroundBrush}" />
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="Margin" Value="0,0,32,8" />
+    </Style>
+    <Style Selector="Border.bubble SelectableTextBlock">
+      <Setter Property="FontSize" Value="12" />
+    </Style>
+    <Style Selector="Border.bubble TextBlock">
+      <Setter Property="FontSize" Value="12" />
+    </Style>
+    <!-- In the AI's Markdown: code blocks on the window's background, quotes with a bar on the left -->
+    <Style Selector="Border.code">
+      <Setter Property="Background" Value="{DynamicResource WindowBackgroundBrush}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource DividerBrush}" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+      <Setter Property="Padding" Value="8,6" />
+    </Style>
+    <Style Selector="Border.quote">
+      <Setter Property="BorderBrush" Value="{DynamicResource DividerBrush}" />
+      <Setter Property="BorderThickness" Value="3,0,0,0" />
+      <Setter Property="Padding" Value="8,0,0,0" />
+    </Style>
+    <Style Selector="Border.error TextBlock">
+      <Setter Property="Foreground" Value="{DynamicResource ErrorForegroundBrush}" />
+    </Style>
+  </UserControl.Styles>
+
+  <DockPanel Margin="10">
+    <!-- Header: what the panel is, where messages go -->
+    <StackPanel DockPanel.Dock="Top" Spacing="4" Margin="0,0,0,8">
+      <TextBlock Text="{x:Static res:Strings.AiChat_Title}" Classes="section" />
+      <TextBlock x:Name="ChatNote" Text="{Binding Note}" Classes="caption" TextWrapping="Wrap" />
+      <Button x:Name="SetUpButton" Content="{x:Static res:Strings.AiChat_SetUp}" Command="{Binding SetUpCommand}" IsVisible="{Binding !IsSetUp}"
+              HorizontalAlignment="Left" Margin="0,6,0,0" />
+    </StackPanel>
+
+    <!-- What the user writes -->
+    <DockPanel DockPanel.Dock="Bottom" IsVisible="{Binding IsSetUp}" Margin="0,8,0,0">
+      <StackPanel DockPanel.Dock="Right" VerticalAlignment="Bottom" Margin="6,0,0,0">
+        <Button x:Name="SendButton" Classes="accent" Command="{Binding SendCommand}" IsVisible="{Binding !IsWorking}" ToolTip.Tip="{x:Static res:Strings.AiChat_Send_Tip}">
+          <mi:MaterialIcon Kind="Send" />
+        </Button>
+        <Button x:Name="StopButton" Command="{Binding StopCommand}" IsVisible="{Binding IsWorking}" ToolTip.Tip="{x:Static res:Strings.AiChat_Stop}">
+          <mi:MaterialIcon Kind="Stop" />
+        </Button>
+      </StackPanel>
+      <TextBox x:Name="InputBox" Text="{Binding Input}" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="60" MaxHeight="160"
+               FontSize="12"
+               Watermark="{x:Static res:Strings.AiChat_Input_Watermark}" />
+    </DockPanel>
+
+    <!-- Before the project's first message: may its diagrams be sent? -->
+    <Border x:Name="ConsentCard" DockPanel.Dock="Bottom" IsVisible="{Binding NeedsConsent}" Margin="0,8,0,0" Padding="12,10"
+            BorderBrush="{DynamicResource DropIndicatorBrush}" BorderThickness="1" CornerRadius="{DynamicResource ControlCornerRadius}">
+      <StackPanel Spacing="8">
+        <TextBlock x:Name="ConsentText" Text="{Binding ConsentText}" TextWrapping="Wrap" FontSize="12" />
+        <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right">
+          <Button x:Name="AllowButton" Content="{x:Static res:Strings.AiChat_Consent_Allow}" Classes="accent" Command="{Binding AllowSendingCommand}" />
+          <Button x:Name="CancelConsentButton" Content="{x:Static res:Strings.Button_Cancel}" Command="{Binding CancelSendingCommand}" />
+        </StackPanel>
+      </StackPanel>
+    </Border>
+
+    <!-- The changes the AI proposes -->
+    <Border x:Name="ChangesCard" DockPanel.Dock="Bottom" IsVisible="{Binding HasChanges}" Margin="0,8,0,0" Padding="12,10"
+            BorderBrush="{DynamicResource DropIndicatorBrush}" BorderThickness="1" CornerRadius="{DynamicResource ControlCornerRadius}">
+      <StackPanel Spacing="6">
+        <TextBlock Text="{x:Static res:Strings.AiChat_Changes}" FontWeight="SemiBold" FontSize="12" />
+        <ScrollViewer MaxHeight="140" HorizontalScrollBarVisibility="Disabled">
+          <ItemsControl ItemsSource="{Binding Changes}">
+            <ItemsControl.ItemTemplate>
+              <DataTemplate x:DataType="x:String">
+                <TextBlock Text="{Binding}" Classes="caption" TextWrapping="Wrap" FontFamily="Consolas, Menlo, monospace" />
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+        </ScrollViewer>
+        <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right">
+          <Button x:Name="ApplyButton" Content="{x:Static res:Strings.AiChat_Apply}" Classes="accent" Command="{Binding ApplyCommand}"
+                  ToolTip.Tip="{x:Static res:Strings.AiChat_Apply_Tip}" />
+          <Button x:Name="DiscardButton" Content="{x:Static res:Strings.AiChat_Discard}" Command="{Binding DiscardCommand}" />
+        </StackPanel>
+      </StackPanel>
+    </Border>
+
+    <ProgressBar DockPanel.Dock="Bottom" IsIndeterminate="True" IsVisible="{Binding IsWorking}" Margin="0,6,0,0" />
+
+    <!-- The conversation -->
+    <Panel>
+      <TextBlock Text="{x:Static res:Strings.AiChat_Empty}" Classes="caption" TextWrapping="Wrap" VerticalAlignment="Top"
+                 IsVisible="{Binding IsEmpty}" Margin="0,8,0,0" />
+      <ScrollViewer x:Name="Conversation" HorizontalScrollBarVisibility="Disabled">
+        <ItemsControl x:Name="Messages" ItemsSource="{Binding Entries}">
+          <ItemsControl.ItemTemplate>
+            <DataTemplate x:DataType="vm:ChatEntry">
+              <Border Classes="bubble" Classes.user="{Binding IsUser}" Classes.assistant="{Binding IsAssistant}" Classes.error="{Binding IsError}">
+                <Panel>
+                  <SelectableTextBlock Text="{Binding Text}" TextWrapping="Wrap" IsVisible="{Binding !IsAssistant}" />
+                  <!-- The AI writes Markdown -->
+                  <c:MarkdownView Markdown="{Binding Text}" IsVisible="{Binding IsAssistant}" />
+                </Panel>
+              </Border>
+            </DataTemplate>
+          </ItemsControl.ItemTemplate>
+        </ItemsControl>
+      </ScrollViewer>
+    </Panel>
+  </DockPanel>
+</UserControl>

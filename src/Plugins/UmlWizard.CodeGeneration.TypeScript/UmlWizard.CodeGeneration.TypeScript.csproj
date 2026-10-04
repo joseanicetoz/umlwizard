@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>UmlWizard.CodeGeneration.TypeScript</RootNamespace>
+    <Description>UML Wizard code generator plug-in: TypeScript.</Description>
+  </PropertyGroup>
+</Project>

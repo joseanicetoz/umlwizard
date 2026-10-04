@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>UmlWizard.CodeImport.CSharp</RootNamespace>
+    <Description>UML Wizard code import plug-in: C#, read with Roslyn.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Compile against Roslyn only: the application ships it and shares it with the plug-in at run time. -->
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" ExcludeAssets="runtime" PrivateAssets="all" />
+  </ItemGroup>
+</Project>

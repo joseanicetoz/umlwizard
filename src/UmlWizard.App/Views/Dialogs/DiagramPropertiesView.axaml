@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="using:UmlWizard.App.Resources"
+             xmlns:dvm="using:UmlWizard.App.ViewModels.Dialogs"
+             x:Class="UmlWizard.App.Views.Dialogs.DiagramPropertiesView"
+             xmlns:dialogs="using:UmlWizard.App.Views.Dialogs"
+             x:DataType="dvm:DiagramPropertiesViewModel"
+             Width="600">
+  <Grid ColumnDefinitions="100,*" RowDefinitions="Auto,10,Auto,10,Auto,10,Auto,14,Auto">
+    <TextBlock Classes="caption" Text="{x:Static res:Strings.Label_Name}" VerticalAlignment="Center" />
+    <TextBox Grid.Column="1" Text="{Binding Name}" />
+    <TextBlock Classes="caption" Grid.Row="2" Text="{x:Static res:Strings.Label_Author}" VerticalAlignment="Center" />
+    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Author}" />
+    <TextBlock Classes="caption" Grid.Row="4" Text="{x:Static res:Strings.Label_Description}" VerticalAlignment="Top" Margin="0,6,0,0" />
+    <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Description}" AcceptsReturn="True" TextWrapping="Wrap"
+             Height="90" />
+    <TextBlock Classes="caption" Grid.Row="6" Text="{x:Static res:Strings.Label_Type}" VerticalAlignment="Center" />
+    <TextBlock Grid.Row="6" Grid.Column="1" Text="{Binding TypeName}" Classes="caption" VerticalAlignment="Center" />
+    <TextBlock Classes="caption" Grid.Row="8" Text="{x:Static res:Strings.Dialog_TaggedValues}" VerticalAlignment="Top" Margin="0,6,0,0" />
+    <dialogs:TaggedValuesEditor Grid.Row="8" Grid.Column="1" DataContext="{Binding TaggedValues}" Height="190" />
+  </Grid>
+</UserControl>

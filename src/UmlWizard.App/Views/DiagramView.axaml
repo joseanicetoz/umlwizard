@@ -1,0 +1,15 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:UmlWizard.App.ViewModels"
+             xmlns:controls="using:UmlWizard.App.Controls"
+             x:Class="UmlWizard.App.Views.DiagramView"
+             x:DataType="vm:DiagramViewModel">
+  <DockPanel>
+    <!-- The drawing toolbar above has the line that separates it from the canvas -->
+    <Border DockPanel.Dock="Bottom" Background="{DynamicResource ChromeBackgroundBrush}" BorderBrush="{DynamicResource DividerBrush}" BorderThickness="0,1,0,0" Padding="10,3">
+      <TextBlock Text="{Binding StatusText}" Classes="caption" TextTrimming="CharacterEllipsis" />
+    </Border>
+
+    <controls:DiagramCanvas />
+  </DockPanel>
+</UserControl>

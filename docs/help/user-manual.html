@@ -1,0 +1,918 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User Manual — UML Wizard</title>
+<style>
+  :root { --bg: #ffffff; --fg: #1f2933; --muted: #5f6b7a; --rule: #d9dce1; --code: #f3f4f6; --accent: #3d7bd9; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #1b1d21; --fg: #e4e7eb; --muted: #9aa5b4; --rule: #3a3f47; --code: #2b2e33; --accent: #5b9bf0; }
+  }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.6 "Segoe UI", system-ui, sans-serif; }
+  main { max-width: 860px; margin: 0 auto; padding: 32px 16px 64px; }
+  a { color: var(--accent); }
+  h1 { font-size: 28px; margin: 0 0 4px; }
+  h2 { font-size: 21px; margin: 40px 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--rule); }
+  h3 { font-size: 16px; margin: 22px 0 6px; }
+  .lead { color: var(--muted); margin-top: 0; }
+  code { background: var(--code); padding: 1px 5px; border-radius: 4px; font-size: 13px; }
+  kbd { border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; font: 13px "Segoe UI", system-ui, sans-serif; white-space: nowrap; }
+  .ui { font-weight: 600; }
+  ol li, ul li { margin: 4px 0; }
+  .table-wrap { overflow-x: auto; margin: 8px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { text-align: left; vertical-align: top; padding: 6px 10px; border-bottom: 1px solid var(--rule); }
+  th { color: var(--muted); font-weight: 600; }
+  .tip { border-left: 3px solid var(--accent); padding: 4px 12px; margin: 16px 0; color: var(--muted); }
+  nav.toc { border: 1px solid var(--rule); border-radius: 8px; padding: 8px 20px; margin: 24px 0; }
+  nav.toc ol { margin: 6px 0; padding-left: 22px; }
+  nav.toc li { margin: 2px 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>UML Wizard User Manual</h1>
+<p class="lead">UML Wizard draws class, sequence, state machine, activity, use case, component and deployment diagrams,
+organised in projects. It turns class diagrams into source code and source code into class diagrams, and exchanges
+diagrams with OpenAPI and PlantUML. It runs on Windows, macOS and Linux.</p>
+
+<nav class="toc">
+<strong>Contents</strong>
+<ol>
+  <li><a href="#getting-started">Getting started</a></li>
+  <li><a href="#window">The window</a></li>
+  <li><a href="#projects">Projects and diagrams</a></li>
+  <li><a href="#drawing">Drawing diagrams</a></li>
+  <li><a href="#formatting">Formatting and arranging</a></li>
+  <li><a href="#diagram-types">Diagram types</a></li>
+  <li><a href="#tagged-values">Tagged values</a></li>
+  <li><a href="#export-image">Exporting an image</a></li>
+  <li><a href="#generate-code">Generating code</a></li>
+  <li><a href="#import-code">Importing code</a></li>
+  <li><a href="#openapi">OpenAPI</a></li>
+  <li><a href="#plantuml">PlantUML</a></li>
+  <li><a href="#ai">AI assistant</a></li>
+  <li><a href="#languages">Adding languages</a></li>
+  <li><a href="#menus">Menus</a></li>
+  <li><a href="#keyboard">Keyboard shortcuts</a></li>
+  <li><a href="#preferences">Preferences</a></li>
+  <li><a href="#settings">Where settings are kept</a></li>
+</ol>
+</nav>
+
+<!-- ============================================================ -->
+<h2 id="getting-started">1. Getting started</h2>
+<p>When no project is open, for example when UML Wizard starts, the main area shows three cards:</p>
+<ul>
+  <li><span class="ui">Create a New Project</span>: asks for a name, author, description and the folder to create the
+    project in (the projects folder of <a href="#preferences">Preferences</a>, else your Documents folder). The project gets a folder of its own, with its project file (<code>.umlwiz</code>) inside.</li>
+  <li><span class="ui">Open an Existing Project</span>: opens a project file. Projects from older versions
+    (<code>.umlproj</code>) open too.</li>
+  <li><span class="ui">Import Source Folder</span>: creates a project with a class diagram of existing code; see
+    <a href="#import-code">Importing code</a>.</li>
+</ul>
+<p>The panel on the left lists your <span class="ui">Recent Projects</span>; click one to open it. A project file
+can also be passed on the command line, and is opened at start-up.</p>
+<p>Once a project is open, create a diagram with the <span class="ui">+</span> button on the toolbar (or
+<span class="ui">Diagram → New Diagram</span>), pick a tool on the drawing toolbar and click the canvas.</p>
+<p class="tip">New to UML? <span class="ui">Help → Learn UML</span> explains each kind of diagram and its notation.</p>
+
+<!-- ============================================================ -->
+<h2 id="window">2. The window</h2>
+<ul>
+  <li><strong>Main toolbar:</strong> New Project, Open Project │ Save Project, <span class="ui">+</span> (new diagram of
+    any type) │ Undo, Redo │ Cut, Copy, Paste │ Zoom out, zoom level, Zoom in, Actual size, Fit │ Edit, Font, Shape, Line
+    (of the selected element) │ Bring to front, Bring forward, Send backward, Send to back (the selected node, note or
+    text box). Buttons that do not apply are greyed out, e.g. Cut and Copy while nothing is selected.</li>
+  <li><strong>Drawing toolbar</strong>, between the tabs and the canvas: the tools of the diagram type, then, after a
+    divider, Note, Attach Note and Text Box. Connector tools are shown as the connector they draw (line style and heads,
+    with the first letter of a keyword such as «i» for «include»); hover a tool for its name.</li>
+  <li><strong>Project Explorer</strong> (left): the project's folders and diagrams. While no project is open it lists
+    only the recent projects. Drag the edge between it and the tabs to resize it; <span class="ui">View → Project
+    Explorer</span> (<kbd>Ctrl+Alt+L</kbd>) hides or shows it, and the choice is kept between runs.</li>
+  <li><strong>Tabs:</strong> one per open diagram. Drag a tab along the strip to reorder it, or click its ✕ to close it.</li>
+</ul>
+<p>The Project Explorer and the tabs stay in step: activating a tab selects its diagram in the Project Explorer, and
+clicking a diagram in the Project Explorer opens it, or activates its tab when it is already open. Dragging a diagram to
+a folder does not open it, and selecting a diagram with the arrow keys leaves no tab active until <kbd>Enter</kbd> opens
+it.</p>
+<p>On macOS the menus are in the window as on the other platforms, and the application menu in the menu bar
+(<span class="ui">UML Wizard</span>) has <span class="ui">About UML Wizard</span> and the standard items, including
+<span class="ui">Quit</span> (<kbd>⌘Q</kbd>).</p>
+
+<!-- ============================================================ -->
+<h2 id="projects">3. Projects and diagrams</h2>
+
+<h3>Projects</h3>
+<ul>
+  <li><span class="ui">File → New Project…</span> creates a project folder and file; <span class="ui">Open Project…</span>
+    opens one.</li>
+  <li><span class="ui">Save Project</span> (<kbd>Ctrl+S</kbd>, or the toolbar) writes the changes of every open diagram;
+    it is enabled while there are unsaved changes. <span class="ui">Save Project As…</span> (<kbd>Ctrl+Shift+S</kbd>)
+    writes the project, with its unsaved changes, to a new file, which becomes the project file.</li>
+  <li>Creating, renaming, moving and deleting diagrams and folders, and changing properties, save the project at once.</li>
+  <li><span class="ui">File → Project Properties…</span> edits the name, version (your own, e.g. 1.2.0), description and author, and shows the folder of
+    the project file: click it to copy it to the clipboard.</li>
+  <li><span class="ui">File → Close Project</span> closes it, asking to save unsaved changes first.</li>
+  <li>Folder and file names made from project and diagram names work on Windows, macOS and Linux alike: characters any
+    of them forbids (<code>&lt; &gt; : " / \ | ? *</code>) become <code>_</code>, so projects can be moved between them.</li>
+</ul>
+
+<h3>Recent projects</h3>
+<p><span class="ui">File → Recent Projects</span> lists the 10 most recently opened or created projects, most recent
+first (<kbd>Alt+F</kbd>, <kbd>P</kbd>, then <kbd>1</kbd>–<kbd>9</kbd> or <kbd>0</kbd>). While no project is open, the
+Project Explorer lists them too. A project that no longer exists can be removed from the list when you pick it;
+<span class="ui">Clear Recent Projects</span> empties the list.</p>
+
+<h3>Organising diagrams</h3>
+<ul>
+  <li>The <span class="ui">+</span> toolbar button (or <span class="ui">Diagram → New Diagram</span>) creates a diagram in
+    the folder of the Project Explorer selection.</li>
+  <li><span class="ui">File → New Folder…</span> (or right-click the Project Explorer) creates a folder inside the
+    selected folder.</li>
+  <li>Drag diagrams and folders onto a folder to move them (or use <span class="ui">Diagram → Move To…</span>); drop them
+    on empty space to move them to the top level. Drag a diagram above or below another to reorder them: a line shows
+    where it goes.</li>
+  <li><span class="ui">Diagram → Rename…</span>, <span class="ui">Move To…</span> and <span class="ui">Delete…</span> act on
+    the diagram selected in the Project Explorer; right-click the Project Explorer to rename, move or delete folders as
+    well. Deleting a folder keeps its diagrams and subfolders and moves them up one level.</li>
+</ul>
+
+<h3>Diagram properties and tagged values</h3>
+<p>Select a diagram in the Project Explorer and choose <span class="ui">Diagram → Properties…</span> to edit its name,
+description, author and tagged values (name/value pairs). New diagrams take the project author. Classes, attributes
+and operations have tagged values too: in a class's <span class="ui">Edit…</span> dialog, the tag button next to the
+stereotype shows the class's, and the one on each attribute or operation row shows that member's. Rows without a name
+are dropped. <a href="#tagged-values">Tagged values</a> explains what they are for.</p>
+
+<h3>Tabs</h3>
+<p>Open diagrams, their order and the active tab are saved with the project and restored when it is opened.
+<span class="ui">Diagram → Close All Diagrams</span> closes every tab, asking to save unsaved changes first; the project
+stays open.</p>
+
+<!-- ============================================================ -->
+<h2 id="drawing">4. Drawing diagrams</h2>
+
+<h3>Adding and connecting elements</h3>
+<ul>
+  <li><strong>Add an element:</strong> pick a tool (Class, Lifeline, State, Action, Use Case, Component, …) and click the
+    canvas.</li>
+  <li><strong>Connect elements:</strong> pick a relationship, message, transition, flow or other connector tool and drag
+    from the source to the target. Invalid connections are refused, and the tool stays active so you can try again.</li>
+  <li><strong>Direction:</strong> arrow heads (inheritance, realization, dependency, directed association, transitions,
+    flows, «include», «extend») point at the target. Aggregation and composition diamonds are drawn at the source: drag
+    from the whole to the part.</li>
+</ul>
+
+<h3>Editing text</h3>
+<ul>
+  <li><strong>Edit in place:</strong> double-click (or <kbd>F2</kbd>) a class name, attribute, operation, relationship
+    label, lifeline, message, node name or edge label. Double-click the empty part of a class's attribute or operation
+    compartment to add a member; <kbd>Enter</kbd> commits and starts the next member, <kbd>Esc</kbd> cancels. Clearing
+    the text of a member deletes it.</li>
+  <li><strong>Edit dialogs:</strong> <span class="ui">Edit…</span> (<kbd>Enter</kbd>, <span class="ui">Edit → Edit
+    Element…</span>, or right-click an element) opens the full editor: class members, visibility, static/abstract and
+    kinds; relationship kinds and multiplicities; lifeline and message details; node names and edge labels; text,
+    alignment and font of notes and text boxes.</li>
+</ul>
+<p>Text typed in place uses UML notation:</p>
+<div class="table-wrap">
+<table>
+  <tr><th>Element</th><th>Notation</th><th>Example</th></tr>
+  <tr><td>Attribute</td><td><code>visibility name: Type = default</code></td><td><code>+name: string = ""</code></td></tr>
+  <tr><td>Operation</td><td><code>visibility name(param: Type, …): ReturnType</code></td><td><code>#pay(amount: decimal): bool</code></td></tr>
+  <tr><td>Static, abstract</td><td>prefix <code>static</code> or <code>abstract</code></td><td><code>static +count: int</code></td></tr>
+  <tr><td>Visibility</td><td><code>+</code> public, <code>-</code> private, <code>#</code> protected, <code>~</code> package</td><td></td></tr>
+  <tr><td>Lifeline</td><td><code>name : Type</code></td><td><code>shop : ShopController</code></td></tr>
+  <tr><td>Transition</td><td><code>trigger [guard] / effect</code></td><td><code>pay [valid] / capture()</code></td></tr>
+</table>
+</div>
+
+<h3>Moving and resizing</h3>
+<p>Drag an element, or select it and press the arrow keys (1 unit; with <kbd>Shift</kbd> a 20-unit grid step). Drag the
+handle at the bottom-right of a selected element to resize it: classes in width, notes, text boxes and resizable nodes
+(states, actions, use cases, system boundaries, components, deployment nodes, devices, execution environments, artifacts,
+fork/join bars) in width and height. Lifelines move horizontally and messages vertically. A system boundary, node,
+device or execution environment takes the elements inside it along.</p>
+
+<h3>Clipboard and deleting</h3>
+<p>Cut, copy and paste elements with <kbd>Ctrl+X</kbd>, <kbd>Ctrl+C</kbd> and <kbd>Ctrl+V</kbd>, the toolbar or
+right-click. Elements paste into diagrams of their own type; notes and text boxes paste into any diagram. Right-click
+the background to paste at that point. <kbd>Delete</kbd> (<kbd>⌫</kbd> on macOS) removes the selected element, and
+Undo (<kbd>Ctrl+Z</kbd>) and Redo (<kbd>Ctrl+Y</kbd>; <kbd>⌘⇧Z</kbd> on macOS) step through every change.</p>
+
+<h3>Notes and text boxes</h3>
+<ul>
+  <li>Pick <span class="ui">Note</span> (a UML comment, drawn with a folded corner) or <span class="ui">Text Box</span>
+    (a plain label) and click the canvas, then type. <kbd>Enter</kbd> starts a new line; <kbd>Ctrl+Enter</kbd>
+    (<kbd>⌘+Enter</kbd> on macOS) or clicking elsewhere finishes. Text wraps to the width and is cut off at the edges.
+    <span class="ui">Edit…</span> sets the text, horizontal alignment (left, center, right), vertical alignment (top,
+    middle, bottom) and font.</li>
+  <li>Pick <span class="ui">Attach Note</span> and drag from a note to the element it describes (or the other way round):
+    a dashed line connects them and follows both when they move. Click the line to select it; <kbd>Delete</kbd> removes
+    it. Deleting the note or the element removes its attachments.</li>
+</ul>
+
+<h3>Panning and zooming</h3>
+<p>Drag empty space, or use the middle button or the wheel, to pan. <kbd>Ctrl</kbd>+wheel (<kbd>⌘</kbd>+wheel on macOS),
+<kbd>Ctrl+Plus</kbd>, <kbd>Ctrl+Minus</kbd>, <kbd>Ctrl+0</kbd> or the toolbar zoom; the zoom level button resets to
+100 %, and Fit shows the whole diagram.</p>
+
+<!-- ============================================================ -->
+<h2 id="formatting">5. Formatting and arranging</h2>
+
+<h3>Fonts</h3>
+<p>Select an element and choose <span class="ui">Format → Font…</span> (or the toolbar's Font button, or right-click it
+→ <span class="ui">Font…</span>) to set its font family, size, bold and italic. <span class="ui">Format → Diagram
+Font…</span> (or right-click the background) sets the font of every element that has no font of its own. Class names
+stay bold and abstract elements italic whatever the font.</p>
+
+<h3>Fill and border</h3>
+<p>Select an element and choose <span class="ui">Format → Shape…</span> (or right-click it → <span class="ui">Shape…</span>)
+to set its fill colour, border colour and border thickness: click a colour's swatch to open the <a href="#color-picker">colour picker</a>, or type <code>#RRGGBB</code>. Each part can
+stay on <span class="ui">Default</span>, the colour of the current scheme for that kind of element (blue classes, green
+interfaces, yellow notes, …), which follows the light or dark theme; custom colours are the same in both themes and in
+exports. Text on a custom fill turns dark or light, whichever reads better. Text boxes have no fill or border until they
+are given one.</p>
+
+<h3 id="color-picker">The colour picker</h3>
+<p>Wherever UML Wizard asks for a colour, the swatch next to the <code>#RRGGBB</code> box opens the colour picker:</p>
+<ul>
+  <li>On the left, click one of the 48 <span class="ui">Basic colours</span>, or one of your <span class="ui">Custom colours</span>;
+    <span class="ui">Add to Custom Colours</span> adds the colour to them, and they are kept for the next time.</li>
+  <li>On the right, click or drag in the <strong>spectrum</strong> to choose the hue (left to right) and saturation (top to
+    bottom), and on the <strong>slider</strong> next to it to choose the brightness. The swatch below shows the colour.</li>
+  <li>Or type the colour beside the swatch: as hue (degrees), saturation and value (percent), as red, green and blue
+    (0–255), or as <code>#RRGGBB</code> in <span class="ui">Hex</span>.</li>
+</ul>
+<p><span class="ui">OK</span> uses the colour; <span class="ui">Cancel</span> keeps the one you had.</p>
+
+<h3>Line colour and thickness</h3>
+<p>Select a relationship, message or connector and choose <span class="ui">Format → Line…</span> (or right-click it →
+<span class="ui">Line…</span>) to set its colour and thickness, or keep <span class="ui">Default</span> (the scheme's line
+colour, thickness 1.3). Arrowheads, triangles and diamonds are drawn in the line's colour and thickness, and dashed lines
+keep their dashes in proportion. The toolbar has a button for each: Shape (paint bucket) for the selected shape and Line
+(line weights) for the selected connector.</p>
+
+<h3>Stacking order</h3>
+<p>Select a node (a class, lifeline, state, action, use case, component, deployment node, …), note or text box and use
+<span class="ui">Format → Bring to Front</span> (<kbd>Ctrl+Shift+]</kbd>), <span class="ui">Bring Forward</span>
+(<kbd>Ctrl+]</kbd>), <span class="ui">Send Backward</span> (<kbd>Ctrl+[</kbd>) or <span class="ui">Send to Back</span>
+(<kbd>Ctrl+Shift+[</kbd>), or the stacking buttons on the toolbar. Forward and backward pass the nearest overlapping
+node. Containers (system boundaries, deployment nodes, devices, execution environments) are stacked among themselves,
+always under the other nodes, and a container nested in another always stays above it. Notes and text boxes are
+stacked together, always above the UML elements.</p>
+
+<h3 id="arrange">Arrange Diagram</h3>
+<p><span class="ui">Format → Arrange Diagram</span> (or right-click the background) rearranges the whole diagram so that
+it reads well, as one step that Undo takes back:</p>
+<ul>
+  <li><strong>Class diagrams</strong> are laid out in layers: base classes and interfaces above the classes that inherit
+    from or realize them, wholes above their parts. Classes that nothing connects are packed in rows.</li>
+  <li><strong>State machine, activity, component and deployment diagrams</strong> read from top to bottom, and
+    <strong>use case diagrams</strong> from left to right; nodes stay in the container they are in.</li>
+  <li>Shapes in each layer are ordered to keep lines from crossing, and moved aside where a line would run through them.</li>
+  <li><strong>Sequence diagrams</strong> keep their message order: lifelines are ordered by the first message they take
+    part in and spaced so every label fits.</li>
+  <li>A title above the diagram stays above it; other notes and text boxes go in a column to the right, each note level
+    with what it is attached to.</li>
+</ul>
+<p>Only positions change (and the size of containers); connectors stay straight lines.</p>
+
+<h3>Theme</h3>
+<p><span class="ui">View → Theme</span> switches between <span class="ui">Light</span> and <span class="ui">Dark</span>, or
+<span class="ui">System</span> (the default) to follow the operating system, also when it changes while UML Wizard runs.
+Diagrams are drawn in dark colours in dark mode; exported images always use the light colours. <span class="ui">File →
+Preferences…</span> also sets the theme, the font of the user interface and the default colours of diagrams (see
+<a href="#preferences">Preferences</a>).</p>
+
+<!-- ============================================================ -->
+<h2 id="diagram-types">6. Diagram types</h2>
+<p>UML Wizard draws a subset of <strong>UML 2.x</strong> (UML 2.5.1) notation. It does not claim full conformance to the
+OMG specification and has no XMI import or export. <span class="ui">Help → About UML Wizard</span> shows the supported
+version.</p>
+
+<h3>Class diagrams</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>Construct</th><th>Supported</th></tr>
+  <tr><td>Classifiers</td><td>Class, abstract class (italic name), interface («interface»), enumeration (literals as attributes), custom stereotype («…»)</td></tr>
+  <tr><td>Attributes</td><td><code>visibility name: Type = default</code>; static (underlined)</td></tr>
+  <tr><td>Operations</td><td><code>visibility name(param: Type, …): ReturnType</code>; static (underlined), abstract (italic)</td></tr>
+  <tr><td>Relationships</td><td>Association, directed association, generalization, realization, aggregation, composition, dependency, with a label and source and target multiplicities</td></tr>
+  <tr><td>Tagged values</td><td>On the diagram, classes, attributes and operations (edited in the dialogs, not drawn)</td></tr>
+  <tr><td>Web API endpoints</td><td>An operation with an HTTP method and path is drawn as <code>«GET /orders/{id}» +getOrder(id: string): Order</code> (see <a href="#openapi">OpenAPI</a>)</td></tr>
+</table>
+</div>
+
+<h3>Sequence diagrams</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>Construct</th><th>Supported</th></tr>
+  <tr><td>Lifelines</td><td>Object (<code>name : Type</code>), actor</td></tr>
+  <tr><td>Messages</td><td>Synchronous, asynchronous, reply, create («create»); numbered in the order they are drawn from top to bottom</td></tr>
+</table>
+</div>
+
+<h3>State machine diagrams</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>Construct</th><th>Supported</th></tr>
+  <tr><td>States</td><td>Simple state (rounded rectangle), initial pseudostate, final state, choice</td></tr>
+  <tr><td>Transitions</td><td>Label <code>trigger [guard] / effect</code>; a transition may return to its own state (drawn as a loop)</td></tr>
+</table>
+</div>
+
+<h3>Activity diagrams</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>Construct</th><th>Supported</th></tr>
+  <tr><td>Nodes</td><td>Action, initial node, activity final, decision/merge, fork/join bar (horizontal or vertical)</td></tr>
+  <tr><td>Edges</td><td>Control flow with an optional guard, e.g. <code>[approved]</code></td></tr>
+</table>
+</div>
+
+<h3>Use case diagrams</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>Construct</th><th>Supported</th></tr>
+  <tr><td>Nodes</td><td>Actor (stick figure), use case (ellipse), system boundary (the use cases inside move with it)</td></tr>
+  <tr><td>Relationships</td><td>Association, «include», «extend», generalization (between actors or between use cases)</td></tr>
+</table>
+</div>
+
+<h3>Component diagrams</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>Construct</th><th>Supported</th></tr>
+  <tr><td>Nodes</td><td>Component («component» with the component icon), interface (lollipop circle)</td></tr>
+  <tr><td>Relationships</td><td>Dependency, realization (component to interface), association</td></tr>
+</table>
+</div>
+
+<h3>Deployment diagrams</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>Construct</th><th>Supported</th></tr>
+  <tr><td>Nodes</td><td>Node (3-D box), device («device»), execution environment («executionEnvironment»); they contain other elements and can be nested</td></tr>
+  <tr><td>Artifacts and components</td><td>Artifact («artifact» with the document icon), component</td></tr>
+  <tr><td>Relationships</td><td>Communication path (with a protocol label, e.g. <code>HTTPS</code>), «deploy», «manifest», dependency</td></tr>
+</table>
+</div>
+<p>An artifact inside an execution environment or node is deployed on it; «deploy» shows the same thing with an arrow.</p>
+
+<h3>Every diagram type</h3>
+<p>Notes (UML comments, attached to elements and connectors with dashed lines), text boxes (free labels, not UML),
+fonts, fill, border and line colours. The colours and text boxes are not UML notation.</p>
+
+<h3>Connections that are refused</h3>
+<p>Nothing leaves a final node or enters an initial node; only transitions loop back to their own node; system
+boundaries are not connected; «include» and «extend» connect use cases; generalizations connect two actors or two use
+cases; realizations end at an interface; «deploy» goes from an artifact to a node, device or execution environment,
+«manifest» from an artifact to a component; communication paths connect nodes.</p>
+
+<h3>Not supported</h3>
+<ul>
+  <li><strong>Class diagrams:</strong> packages, constraints (<code>{…}</code>), association classes, n-ary associations,
+    qualified associations, templates, derived attributes (<code>/</code>), association end names and navigability
+    markers. Two relationships between the same pair of classes are drawn on top of each other.</li>
+  <li><strong>Sequence diagrams:</strong> combined fragments (<code>alt</code>, <code>opt</code>, <code>loop</code>,
+    <code>par</code>, …), execution specifications (activation bars), destruction, interaction uses, gates, found and
+    lost messages.</li>
+  <li><strong>State machine diagrams:</strong> composite and orthogonal states, entry/do/exit behaviours, history,
+    fork/join, junction and terminate pseudostates.</li>
+  <li><strong>Activity diagrams:</strong> object nodes and flows, swimlanes (partitions), flow final, signals, exception
+    handlers.</li>
+  <li><strong>Use case diagrams:</strong> extension points, multiplicities on associations.</li>
+  <li><strong>Component diagrams:</strong> ports, required interfaces (sockets), assembly and delegation connectors,
+    packages.</li>
+  <li><strong>Deployment diagrams:</strong> deployment specifications, instance names (<code>name : Type</code>),
+    multiplicities on communication paths.</li>
+  <li><strong>Other diagram types:</strong> object, package, composite structure, communication, timing, interaction
+    overview and profile diagrams.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2 id="tagged-values">7. Tagged values</h2>
+<p>A tagged value is a name and a value, such as <code>status = draft</code>, attached to a model element. It is UML's
+way of recording information the notation has no place for. UML Wizard keeps tagged values on <strong>diagrams</strong>,
+<strong>classes</strong> (of every kind: classes, abstract classes, interfaces and enumerations), <strong>attributes</strong>
+and <strong>operations</strong>. They are saved with the project, but they are not drawn: they are notes about the model,
+not part of the picture.</p>
+
+<h3>Editing them</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>On</th><th>Where</th></tr>
+  <tr><td>A diagram</td><td>Select the diagram in the Project Explorer and choose <span class="ui">Diagram → Properties…</span>;
+    the tagged values are at the bottom of the dialog.</td></tr>
+  <tr><td>A class</td><td>Open the class's <span class="ui">Edit…</span> dialog (double-click its name, press <kbd>Enter</kbd> or
+    right-click it) and click the tag button next to the stereotype.</td></tr>
+  <tr><td>An attribute or operation</td><td>In the same dialog, click the tag button at the end of the attribute's or
+    operation's row.</td></tr>
+</table>
+</div>
+<p>The class dialog shows the tagged values of one element at a time, below the lists of attributes and operations; its
+heading says whose they are. In every place they are edited the same way:</p>
+<ul>
+  <li><span class="ui">Add Tagged Value</span> adds a row: type the name in the first box and the value in the second.</li>
+  <li>The button at the end of a row removes it.</li>
+  <li>Rows without a name are dropped when you click <span class="ui">OK</span>; <span class="ui">Cancel</span> keeps the
+    tagged values as they were.</li>
+  <li>Changes made in the class dialog can be undone with <kbd>Ctrl+Z</kbd>, like any other change to the diagram.</li>
+</ul>
+
+<h3>Tagged values UML Wizard uses</h3>
+<p>Most tagged values are yours, and UML Wizard only keeps them. A few are set and read by UML Wizard itself:</p>
+<div class="table-wrap">
+<table>
+  <tr><th>Name</th><th>On</th><th>Set by</th><th>Used by</th></tr>
+  <tr><td><code>openapi.…</code></td><td>Diagrams, classes, attributes, operations</td>
+    <td><a href="#openapi">OpenAPI import</a>: whatever the description says that the class diagram has no place for, e.g. the API's
+      description and contact, its servers and security, descriptions and examples of schemas and properties, and
+      responses other than the first successful one.</td>
+    <td>OpenAPI export, which writes them back, so that importing and exporting an OpenAPI description gives it back.</td></tr>
+  <tr><td><code>required</code></td><td>Attributes</td>
+    <td>OpenAPI import, with the value <code>true</code>, for a required property.</td>
+    <td>OpenAPI export: the property is listed as required. Set it yourself to make a property required.</td></tr>
+  <tr><td><code>namespace</code></td><td>Classes</td>
+    <td><a href="#import-code">Import Source Folder</a> (the namespace, package or module of the code) and
+      <a href="#plantuml">PlantUML import</a> (the package of the class).</td>
+    <td>Nothing: it records where the class came from. Code generation takes the namespace from its own dialog.</td></tr>
+</table>
+</div>
+<p class="tip">Leave the <code>openapi.…</code> tagged values as they are unless you know the OpenAPI format: they hold
+JSON, and removing one loses that part of the description when the diagram is exported to OpenAPI. Changing the diagram
+itself, e.g. a type or a parameter, is always safe; where the two disagree, the diagram wins.</p>
+
+<h3>Your own tagged values</h3>
+<p>Use them for anything you want to keep with the model, for example:</p>
+<ul>
+  <li>on a diagram: <code>status = draft</code>, <code>version = 2.1</code>, <code>reviewed-by = Sam</code>,
+    <code>ticket = SHOP-123</code>;</li>
+  <li>on a class: <code>owner = payments team</code>, <code>table = orders</code>, <code>since = 3.0</code>;</li>
+  <li>on an attribute: <code>unit = EUR</code>, <code>pii = true</code>, <code>column = order_total</code>;</li>
+  <li>on an operation: <code>idempotent = true</code>, <code>deprecated = use submit()</code>.</li>
+</ul>
+<p>UML Wizard keeps them with the diagram, through saving, copying and pasting classes, undo and redo. They are not
+drawn, and are not part of exports: PNG images do not show them, PlantUML has no place for them (the export lists how
+many it left out), code generation does not use them, and OpenAPI export only uses the ones in the table above.</p>
+<p class="tip">Choose short, lowercase names, and use the same name for the same thing everywhere, e.g. always
+<code>owner</code>, never <code>Owner</code> in one class and <code>team</code> in another. Do not start your own names with
+<code>openapi.</code>: OpenAPI export reads every tagged value with that prefix.</p>
+
+<!-- ============================================================ -->
+<h2 id="export-image">8. Exporting an image</h2>
+<ol>
+  <li>Select a diagram in the Project Explorer and choose <span class="ui">Diagram → Export → PNG Image…</span></li>
+  <li>Enter the <span class="ui">output folder</span> (or <span class="ui">Browse…</span>) and the
+    <span class="ui">file name</span>; <code>.png</code> is added when missing. Either field warns in red when the file
+    already exists, and OK asks before replacing it.</li>
+  <li>Choose a white or <span class="ui">transparent</span> background (shapes filled white and label backgrounds stay
+    white).</li>
+</ol>
+<p>The folder and background are offered again for the next export while the app runs. An open diagram is exported as
+shown, including unsaved changes.</p>
+
+<!-- ============================================================ -->
+<h2 id="generate-code">9. Generating code</h2>
+<p>Select a class diagram in the Project Explorer and choose <span class="ui">Diagram → Generate Code…</span>. Pick:</p>
+<ul>
+  <li>the <span class="ui">language</span>: C#, Java, Kotlin, TypeScript, Ruby or C++ out of the box, more with
+    <a href="#languages">plug-ins</a>;</li>
+  <li>the <span class="ui">namespace</span> (package in Java and Kotlin, module in Ruby, the folders of the files in
+    TypeScript; optional, e.g. <code>Shop.Domain</code> or <code>Shop::Domain</code>); the project name is suggested;</li>
+  <li>the <span class="ui">output folder</span>, created if needed; <code>Generated/&lt;language&gt;</code> next to the
+    project file is suggested.</li>
+</ul>
+<p>The dialog lists the files it will write, marks the ones that replace existing files, and shows notes on what the
+language cannot express; OK asks before replacing files. An open diagram is generated as shown, including unsaved
+changes. <span class="ui">Help → How to Generate Code</span> walks through an example.</p>
+
+<div class="table-wrap">
+<table>
+  <tr><th></th><th>C#</th><th>Java</th><th>Kotlin</th><th>TypeScript</th><th>Ruby</th><th>C++ (C++17)</th></tr>
+  <tr><td>Files</td><td><code>Order.cs</code></td><td><code>shop/domain/Order.java</code> (folders follow the package)</td><td><code>shop/domain/Order.kt</code> (folders follow the package)</td><td><code>shop/domain/Order.ts</code>, an ES module importing the types it uses</td><td><code>shop/domain/order.rb</code></td><td><code>Order.h</code> and, when there are stubs, <code>Order.cpp</code></td></tr>
+  <tr><td>Class, abstract class</td><td><code>class</code>, <code>abstract class</code></td><td><code>class</code>, <code>abstract class</code></td><td><code>class</code> (<code>open</code> when another class extends it), <code>abstract class</code></td><td><code>class</code>, <code>abstract class</code></td><td><code>class</code></td><td><code>class</code>; abstract operations are pure virtual</td></tr>
+  <tr><td>Interface</td><td><code>interface</code></td><td><code>interface</code></td><td><code>interface</code>, whose attributes are abstract properties</td><td><code>interface</code>, with properties</td><td><code>module</code>, included by the classes that realize it</td><td>class with pure virtual functions and a virtual destructor</td></tr>
+  <tr><td>Enumeration</td><td><code>enum</code></td><td><code>enum</code> (UPPER_SNAKE_CASE constants)</td><td><code>enum class</code> (UPPER_SNAKE_CASE constants, with a <code>value</code> when the literals have numbers or strings)</td><td><code>enum</code> (PascalCase members, with their values)</td><td>module of constants and <code>ALL</code></td><td><code>enum class</code></td></tr>
+  <tr><td>Attribute</td><td>public/protected/package: auto-property; private: <code>_field</code></td><td>field</td><td>property, initialized as Kotlin requires; static ones in a <code>companion object</code></td><td>property (<code>!</code> when it has no value, so it compiles with <code>strict</code>)</td><td><code>attr_accessor</code>; defaults set in <code>initialize</code></td><td>member (<code>inline static</code> when static)</td></tr>
+  <tr><td>Operation</td><td>method that throws <code>NotImplementedException</code></td><td>method that throws <code>UnsupportedOperationException</code></td><td>function that calls <code>TODO()</code></td><td>method that throws <code>Error</code></td><td>method that raises <code>NotImplementedError</code>, with YARD tags</td><td>declaration, and a definition that throws <code>std::logic_error</code></td></tr>
+  <tr><td>Constructor (operation named like its class)</td><td>constructor</td><td>constructor</td><td>secondary constructor</td><td><code>constructor</code></td><td><code>initialize</code></td><td>constructor (<code>explicit</code> with one parameter)</td></tr>
+  <tr><td>Names</td><td>PascalCase members, camelCase parameters</td><td>camelCase</td><td>camelCase</td><td>camelCase</td><td>snake_case methods and files</td><td>as in the diagram</td></tr>
+</table>
+</div>
+<ul>
+  <li><strong>Inheritance and realization</strong> become base classes and implemented interfaces. Every language but
+    C++ has one base class: further ones are left out, with a note. An operation that overrides one of a base class is
+    marked as an override where the language needs it. A concrete class gets stubs for the inherited abstract and
+    interface operations it does not list, so the code compiles.</li>
+  <li><strong>Associations, aggregations and compositions</strong> become fields of the class the relationship leads
+    from: both ends for a plain association, the source for directed associations, aggregations (the whole) and
+    compositions. A field is named after the other class, in the plural for multiplicities above one (<code>*</code>,
+    <code>0..*</code>, <code>1..*</code>, <code>2</code>), which makes it a list. No field is added when an attribute
+    already has that class as its type. In C++ classes are referred to by pointer, and compositions own their parts
+    through <code>std::unique_ptr</code>. The relationship's label becomes the field's documentation comment.</li>
+  <li><strong>Notes</strong> attached to a class and its <strong>stereotype</strong> become the class's documentation
+    comment.</li>
+  <li><strong>Types</strong> such as <code>int</code>, <code>string</code>, <code>bool</code>, <code>decimal</code>,
+    <code>DateTime</code>, <code>Guid</code>, <code>List&lt;T&gt;</code>, <code>Set&lt;T&gt;</code> and
+    <code>Map&lt;K, V&gt;</code> are written the language's way; classes of the diagram are used by name; other types are
+    used as written, with a note. A default value that names a literal of an enumeration
+    (<code>status: OrderStatus = New</code>) is qualified the language's way.</li>
+  <li>The <strong>notes in the dialog</strong> also list what is not generated, such as operations of enumerations in
+    C#, C++ and TypeScript, or overloaded methods in Ruby and TypeScript.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2 id="import-code">10. Importing code</h2>
+<p><span class="ui">Import Source Folder</span> (the start screen, or <span class="ui">File → Import Source
+Folder…</span>) creates a new project from existing code, with a class diagram of its types, laid out automatically.</p>
+<ol>
+  <li>Pick the folder. For a C# project, pick the project's folder.</li>
+  <li>The dialog offers the languages the folder has files of, the most common first, and says up front what the import
+    leaves out.</li>
+  <li>Enter the new project's name, author, description and location.</li>
+</ol>
+<p>The diagram opens, and a summary lists what was imported and everything that was left out or shown differently. A
+folder with no source files of an importable language, or no types, is not imported. The code is not built, so nothing
+needs to be restored or compiled.</p>
+<p>Every source file of the chosen language under the folder is read, leaving out hidden folders (<code>.git</code>,
+<code>.vs</code>, …), build output and dependencies (<code>bin</code>, <code>obj</code>, <code>build</code>,
+<code>out</code>, <code>target</code>, <code>dist</code>, <code>packages</code>, <code>node_modules</code>,
+<code>vendor</code>).</p>
+
+<div class="table-wrap">
+<table>
+  <tr><th>Language</th><th>Files</th><th>Notes</th></tr>
+  <tr><td>C#</td><td><code>.cs</code></td><td>struct «struct», record «record», static class «static»; partial classes are merged</td></tr>
+  <tr><td>C++</td><td><code>.h</code>, <code>.hpp</code>, <code>.hh</code>, <code>.hxx</code>, <code>.cpp</code>, <code>.cc</code>, <code>.cxx</code></td><td>struct «struct», union «union»; a class with only pure virtual functions is an interface, one with a pure virtual function abstract</td></tr>
+  <tr><td>Java</td><td><code>.java</code></td><td>record «record»; enumeration constants with their arguments; the package is the namespace</td></tr>
+  <tr><td>Kotlin</td><td><code>.kt</code></td><td>data class «data», object «object», sealed class «sealed», value class «value»; <code>val</code> and <code>var</code> constructor parameters are attributes; companion object members are static</td></tr>
+  <tr><td>TypeScript</td><td><code>.ts</code>, <code>.tsx</code>, <code>.mts</code>, <code>.cts</code></td><td>properties, accessors and constructor parameter properties are attributes, <code>#private</code> members private; interfaces declared in several places are merged</td></tr>
+  <tr><td>Ruby</td><td><code>.rb</code></td><td>a module with methods or constants is a mixin: an interface «module», realized by <code>include</code>, <code>extend</code> and <code>prepend</code>; classes reopened in several files are merged</td></tr>
+</table>
+</div>
+
+<div class="table-wrap">
+<table>
+  <tr><th>Code</th><th>Class diagram</th></tr>
+  <tr><td>Class, abstract class, interface, enumeration</td><td>Class, abstract class, interface, enumeration (with the literals' values)</td></tr>
+  <tr><td>Field, property, attribute</td><td>Attribute with its visibility, type, static and initial value (constants are static)</td></tr>
+  <tr><td>Method, constructor</td><td>Operation with its visibility, parameters, return type, static and abstract</td></tr>
+  <tr><td>Base class; implemented or included interface</td><td>Inheritance; realization (a class) or generalization (an interface)</td></tr>
+  <tr><td>Field or property whose type is another class of the import (also through nullable types, arrays and collections)</td><td>Directed association named after the member, multiplicity <code>*</code> for collections and <code>0..1</code> for optional values, instead of an attribute</td></tr>
+  <tr><td>Nested class <code>Outer.Inner</code></td><td>A separate class named <code>Outer.Inner</code></td></tr>
+  <tr><td>Namespace, package, module</td><td>Tagged value <code>namespace</code></td></tr>
+</table>
+</div>
+<p>Left out, and counted in the summary: files of other languages; method bodies, comments and documentation; base
+types that are not part of the import (e.g. <code>Exception</code>); initial values longer than 40 characters; and what
+each language has that a class diagram cannot show, e.g. events, indexers and operators in C#, annotations in Java and
+Kotlin, decorators and type aliases in TypeScript, destructors, friends and free functions in C++, and methods defined at
+run time in Ruby. Ruby declares no types, so Ruby classes are linked only by inheritance and mixins, not by associations.</p>
+
+<!-- ============================================================ -->
+<h2 id="openapi">11. OpenAPI</h2>
+<p><span class="ui">Diagram → Import → OpenAPI…</span> reads an OpenAPI 3.0 or 3.1, or Swagger 2.0, description
+(<code>.yaml</code>, <code>.yml</code> or <code>.json</code>) and adds a class diagram to the folder of the Project
+Explorer selection, laid out automatically. <span class="ui">Diagram → Export → OpenAPI…</span> writes the selected
+class diagram as OpenAPI 3.0: the file's extension chooses YAML or JSON, and the dialog asks for the API's title (the
+diagram name by default) and version.</p>
+<div class="table-wrap">
+<table>
+  <tr><th>OpenAPI</th><th>Class diagram</th></tr>
+  <tr><td>Schema of an object (<code>components/schemas</code>)</td><td>Class; its properties are attributes</td></tr>
+  <tr><td>Schema with <code>enum</code></td><td>Enumeration; the values are its literals</td></tr>
+  <tr><td><code>allOf</code> with a <code>$ref</code></td><td>Generalization to that schema</td></tr>
+  <tr><td>Property referring to another schema</td><td>Attribute of that type, and a directed association with multiplicity <code>1</code>, <code>0..1</code> or <code>*</code></td></tr>
+  <tr><td>Required property</td><td>Tagged value <code>required = true</code> on the attribute</td></tr>
+  <tr><td>Tag (or the first path segment of untagged operations)</td><td>Interface with the stereotype «api», e.g. <code>PetsApi</code> for the tag <code>pets</code></td></tr>
+  <tr><td>Operation (<code>GET /pets/{petId}</code>)</td><td>Operation of that interface, with its parameters, request body and response type; its <span class="ui">Method</span> and <span class="ui">Path</span> are set</td></tr>
+</table>
+</div>
+<p>What UML has no place for is kept in tagged values named <code>openapi.…</code> and written back on export, so
+importing and exporting an OpenAPI 3.0 description gives it back; when the diagram changes, the diagram wins. The import
+lists anything it could not keep. <span class="ui">Help → How to Import and Export OpenAPI</span> has the details,
+including how the Method and Path of an operation become an endpoint.</p>
+
+<!-- ============================================================ -->
+<h2 id="plantuml">12. PlantUML</h2>
+<p><span class="ui">Diagram → Import → PlantUML…</span> reads a PlantUML file: each diagram in it, from
+<code>@startuml</code> to <code>@enduml</code>, is added to the folder of the Project Explorer selection and laid out
+automatically. Its kind is recognised from its content, as PlantUML does, and its <code>title</code> names it.
+<span class="ui">Diagram → Export → PlantUML…</span> writes the selected diagram, of any type, as PlantUML, with its name
+as the title. Both list what they could not keep.</p>
+<p>Not exported: text boxes, fonts, colours, line styles and tagged values. Not imported: styling, combined fragments of
+sequence diagrams (their messages are kept), composite states (flattened), history states, swimlanes (their actions are
+kept) and <code>!include</code>. <span class="ui">Help → How to Import and Export PlantUML</span> shows how each kind of
+diagram maps.</p>
+
+<!-- ============================================================ -->
+<h2 id="ai">13. AI assistant</h2>
+<p>UML Wizard can use an AI service to draw a diagram from a description, and to talk about and change your diagrams in a chat. The AI is optional and off until you set it up:
+nothing is sent anywhere before that, and afterwards only when you use an AI command.</p>
+
+<h3>Setting up an AI service</h3>
+<ol>
+  <li>Open <span class="ui">File → Preferences…</span> and the <span class="ui">AI</span> tab.</li>
+  <li>Choose the <span class="ui">Service</span>:
+    <ul>
+      <li><span class="ui">Anthropic (Claude)</span>: needs an API key from Anthropic. The model is
+        <code>claude-sonnet-5-5</code> unless you name another, e.g. <code>claude-opus-5-5</code> for large or subtle
+        diagrams.</li>
+      <li><span class="ui">OpenAI-compatible</span>: OpenAI itself (with an API key), or any service with the same API,
+        including models running on your own computer with Ollama (<code>http://localhost:11434/v1</code>) or LM Studio
+        (<code>http://localhost:1234/v1</code>), which need no key. Enter the <span class="ui">Endpoint</span> and the
+        <span class="ui">Model</span>, e.g. <code>gpt-4o-mini</code> or <code>llama3.1</code>.</li>
+    </ul></li>
+  <li>Enter the <span class="ui">API key</span>, if the service needs one. It is kept in your system's credential store
+    (Windows Credential Manager, the macOS Keychain, or the Secret Service on Linux), not in the settings file. Instead,
+    you can set the <code>ANTHROPIC_API_KEY</code> or <code>OPENAI_API_KEY</code> environment variable.</li>
+  <li>Leave <span class="ui">Changes</span> on <span class="ui">With tool calls</span>, unless the model cannot call tools
+    (some local models cannot; the chat then reports an error from the service). Choose
+    <span class="ui">As a whole diagram</span> for those: see <a href="#ai-chat">Chatting about a diagram</a>.</li>
+  <li>Click <span class="ui">Test Connection</span>: UML Wizard sends a short request and says whether the service
+    answered.</li>
+</ol>
+<p class="tip">Choosing <span class="ui">None (AI off)</span> turns the AI commands off again. On Linux, keeping the key
+needs the <code>secret-tool</code> command (package <code>libsecret-tools</code>); without it, use the environment variable.</p>
+
+<h3 id="create-with-ai">Creating a diagram with AI</h3>
+<ol>
+  <li>In the Project Explorer, select the folder the diagram should go into (or a diagram in it).</li>
+  <li>Choose <span class="ui">Diagram → Create with AI…</span></li>
+  <li>Describe the diagram in your own words, and choose its <span class="ui">Type</span>, or leave
+    <span class="ui">Let the AI choose</span>.</li>
+  <li>Click <span class="ui">OK</span>. A window says what is happening; <span class="ui">Cancel</span> stops it.</li>
+</ol>
+<p>The new diagram is laid out, added to the folder and opened. Its description says it was created with AI, and from
+what. If the AI wrote something UML Wizard does not support, it is listed, and the rest of the diagram is kept. Create with AI
+does not change your existing diagrams: it only adds new ones, which you can edit, undo and delete like any other. To
+change a diagram with AI, use the <a href="#ai-chat">chat</a>.</p>
+<p>How it works: the AI writes the diagram as PlantUML, which UML Wizard reads with its <a href="#plantuml">PlantUML
+import</a>, checks and lays out. If the answer cannot be read as a diagram, UML Wizard asks the AI once more.</p>
+
+<h3 id="ai-chat">Chatting about a diagram</h3>
+<p><span class="ui">View → AI Chat</span> (<kbd>Ctrl+Alt+I</kbd>) shows the AI chat on the right of the window; it is hidden when UML Wizard starts. It is about
+the diagram of the active tab: each tab has its own conversation, which is not saved with the project.</p>
+<ul>
+  <li>Type a question or a request in the box at the bottom and click <span class="ui">Send</span>, or press
+    <kbd>Ctrl+Enter</kbd> (<kbd>⌘+Enter</kbd> on macOS). <span class="ui">Stop</span> ends a request that takes too long;
+    nothing from it is kept.</li>
+  <li>Ask about the diagram: "What does this diagram show?", "Review this design", "Which classes have no
+    relationships?". The AI sees the whole diagram.</li>
+  <li>Ask for changes, in any kind of diagram:
+    <ul>
+      <li><strong>Class diagrams</strong>: "Add a Payment class that Order is composed of, with an amount and a status",
+        "Make Shape abstract", "Rename Customer to Buyer", "Remove the dependency from Cart to Logger". The AI adds,
+        renames and deletes classes, attributes, operations, enumeration literals and relationships.</li>
+      <li><strong>State machine and activity diagrams</strong>: "Add a Cancelled state reachable from Created and Paid",
+        "After Check stock, add a decision: ship when in stock, else back-order". States, actions, initial and final
+        nodes, decisions, choices and fork/join bars, with their transitions and flows, triggers, guards and effects.</li>
+      <li><strong>Use case diagrams</strong>: actors, use cases inside the system, associations, «include», «extend» and
+        generalizations.</li>
+      <li><strong>Component and deployment diagrams</strong>: "Deploy shop-web.dll on a Kestrel environment on the Web
+        Server", "Add a database node connected over TCP". Components, interfaces, nodes, devices, execution
+        environments and artifacts, and what is deployed on what.</li>
+      <li><strong>Sequence diagrams</strong>: "After checkout, the shop calls payments.pay(total)", "Remove the second
+        reply". Lifelines and messages; a message added in the middle moves the later ones down.</li>
+    </ul>
+    The AI also adds notes. It follows the same rules as the editor: e.g. nothing leads into an initial node, and only
+    an artifact is deployed with «deploy».</li>
+</ul>
+<p>The answer appears while the AI writes it, with its formatting: bold, lists and code.</p>
+<p>Changes are not made straight away. Under the conversation, <span class="ui">Proposed changes</span> lists them, e.g.
+<code>+ class Payment</code> or <code>+ Order → Payment (composition)</code>:</p>
+<ul>
+  <li><span class="ui">Apply</span> makes them, as one step: a single <span class="ui">Undo</span> takes them all back.</li>
+  <li><span class="ui">Discard</span> drops them; the diagram stays as it was.</li>
+  <li>Asking for more before deciding adds to the same proposal.</li>
+</ul>
+<p>What the AI adds is placed next to what it is connected to, in free space, without moving anything: a class next to a
+related class, a state next to the state it follows, an artifact inside the node it is deployed on (which grows to hold
+it). In an empty diagram, everything the AI adds is arranged. Use <span class="ui">Format → Arrange Diagram</span>
+afterwards if you want the whole diagram tidied.</p>
+<p><strong>The first time</strong> you send a message in a project, the chat asks whether the project's diagrams may be
+sent to the service. <span class="ui">Allow for This Project</span> sends the message, and UML Wizard remembers the answer
+for that project; <span class="ui">Cancel</span> keeps the message in the box and sends nothing.</p>
+<p><strong>Models without tool calling.</strong> The AI normally changes a diagram step by step ("add a class", "add a
+transition"), which needs a model that can call tools. For a model that cannot, set
+<span class="ui">Preferences → AI → Changes</span> to <span class="ui">As a whole diagram</span>: the AI then answers with the
+whole revised diagram in PlantUML. UML Wizard matches it with your diagram by name, so what keeps its name keeps its place,
+look and tagged values; what is new is placed; what the AI left out is removed. The proposed changes show all of it before
+you apply it. This works best with class, state machine, use case, component and deployment diagrams; activity diagrams
+may be rebuilt rather than changed.</p>
+<p class="tip">The chat sends your messages <em>and the diagram</em> to the AI service. The panel says which service; see
+<a href="#ai">Privacy</a> above.</p>
+
+<h3>Describing a diagram well</h3>
+<ul>
+  <li>Name the things that matter: "classes Order, OrderLine, Customer and Product; an order has one or more lines;
+    each line refers to a product".</li>
+  <li>Say how they relate or in what order things happen: "the customer pays, then the shop reserves the stock and ships
+    the order; payment can be retried twice".</li>
+  <li>Choose the diagram type when you know it; the AI's choice is a guess.</li>
+  <li>Keep it focused: one diagram per idea; 5 to 15 elements read best.</li>
+  <li>Check the result: AI can misunderstand or invent details. Treat the diagram as a draft.</li>
+</ul>
+
+<h3>Privacy</h3>
+<p>When you use an AI command, what you type is sent to the service you chose, and the AI chat also sends the diagram it is
+about; and is subject to its terms. Choose a local model (Ollama, LM Studio) to keep everything on your
+computer. Your API key is only sent to that service.</p>
+
+<!-- ============================================================ -->
+<h2 id="languages">14. Adding languages</h2>
+<p>Every code generation and code import language is a plug-in: a DLL loaded at start-up from two
+<code>plugins</code> folders. The built-in ones are in the application's folder. To add a language, put its DLL in your
+own plug-ins folder and restart UML Wizard:</p>
+<ul>
+  <li>Windows: <code>%APPDATA%\UmlWizard\plugins</code></li>
+  <li>macOS and Linux: <code>~/.config/UmlWizard/plugins</code></li>
+</ul>
+<p>A plug-in goes there as <code>Name.dll</code>, or as <code>Name/Name.dll</code> with its dependencies. It then appears
+in the Language box of Generate Code or the language choice of Import Source Folder. To remove it, delete its DLL (or
+its folder). When both folders have a DLL with the same name, the application's wins.</p>
+<p><span class="ui">Help → About UML Wizard → Languages</span> lists every installed language plug-in with its version and
+provider, and the plug-ins that could not be loaded, with the reason.</p>
+
+<!-- ============================================================ -->
+<h2 id="menus">15. Menus</h2>
+<div class="table-wrap">
+<table>
+  <tr><th>Menu</th><th>Items</th></tr>
+  <tr><td>File</td><td>New Project, Open Project, Import Source Folder, Recent Projects │ Save Project, Save Project As │ New Folder, Project Properties │ Close Project │ Preferences │ Exit</td></tr>
+  <tr><td>Edit</td><td>Undo, Redo │ Cut, Copy, Paste, Delete │ Edit Element</td></tr>
+  <tr><td>View</td><td>Project Explorer, AI Chat │ Theme ▸ (System, Light, Dark)</td></tr>
+  <tr><td>Format</td><td>Font, Diagram Font, Shape, Line │ Bring to Front, Bring Forward, Send Backward, Send to Back │ Arrange Diagram</td></tr>
+  <tr><td>Diagram</td><td>New Diagram ▸ (every type), Create with AI, Rename, Move To, Delete │ Import ▸ (OpenAPI, PlantUML), Export ▸ (PNG Image, OpenAPI, PlantUML), Generate Code │ Close All Diagrams │ Properties</td></tr>
+  <tr><td>Help</td><td>User Manual, Learn UML │ How to Import and Export OpenAPI, How to Import and Export PlantUML, How to Generate Code │ About UML Wizard</td></tr>
+</table>
+</div>
+<p>Rename, Move To, Delete, Export, Generate Code and Properties in the <span class="ui">Diagram</span> menu act on the
+diagram selected in the Project Explorer.</p>
+
+<!-- ============================================================ -->
+<h2 id="keyboard">16. Keyboard shortcuts</h2>
+<p>Shortcuts use <kbd>Ctrl</kbd> on Windows and Linux and <kbd>⌘</kbd> on macOS.</p>
+<div class="table-wrap">
+<table>
+  <tr><th>Keys</th><th>Action</th></tr>
+  <tr><td><kbd>Ctrl+Shift+N</kbd> / <kbd>Ctrl+O</kbd></td><td>New project / open project</td></tr>
+  <tr><td><kbd>Ctrl+S</kbd> / <kbd>Ctrl+Shift+S</kbd></td><td>Save project / save project as</td></tr>
+  <tr><td><kbd>Ctrl+Z</kbd> / <kbd>Ctrl+Y</kbd> (<kbd>⌘⇧Z</kbd> on macOS)</td><td>Undo / redo</td></tr>
+  <tr><td><kbd>Ctrl+X</kbd> / <kbd>Ctrl+C</kbd> / <kbd>Ctrl+V</kbd></td><td>Cut / copy / paste</td></tr>
+  <tr><td><kbd>Delete</kbd> (<kbd>⌫</kbd> on macOS)</td><td>Delete the selected element</td></tr>
+  <tr><td>Arrow keys / <kbd>Shift</kbd>+arrow keys</td><td>Move the selected element by 1 unit / one grid step (20 units)</td></tr>
+  <tr><td><kbd>F2</kbd> / <kbd>Enter</kbd></td><td>Edit in place / open the Edit dialog</td></tr>
+  <tr><td><kbd>Esc</kbd></td><td>Cancel an in-place edit or the active tool, and clear the selection</td></tr>
+  <tr><td><kbd>Ctrl+Alt+L</kbd></td><td>Show or hide the Project Explorer</td></tr>
+  <tr><td><kbd>Ctrl+,</kbd></td><td>Open the Preferences</td></tr>
+  <tr><td><kbd>Ctrl+Alt+I</kbd></td><td>Show or hide the AI chat</td></tr>
+  <tr><td><kbd>Ctrl+Enter</kbd></td><td>Send the message in the AI chat</td></tr>
+  <tr><td><kbd>Ctrl+Plus</kbd> / <kbd>Ctrl+Minus</kbd> / <kbd>Ctrl+0</kbd></td><td>Zoom in / zoom out / actual size</td></tr>
+  <tr><td><kbd>Ctrl+Shift+]</kbd> / <kbd>Ctrl+]</kbd> / <kbd>Ctrl+[</kbd> / <kbd>Ctrl+Shift+[</kbd></td><td>Bring to front / forward, send backward / to back</td></tr>
+  <tr><td><kbd>F1</kbd></td><td>Open this User Manual</td></tr>
+</table>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="preferences">17. Preferences</h2>
+<p>The Preferences window sets how UML Wizard works and looks for you: where new projects go, the language and font of
+the application, and the colours diagrams are drawn in. Preferences belong to you, not to a project: they apply to every
+project you open, and a project you share keeps its own look for others.</p>
+
+<h3>Opening the window</h3>
+<ul>
+  <li>Choose <span class="ui">File → Preferences…</span>, or press <kbd>Ctrl+,</kbd>.</li>
+  <li>On macOS, also <span class="ui">UML Wizard → Preferences…</span> in the menu bar, or <kbd>⌘,</kbd>.</li>
+</ul>
+<p>The window has four tabs: <span class="ui">General</span>, <span class="ui">Appearance</span>,
+<span class="ui">Diagram</span> and <span class="ui">AI</span>. Each setting is a label on the left with its control on the right.</p>
+<p class="tip">There is no OK or Cancel: every change applies at once and is saved straight away. Change something back
+the same way you changed it, then click <span class="ui">Close</span> (or press <kbd>Esc</kbd>) when you are done.
+Drag the window's edges to make it larger.</p>
+
+<h3>General</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>Setting</th><th>What it does</th></tr>
+  <tr><td><span class="ui">Projects folder</span></td><td>Where new projects are created, and where imported source
+    folders become projects, unless you choose another folder at the time. Type the folder or click the folder button at
+    the end of the box to browse for it. Leave it empty to use your Documents folder, which the box then shows in grey.
+    A folder that no longer exists is ignored.</td></tr>
+  <tr><td><span class="ui">Display language</span></td><td>The language of menus, panels and dialogs. Open the list, or
+    type the first letters of a language to jump to it. Only English is available so far.</td></tr>
+</table>
+</div>
+
+<h3>Appearance</h3>
+<p>These settings change the application itself, not your diagrams.</p>
+<div class="table-wrap">
+<table>
+  <tr><th>Setting</th><th>What it does</th></tr>
+  <tr><td><span class="ui">Theme</span></td><td><span class="ui">System</span> follows the light or dark mode of your
+    operating system, also when it changes while UML Wizard runs; <span class="ui">Light</span> and
+    <span class="ui">Dark</span> keep one. It is the same choice as <span class="ui">View → Theme</span>.</td></tr>
+  <tr><td><span class="ui">Font</span></td><td>The font of menus, panels and dialogs. The list has every font installed on
+    your computer; type the first letters of a font to jump to it. <span class="ui">Default</span> puts the application's
+    own font back.</td></tr>
+  <tr><td><span class="ui">Font size</span></td><td>The size of that font, from 10 to 20. Leave it empty for the default
+    size (14), which the box then shows in grey.</td></tr>
+</table>
+</div>
+<p>The <span class="ui">Preview</span> below the settings shows a small window, with a title, text, a text box, a check box
+and a button, in the font and size you choose, so you can judge them before closing the window. Every window of the
+application changes as well.</p>
+<p class="tip">The text of diagrams has a font of its own, which is part of the diagram: set it with
+<span class="ui">Format → Diagram Font…</span> (all the elements of a diagram) or <span class="ui">Format → Font…</span>
+(one element).</p>
+
+<h3>Diagram</h3>
+<p>This tab sets the colours shapes are drawn in, for each type of diagram. Pick the diagram type in the list on the left;
+its settings appear on the right:</p>
+<ul>
+  <li><span class="ui">Fill</span>: a colour for each kind of shape the diagram type has.</li>
+  <li><span class="ui">Border</span>: the colour of the outline of every shape of that diagram type.</li>
+  <li><span class="ui">Thickness</span>: the width of that outline, from 0.5 to 8. Leave it empty for the default
+    (1.2).</li>
+</ul>
+<div class="table-wrap">
+<table>
+  <tr><th>Diagram type</th><th>Fills</th></tr>
+  <tr><td>Class diagram</td><td>Class, Abstract class, Interface, Enumeration, Note</td></tr>
+  <tr><td>Sequence diagram</td><td>Lifeline, Note</td></tr>
+  <tr><td>State machine diagram</td><td>State, Choice, Note</td></tr>
+  <tr><td>Activity diagram</td><td>Action, Decision / merge, Note</td></tr>
+  <tr><td>Use case diagram</td><td>Use case, System boundary, Note</td></tr>
+  <tr><td>Component diagram</td><td>Component, Interface, Note</td></tr>
+  <tr><td>Deployment diagram</td><td>Node, Device, Execution environment, Artifact, Component, Note</td></tr>
+</table>
+</div>
+<p>Each colour has a swatch and a box with the colour as <code>#RRGGBB</code>:</p>
+<ul>
+  <li>Click the <strong>swatch</strong> to choose the colour in the <a href="#color-picker">colour picker</a>.</li>
+  <li>Or type the colour in the <strong>box</strong>, e.g. <code>#FDE7E7</code>; it applies as soon as it is a complete
+    colour.</li>
+  <li>To go back to the theme's colour, empty the box or click the restore button next to it. While a colour is not set,
+    the swatch and the greyed text in the box show the theme's colour.</li>
+  <li><span class="ui">Reset to Defaults</span> puts every fill, the border and the thickness of the diagram type back to
+    the theme's.</li>
+</ul>
+<p>Open diagrams of that type change as you go, so you can watch the result while you choose.</p>
+
+<h3>AI</h3>
+<p>The AI service the AI commands use: <span class="ui">Service</span>, <span class="ui">Endpoint</span>,
+<span class="ui">Model</span>, how the chat makes <span class="ui">Changes</span> (with tool calls, or as a whole diagram for
+models without tool calling) and <span class="ui">API key</span>, with <span class="ui">Test Connection</span>. The API key is
+kept in your system's credential store when you close the window, not in the settings. See
+<a href="#ai">AI assistant</a> for how to set up each service.</p>
+
+<h3>Examples</h3>
+<p><strong>Create new projects in a folder of your own</strong></p>
+<ol>
+  <li>Open <span class="ui">File → Preferences…</span>; the <span class="ui">General</span> tab is shown.</li>
+  <li>Click the folder button at the end of <span class="ui">Projects folder</span> and choose the folder.</li>
+  <li>Click <span class="ui">Close</span>. <span class="ui">Create a New Project</span> now offers that folder.</li>
+</ol>
+<p><strong>Make interfaces stand out in class diagrams</strong></p>
+<ol>
+  <li>Open the <span class="ui">Diagram</span> tab and pick <span class="ui">Class diagram</span>.</li>
+  <li>Click the swatch next to <span class="ui">Interface</span>, choose a colour in the colour picker and click
+    <span class="ui">OK</span>.</li>
+  <li>Set <span class="ui">Thickness</span> to 2 for bolder outlines, and click <span class="ui">Close</span>. Every
+    interface of every class diagram, open or not, is drawn in the new colour.</li>
+</ol>
+<p><strong>Make the application easier to read</strong></p>
+<ol>
+  <li>Open the <span class="ui">Appearance</span> tab.</li>
+  <li>Set <span class="ui">Font size</span> to 16, and pick another <span class="ui">Font</span> if you like; check the
+    <span class="ui">Preview</span>.</li>
+  <li>Click <span class="ui">Close</span>.</li>
+</ol>
+
+<h3>Good to know</h3>
+<ul>
+  <li>A shape that has colours of its own (<span class="ui">Format → Shape…</span>) keeps them. In that dialog,
+    <span class="ui">Default</span> means the colour from Preferences, or the theme's when Preferences set none.</li>
+  <li>The colours you choose are the same in light and dark mode. Text on a fill turns dark or light, whichever reads
+    better.</li>
+  <li>Exported images (<span class="ui">Diagram → Export → PNG Image…</span>) use your colours too.</li>
+  <li>Text boxes have no border, so the border settings do not apply to them.</li>
+  <li>The colour picker's custom colours are kept with your preferences.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2 id="settings">18. Where settings are kept</h2>
+<p>The recent projects list (<code>recent-projects.json</code>), your preferences (<code>settings.json</code>)
+and your plug-ins (<code>plugins</code>) are kept in:</p>
+<ul>
+  <li>Windows: <code>%APPDATA%\UmlWizard</code></li>
+  <li>macOS and Linux: <code>~/.config/UmlWizard</code></li>
+</ul>
+<p>Projects are kept wherever you create them: a project is a single <code>.umlwiz</code> file with all of its diagrams.</p>
+</main>
+</body>
+</html>

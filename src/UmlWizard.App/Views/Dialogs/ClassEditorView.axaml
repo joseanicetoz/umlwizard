@@ -1,0 +1,102 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="using:UmlWizard.App.Resources"
+             xmlns:dvm="using:UmlWizard.App.ViewModels.Dialogs"
+             xmlns:dialogs="using:UmlWizard.App.Views.Dialogs"
+             xmlns:mi="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             x:Class="UmlWizard.App.Views.Dialogs.ClassEditorView"
+             x:DataType="dvm:ClassEditorViewModel"
+             Width="1060">
+  <StackPanel Spacing="10">
+    <Grid ColumnDefinitions="90,*,20,90,200" RowDefinitions="Auto,8,Auto">
+      <TextBlock Classes="caption" Text="{x:Static res:Strings.Label_Name}" VerticalAlignment="Center" />
+      <TextBox Grid.Column="1" Text="{Binding Name}" />
+      <TextBlock Classes="caption" Grid.Column="3" Text="{x:Static res:Strings.Label_Kind}" VerticalAlignment="Center" />
+      <ComboBox Grid.Column="4" HorizontalAlignment="Stretch"
+                ItemsSource="{x:Static dvm:EnumValues.ClassifierKinds}" SelectedItem="{Binding Kind}" />
+      <TextBlock Classes="caption" Grid.Row="2" Text="{x:Static res:Strings.Dialog_EditClass_Stereotype}" VerticalAlignment="Center" />
+      <DockPanel Grid.Row="2" Grid.Column="1">
+        <Button x:Name="ClassTaggedValuesButton" DockPanel.Dock="Right" Classes="flat" Margin="4,0,0,0" Command="{Binding ShowClassTaggedValuesCommand}"
+                ToolTip.Tip="{x:Static res:Strings.Dialog_TaggedValues}" Content="{mi:MaterialIconExt Kind=TagOutline}" />
+        <TextBox Text="{Binding Stereotype}" Watermark="{x:Static res:Strings.Dialog_EditClass_Stereotype_Hint}" />
+      </DockPanel>
+    </Grid>
+
+    <!-- Attributes -->
+    <DockPanel Margin="0,8,0,0">
+      <Button DockPanel.Dock="Right" Content="{x:Static res:Strings.Dialog_EditClass_AddAttribute}" Command="{Binding AddAttributeCommand}" />
+      <TextBlock Text="{x:Static res:Strings.Dialog_EditClass_Attributes}" Classes="section" VerticalAlignment="Center" />
+    </DockPanel>
+    <Grid ColumnDefinitions="130,*,*,*,70,40,40" Margin="6,0">
+      <TextBlock Text="{x:Static res:Strings.Label_Visibility}" Classes="caption" />
+      <TextBlock Grid.Column="1" Text="{x:Static res:Strings.Label_Name}" Classes="caption" />
+      <TextBlock Grid.Column="2" Text="{x:Static res:Strings.Label_Type}" Classes="caption" />
+      <TextBlock Grid.Column="3" Text="{x:Static res:Strings.Dialog_EditClass_DefaultValue}" Classes="caption" />
+      <TextBlock Grid.Column="4" Text="{x:Static res:Strings.Dialog_EditClass_Static}" Classes="caption" />
+    </Grid>
+    <Border BorderBrush="{DynamicResource DividerBrush}" BorderThickness="1" CornerRadius="4" Height="160">
+      <ScrollViewer>
+        <ItemsControl ItemsSource="{Binding Attributes}">
+          <ItemsControl.ItemTemplate>
+            <DataTemplate x:DataType="dvm:AttributeRowViewModel">
+              <Grid ColumnDefinitions="130,*,*,*,70,40,40" Margin="4,3">
+                <ComboBox HorizontalAlignment="Stretch" Margin="0,0,4,0"
+                          ItemsSource="{x:Static dvm:EnumValues.Visibilities}" SelectedItem="{Binding Visibility}" />
+                <TextBox Grid.Column="1" Margin="0,0,4,0" Text="{Binding Name}" />
+                <TextBox Grid.Column="2" Margin="0,0,4,0" Text="{Binding Type}" />
+                <TextBox Grid.Column="3" Margin="0,0,4,0" Text="{Binding DefaultValue}" />
+                <CheckBox Grid.Column="4" IsChecked="{Binding IsStatic}" HorizontalAlignment="Center" />
+                <Button Grid.Column="5" Classes="flat" ToolTip.Tip="{x:Static res:Strings.Dialog_TaggedValues}" Command="{Binding EditTaggedValuesCommand}" Content="{mi:MaterialIconExt Kind=TagOutline}" />
+                <Button Grid.Column="6" Classes="flat" ToolTip.Tip="{x:Static res:Strings.Tip_Remove}" Command="{Binding RemoveCommand}" Content="{mi:MaterialIconExt Kind=Close}" />
+              </Grid>
+            </DataTemplate>
+          </ItemsControl.ItemTemplate>
+        </ItemsControl>
+      </ScrollViewer>
+    </Border>
+
+    <!-- Operations; Method and Path make an operation a web API endpoint -->
+    <DockPanel Margin="0,8,0,0">
+      <Button DockPanel.Dock="Right" Content="{x:Static res:Strings.Dialog_EditClass_AddOperation}" Command="{Binding AddOperationCommand}" />
+      <TextBlock Text="{x:Static res:Strings.Dialog_EditClass_Operations}" Classes="section" VerticalAlignment="Center" />
+    </DockPanel>
+    <Grid ColumnDefinitions="120,*,1.5*,*,100,1.2*,60,70,40,40" Margin="6,0">
+      <TextBlock Text="{x:Static res:Strings.Label_Visibility}" Classes="caption" />
+      <TextBlock Grid.Column="1" Text="{x:Static res:Strings.Label_Name}" Classes="caption" />
+      <TextBlock Grid.Column="2" Text="{x:Static res:Strings.Dialog_EditClass_Parameters}" Classes="caption" />
+      <TextBlock Grid.Column="3" Text="{x:Static res:Strings.Dialog_EditClass_ReturnType}" Classes="caption" />
+      <TextBlock Grid.Column="4" Text="{x:Static res:Strings.Dialog_EditClass_Method}" Classes="caption" ToolTip.Tip="{x:Static res:Strings.Dialog_EditClass_Method_Tip}" />
+      <TextBlock Grid.Column="5" Text="{x:Static res:Strings.Dialog_EditClass_Path}" Classes="caption" />
+      <TextBlock Grid.Column="6" Text="{x:Static res:Strings.Dialog_EditClass_Static}" Classes="caption" />
+      <TextBlock Grid.Column="7" Text="{x:Static res:Strings.Dialog_EditClass_Abstract}" Classes="caption" />
+    </Grid>
+    <Border BorderBrush="{DynamicResource DividerBrush}" BorderThickness="1" CornerRadius="4" Height="160">
+      <ScrollViewer>
+        <ItemsControl ItemsSource="{Binding Operations}">
+          <ItemsControl.ItemTemplate>
+            <DataTemplate x:DataType="dvm:OperationRowViewModel">
+              <Grid ColumnDefinitions="120,*,1.5*,*,100,1.2*,60,70,40,40" Margin="4,3">
+                <ComboBox HorizontalAlignment="Stretch" Margin="0,0,4,0"
+                          ItemsSource="{x:Static dvm:EnumValues.Visibilities}" SelectedItem="{Binding Visibility}" />
+                <TextBox Grid.Column="1" Margin="0,0,4,0" Text="{Binding Name}" />
+                <TextBox Grid.Column="2" Margin="0,0,4,0" Text="{Binding Parameters}" />
+                <TextBox Grid.Column="3" Margin="0,0,4,0" Text="{Binding ReturnType}" />
+                <ComboBox Grid.Column="4" HorizontalAlignment="Stretch" Margin="0,0,4,0"
+                          ItemsSource="{x:Static dvm:EnumValues.HttpMethods}" SelectedItem="{Binding HttpMethod}" />
+                <TextBox Grid.Column="5" Margin="0,0,4,0" Text="{Binding Path}" Watermark="{x:Static res:Strings.Dialog_EditClass_Path_Hint}" />
+                <CheckBox Grid.Column="6" IsChecked="{Binding IsStatic}" HorizontalAlignment="Center" />
+                <CheckBox Grid.Column="7" IsChecked="{Binding IsAbstract}" HorizontalAlignment="Center" />
+                <Button Grid.Column="8" Classes="flat" ToolTip.Tip="{x:Static res:Strings.Dialog_TaggedValues}" Command="{Binding EditTaggedValuesCommand}" Content="{mi:MaterialIconExt Kind=TagOutline}" />
+                <Button Grid.Column="9" Classes="flat" ToolTip.Tip="{x:Static res:Strings.Tip_Remove}" Command="{Binding RemoveCommand}" Content="{mi:MaterialIconExt Kind=Close}" />
+              </Grid>
+            </DataTemplate>
+          </ItemsControl.ItemTemplate>
+        </ItemsControl>
+      </ScrollViewer>
+    </Border>
+
+    <!-- Tagged values of the class, or of the member whose tag button was clicked last -->
+    <TextBlock Text="{Binding TaggedValuesHeader}" Classes="section" Margin="0,8,0,0" />
+    <dialogs:TaggedValuesEditor DataContext="{Binding SelectedTaggedValues}" Height="170" />
+  </StackPanel>
+</UserControl>

@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="using:UmlWizard.App.Resources"
+             xmlns:dvm="using:UmlWizard.App.ViewModels.Dialogs"
+             x:Class="UmlWizard.App.Views.Dialogs.RelationshipEditorView"
+             x:DataType="dvm:RelationshipEditorViewModel"
+             Width="440">
+  <Grid ColumnDefinitions="150,*" RowDefinitions="Auto,10,Auto,10,Auto,10,Auto,10,Auto">
+    <TextBlock Classes="caption" Text="{x:Static res:Strings.Dialog_EditRelationship_FromTo}" VerticalAlignment="Center" />
+    <TextBlock Grid.Column="1" VerticalAlignment="Center" FontWeight="SemiBold">
+      <Run Text="{Binding SourceName}" /><Run Text=" → " /><Run Text="{Binding TargetName}" />
+    </TextBlock>
+    <TextBlock Classes="caption" Grid.Row="2" Text="{x:Static res:Strings.Label_Kind}" VerticalAlignment="Center" />
+    <ComboBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch"
+              ItemsSource="{x:Static dvm:EnumValues.RelationshipKinds}" SelectedItem="{Binding Kind}" />
+    <TextBlock Classes="caption" Grid.Row="4" Text="{x:Static res:Strings.Label_Label}" VerticalAlignment="Center" />
+    <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Label}" />
+    <TextBlock Classes="caption" Grid.Row="6" Text="{x:Static res:Strings.Dialog_EditRelationship_SourceMultiplicity}" VerticalAlignment="Center" />
+    <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding SourceMultiplicity}" Watermark="{x:Static res:Strings.Dialog_EditRelationship_SourceMultiplicity_Hint}" />
+    <TextBlock Classes="caption" Grid.Row="8" Text="{x:Static res:Strings.Dialog_EditRelationship_TargetMultiplicity}" VerticalAlignment="Center" />
+    <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding TargetMultiplicity}" Watermark="{x:Static res:Strings.Dialog_EditRelationship_TargetMultiplicity_Hint}" />
+  </Grid>
+</UserControl>

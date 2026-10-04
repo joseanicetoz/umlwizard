@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    The AI assistant (see docs/design/ai-assistant.md): the services that answer (Claude, OpenAI-compatible ones, local
+    models), and what is asked of them, e.g. a diagram from a description. HttpClient and System.Text.Json only, no SDK.
+    Kept out of UmlWizard.Core like the OpenAPI and PlantUML features.
+  -->
+  <PropertyGroup>
+    <RootNamespace>UmlWizard.Ai</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UmlWizard.PlantUml\UmlWizard.PlantUml.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="UmlWizard.Ai.Tests" />
+  </ItemGroup>
+</Project>

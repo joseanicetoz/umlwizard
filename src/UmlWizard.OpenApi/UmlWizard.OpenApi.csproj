@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- OpenAPI import and export of class diagrams. Kept out of UmlWizard.Core so the model has no YAML dependency. -->
+  <PropertyGroup>
+    <RootNamespace>UmlWizard.OpenApi</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="YamlDotNet" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UmlWizard.Core\UmlWizard.Core.csproj" />
+    <!-- The export builds on the code model (resolved classes, associations and types). -->
+    <ProjectReference Include="..\UmlWizard.CodeGeneration\UmlWizard.CodeGeneration.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="UmlWizard.OpenApi.Tests" />
+  </ItemGroup>
+</Project>

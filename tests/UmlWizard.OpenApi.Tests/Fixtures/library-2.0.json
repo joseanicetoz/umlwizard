@@ -1,0 +1,75 @@
+{
+  "swagger": "2.0",
+  "info": { "title": "Library", "version": "0.9" },
+  "host": "library.example.com",
+  "basePath": "/api",
+  "schemes": ["https"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "tags": [{ "name": "books" }],
+  "paths": {
+    "/books": {
+      "get": {
+        "tags": ["books"],
+        "operationId": "listBooks",
+        "parameters": [
+          { "name": "author", "in": "query", "type": "string" },
+          { "name": "ids", "in": "query", "type": "array", "items": { "type": "integer" }, "collectionFormat": "multi" }
+        ],
+        "responses": {
+          "200": { "description": "The books", "schema": { "type": "array", "items": { "$ref": "#/definitions/Book" } } }
+        }
+      },
+      "post": {
+        "tags": ["books"],
+        "operationId": "addBook",
+        "parameters": [{ "name": "book", "in": "body", "required": true, "schema": { "$ref": "#/definitions/Book" } }],
+        "responses": { "201": { "description": "Added", "schema": { "$ref": "#/definitions/Book" } } }
+      }
+    },
+    "/books/{isbn}": {
+      "parameters": [{ "name": "isbn", "in": "path", "required": true, "type": "string" }],
+      "get": {
+        "tags": ["books"],
+        "operationId": "getBook",
+        "responses": { "200": { "description": "The book", "schema": { "$ref": "#/definitions/Book" } }, "404": { "$ref": "#/responses/NotFound" } }
+      }
+    },
+    "/books/{isbn}/cover": {
+      "put": {
+        "tags": ["books"],
+        "operationId": "uploadCover",
+        "consumes": ["multipart/form-data"],
+        "parameters": [
+          { "name": "isbn", "in": "path", "required": true, "type": "string" },
+          { "name": "file", "in": "formData", "type": "file", "required": true }
+        ],
+        "responses": { "204": { "description": "Uploaded" } }
+      }
+    }
+  },
+  "definitions": {
+    "Book": {
+      "type": "object",
+      "required": ["isbn", "title"],
+      "properties": {
+        "isbn": { "type": "string" },
+        "title": { "type": "string" },
+        "published": { "type": "string", "format": "date-time" },
+        "subtitle": { "type": "string", "x-nullable": true },
+        "authors": { "type": "array", "items": { "$ref": "#/definitions/Author" } }
+      }
+    },
+    "Author": {
+      "type": "object",
+      "properties": { "name": { "type": "string" } }
+    }
+  },
+  "responses": {
+    "NotFound": { "description": "Not found" }
+  },
+  "securityDefinitions": {
+    "basicAuth": { "type": "basic" },
+    "oauth": { "type": "oauth2", "flow": "accessCode", "authorizationUrl": "https://example.com/auth", "tokenUrl": "https://example.com/token", "scopes": { "read": "Read books" } }
+  }
+}

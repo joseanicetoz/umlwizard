@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+    <!-- The C# import plug-in compiles against Roslyn; the application ships it, and so do the tests. -->
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+    <!-- SkiaSharp itself only ships the Windows and macOS native libraries; the app gets the Linux one from Avalonia. -->
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\UmlWizard.CodeImport\UmlWizard.CodeImport.csproj" />
+    <!-- The built-in importers, tested directly and as plug-ins loaded from a folder -->
+    <ProjectReference Include="..\..\src\Plugins\UmlWizard.CodeImport.CSharp\UmlWizard.CodeImport.CSharp.csproj" />
+    <ProjectReference Include="..\..\src\Plugins\UmlWizard.CodeImport.Java\UmlWizard.CodeImport.Java.csproj" />
+    <ProjectReference Include="..\..\src\Plugins\UmlWizard.CodeImport.Ruby\UmlWizard.CodeImport.Ruby.csproj" />
+    <ProjectReference Include="..\..\src\Plugins\UmlWizard.CodeImport.Cpp\UmlWizard.CodeImport.Cpp.csproj" />
+    <ProjectReference Include="..\..\src\Plugins\UmlWizard.CodeImport.TypeScript\UmlWizard.CodeImport.TypeScript.csproj" />
+    <ProjectReference Include="..\..\src\Plugins\UmlWizard.CodeImport.Kotlin\UmlWizard.CodeImport.Kotlin.csproj" />
+    <!-- The code generators write the code of the round-trip tests -->
+    <ProjectReference Include="..\..\src\UmlWizard.CodeGeneration\UmlWizard.CodeGeneration.csproj" />
+    <ProjectReference Include="..\..\src\Plugins\UmlWizard.CodeGeneration.CSharp\UmlWizard.CodeGeneration.CSharp.csproj" />
+    <ProjectReference Include="..\..\src\Plugins\UmlWizard.CodeGeneration.Java\UmlWizard.CodeGeneration.Java.csproj" />
+    <ProjectReference Include="..\..\src\Plugins\UmlWizard.CodeGeneration.Ruby\UmlWizard.CodeGeneration.Ruby.csproj" />
+    <ProjectReference Include="..\..\src\Plugins\UmlWizard.CodeGeneration.Cpp\UmlWizard.CodeGeneration.Cpp.csproj" />
+    <ProjectReference Include="..\..\src\Plugins\UmlWizard.CodeGeneration.TypeScript\UmlWizard.CodeGeneration.TypeScript.csproj" />
+    <ProjectReference Include="..\..\src\Plugins\UmlWizard.CodeGeneration.Kotlin\UmlWizard.CodeGeneration.Kotlin.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\samples\**\*" LinkBase="samples" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

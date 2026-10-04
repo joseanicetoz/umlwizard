@@ -1,0 +1,4289 @@
+{
+  "schemaVersion": 3,
+  "name": "Gang of Four Design Patterns",
+  "description": "The 23 design patterns of \u0022Design Patterns: Elements of Reusable Object-Oriented Software\u0022 (Gamma, Helm, Johnson, Vlissides), one class diagram per pattern, grouped by purpose.",
+  "created": "2026-09-27T16:32:50.1965832+10:00",
+  "modified": "2026-10-02T19:19:54.5788368+10:00",
+  "diagrams": [
+    {
+      "id": "920230170947",
+      "name": "Abstract Factory",
+      "description": "Provide an interface for creating families of related or dependent objects without specifying their concrete classes.",
+      "diagramType": "class",
+      "model": {
+        "kind": "class",
+        "classes": [
+          {
+            "name": "Client",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "factory",
+                "type": "AbstractFactory",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [],
+            "id": "bf1d41edc250"
+          },
+          {
+            "name": "AbstractFactory",
+            "kind": "interface",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "createProductA",
+                "returnType": "AbstractProductA",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "createProductB",
+                "returnType": "AbstractProductB",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "3276b4ed072d"
+          },
+          {
+            "name": "AbstractProductA",
+            "kind": "interface",
+            "attributes": [],
+            "operations": [],
+            "id": "6f4c1f1a394a"
+          },
+          {
+            "name": "AbstractProductB",
+            "kind": "interface",
+            "attributes": [],
+            "operations": [],
+            "id": "5e0adffd93d0"
+          },
+          {
+            "name": "ConcreteFactory1",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "createProductA",
+                "returnType": "AbstractProductA",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "createProductB",
+                "returnType": "AbstractProductB",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "7181aec789b6"
+          },
+          {
+            "name": "ConcreteFactory2",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "createProductA",
+                "returnType": "AbstractProductA",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "createProductB",
+                "returnType": "AbstractProductB",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "280098dd329e"
+          },
+          {
+            "name": "ProductA1",
+            "kind": "class",
+            "attributes": [],
+            "operations": [],
+            "id": "c9e89a809e78"
+          },
+          {
+            "name": "ProductA2",
+            "kind": "class",
+            "attributes": [],
+            "operations": [],
+            "id": "2839c2a2014a"
+          },
+          {
+            "name": "ProductB1",
+            "kind": "class",
+            "attributes": [],
+            "operations": [],
+            "id": "5da0c44ac6cb"
+          },
+          {
+            "name": "ProductB2",
+            "kind": "class",
+            "attributes": [],
+            "operations": [],
+            "id": "0e383d9f786c"
+          }
+        ],
+        "relationships": [
+          {
+            "kind": "directedAssociation",
+            "sourceId": "bf1d41edc250",
+            "targetId": "3276b4ed072d",
+            "label": "uses",
+            "id": "c60148fbc9f0"
+          },
+          {
+            "kind": "dependency",
+            "sourceId": "bf1d41edc250",
+            "targetId": "6f4c1f1a394a",
+            "id": "ac8c3c82014a"
+          },
+          {
+            "kind": "dependency",
+            "sourceId": "bf1d41edc250",
+            "targetId": "5e0adffd93d0",
+            "id": "95578b481256"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "7181aec789b6",
+            "targetId": "3276b4ed072d",
+            "id": "b854eb2a91c8"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "280098dd329e",
+            "targetId": "3276b4ed072d",
+            "id": "879ea3e08451"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "c9e89a809e78",
+            "targetId": "6f4c1f1a394a",
+            "id": "2ece2265d3e3"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "2839c2a2014a",
+            "targetId": "6f4c1f1a394a",
+            "id": "9ac9cd376307"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "5da0c44ac6cb",
+            "targetId": "5e0adffd93d0",
+            "id": "0785bd7a28aa"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "0e383d9f786c",
+            "targetId": "5e0adffd93d0",
+            "id": "b4b1f5846956"
+          }
+        ],
+        "notes": [],
+        "textBoxes": [],
+        "noteAttachments": []
+      },
+      "layout": {
+        "view": {
+          "zoom": 1,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        "elements": [
+          {
+            "elementId": "bf1d41edc250",
+            "x": 758,
+            "y": 40,
+            "width": 161,
+            "height": 72
+          },
+          {
+            "elementId": "3276b4ed072d",
+            "x": 722,
+            "y": 202,
+            "width": 233,
+            "height": 108
+          },
+          {
+            "elementId": "6f4c1f1a394a",
+            "x": 160,
+            "y": 202,
+            "width": 129,
+            "height": 72
+          },
+          {
+            "elementId": "5e0adffd93d0",
+            "x": 1386,
+            "y": 202,
+            "width": 129,
+            "height": 72
+          },
+          {
+            "elementId": "7181aec789b6",
+            "x": 540,
+            "y": 400,
+            "width": 233,
+            "height": 90
+          },
+          {
+            "elementId": "280098dd329e",
+            "x": 903,
+            "y": 400,
+            "width": 233,
+            "height": 90
+          },
+          {
+            "elementId": "c9e89a809e78",
+            "x": 40,
+            "y": 400,
+            "width": 120,
+            "height": 54
+          },
+          {
+            "elementId": "2839c2a2014a",
+            "x": 290,
+            "y": 400,
+            "width": 120,
+            "height": 54
+          },
+          {
+            "elementId": "5da0c44ac6cb",
+            "x": 1266,
+            "y": 400,
+            "width": 120,
+            "height": 54
+          },
+          {
+            "elementId": "0e383d9f786c",
+            "x": 1516,
+            "y": 400,
+            "width": 120,
+            "height": 54
+          }
+        ]
+      }
+    },
+    {
+      "id": "828269d7aa9f",
+      "name": "Builder",
+      "description": "Separate the construction of a complex object from its representation so that the same construction process can create different representations.",
+      "diagramType": "class",
+      "model": {
+        "kind": "class",
+        "classes": [
+          {
+            "name": "Director",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "builder",
+                "type": "Builder",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "construct",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "4e43eeb3fc0e"
+          },
+          {
+            "name": "Builder",
+            "kind": "interface",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "buildPartA",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "buildPartB",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "getResult",
+                "returnType": "Product",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "d297f2c04216"
+          },
+          {
+            "name": "ConcreteBuilder",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "product",
+                "type": "Product",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "buildPartA",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "buildPartB",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "getResult",
+                "returnType": "Product",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "7f066c514fb2"
+          },
+          {
+            "name": "Product",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "parts",
+                "type": "List\u003CPart\u003E",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [],
+            "id": "77984a217fbb"
+          }
+        ],
+        "relationships": [
+          {
+            "kind": "aggregation",
+            "sourceId": "4e43eeb3fc0e",
+            "targetId": "d297f2c04216",
+            "label": "builder",
+            "targetMultiplicity": "1",
+            "id": "f687b1f14045"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "7f066c514fb2",
+            "targetId": "d297f2c04216",
+            "id": "cfc6a7c98423"
+          },
+          {
+            "kind": "dependency",
+            "sourceId": "7f066c514fb2",
+            "targetId": "77984a217fbb",
+            "label": "builds",
+            "id": "7757a6228525"
+          }
+        ],
+        "notes": [],
+        "textBoxes": [],
+        "noteAttachments": []
+      },
+      "layout": {
+        "view": {
+          "zoom": 1,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        "elements": [
+          {
+            "elementId": "4e43eeb3fc0e",
+            "x": 40,
+            "y": 40,
+            "width": 121,
+            "height": 90
+          },
+          {
+            "elementId": "d297f2c04216",
+            "x": 291,
+            "y": 40,
+            "width": 142,
+            "height": 126
+          },
+          {
+            "elementId": "7f066c514fb2",
+            "x": 291,
+            "y": 256,
+            "width": 142,
+            "height": 126
+          },
+          {
+            "elementId": "77984a217fbb",
+            "x": 563,
+            "y": 256,
+            "width": 121,
+            "height": 72
+          }
+        ]
+      }
+    },
+    {
+      "id": "989e88a096c1",
+      "name": "Factory Method",
+      "description": "Define an interface for creating an object, but let subclasses decide which class to instantiate.",
+      "diagramType": "class",
+      "model": {
+        "kind": "class",
+        "classes": [
+          {
+            "name": "Product",
+            "kind": "interface",
+            "attributes": [],
+            "operations": [],
+            "id": "4af43688d3a5"
+          },
+          {
+            "name": "Creator",
+            "kind": "abstractClass",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "factoryMethod",
+                "returnType": "Product",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": true,
+                "parameters": []
+              },
+              {
+                "name": "anOperation",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "d6c6d686eb1b"
+          },
+          {
+            "name": "ConcreteProduct",
+            "kind": "class",
+            "attributes": [],
+            "operations": [],
+            "id": "5772f5e212cd"
+          },
+          {
+            "name": "ConcreteCreator",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "factoryMethod",
+                "returnType": "Product",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "80b5a0e34c65"
+          }
+        ],
+        "relationships": [
+          {
+            "kind": "realization",
+            "sourceId": "5772f5e212cd",
+            "targetId": "4af43688d3a5",
+            "id": "05cfb47cd64a"
+          },
+          {
+            "kind": "inheritance",
+            "sourceId": "80b5a0e34c65",
+            "targetId": "d6c6d686eb1b",
+            "id": "eb2bbce2b007"
+          },
+          {
+            "kind": "dependency",
+            "sourceId": "80b5a0e34c65",
+            "targetId": "5772f5e212cd",
+            "label": "creates",
+            "id": "d1160fa4bf6b"
+          }
+        ],
+        "notes": [],
+        "textBoxes": [],
+        "noteAttachments": []
+      },
+      "layout": {
+        "view": {
+          "zoom": 1,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        "elements": [
+          {
+            "elementId": "4af43688d3a5",
+            "x": 42,
+            "y": 40,
+            "width": 120,
+            "height": 72
+          },
+          {
+            "elementId": "d6c6d686eb1b",
+            "x": 296,
+            "y": 40,
+            "width": 168,
+            "height": 90
+          },
+          {
+            "elementId": "5772f5e212cd",
+            "x": 40,
+            "y": 220,
+            "width": 123,
+            "height": 54
+          },
+          {
+            "elementId": "80b5a0e34c65",
+            "x": 293,
+            "y": 220,
+            "width": 173,
+            "height": 72
+          }
+        ]
+      }
+    },
+    {
+      "id": "7264dd8bea60",
+      "name": "Prototype",
+      "description": "Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.",
+      "diagramType": "class",
+      "model": {
+        "kind": "class",
+        "classes": [
+          {
+            "name": "Client",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "prototype",
+                "type": "Prototype",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "operation",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "64d19e25ee08"
+          },
+          {
+            "name": "Prototype",
+            "kind": "interface",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "clone",
+                "returnType": "Prototype",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "d4d670fc07ca"
+          },
+          {
+            "name": "ConcretePrototype1",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "field1",
+                "type": "string",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "clone",
+                "returnType": "Prototype",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "bfc4c6ca1966"
+          },
+          {
+            "name": "ConcretePrototype2",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "field2",
+                "type": "int",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "clone",
+                "returnType": "Prototype",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "5ea66343d14c"
+          }
+        ],
+        "relationships": [
+          {
+            "kind": "directedAssociation",
+            "sourceId": "64d19e25ee08",
+            "targetId": "d4d670fc07ca",
+            "label": "prototype",
+            "id": "a65741bd17f1"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "bfc4c6ca1966",
+            "targetId": "d4d670fc07ca",
+            "id": "1a6bbbcee6a7"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "5ea66343d14c",
+            "targetId": "d4d670fc07ca",
+            "id": "8e3c8754b335"
+          }
+        ],
+        "notes": [],
+        "textBoxes": [],
+        "noteAttachments": []
+      },
+      "layout": {
+        "view": {
+          "zoom": 1,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        "elements": [
+          {
+            "elementId": "64d19e25ee08",
+            "x": 40,
+            "y": 40,
+            "width": 146,
+            "height": 90
+          },
+          {
+            "elementId": "d4d670fc07ca",
+            "x": 460,
+            "y": 40,
+            "width": 131,
+            "height": 90
+          },
+          {
+            "elementId": "bfc4c6ca1966",
+            "x": 316,
+            "y": 220,
+            "width": 144,
+            "height": 90
+          },
+          {
+            "elementId": "5ea66343d14c",
+            "x": 590,
+            "y": 220,
+            "width": 144,
+            "height": 90
+          }
+        ]
+      }
+    },
+    {
+      "id": "81af146e9cda",
+      "name": "Singleton",
+      "description": "Ensure a class only has one instance, and provide a global point of access to it.",
+      "diagramType": "class",
+      "model": {
+        "kind": "class",
+        "classes": [
+          {
+            "name": "Client",
+            "kind": "class",
+            "attributes": [],
+            "operations": [],
+            "id": "ead44c135663"
+          },
+          {
+            "name": "Singleton",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "instance",
+                "type": "Singleton",
+                "visibility": "private",
+                "isStatic": true
+              },
+              {
+                "name": "data",
+                "type": "string",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "Singleton",
+                "visibility": "private",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "getInstance",
+                "returnType": "Singleton",
+                "visibility": "public",
+                "isStatic": true,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "operation",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "472a0cc203e2"
+          }
+        ],
+        "relationships": [
+          {
+            "kind": "dependency",
+            "sourceId": "ead44c135663",
+            "targetId": "472a0cc203e2",
+            "label": "getInstance()",
+            "id": "b7cd1d8eb062"
+          }
+        ],
+        "notes": [],
+        "textBoxes": [],
+        "noteAttachments": []
+      },
+      "layout": {
+        "view": {
+          "zoom": 1,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        "elements": [
+          {
+            "elementId": "ead44c135663",
+            "x": 40,
+            "y": 40,
+            "width": 120,
+            "height": 54
+          },
+          {
+            "elementId": "472a0cc203e2",
+            "x": 290,
+            "y": 40,
+            "width": 164,
+            "height": 144
+          }
+        ]
+      }
+    },
+    {
+      "id": "01d7e49f4d4c",
+      "name": "Adapter",
+      "description": "Convert the interface of a class into another interface clients expect.",
+      "diagramType": "class",
+      "model": {
+        "kind": "class",
+        "classes": [
+          {
+            "name": "Client",
+            "kind": "class",
+            "attributes": [],
+            "operations": [],
+            "id": "02b0acb30e73"
+          },
+          {
+            "name": "Target",
+            "kind": "interface",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "request",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "4c8cb4edbe4e"
+          },
+          {
+            "name": "Adapter",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "adaptee",
+                "type": "Adaptee",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "request",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "b70962249c90"
+          },
+          {
+            "name": "Adaptee",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "specificRequest",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "29fcc410a1b8"
+          }
+        ],
+        "relationships": [
+          {
+            "kind": "directedAssociation",
+            "sourceId": "02b0acb30e73",
+            "targetId": "4c8cb4edbe4e",
+            "label": "uses",
+            "id": "f64ba211339b"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "b70962249c90",
+            "targetId": "4c8cb4edbe4e",
+            "id": "1653a726839b"
+          },
+          {
+            "kind": "directedAssociation",
+            "sourceId": "b70962249c90",
+            "targetId": "29fcc410a1b8",
+            "label": "adaptee",
+            "id": "5c152a99f050"
+          }
+        ],
+        "notes": [],
+        "textBoxes": [],
+        "noteAttachments": []
+      },
+      "layout": {
+        "view": {
+          "zoom": 1,
+          "offsetX": 267.5,
+          "offsetY": 269.5
+        },
+        "elements": [
+          {
+            "elementId": "02b0acb30e73",
+            "x": 40,
+            "y": 56,
+            "width": 120,
+            "height": 54
+          },
+          {
+            "elementId": "4c8cb4edbe4e",
+            "x": 294,
+            "y": 40,
+            "width": 120,
+            "height": 90
+          },
+          {
+            "elementId": "b70962249c90",
+            "x": 290,
+            "y": 220,
+            "width": 127,
+            "height": 90
+          },
+          {
+            "elementId": "29fcc410a1b8",
+            "x": 547,
+            "y": 230,
+            "width": 157,
+            "height": 72
+          }
+        ]
+      }
+    },
+    {
+      "id": "bd3a54ee8be9",
+      "name": "Bridge",
+      "description": "Decouple an abstraction from its implementation so that the two can vary independently.",
+      "diagramType": "class",
+      "model": {
+        "kind": "class",
+        "classes": [
+          {
+            "name": "Abstraction",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "implementor",
+                "type": "Implementor",
+                "visibility": "protected",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "operation",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "04c8911f1d6c"
+          },
+          {
+            "name": "Implementor",
+            "kind": "interface",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "operationImpl",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "54a5dc75274a"
+          },
+          {
+            "name": "RefinedAbstraction",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "operation",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "2084752e982f"
+          },
+          {
+            "name": "ConcreteImplementorA",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "operationImpl",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "343dab7f4d35"
+          },
+          {
+            "name": "ConcreteImplementorB",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "operationImpl",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "5b5e4e161013"
+          }
+        ],
+        "relationships": [
+          {
+            "kind": "aggregation",
+            "sourceId": "04c8911f1d6c",
+            "targetId": "54a5dc75274a",
+            "label": "implementor",
+            "targetMultiplicity": "1",
+            "id": "ab1c19413851"
+          },
+          {
+            "kind": "inheritance",
+            "sourceId": "2084752e982f",
+            "targetId": "04c8911f1d6c",
+            "id": "30fadad5e4e3"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "343dab7f4d35",
+            "targetId": "54a5dc75274a",
+            "id": "e412b3989004"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "5b5e4e161013",
+            "targetId": "54a5dc75274a",
+            "id": "d0b6e6839aad"
+          }
+        ],
+        "notes": [],
+        "textBoxes": [],
+        "noteAttachments": []
+      },
+      "layout": {
+        "view": {
+          "zoom": 1,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        "elements": [
+          {
+            "elementId": "04c8911f1d6c",
+            "x": 40,
+            "y": 40,
+            "width": 183,
+            "height": 90
+          },
+          {
+            "elementId": "54a5dc75274a",
+            "x": 507,
+            "y": 40,
+            "width": 149,
+            "height": 90
+          },
+          {
+            "elementId": "2084752e982f",
+            "x": 62,
+            "y": 220,
+            "width": 139,
+            "height": 72
+          },
+          {
+            "elementId": "343dab7f4d35",
+            "x": 353,
+            "y": 220,
+            "width": 164,
+            "height": 72
+          },
+          {
+            "elementId": "5b5e4e161013",
+            "x": 647,
+            "y": 220,
+            "width": 163,
+            "height": 72
+          }
+        ]
+      }
+    },
+    {
+      "id": "d6575b7847a3",
+      "name": "Composite",
+      "description": "Compose objects into tree structures to represent part-whole hierarchies, and let clients treat individual objects and compositions uniformly.",
+      "diagramType": "class",
+      "model": {
+        "kind": "class",
+        "classes": [
+          {
+            "name": "Client",
+            "kind": "class",
+            "attributes": [],
+            "operations": [],
+            "id": "a9631fda3c9e"
+          },
+          {
+            "name": "Component",
+            "kind": "abstractClass",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "operation",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": true,
+                "parameters": []
+              },
+              {
+                "name": "add",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "child",
+                    "type": "Component"
+                  }
+                ]
+              },
+              {
+                "name": "remove",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "child",
+                    "type": "Component"
+                  }
+                ]
+              },
+              {
+                "name": "getChild",
+                "returnType": "Component",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "index",
+                    "type": "int"
+                  }
+                ]
+              }
+            ],
+            "id": "c1d2182369a1"
+          },
+          {
+            "name": "Leaf",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "operation",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "4c09cfaebd24"
+          },
+          {
+            "name": "Composite",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "children",
+                "type": "List\u003CComponent\u003E",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "operation",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "add",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "child",
+                    "type": "Component"
+                  }
+                ]
+              },
+              {
+                "name": "remove",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "child",
+                    "type": "Component"
+                  }
+                ]
+              },
+              {
+                "name": "getChild",
+                "returnType": "Component",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "index",
+                    "type": "int"
+                  }
+                ]
+              }
+            ],
+            "id": "b8d7e6813b7f"
+          }
+        ],
+        "relationships": [
+          {
+            "kind": "directedAssociation",
+            "sourceId": "a9631fda3c9e",
+            "targetId": "c1d2182369a1",
+            "label": "uses",
+            "id": "162cbaa51b21"
+          },
+          {
+            "kind": "inheritance",
+            "sourceId": "4c09cfaebd24",
+            "targetId": "c1d2182369a1",
+            "id": "114b30655d97"
+          },
+          {
+            "kind": "inheritance",
+            "sourceId": "b8d7e6813b7f",
+            "targetId": "c1d2182369a1",
+            "id": "a2f6d9e38de8"
+          }
+        ],
+        "notes": [],
+        "textBoxes": [],
+        "noteAttachments": []
+      },
+      "layout": {
+        "view": {
+          "zoom": 1,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        "elements": [
+          {
+            "elementId": "a9631fda3c9e",
+            "x": 40,
+            "y": 40,
+            "width": 120,
+            "height": 54
+          },
+          {
+            "elementId": "c1d2182369a1",
+            "x": 417,
+            "y": 40,
+            "width": 213,
+            "height": 126
+          },
+          {
+            "elementId": "4c09cfaebd24",
+            "x": 290,
+            "y": 256,
+            "width": 124,
+            "height": 72
+          },
+          {
+            "elementId": "b8d7e6813b7f",
+            "x": 544,
+            "y": 256,
+            "width": 213,
+            "height": 144
+          }
+        ]
+      }
+    },
+    {
+      "id": "4ce6e5107fc6",
+      "name": "Decorator",
+      "description": "Attach additional responsibilities to an object dynamically; a flexible alternative to subclassing for extending functionality.",
+      "diagramType": "class",
+      "model": {
+        "kind": "class",
+        "classes": [
+          {
+            "name": "Component",
+            "kind": "interface",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "operation",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "61a88eae9959"
+          },
+          {
+            "name": "ConcreteComponent",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "operation",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "aa70998b8a87"
+          },
+          {
+            "name": "Decorator",
+            "kind": "abstractClass",
+            "attributes": [
+              {
+                "name": "component",
+                "type": "Component",
+                "visibility": "protected",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "operation",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "319602a7d0c5"
+          },
+          {
+            "name": "ConcreteDecoratorA",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "addedState",
+                "type": "string",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "operation",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "643b56006562"
+          },
+          {
+            "name": "ConcreteDecoratorB",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "operation",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "addedBehavior",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "cfd77cc8a9b4"
+          }
+        ],
+        "relationships": [
+          {
+            "kind": "realization",
+            "sourceId": "aa70998b8a87",
+            "targetId": "61a88eae9959",
+            "id": "f305f2e41992"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "319602a7d0c5",
+            "targetId": "61a88eae9959",
+            "id": "22628d30a0d6"
+          },
+          {
+            "kind": "inheritance",
+            "sourceId": "643b56006562",
+            "targetId": "319602a7d0c5",
+            "id": "f6c55fc35f2f"
+          },
+          {
+            "kind": "inheritance",
+            "sourceId": "cfd77cc8a9b4",
+            "targetId": "319602a7d0c5",
+            "id": "62708a09f490"
+          }
+        ],
+        "notes": [],
+        "textBoxes": [],
+        "noteAttachments": []
+      },
+      "layout": {
+        "view": {
+          "zoom": 1,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        "elements": [
+          {
+            "elementId": "61a88eae9959",
+            "x": 331,
+            "y": 40,
+            "width": 124,
+            "height": 90
+          },
+          {
+            "elementId": "aa70998b8a87",
+            "x": 40,
+            "y": 220,
+            "width": 147,
+            "height": 72
+          },
+          {
+            "elementId": "319602a7d0c5",
+            "x": 447,
+            "y": 220,
+            "width": 169,
+            "height": 90
+          },
+          {
+            "elementId": "643b56006562",
+            "x": 317,
+            "y": 400,
+            "width": 145,
+            "height": 90
+          },
+          {
+            "elementId": "cfd77cc8a9b4",
+            "x": 592,
+            "y": 400,
+            "width": 154,
+            "height": 90
+          }
+        ]
+      }
+    },
+    {
+      "id": "ff39907eede3",
+      "name": "Facade",
+      "description": "Provide a unified interface to a set of interfaces in a subsystem.",
+      "diagramType": "class",
+      "model": {
+        "kind": "class",
+        "classes": [
+          {
+            "name": "Client",
+            "kind": "class",
+            "attributes": [],
+            "operations": [],
+            "id": "3e8b4a4b4f89"
+          },
+          {
+            "name": "Facade",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "operation",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "5b890cedc641"
+          },
+          {
+            "name": "SubsystemA",
+            "kind": "class",
+            "stereotype": "subsystem",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "operationA",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "8e114beb2d4f"
+          },
+          {
+            "name": "SubsystemB",
+            "kind": "class",
+            "stereotype": "subsystem",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "operationB",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "5258b9bb6189"
+          },
+          {
+            "name": "SubsystemC",
+            "kind": "class",
+            "stereotype": "subsystem",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "operationC",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "07052dc9c380"
+          }
+        ],
+        "relationships": [
+          {
+            "kind": "directedAssociation",
+            "sourceId": "3e8b4a4b4f89",
+            "targetId": "5b890cedc641",
+            "label": "uses",
+            "id": "fe5df61c4b5a"
+          },
+          {
+            "kind": "directedAssociation",
+            "sourceId": "5b890cedc641",
+            "targetId": "8e114beb2d4f",
+            "id": "95e8e12fce63"
+          },
+          {
+            "kind": "directedAssociation",
+            "sourceId": "5b890cedc641",
+            "targetId": "5258b9bb6189",
+            "id": "a9caab3ddd79"
+          },
+          {
+            "kind": "directedAssociation",
+            "sourceId": "5b890cedc641",
+            "targetId": "07052dc9c380",
+            "id": "042d77156e5d"
+          }
+        ],
+        "notes": [],
+        "textBoxes": [],
+        "noteAttachments": []
+      },
+      "layout": {
+        "view": {
+          "zoom": 1,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        "elements": [
+          {
+            "elementId": "3e8b4a4b4f89",
+            "x": 46,
+            "y": 40,
+            "width": 120,
+            "height": 54
+          },
+          {
+            "elementId": "5b890cedc641",
+            "x": 306,
+            "y": 40,
+            "width": 124,
+            "height": 72
+          },
+          {
+            "elementId": "8e114beb2d4f",
+            "x": 40,
+            "y": 202,
+            "width": 132,
+            "height": 90
+          },
+          {
+            "elementId": "5258b9bb6189",
+            "x": 302,
+            "y": 202,
+            "width": 131,
+            "height": 90
+          },
+          {
+            "elementId": "07052dc9c380",
+            "x": 563,
+            "y": 202,
+            "width": 132,
+            "height": 90
+          }
+        ]
+      }
+    },
+    {
+      "id": "725af700ed36",
+      "name": "Flyweight",
+      "description": "Use sharing to support large numbers of fine-grained objects efficiently.",
+      "diagramType": "class",
+      "model": {
+        "kind": "class",
+        "classes": [
+          {
+            "name": "Client",
+            "kind": "class",
+            "attributes": [],
+            "operations": [],
+            "id": "eb7fab5bee91"
+          },
+          {
+            "name": "FlyweightFactory",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "flyweights",
+                "type": "Map\u003Cstring, Flyweight\u003E",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "getFlyweight",
+                "returnType": "Flyweight",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "key",
+                    "type": "string"
+                  }
+                ]
+              }
+            ],
+            "id": "0f987b6776f7"
+          },
+          {
+            "name": "Flyweight",
+            "kind": "interface",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "operation",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "extrinsicState",
+                    "type": "State"
+                  }
+                ]
+              }
+            ],
+            "id": "508835f2ab86"
+          },
+          {
+            "name": "ConcreteFlyweight",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "intrinsicState",
+                "type": "State",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "operation",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "extrinsicState",
+                    "type": "State"
+                  }
+                ]
+              }
+            ],
+            "id": "01cb46b333c3"
+          },
+          {
+            "name": "UnsharedConcreteFlyweight",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "allState",
+                "type": "State",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "operation",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "extrinsicState",
+                    "type": "State"
+                  }
+                ]
+              }
+            ],
+            "id": "79ac6b4ea201"
+          }
+        ],
+        "relationships": [
+          {
+            "kind": "directedAssociation",
+            "sourceId": "eb7fab5bee91",
+            "targetId": "0f987b6776f7",
+            "label": "uses",
+            "id": "3bcaa7154293"
+          },
+          {
+            "kind": "aggregation",
+            "sourceId": "0f987b6776f7",
+            "targetId": "508835f2ab86",
+            "label": "flyweights",
+            "targetMultiplicity": "0..*",
+            "id": "1b8093ea324f"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "01cb46b333c3",
+            "targetId": "508835f2ab86",
+            "id": "59e181d1a49a"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "79ac6b4ea201",
+            "targetId": "508835f2ab86",
+            "id": "07c171163f3f"
+          }
+        ],
+        "notes": [],
+        "textBoxes": [],
+        "noteAttachments": []
+      },
+      "layout": {
+        "view": {
+          "zoom": 1,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        "elements": [
+          {
+            "elementId": "eb7fab5bee91",
+            "x": 95,
+            "y": 40,
+            "width": 120,
+            "height": 54
+          },
+          {
+            "elementId": "0f987b6776f7",
+            "x": 40,
+            "y": 184,
+            "width": 230,
+            "height": 90
+          },
+          {
+            "elementId": "508835f2ab86",
+            "x": 582,
+            "y": 184,
+            "width": 235,
+            "height": 90
+          },
+          {
+            "elementId": "01cb46b333c3",
+            "x": 400,
+            "y": 364,
+            "width": 235,
+            "height": 90
+          },
+          {
+            "elementId": "79ac6b4ea201",
+            "x": 765,
+            "y": 364,
+            "width": 235,
+            "height": 90
+          }
+        ]
+      }
+    },
+    {
+      "id": "2301a27ea226",
+      "name": "Proxy",
+      "description": "Provide a surrogate or placeholder for another object to control access to it.",
+      "diagramType": "class",
+      "model": {
+        "kind": "class",
+        "classes": [
+          {
+            "name": "Client",
+            "kind": "class",
+            "attributes": [],
+            "operations": [],
+            "id": "ae60a0db13f5"
+          },
+          {
+            "name": "Subject",
+            "kind": "interface",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "request",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "6f7cdf81b240"
+          },
+          {
+            "name": "RealSubject",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "request",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "d6d58a2cd58b"
+          },
+          {
+            "name": "Proxy",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "realSubject",
+                "type": "RealSubject",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "request",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "eb1c609d83f9"
+          }
+        ],
+        "relationships": [
+          {
+            "kind": "directedAssociation",
+            "sourceId": "ae60a0db13f5",
+            "targetId": "6f7cdf81b240",
+            "label": "uses",
+            "id": "69504925c14c"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "d6d58a2cd58b",
+            "targetId": "6f7cdf81b240",
+            "id": "084d543b6adf"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "eb1c609d83f9",
+            "targetId": "6f7cdf81b240",
+            "id": "8d498fd3041b"
+          },
+          {
+            "kind": "directedAssociation",
+            "sourceId": "eb1c609d83f9",
+            "targetId": "d6d58a2cd58b",
+            "label": "realSubject",
+            "id": "9418f9def91d"
+          }
+        ],
+        "notes": [],
+        "textBoxes": [],
+        "noteAttachments": []
+      },
+      "layout": {
+        "view": {
+          "zoom": 1,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        "elements": [
+          {
+            "elementId": "ae60a0db13f5",
+            "x": 40,
+            "y": 40,
+            "width": 120,
+            "height": 54
+          },
+          {
+            "elementId": "6f7cdf81b240",
+            "x": 436,
+            "y": 40,
+            "width": 120,
+            "height": 90
+          },
+          {
+            "elementId": "d6d58a2cd58b",
+            "x": 290,
+            "y": 220,
+            "width": 120,
+            "height": 72
+          },
+          {
+            "elementId": "eb1c609d83f9",
+            "x": 540,
+            "y": 220,
+            "width": 162,
+            "height": 90
+          }
+        ]
+      }
+    },
+    {
+      "id": "ada66e40ddcf",
+      "name": "Chain of Responsibility",
+      "description": "Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request; chain the receiving objects and pass the request along the chain.",
+      "diagramType": "class",
+      "model": {
+        "kind": "class",
+        "classes": [
+          {
+            "name": "Client",
+            "kind": "class",
+            "attributes": [],
+            "operations": [],
+            "id": "b6e35435cdd2"
+          },
+          {
+            "name": "Handler",
+            "kind": "abstractClass",
+            "attributes": [
+              {
+                "name": "successor",
+                "type": "Handler",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "setNext",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "handler",
+                    "type": "Handler"
+                  }
+                ]
+              },
+              {
+                "name": "handleRequest",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "request",
+                    "type": "Request"
+                  }
+                ]
+              }
+            ],
+            "id": "a2e3293669ee"
+          },
+          {
+            "name": "ConcreteHandler1",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "handleRequest",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "request",
+                    "type": "Request"
+                  }
+                ]
+              }
+            ],
+            "id": "e5fd11601af3"
+          },
+          {
+            "name": "ConcreteHandler2",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "handleRequest",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "request",
+                    "type": "Request"
+                  }
+                ]
+              }
+            ],
+            "id": "59b0596295fd"
+          }
+        ],
+        "relationships": [
+          {
+            "kind": "directedAssociation",
+            "sourceId": "b6e35435cdd2",
+            "targetId": "a2e3293669ee",
+            "label": "sends request",
+            "id": "b4cfa34904c4"
+          },
+          {
+            "kind": "inheritance",
+            "sourceId": "e5fd11601af3",
+            "targetId": "a2e3293669ee",
+            "id": "94daaac98bc9"
+          },
+          {
+            "kind": "inheritance",
+            "sourceId": "59b0596295fd",
+            "targetId": "a2e3293669ee",
+            "id": "f610909ee27c"
+          }
+        ],
+        "notes": [],
+        "textBoxes": [],
+        "noteAttachments": []
+      },
+      "layout": {
+        "view": {
+          "zoom": 1,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        "elements": [
+          {
+            "elementId": "b6e35435cdd2",
+            "x": 40,
+            "y": 40,
+            "width": 120,
+            "height": 54
+          },
+          {
+            "elementId": "a2e3293669ee",
+            "x": 480,
+            "y": 40,
+            "width": 249,
+            "height": 108
+          },
+          {
+            "elementId": "e5fd11601af3",
+            "x": 290,
+            "y": 238,
+            "width": 249,
+            "height": 72
+          },
+          {
+            "elementId": "59b0596295fd",
+            "x": 669,
+            "y": 238,
+            "width": 249,
+            "height": 72
+          }
+        ]
+      }
+    },
+    {
+      "id": "18abe3645b28",
+      "name": "Command",
+      "description": "Encapsulate a request as an object, letting you parameterize clients with different requests, queue or log requests, and support undoable operations.",
+      "diagramType": "class",
+      "model": {
+        "kind": "class",
+        "classes": [
+          {
+            "name": "Client",
+            "kind": "class",
+            "attributes": [],
+            "operations": [],
+            "id": "6efa88d54cf4"
+          },
+          {
+            "name": "Invoker",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "command",
+                "type": "Command",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "executeCommand",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "f6ca537436fb"
+          },
+          {
+            "name": "Command",
+            "kind": "interface",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "execute",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "16e73ff5fdb0"
+          },
+          {
+            "name": "Receiver",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "action",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "0d7c30ea4f74"
+          },
+          {
+            "name": "ConcreteCommand",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "receiver",
+                "type": "Receiver",
+                "visibility": "private",
+                "isStatic": false
+              },
+              {
+                "name": "state",
+                "type": "string",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "execute",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "aeb50e801487"
+          }
+        ],
+        "relationships": [
+          {
+            "kind": "aggregation",
+            "sourceId": "f6ca537436fb",
+            "targetId": "16e73ff5fdb0",
+            "label": "command",
+            "targetMultiplicity": "1",
+            "id": "5cbdf7d0a76c"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "aeb50e801487",
+            "targetId": "16e73ff5fdb0",
+            "id": "59aaf99ad4e2"
+          },
+          {
+            "kind": "directedAssociation",
+            "sourceId": "aeb50e801487",
+            "targetId": "0d7c30ea4f74",
+            "label": "receiver",
+            "id": "d77a513f3173"
+          },
+          {
+            "kind": "dependency",
+            "sourceId": "6efa88d54cf4",
+            "targetId": "0d7c30ea4f74",
+            "id": "ea1f755cb7ff"
+          }
+        ],
+        "notes": [],
+        "textBoxes": [],
+        "noteAttachments": []
+      },
+      "layout": {
+        "view": {
+          "zoom": 1,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        "elements": [
+          {
+            "elementId": "6efa88d54cf4",
+            "x": 40,
+            "y": 40,
+            "width": 120,
+            "height": 54
+          },
+          {
+            "elementId": "f6ca537436fb",
+            "x": 290,
+            "y": 40,
+            "width": 172,
+            "height": 90
+          },
+          {
+            "elementId": "16e73ff5fdb0",
+            "x": 601,
+            "y": 40,
+            "width": 120,
+            "height": 90
+          },
+          {
+            "elementId": "0d7c30ea4f74",
+            "x": 40,
+            "y": 220,
+            "width": 120,
+            "height": 72
+          },
+          {
+            "elementId": "aeb50e801487",
+            "x": 592,
+            "y": 220,
+            "width": 138,
+            "height": 108
+          }
+        ]
+      }
+    },
+    {
+      "id": "445b7b18aedb",
+      "name": "Interpreter",
+      "description": "Given a language, define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language.",
+      "diagramType": "class",
+      "model": {
+        "kind": "class",
+        "classes": [
+          {
+            "name": "Client",
+            "kind": "class",
+            "attributes": [],
+            "operations": [],
+            "id": "e78f9ff185f5"
+          },
+          {
+            "name": "Context",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "variables",
+                "type": "Map\u003Cstring, int\u003E",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "lookup",
+                "returnType": "int",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "name",
+                    "type": "string"
+                  }
+                ]
+              }
+            ],
+            "id": "c926b5ed7999"
+          },
+          {
+            "name": "AbstractExpression",
+            "kind": "abstractClass",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "interpret",
+                "returnType": "int",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": true,
+                "parameters": [
+                  {
+                    "name": "context",
+                    "type": "Context"
+                  }
+                ]
+              }
+            ],
+            "id": "bf83259f167d"
+          },
+          {
+            "name": "TerminalExpression",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "interpret",
+                "returnType": "int",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "context",
+                    "type": "Context"
+                  }
+                ]
+              }
+            ],
+            "id": "9f9e88508cb5"
+          },
+          {
+            "name": "NonterminalExpression",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "operands",
+                "type": "List\u003CAbstractExpression\u003E",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "interpret",
+                "returnType": "int",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "context",
+                    "type": "Context"
+                  }
+                ]
+              }
+            ],
+            "id": "0a2f456f4853"
+          }
+        ],
+        "relationships": [
+          {
+            "kind": "directedAssociation",
+            "sourceId": "e78f9ff185f5",
+            "targetId": "bf83259f167d",
+            "label": "builds",
+            "id": "ef9659f3cf35"
+          },
+          {
+            "kind": "dependency",
+            "sourceId": "e78f9ff185f5",
+            "targetId": "c926b5ed7999",
+            "id": "cbb899d2f30e"
+          },
+          {
+            "kind": "inheritance",
+            "sourceId": "9f9e88508cb5",
+            "targetId": "bf83259f167d",
+            "id": "4b2fb3978edf"
+          },
+          {
+            "kind": "inheritance",
+            "sourceId": "0a2f456f4853",
+            "targetId": "bf83259f167d",
+            "id": "60f978038c90"
+          }
+        ],
+        "notes": [],
+        "textBoxes": [],
+        "noteAttachments": []
+      },
+      "layout": {
+        "view": {
+          "zoom": 1,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        "elements": [
+          {
+            "elementId": "e78f9ff185f5",
+            "x": 70,
+            "y": 40,
+            "width": 120,
+            "height": 54
+          },
+          {
+            "elementId": "c926b5ed7999",
+            "x": 40,
+            "y": 202,
+            "width": 180,
+            "height": 90
+          },
+          {
+            "elementId": "bf83259f167d",
+            "x": 533,
+            "y": 40,
+            "width": 197,
+            "height": 72
+          },
+          {
+            "elementId": "9f9e88508cb5",
+            "x": 350,
+            "y": 202,
+            "width": 202,
+            "height": 72
+          },
+          {
+            "elementId": "0a2f456f4853",
+            "x": 682,
+            "y": 202,
+            "width": 231,
+            "height": 90
+          }
+        ]
+      }
+    },
+    {
+      "id": "49af0a94def7",
+      "name": "Iterator",
+      "description": "Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.",
+      "diagramType": "class",
+      "model": {
+        "kind": "class",
+        "classes": [
+          {
+            "name": "Client",
+            "kind": "class",
+            "attributes": [],
+            "operations": [],
+            "id": "62657be67995"
+          },
+          {
+            "name": "Aggregate",
+            "kind": "interface",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "createIterator",
+                "returnType": "Iterator",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "0b1142b5094e"
+          },
+          {
+            "name": "Iterator",
+            "kind": "interface",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "first",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "next",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "isDone",
+                "returnType": "bool",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "currentItem",
+                "returnType": "Item",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "2bd5f75453d3"
+          },
+          {
+            "name": "ConcreteAggregate",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "items",
+                "type": "List\u003CItem\u003E",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "createIterator",
+                "returnType": "Iterator",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "c5b9a08e60c6"
+          },
+          {
+            "name": "ConcreteIterator",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "aggregate",
+                "type": "ConcreteAggregate",
+                "visibility": "private",
+                "isStatic": false
+              },
+              {
+                "name": "current",
+                "type": "int",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "first",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "next",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "isDone",
+                "returnType": "bool",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "currentItem",
+                "returnType": "Item",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "731c86f00874"
+          }
+        ],
+        "relationships": [
+          {
+            "kind": "dependency",
+            "sourceId": "62657be67995",
+            "targetId": "0b1142b5094e",
+            "id": "1559c3b068e4"
+          },
+          {
+            "kind": "dependency",
+            "sourceId": "62657be67995",
+            "targetId": "2bd5f75453d3",
+            "id": "d98c85db4c7b"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "c5b9a08e60c6",
+            "targetId": "0b1142b5094e",
+            "id": "5e0f287be977"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "731c86f00874",
+            "targetId": "2bd5f75453d3",
+            "id": "d80286b589dd"
+          },
+          {
+            "kind": "directedAssociation",
+            "sourceId": "731c86f00874",
+            "targetId": "c5b9a08e60c6",
+            "label": "aggregate",
+            "id": "a911fde3a964"
+          }
+        ],
+        "notes": [],
+        "textBoxes": [],
+        "noteAttachments": []
+      },
+      "layout": {
+        "view": {
+          "zoom": 1,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        "elements": [
+          {
+            "elementId": "62657be67995",
+            "x": 228,
+            "y": 40,
+            "width": 120,
+            "height": 54
+          },
+          {
+            "elementId": "0b1142b5094e",
+            "x": 40,
+            "y": 184,
+            "width": 163,
+            "height": 90
+          },
+          {
+            "elementId": "2bd5f75453d3",
+            "x": 366,
+            "y": 184,
+            "width": 136,
+            "height": 144
+          },
+          {
+            "elementId": "c5b9a08e60c6",
+            "x": 40,
+            "y": 418,
+            "width": 163,
+            "height": 90
+          },
+          {
+            "elementId": "731c86f00874",
+            "x": 333,
+            "y": 418,
+            "width": 203,
+            "height": 162
+          }
+        ]
+      }
+    },
+    {
+      "id": "0d32bba454fe",
+      "name": "Mediator",
+      "description": "Define an object that encapsulates how a set of objects interact, promoting loose coupling by keeping objects from referring to each other explicitly.",
+      "diagramType": "class",
+      "model": {
+        "kind": "class",
+        "classes": [
+          {
+            "name": "Mediator",
+            "kind": "interface",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "notify",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "sender",
+                    "type": "Colleague"
+                  },
+                  {
+                    "name": "event",
+                    "type": "string"
+                  }
+                ]
+              }
+            ],
+            "id": "b046fb4174ad"
+          },
+          {
+            "name": "Colleague",
+            "kind": "abstractClass",
+            "attributes": [
+              {
+                "name": "mediator",
+                "type": "Mediator",
+                "visibility": "protected",
+                "isStatic": false
+              }
+            ],
+            "operations": [],
+            "id": "eb81534512d0"
+          },
+          {
+            "name": "ConcreteMediator",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "colleague1",
+                "type": "ConcreteColleague1",
+                "visibility": "private",
+                "isStatic": false
+              },
+              {
+                "name": "colleague2",
+                "type": "ConcreteColleague2",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "notify",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "sender",
+                    "type": "Colleague"
+                  },
+                  {
+                    "name": "event",
+                    "type": "string"
+                  }
+                ]
+              }
+            ],
+            "id": "d24aeacef377"
+          },
+          {
+            "name": "ConcreteColleague1",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "doA",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "9873f4e996a9"
+          },
+          {
+            "name": "ConcreteColleague2",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "doB",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "df51c5e719b6"
+          }
+        ],
+        "relationships": [
+          {
+            "kind": "directedAssociation",
+            "sourceId": "eb81534512d0",
+            "targetId": "b046fb4174ad",
+            "label": "mediator",
+            "id": "125ba8aa6fd5"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "d24aeacef377",
+            "targetId": "b046fb4174ad",
+            "id": "d7bb5e0c6015"
+          },
+          {
+            "kind": "inheritance",
+            "sourceId": "9873f4e996a9",
+            "targetId": "eb81534512d0",
+            "id": "030d6a9de245"
+          },
+          {
+            "kind": "inheritance",
+            "sourceId": "df51c5e719b6",
+            "targetId": "eb81534512d0",
+            "id": "e6015f67c95c"
+          }
+        ],
+        "notes": [],
+        "textBoxes": [],
+        "noteAttachments": []
+      },
+      "layout": {
+        "view": {
+          "zoom": 1,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        "elements": [
+          {
+            "elementId": "b046fb4174ad",
+            "x": 40,
+            "y": 40,
+            "width": 280,
+            "height": 90
+          },
+          {
+            "elementId": "eb81534512d0",
+            "x": 588,
+            "y": 40,
+            "width": 139,
+            "height": 72
+          },
+          {
+            "elementId": "d24aeacef377",
+            "x": 40,
+            "y": 220,
+            "width": 280,
+            "height": 108
+          },
+          {
+            "elementId": "9873f4e996a9",
+            "x": 450,
+            "y": 220,
+            "width": 143,
+            "height": 72
+          },
+          {
+            "elementId": "df51c5e719b6",
+            "x": 723,
+            "y": 220,
+            "width": 143,
+            "height": 72
+          }
+        ]
+      }
+    },
+    {
+      "id": "4212b7e5202e",
+      "name": "Memento",
+      "description": "Without violating encapsulation, capture and externalize an object\u0027s internal state so that the object can be restored to this state later.",
+      "diagramType": "class",
+      "model": {
+        "kind": "class",
+        "classes": [
+          {
+            "name": "Originator",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "state",
+                "type": "State",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "createMemento",
+                "returnType": "Memento",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "restore",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "memento",
+                    "type": "Memento"
+                  }
+                ]
+              }
+            ],
+            "id": "2bbfc52827eb"
+          },
+          {
+            "name": "Memento",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "state",
+                "type": "State",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "getState",
+                "returnType": "State",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "3d6498ba0237"
+          },
+          {
+            "name": "Caretaker",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "history",
+                "type": "List\u003CMemento\u003E",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "save",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "undo",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "bf3b31b0fc2f"
+          }
+        ],
+        "relationships": [
+          {
+            "kind": "dependency",
+            "sourceId": "2bbfc52827eb",
+            "targetId": "3d6498ba0237",
+            "label": "creates",
+            "id": "90c84c8c6f98"
+          },
+          {
+            "kind": "aggregation",
+            "sourceId": "bf3b31b0fc2f",
+            "targetId": "3d6498ba0237",
+            "label": "history",
+            "targetMultiplicity": "0..*",
+            "id": "6747b36bd55b"
+          }
+        ],
+        "notes": [],
+        "textBoxes": [],
+        "noteAttachments": []
+      },
+      "layout": {
+        "view": {
+          "zoom": 1,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        "elements": [
+          {
+            "elementId": "2bbfc52827eb",
+            "x": 40,
+            "y": 40,
+            "width": 226,
+            "height": 108
+          },
+          {
+            "elementId": "3d6498ba0237",
+            "x": 396,
+            "y": 40,
+            "width": 121,
+            "height": 90
+          },
+          {
+            "elementId": "bf3b31b0fc2f",
+            "x": 647,
+            "y": 40,
+            "width": 164,
+            "height": 108
+          }
+        ]
+      }
+    },
+    {
+      "id": "53e41b99c5cc",
+      "name": "Observer",
+      "description": "Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.",
+      "diagramType": "class",
+      "model": {
+        "kind": "class",
+        "classes": [
+          {
+            "name": "Subject",
+            "kind": "abstractClass",
+            "attributes": [
+              {
+                "name": "observers",
+                "type": "List\u003CObserver\u003E",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "attach",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "observer",
+                    "type": "Observer"
+                  }
+                ]
+              },
+              {
+                "name": "detach",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "observer",
+                    "type": "Observer"
+                  }
+                ]
+              },
+              {
+                "name": "notify",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "9eec49eb3872"
+          },
+          {
+            "name": "Observer",
+            "kind": "interface",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "update",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "2a9219f08146"
+          },
+          {
+            "name": "ConcreteSubject",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "subjectState",
+                "type": "State",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "getState",
+                "returnType": "State",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "setState",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "state",
+                    "type": "State"
+                  }
+                ]
+              }
+            ],
+            "id": "9673977187d3"
+          },
+          {
+            "name": "ConcreteObserver",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "observerState",
+                "type": "State",
+                "visibility": "private",
+                "isStatic": false
+              },
+              {
+                "name": "subject",
+                "type": "ConcreteSubject",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "update",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "ffd009636708"
+          }
+        ],
+        "relationships": [
+          {
+            "kind": "aggregation",
+            "sourceId": "9eec49eb3872",
+            "targetId": "2a9219f08146",
+            "label": "observers",
+            "targetMultiplicity": "0..*",
+            "id": "cdcb54e05a72"
+          },
+          {
+            "kind": "inheritance",
+            "sourceId": "9673977187d3",
+            "targetId": "9eec49eb3872",
+            "id": "d9ec32b42cb4"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "ffd009636708",
+            "targetId": "2a9219f08146",
+            "id": "693d1d1eb2d1"
+          },
+          {
+            "kind": "directedAssociation",
+            "sourceId": "ffd009636708",
+            "targetId": "9673977187d3",
+            "label": "subject",
+            "id": "f979e2d8c2d1"
+          }
+        ],
+        "notes": [],
+        "textBoxes": [],
+        "noteAttachments": []
+      },
+      "layout": {
+        "view": {
+          "zoom": 1,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        "elements": [
+          {
+            "elementId": "9eec49eb3872",
+            "x": 40,
+            "y": 40,
+            "width": 215,
+            "height": 126
+          },
+          {
+            "elementId": "2a9219f08146",
+            "x": 408,
+            "y": 40,
+            "width": 120,
+            "height": 90
+          },
+          {
+            "elementId": "9673977187d3",
+            "x": 59,
+            "y": 256,
+            "width": 177,
+            "height": 108
+          },
+          {
+            "elementId": "ffd009636708",
+            "x": 385,
+            "y": 256,
+            "width": 167,
+            "height": 108
+          }
+        ]
+      }
+    },
+    {
+      "id": "a5e2306ed9e4",
+      "name": "State",
+      "description": "Allow an object to alter its behaviour when its internal state changes; the object will appear to change its class.",
+      "diagramType": "class",
+      "model": {
+        "kind": "class",
+        "classes": [
+          {
+            "name": "Context",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "state",
+                "type": "State",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "request",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "setState",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "state",
+                    "type": "State"
+                  }
+                ]
+              }
+            ],
+            "id": "22229621be02"
+          },
+          {
+            "name": "State",
+            "kind": "interface",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "handle",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "context",
+                    "type": "Context"
+                  }
+                ]
+              }
+            ],
+            "id": "5379f6a73efb"
+          },
+          {
+            "name": "ConcreteStateA",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "handle",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "context",
+                    "type": "Context"
+                  }
+                ]
+              }
+            ],
+            "id": "6c114a7187d5"
+          },
+          {
+            "name": "ConcreteStateB",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "handle",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "context",
+                    "type": "Context"
+                  }
+                ]
+              }
+            ],
+            "id": "06176c96e97f"
+          }
+        ],
+        "relationships": [
+          {
+            "kind": "aggregation",
+            "sourceId": "22229621be02",
+            "targetId": "5379f6a73efb",
+            "label": "state",
+            "targetMultiplicity": "1",
+            "id": "f440a0a92039"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "6c114a7187d5",
+            "targetId": "5379f6a73efb",
+            "id": "87d3ae35415e"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "06176c96e97f",
+            "targetId": "5379f6a73efb",
+            "id": "56b3bbf4bfc7"
+          }
+        ],
+        "notes": [],
+        "textBoxes": [],
+        "noteAttachments": []
+      },
+      "layout": {
+        "view": {
+          "zoom": 1,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        "elements": [
+          {
+            "elementId": "22229621be02",
+            "x": 40,
+            "y": 40,
+            "width": 177,
+            "height": 108
+          },
+          {
+            "elementId": "5379f6a73efb",
+            "x": 512,
+            "y": 40,
+            "width": 201,
+            "height": 90
+          },
+          {
+            "elementId": "6c114a7187d5",
+            "x": 347,
+            "y": 238,
+            "width": 201,
+            "height": 72
+          },
+          {
+            "elementId": "06176c96e97f",
+            "x": 678,
+            "y": 238,
+            "width": 201,
+            "height": 72
+          }
+        ]
+      }
+    },
+    {
+      "id": "267c623207fd",
+      "name": "Strategy",
+      "description": "Define a family of algorithms, encapsulate each one, and make them interchangeable; the algorithm varies independently from the clients that use it.",
+      "diagramType": "class",
+      "model": {
+        "kind": "class",
+        "classes": [
+          {
+            "name": "Context",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "strategy",
+                "type": "Strategy",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "setStrategy",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "strategy",
+                    "type": "Strategy"
+                  }
+                ]
+              },
+              {
+                "name": "executeStrategy",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "6bdfc75cfbfe"
+          },
+          {
+            "name": "Strategy",
+            "kind": "interface",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "execute",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "data",
+                    "type": "Data"
+                  }
+                ]
+              }
+            ],
+            "id": "659bc5ad991e"
+          },
+          {
+            "name": "ConcreteStrategyA",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "execute",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "data",
+                    "type": "Data"
+                  }
+                ]
+              }
+            ],
+            "id": "2880f33e8d8d"
+          },
+          {
+            "name": "ConcreteStrategyB",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "execute",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "data",
+                    "type": "Data"
+                  }
+                ]
+              }
+            ],
+            "id": "ec05e9d6c930"
+          },
+          {
+            "name": "ConcreteStrategyC",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "execute",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "data",
+                    "type": "Data"
+                  }
+                ]
+              }
+            ],
+            "id": "78d8e3db163d"
+          }
+        ],
+        "relationships": [
+          {
+            "kind": "aggregation",
+            "sourceId": "6bdfc75cfbfe",
+            "targetId": "659bc5ad991e",
+            "label": "strategy",
+            "targetMultiplicity": "1",
+            "id": "d608084fd4d0"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "2880f33e8d8d",
+            "targetId": "659bc5ad991e",
+            "id": "e391244713f0"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "ec05e9d6c930",
+            "targetId": "659bc5ad991e",
+            "id": "893978811c9c"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "78d8e3db163d",
+            "targetId": "659bc5ad991e",
+            "id": "d532dbe09b4d"
+          }
+        ],
+        "notes": [],
+        "textBoxes": [],
+        "noteAttachments": []
+      },
+      "layout": {
+        "view": {
+          "zoom": 1,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        "elements": [
+          {
+            "elementId": "6bdfc75cfbfe",
+            "x": 40,
+            "y": 40,
+            "width": 233,
+            "height": 108
+          },
+          {
+            "elementId": "659bc5ad991e",
+            "x": 704,
+            "y": 40,
+            "width": 171,
+            "height": 90
+          },
+          {
+            "elementId": "2880f33e8d8d",
+            "x": 403,
+            "y": 238,
+            "width": 171,
+            "height": 72
+          },
+          {
+            "elementId": "ec05e9d6c930",
+            "x": 704,
+            "y": 238,
+            "width": 171,
+            "height": 72
+          },
+          {
+            "elementId": "78d8e3db163d",
+            "x": 1005,
+            "y": 238,
+            "width": 171,
+            "height": 72
+          }
+        ]
+      }
+    },
+    {
+      "id": "61f3275c72a6",
+      "name": "Template Method",
+      "description": "Define the skeleton of an algorithm in an operation, deferring some steps to subclasses.",
+      "diagramType": "class",
+      "model": {
+        "kind": "class",
+        "classes": [
+          {
+            "name": "AbstractClass",
+            "kind": "abstractClass",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "templateMethod",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "primitiveOperation1",
+                "returnType": "void",
+                "visibility": "protected",
+                "isStatic": false,
+                "isAbstract": true,
+                "parameters": []
+              },
+              {
+                "name": "primitiveOperation2",
+                "returnType": "void",
+                "visibility": "protected",
+                "isStatic": false,
+                "isAbstract": true,
+                "parameters": []
+              },
+              {
+                "name": "hook",
+                "returnType": "void",
+                "visibility": "protected",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "d6e45a649821"
+          },
+          {
+            "name": "ConcreteClassA",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "primitiveOperation1",
+                "returnType": "void",
+                "visibility": "protected",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "primitiveOperation2",
+                "returnType": "void",
+                "visibility": "protected",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "2aad82cfb78f"
+          },
+          {
+            "name": "ConcreteClassB",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "primitiveOperation1",
+                "returnType": "void",
+                "visibility": "protected",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "primitiveOperation2",
+                "returnType": "void",
+                "visibility": "protected",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              },
+              {
+                "name": "hook",
+                "returnType": "void",
+                "visibility": "protected",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "2a0d17cfb25e"
+          }
+        ],
+        "relationships": [
+          {
+            "kind": "inheritance",
+            "sourceId": "2aad82cfb78f",
+            "targetId": "d6e45a649821",
+            "id": "4acb7a25c503"
+          },
+          {
+            "kind": "inheritance",
+            "sourceId": "2a0d17cfb25e",
+            "targetId": "d6e45a649821",
+            "id": "99b9e40ef964"
+          }
+        ],
+        "notes": [],
+        "textBoxes": [],
+        "noteAttachments": []
+      },
+      "layout": {
+        "view": {
+          "zoom": 1,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        "elements": [
+          {
+            "elementId": "d6e45a649821",
+            "x": 198,
+            "y": 40,
+            "width": 179,
+            "height": 126
+          },
+          {
+            "elementId": "2aad82cfb78f",
+            "x": 40,
+            "y": 256,
+            "width": 182,
+            "height": 90
+          },
+          {
+            "elementId": "2a0d17cfb25e",
+            "x": 352,
+            "y": 256,
+            "width": 182,
+            "height": 108
+          }
+        ]
+      }
+    },
+    {
+      "id": "52665cc21903",
+      "name": "Visitor",
+      "description": "Represent an operation to be performed on the elements of an object structure, letting you define a new operation without changing the classes of the elements.",
+      "diagramType": "class",
+      "model": {
+        "kind": "class",
+        "classes": [
+          {
+            "name": "Client",
+            "kind": "class",
+            "attributes": [],
+            "operations": [],
+            "id": "d78572285dac"
+          },
+          {
+            "name": "Visitor",
+            "kind": "interface",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "visitConcreteElementA",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "element",
+                    "type": "ConcreteElementA"
+                  }
+                ]
+              },
+              {
+                "name": "visitConcreteElementB",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "element",
+                    "type": "ConcreteElementB"
+                  }
+                ]
+              }
+            ],
+            "id": "e4bf4d89c6bf"
+          },
+          {
+            "name": "ConcreteVisitor1",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "visitConcreteElementA",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "element",
+                    "type": "ConcreteElementA"
+                  }
+                ]
+              },
+              {
+                "name": "visitConcreteElementB",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "element",
+                    "type": "ConcreteElementB"
+                  }
+                ]
+              }
+            ],
+            "id": "737caf57a9e7"
+          },
+          {
+            "name": "ConcreteVisitor2",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "visitConcreteElementA",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "element",
+                    "type": "ConcreteElementA"
+                  }
+                ]
+              },
+              {
+                "name": "visitConcreteElementB",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "element",
+                    "type": "ConcreteElementB"
+                  }
+                ]
+              }
+            ],
+            "id": "91a96fa5ce55"
+          },
+          {
+            "name": "ObjectStructure",
+            "kind": "class",
+            "attributes": [
+              {
+                "name": "elements",
+                "type": "List\u003CElement\u003E",
+                "visibility": "private",
+                "isStatic": false
+              }
+            ],
+            "operations": [
+              {
+                "name": "accept",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "visitor",
+                    "type": "Visitor"
+                  }
+                ]
+              }
+            ],
+            "id": "042227c1bf1c"
+          },
+          {
+            "name": "Element",
+            "kind": "interface",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "accept",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "visitor",
+                    "type": "Visitor"
+                  }
+                ]
+              }
+            ],
+            "id": "efca7c1d422e"
+          },
+          {
+            "name": "ConcreteElementA",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "accept",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "visitor",
+                    "type": "Visitor"
+                  }
+                ]
+              },
+              {
+                "name": "operationA",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "0523fd93cf58"
+          },
+          {
+            "name": "ConcreteElementB",
+            "kind": "class",
+            "attributes": [],
+            "operations": [
+              {
+                "name": "accept",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": [
+                  {
+                    "name": "visitor",
+                    "type": "Visitor"
+                  }
+                ]
+              },
+              {
+                "name": "operationB",
+                "returnType": "void",
+                "visibility": "public",
+                "isStatic": false,
+                "isAbstract": false,
+                "parameters": []
+              }
+            ],
+            "id": "8b9fbaec9bfc"
+          }
+        ],
+        "relationships": [
+          {
+            "kind": "directedAssociation",
+            "sourceId": "d78572285dac",
+            "targetId": "e4bf4d89c6bf",
+            "label": "uses",
+            "id": "1f8462d1588b"
+          },
+          {
+            "kind": "dependency",
+            "sourceId": "d78572285dac",
+            "targetId": "042227c1bf1c",
+            "id": "376e968589fa"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "737caf57a9e7",
+            "targetId": "e4bf4d89c6bf",
+            "id": "e3e721de90bf"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "91a96fa5ce55",
+            "targetId": "e4bf4d89c6bf",
+            "id": "9c6173c584f7"
+          },
+          {
+            "kind": "aggregation",
+            "sourceId": "042227c1bf1c",
+            "targetId": "efca7c1d422e",
+            "label": "elements",
+            "targetMultiplicity": "0..*",
+            "id": "13f7077c89f2"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "0523fd93cf58",
+            "targetId": "efca7c1d422e",
+            "id": "a8cc31c25a68"
+          },
+          {
+            "kind": "realization",
+            "sourceId": "8b9fbaec9bfc",
+            "targetId": "efca7c1d422e",
+            "id": "cc1b9750709b"
+          }
+        ],
+        "notes": [],
+        "textBoxes": [],
+        "noteAttachments": []
+      },
+      "layout": {
+        "view": {
+          "zoom": 1,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        "elements": [
+          {
+            "elementId": "d78572285dac",
+            "x": 72,
+            "y": 40,
+            "width": 120,
+            "height": 54
+          },
+          {
+            "elementId": "e4bf4d89c6bf",
+            "x": 596,
+            "y": 40,
+            "width": 356,
+            "height": 108
+          },
+          {
+            "elementId": "737caf57a9e7",
+            "x": 353,
+            "y": 238,
+            "width": 356,
+            "height": 90
+          },
+          {
+            "elementId": "91a96fa5ce55",
+            "x": 839,
+            "y": 238,
+            "width": 356,
+            "height": 90
+          },
+          {
+            "elementId": "042227c1bf1c",
+            "x": 40,
+            "y": 418,
+            "width": 183,
+            "height": 90
+          },
+          {
+            "elementId": "efca7c1d422e",
+            "x": 682,
+            "y": 418,
+            "width": 183,
+            "height": 90
+          },
+          {
+            "elementId": "0523fd93cf58",
+            "x": 440,
+            "y": 598,
+            "width": 183,
+            "height": 90
+          },
+          {
+            "elementId": "8b9fbaec9bfc",
+            "x": 926,
+            "y": 598,
+            "width": 183,
+            "height": 90
+          }
+        ]
+      }
+    }
+  ],
+  "folders": [
+    {
+      "id": "0aae9a32b251",
+      "name": "Creational Patterns",
+      "folders": [],
+      "diagramIds": [
+        "920230170947",
+        "828269d7aa9f",
+        "989e88a096c1",
+        "7264dd8bea60",
+        "81af146e9cda"
+      ]
+    },
+    {
+      "id": "8b85ba55bbc3",
+      "name": "Structural Patterns",
+      "folders": [],
+      "diagramIds": [
+        "01d7e49f4d4c",
+        "bd3a54ee8be9",
+        "d6575b7847a3",
+        "4ce6e5107fc6",
+        "ff39907eede3",
+        "725af700ed36",
+        "2301a27ea226"
+      ]
+    },
+    {
+      "id": "3da43c58b39f",
+      "name": "Behavioral Patterns",
+      "folders": [],
+      "diagramIds": [
+        "ada66e40ddcf",
+        "18abe3645b28",
+        "445b7b18aedb",
+        "49af0a94def7",
+        "0d32bba454fe",
+        "4212b7e5202e",
+        "53e41b99c5cc",
+        "a5e2306ed9e4",
+        "267c623207fd",
+        "61f3275c72a6",
+        "52665cc21903"
+      ]
+    }
+  ]
+}

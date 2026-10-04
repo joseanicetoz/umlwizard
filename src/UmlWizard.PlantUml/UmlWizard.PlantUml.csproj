@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    PlantUML import and export of every diagram type: the text between @startuml and @enduml becomes a diagram, laid
+    out automatically, and a diagram becomes that text. Kept out of UmlWizard.Core like the OpenAPI import and export.
+  -->
+  <PropertyGroup>
+    <RootNamespace>UmlWizard.PlantUml</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UmlWizard.Core\UmlWizard.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="UmlWizard.PlantUml.Tests" />
+  </ItemGroup>
+</Project>

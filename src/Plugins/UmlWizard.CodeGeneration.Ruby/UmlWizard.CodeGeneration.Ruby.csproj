@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>UmlWizard.CodeGeneration.Ruby</RootNamespace>
+    <Description>UML Wizard code generator plug-in: Ruby.</Description>
+  </PropertyGroup>
+</Project>

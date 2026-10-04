@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>UmlWizard.CodeGeneration.Java</RootNamespace>
+    <Description>UML Wizard code generator plug-in: Java.</Description>
+  </PropertyGroup>
+</Project>

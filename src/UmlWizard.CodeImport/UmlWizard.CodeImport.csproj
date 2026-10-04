@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Import of source code as class diagrams: the language-neutral model of imported types, the plug-in API
+    (ICodeImporter) with the catalog of plug-ins, and the builder that turns imported types into a laid out class
+    diagram. The languages are plug-ins (src/Plugins/UmlWizard.CodeImport.*), like the code generators.
+  -->
+  <PropertyGroup>
+    <RootNamespace>UmlWizard.CodeImport</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UmlWizard.Core\UmlWizard.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="UmlWizard.CodeImport.Tests" />
+  </ItemGroup>
+</Project>

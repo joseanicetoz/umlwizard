@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>UmlWizard.CodeGeneration.Cpp</RootNamespace>
+    <Description>UML Wizard code generator plug-in: C++.</Description>
+  </PropertyGroup>
+</Project>

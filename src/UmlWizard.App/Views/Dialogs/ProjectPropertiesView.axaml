@@ -1,0 +1,44 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="using:UmlWizard.App.Resources"
+             xmlns:dvm="using:UmlWizard.App.ViewModels.Dialogs"
+             xmlns:mi="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             x:Class="UmlWizard.App.Views.Dialogs.ProjectPropertiesView"
+             x:DataType="dvm:ProjectPropertiesViewModel"
+             Width="500">
+  <Grid ColumnDefinitions="100,*" RowDefinitions="Auto,10,Auto,10,Auto,10,Auto,10,Auto">
+    <TextBlock Classes="caption" Text="{x:Static res:Strings.Label_Name}" VerticalAlignment="Center" />
+    <TextBox Grid.Column="1" Text="{Binding Name}" />
+    <TextBlock Classes="caption" Grid.Row="2" Text="{x:Static res:Strings.Label_Version}" VerticalAlignment="Center" />
+    <TextBox x:Name="VersionBox" Grid.Row="2" Grid.Column="1" Text="{Binding Version}" HorizontalAlignment="Left" Width="160"
+             Watermark="{x:Static res:Strings.Dialog_ProjectProperties_Version_Watermark}" />
+    <TextBlock Classes="caption" Grid.Row="4" Text="{x:Static res:Strings.Label_Author}" VerticalAlignment="Center" />
+    <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Author}" />
+    <TextBlock Classes="caption" Grid.Row="6" Text="{x:Static res:Strings.Label_Description}" VerticalAlignment="Top" Margin="0,6,0,0" />
+    <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Description}" AcceptsReturn="True" TextWrapping="Wrap"
+             Height="90" />
+    <TextBlock Classes="caption" Grid.Row="8" Text="{x:Static res:Strings.Label_Location}" VerticalAlignment="Center" IsVisible="{Binding IsNew}" />
+    <DockPanel Grid.Row="8" Grid.Column="1" IsVisible="{Binding IsNew}">
+      <Button DockPanel.Dock="Right" Content="{x:Static res:Strings.Button_Browse}" Margin="6,0,0,0" Command="{Binding BrowseLocationCommand}" />
+      <TextBox Text="{Binding Location}" />
+    </DockPanel>
+
+    <!-- An existing project: the folder of its file, read-only; a click copies it, and the dialog shows it did -->
+    <TextBlock Classes="caption" Grid.Row="8" Text="{x:Static res:Strings.Label_Folder}" VerticalAlignment="Center" IsVisible="{Binding ShowsFolder}" />
+    <Button x:Name="FolderButton" Grid.Row="8" Grid.Column="1" Classes="flat" IsVisible="{Binding ShowsFolder}"
+            HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Padding="4,3" Margin="-4,0,0,0" Cursor="Hand"
+            Command="{Binding CopyFolderCommand}" ToolTip.Tip="{x:Static res:Strings.Dialog_ProjectProperties_CopyFolder_Tip}">
+      <DockPanel>
+        <Panel DockPanel.Dock="Right" Margin="8,0,0,0" VerticalAlignment="Center">
+          <mi:MaterialIcon Kind="ContentCopy" Width="14" Height="14" IsVisible="{Binding !Copied}" />
+          <StackPanel x:Name="CopiedCue" Orientation="Horizontal" Spacing="4" IsVisible="{Binding Copied}">
+            <mi:MaterialIcon Kind="Check" Width="14" Height="14" Foreground="{DynamicResource SuccessForegroundBrush}" />
+            <TextBlock Text="{x:Static res:Strings.Dialog_ProjectProperties_Copied}" Classes="caption"
+                       Foreground="{DynamicResource SuccessForegroundBrush}" VerticalAlignment="Center" />
+          </StackPanel>
+        </Panel>
+        <TextBlock Text="{Binding Folder}" Classes="caption" TextTrimming="PathSegmentEllipsis" VerticalAlignment="Center" />
+      </DockPanel>
+    </Button>
+  </Grid>
+</UserControl>
