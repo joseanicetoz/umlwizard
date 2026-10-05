@@ -1,5 +1,7 @@
 # UML Wizard
 
+![sample](screenshots/sample.png)
+
 A UML designer built with **Avalonia UI** (application shell) and **SkiaSharp** (diagram rendering). It runs on
 Windows, macOS and Linux.
 
