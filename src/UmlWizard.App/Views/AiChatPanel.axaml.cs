@@ -17,6 +17,9 @@ public sealed partial class AiChatPanel : UserControl
 
         // On the way in: the text box would otherwise take Enter for a new line first.
         InputBox.AddHandler(KeyDownEvent, OnInputKeyDown, Avalonia.Interactivity.RoutingStrategies.Tunnel);
+
+        // A click anywhere in the input box, not just on its text, puts the caret in the text.
+        Composer.PointerPressed += (_, _) => InputBox.Focus();
     }
 
     protected override void OnDataContextChanged(EventArgs e)

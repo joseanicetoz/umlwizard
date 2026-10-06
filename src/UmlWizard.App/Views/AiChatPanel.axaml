@@ -46,6 +46,37 @@
     <Style Selector="Border.error TextBlock">
       <Setter Property="Foreground" Value="{DynamicResource ErrorForegroundBrush}" />
     </Style>
+    <!-- The input box: the border draws the text box's frame, so the text box inside has none of its own -->
+    <Style Selector="Border.composer">
+      <Setter Property="Background" Value="{DynamicResource TextControlBackground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource TextControlBorderBrush}" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+      <Setter Property="Cursor" Value="Ibeam" />
+    </Style>
+    <Style Selector="Border.composer:pointerover">
+      <Setter Property="BorderBrush" Value="{DynamicResource TextControlBorderBrushPointerOver}" />
+    </Style>
+    <Style Selector="Border.composer:focus-within">
+      <Setter Property="BorderBrush" Value="{DynamicResource TextControlBorderBrushFocused}" />
+    </Style>
+    <Style Selector="TextBox.bare /template/ Border#PART_BorderElement, TextBox.bare:pointerover /template/ Border#PART_BorderElement, TextBox.bare:focus /template/ Border#PART_BorderElement">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderThickness" Value="0" />
+    </Style>
+    <Style Selector="Button.composer">
+      <Setter Property="HorizontalAlignment" Value="Right" />
+      <Setter Property="Width" Value="28" />
+      <Setter Property="Height" Value="28" />
+      <Setter Property="Padding" Value="0" />
+      <Setter Property="Cursor" Value="Arrow" />
+      <Setter Property="HorizontalContentAlignment" Value="Center" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+    <Style Selector="Button.composer mi|MaterialIcon">
+      <Setter Property="Width" Value="16" />
+      <Setter Property="Height" Value="16" />
+    </Style>
   </UserControl.Styles>
 
   <DockPanel Margin="10">
@@ -57,20 +88,22 @@
               HorizontalAlignment="Left" Margin="0,6,0,0" />
     </StackPanel>
 
-    <!-- What the user writes -->
-    <DockPanel DockPanel.Dock="Bottom" IsVisible="{Binding IsSetUp}" Margin="0,8,0,0">
-      <StackPanel DockPanel.Dock="Right" VerticalAlignment="Bottom" Margin="6,0,0,0">
-        <Button x:Name="SendButton" Classes="accent" Command="{Binding SendCommand}" IsVisible="{Binding !IsWorking}" ToolTip.Tip="{x:Static res:Strings.AiChat_Send_Tip}">
-          <mi:MaterialIcon Kind="Send" />
-        </Button>
-        <Button x:Name="StopButton" Command="{Binding StopCommand}" IsVisible="{Binding IsWorking}" ToolTip.Tip="{x:Static res:Strings.AiChat_Stop}">
-          <mi:MaterialIcon Kind="Stop" />
-        </Button>
-      </StackPanel>
-      <TextBox x:Name="InputBox" Text="{Binding Input}" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="60" MaxHeight="160"
-               FontSize="12"
-               Watermark="{x:Static res:Strings.AiChat_Input_Watermark}" />
-    </DockPanel>
+    <!-- What the user writes: one box holding the text and, along its bottom, the send button -->
+    <Border x:Name="Composer" Classes="composer" DockPanel.Dock="Bottom" IsVisible="{Binding IsSetUp}" Margin="0,8,0,0">
+      <DockPanel>
+        <Panel DockPanel.Dock="Bottom" Margin="6,0,6,6">
+          <Button x:Name="SendButton" Classes="accent composer" Command="{Binding SendCommand}" IsVisible="{Binding !IsWorking}" ToolTip.Tip="{x:Static res:Strings.AiChat_Send_Tip}">
+            <mi:MaterialIcon Kind="Send" />
+          </Button>
+          <Button x:Name="StopButton" Classes="composer" Command="{Binding StopCommand}" IsVisible="{Binding IsWorking}" ToolTip.Tip="{x:Static res:Strings.AiChat_Stop}">
+            <mi:MaterialIcon Kind="Stop" />
+          </Button>
+        </Panel>
+        <TextBox x:Name="InputBox" Classes="bare" Text="{Binding Input}" AcceptsReturn="True" TextWrapping="Wrap" MinHeight="40" MaxHeight="160"
+                 FontSize="12"
+                 Watermark="{x:Static res:Strings.AiChat_Input_Watermark}" />
+      </DockPanel>
+    </Border>
 
     <!-- Before the project's first message: may its diagrams be sent? -->
     <Border x:Name="ConsentCard" DockPanel.Dock="Bottom" IsVisible="{Binding NeedsConsent}" Margin="0,8,0,0" Padding="12,10"
