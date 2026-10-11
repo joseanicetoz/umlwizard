@@ -4,3 +4,5 @@ obj/
 *.user
 TestResults/
 .idea/
+.claude/
+.mcp.json
