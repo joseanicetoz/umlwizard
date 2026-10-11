@@ -38,9 +38,13 @@ public sealed class RecentProjectsTests : IDisposable
 
         await main.OpenProjectFileAsync(a);
         await main.OpenProjectFileAsync(b);
-        await main.OpenProjectFileAsync(a.ToUpperInvariant());
+        var upper = a.ToUpperInvariant();
+        await main.OpenProjectFileAsync(upper);
 
-        Assert.Equal(OperatingSystem.IsWindows() ? [a.ToUpperInvariant(), b] : [a.ToUpperInvariant(), b, a], main.RecentProjects);
+        // Windows: the same project, so not a duplicate. macOS: the same file (the file system ignores case), listed as
+        // written. Linux: another file, which does not exist, so it is not opened and not listed.
+        string[] expected = OperatingSystem.IsWindows() ? [upper, b] : File.Exists(upper) ? [upper, b, a] : [b, a];
+        Assert.Equal(expected, main.RecentProjects);
         Assert.Equal(main.RecentProjects, store.Load());
         Assert.True(main.HasRecentProjects);
     }

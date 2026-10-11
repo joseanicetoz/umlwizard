@@ -157,7 +157,8 @@ public sealed class ExportDialogTests
         Assert.False(noName.TryAccept());
         Assert.Equal("Enter a file name.", noName.ErrorMessage);
 
-        var badName = Dialog(folder, "a:b?.png");
+        // "/" is not allowed in a file name on any system; ":" and "?" are only refused on Windows.
+        var badName = Dialog(folder, "a/b.png");
         Assert.False(badName.TryAccept());
         Assert.Contains("not allowed", badName.ErrorMessage);
 
