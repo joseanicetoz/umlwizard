@@ -14,10 +14,10 @@
     <ApplicationIcon>Assets\UmlWizard.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <!-- Shown in Help → About. The licence is LICENSE at the root of the repository; replace the website placeholder
-         with the real web address. -->
+    <!-- Shown in Help → About. The licence is LICENSE at the root of the repository; the website is the GitHub
+         repository, shown as a link. -->
     <AssemblyMetadata Include="Licence" Value="Apache License 2.0" />
-    <AssemblyMetadata Include="Website" Value="Not specified yet" />
+    <AssemblyMetadata Include="Website" Value="https://github.com/joseanicetoz/umlwizard" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" />

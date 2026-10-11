@@ -125,28 +125,37 @@ public sealed class AboutTests
     }
 
     [AvaloniaFact]
-    public void GeneralTab_ShowsTheLicence_AndTheWebsitePlaceholder_BelowTheUiFramework()
+    public void GeneralTab_ShowsTheLicence_AndTheWebsiteLink_BelowTheUiFramework()
     {
         var about = new AboutViewModel(new FakeServices());
         var window = new AboutWindow { DataContext = about };
         window.Show();
         Dispatcher.UIThread.RunJobs();
 
-        Assert.Equal(("Apache License 2.0", "Not specified yet"), (about.Licence, about.Website));
-        Assert.Null(about.WebsiteUri);
+        const string website = "https://github.com/joseanicetoz/umlwizard";
+        Assert.Equal(("Apache License 2.0", website), (about.Licence, about.Website));
+        Assert.Equal(new Uri(website), about.WebsiteUri);
 
         var labels = window.GetVisualDescendants().OfType<TextBlock>().Where(t => t.Classes.Contains("caption")).ToList();
         double Top(string label) => labels.Single(t => t.Text == label).TranslatePoint(default, window)!.Value.Y;
         Assert.True(Top("UI framework") < Top("Licence") && Top("Licence") < Top("Website"));
 
         Assert.Equal("Apache License 2.0", window.FindControl<SelectableTextBlock>("LicenceText")!.Text);
-        Assert.True(window.FindControl<SelectableTextBlock>("WebsiteText")!.IsEffectivelyVisible);
-        Assert.False(window.FindControl<HyperlinkButton>("WebsiteLink")!.IsEffectivelyVisible);
+        Assert.False(window.FindControl<SelectableTextBlock>("WebsiteText")!.IsEffectivelyVisible);
+        var link = window.FindControl<HyperlinkButton>("WebsiteLink")!;
+        Assert.True(link.IsEffectivelyVisible);
+        Assert.Equal(new Uri(website), link.NavigateUri);
 
         Assert.Contains("Licence: Apache License 2.0", about.Details);
-        Assert.Contains("Website: Not specified yet", about.Details);
+        Assert.Contains($"Website: {website}", about.Details);
         window.Close();
     }
+
+    [Theory]
+    [InlineData("Not specified yet")]
+    [InlineData("ftp://example.com")]
+    [InlineData("github.com/joseanicetoz/umlwizard")]
+    public void WebLink_IsOnlyAnAbsoluteHttpAddress(string text) => Assert.Null(AboutViewModel.WebLink(text));
 
     [AvaloniaFact]
     public void LanguagesTab_ListsEveryInstalledPlugin_WithItsVersionAndProvider()
