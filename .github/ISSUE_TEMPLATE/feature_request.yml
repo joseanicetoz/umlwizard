@@ -1,0 +1,20 @@
+name: Feature request
+description: Suggest a new feature or an improvement.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What do you want to do?
+      description: The task or problem, and why the application does not cover it today.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: How should it work?
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else
+      description: Examples, screenshots or the UML notation it concerns.

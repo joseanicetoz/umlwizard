@@ -1,5 +1,9 @@
 # UML Wizard
 
+[![CI](https://github.com/joseanicetoz/umlwizard/actions/workflows/ci.yml/badge.svg)](https://github.com/joseanicetoz/umlwizard/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/joseanicetoz/umlwizard?include_prereleases)](https://github.com/joseanicetoz/umlwizard/releases/latest)
+[![Licence](https://img.shields.io/github/license/joseanicetoz/umlwizard)](LICENSE)
+
 A UML designer built with **Avalonia UI** (application shell) and **SkiaSharp** (diagram rendering). It runs on
 Windows, macOS and Linux.
 
@@ -21,6 +25,24 @@ Windows, macOS and Linux.
 - **Preferences** (File → Preferences, Ctrl+,): projects folder, display language, theme, the font of the user
   interface, and the default fills, border and thickness of the shapes of each diagram type.
 - **Plug-ins:** every code generation and code import language is a plug-in DLL, so more can be added dynamically.
+
+## Download
+
+Download the zip for your system from the [latest release](https://github.com/joseanicetoz/umlwizard/releases/latest),
+unzip it and run `UmlWizard` (`UmlWizard.exe` on Windows). The builds are self-contained: .NET does not need to be
+installed.
+
+| System | Zip |
+|---|---|
+| Windows | `win-x64`, or `win-arm64` on ARM |
+| macOS | `osx-arm64` on Apple silicon, `osx-x64` on Intel |
+| Linux | `linux-x64` or `linux-arm64` |
+
+The builds are not code-signed, so the system warns the first time you run one:
+
+- **Windows:** in the SmartScreen dialog, choose **More info → Run anyway**.
+- **macOS:** remove the quarantine flag with `xattr -dr com.apple.quarantine <unzipped folder>`, or allow the app in
+  **System Settings → Privacy & Security**.
 
 ## Documentation
 
@@ -71,6 +93,11 @@ UML Wizard draws a subset of **UML 2.x** (UML 2.5.1) notation; it does not claim
 specification and has no XMI import or export. The [User Manual](docs/help/user-manual-en.html#diagram-types) lists, per
 diagram type, the constructs that are supported and those that are not.
 
+## Contributing
+
+Bug reports, ideas and pull requests are welcome: see [CONTRIBUTING.md](CONTRIBUTING.md). Report security issues
+privately, as described in [SECURITY.md](SECURITY.md).
+
 ## Licence
 
 UML Wizard is licensed under the [Apache License 2.0](LICENSE); its copyright notice is in [NOTICE](NOTICE). The build
@@ -78,7 +105,7 @@ copies both next to the executable, as `LICENSE.txt` and `NOTICE.txt`, and **Hel
 
 ## Third-party notices
 
-`THIRD-PARTY-NOTICES.txt` lists every third-party component the application ships with — Material Design Icons,
+[`THIRD-PARTY-NOTICES.txt`](docs/THIRD-PARTY-NOTICES.txt) lists every third-party component the application ships with — Material Design Icons,
 Avalonia, SkiaSharp, the Inter font and the rest — with its version, source and full license text. The build copies
 it next to the executable, and **Help → About** acknowledges the main components and opens the file.
 
