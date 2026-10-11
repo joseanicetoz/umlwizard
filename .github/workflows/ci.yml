@@ -37,7 +37,11 @@ jobs:
 
       - run: dotnet restore UmlWizard.slnx
       - run: dotnet build UmlWizard.slnx -c Release --no-restore
-      - run: dotnet test UmlWizard.slnx -c Release --no-build --logger trx --results-directory TestResults
+      # --blame-crash names the test that was running if the test host crashes, and saves a dump in TestResults;
+      # --blame-hang-timeout does the same for a test that hangs.
+      - run: >
+          dotnet test UmlWizard.slnx -c Release --no-build --logger trx --results-directory TestResults
+          --blame-crash --blame-hang-timeout 5m
 
       - uses: actions/upload-artifact@v4
         if: always()
