@@ -1,11 +1,13 @@
 # UML Wizard
 
-![sample](screenshots/sample.png)
-
 A UML designer built with **Avalonia UI** (application shell) and **SkiaSharp** (diagram rendering). It runs on
 Windows, macOS and Linux.
 
-- **Seven diagram types:** class, sequence, state machine, activity, use case, component and deployment diagrams,
+![sample](screenshots/sample.png)
+
+## Features
+
+- **Supports 7 diagram types:** class, sequence, state machine, activity, use case, component and deployment diagrams,
   organised in projects and folders.
 - **Editing:** in-place editing in UML notation, undo/redo, clipboard, notes and text boxes, fonts, colours and line
   styles, light and dark themes, and **Arrange Diagram** to lay a diagram out automatically.
@@ -18,7 +20,7 @@ Windows, macOS and Linux.
   OpenAI-compatible service or a local model (Ollama, LM Studio); see the [design](docs/design/ai-assistant.md).
 - **Preferences** (File → Preferences, Ctrl+,): projects folder, display language, theme, the font of the user
   interface, and the default fills, border and thickness of the shapes of each diagram type.
-- **Plug-ins:** every code generation and code import language is a plug-in DLL, so more can be added.
+- **Plug-ins:** every code generation and code import language is a plug-in DLL, so more can be added dynamically.
 
 ## Documentation
 
@@ -46,7 +48,7 @@ A project file passed on the command line is opened at start-up.
 On Linux, SkiaSharp needs fontconfig and Avalonia the X11 libraries; minimal installs may need `libfontconfig1`,
 `libx11-6`, `libice6` and `libsm6`. Wayland sessions run through XWayland.
 
-## Samples
+## Sample Projects
 
 **OnlineShop** (`samples/OnlineShop/OnlineShop.umlwiz`) shows every diagram type on one subject:
 
