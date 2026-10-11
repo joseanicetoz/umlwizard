@@ -295,4 +295,21 @@ public sealed class DiagramCanvasTests
         Assert.NotNull(frame);
         frame!.Save(Path.Combine(Path.GetTempPath(), "umlwizard-inline-edit.png"));
     }
+
+    /// <summary>
+    /// Closing a tab disposes its diagram (and the renderer's native paints) while the canvas is still in the visual
+    /// tree with a render queued; drawing it then crashed the process in Skia.
+    /// </summary>
+    [AvaloniaFact]
+    public void ADisposedDiagram_IsNotDrawn()
+    {
+        var h = new DiagramHarness(DiagramType.Class);
+        h.ViewModel.Editor.AddClass(ClassifierKind.Class, 60, 60);
+        h.Window.CaptureRenderedFrame();
+
+        h.ViewModel.Dispose();
+        h.Canvas.InvalidateVisual();
+
+        Assert.NotNull(h.Window.CaptureRenderedFrame());
+    }
 }

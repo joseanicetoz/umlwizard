@@ -146,7 +146,9 @@ public sealed class DiagramCanvas : Control
         // Also makes the whole surface hit-testable for pointer input.
         var background = theme.CanvasBackground;
         context.FillRectangle(new SolidColorBrush(new Color(background.Alpha, background.Red, background.Green, background.Blue)), new Rect(Bounds.Size));
-        if (_vm is null || Bounds.Width <= 0 || Bounds.Height <= 0)
+        // A closed tab's canvas can still be rendered once before it leaves the visual tree; its renderer's paints are
+        // freed by then, and drawing with them crashes in Skia.
+        if (_vm is null || _vm.IsDisposed || Bounds.Width <= 0 || Bounds.Height <= 0)
         {
             return;
         }

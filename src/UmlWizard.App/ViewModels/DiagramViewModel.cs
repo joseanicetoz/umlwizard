@@ -624,7 +624,17 @@ public sealed partial class DiagramViewModel : ObservableObject, IDisposable
         ArrangeCommand.NotifyCanExecuteChanged();
     }
 
-    public void Dispose() => Renderer.Dispose();
+    /// <summary>
+    /// Set once the tab is closed and the renderer's native paints are freed. Its canvas may still be in the visual tree
+    /// until the next layout pass, with a render queued, and must not draw it then.
+    /// </summary>
+    public bool IsDisposed { get; private set; }
+
+    public void Dispose()
+    {
+        IsDisposed = true;
+        Renderer.Dispose();
+    }
 
     private static string FormatZoom(double zoom) => $"{Math.Round(zoom * 100)}%";
 
