@@ -98,6 +98,9 @@ public sealed class ProviderTests
             var error = await Assert.ThrowsAsync<AiException>(() => provider.CompleteAsync("i", "m"));
             Assert.Contains("did not answer within", error.Message);
 
+            // With the usual time limit, so only the cancellation can fire: on a busy machine both timers may have
+            // expired before either runs, and the time limit's could win.
+            HttpAiProvider.Timeout = timeout;
             using var cancel = new CancellationTokenSource(TimeSpan.FromMilliseconds(20));
             await Assert.ThrowsAnyAsync<OperationCanceledException>(() => provider.CompleteAsync("i", "m", cancel.Token));
         }
