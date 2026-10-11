@@ -7,8 +7,11 @@
     <Product>UML Wizard</Product>
     <Description>A UML designer for class, sequence, state machine, activity, use case, component and deployment diagrams, with code generation and code import.</Description>
     <Version>1.0.0</Version>
-    <!-- Only English: Roslyn would otherwise ship its compiler messages in 13 languages, which the app never shows. -->
+    <!-- Only English from packages: Roslyn would otherwise ship its compiler messages in 13 languages, which the app
+         never shows. The app's own translations (Resources/Strings.<culture>.resx) are not affected. -->
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <!-- The icon of the executable on Windows; the windows take theirs from App.axaml -->
+    <ApplicationIcon>Assets\UmlWizard.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <!-- Shown in Help → About. The licence is LICENSE at the root of the repository; replace the website placeholder
@@ -42,6 +45,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <!-- The application icon and logo, used by the windows, the splash screen and Help → About -->
+    <AvaloniaResource Include="Assets\**" />
+  </ItemGroup>
+  <ItemGroup>
     <InternalsVisibleTo Include="UmlWizard.App.Tests" />
   </ItemGroup>
   <ItemGroup>
@@ -54,6 +61,9 @@
           CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
     <!-- The how-to pages of the Help menu, opened in the browser. -->
     <None Include="..\..\docs\help\*.html" Link="Help\%(Filename)%(Extension)"
+          CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <!-- The logo in the header of the help pages -->
+    <None Include="Assets\UmlWizard.png" Link="Help\UmlWizard.png"
           CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
   <ItemGroup>

@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>User Manual — UML Wizard</title>
 <style>
-  :root { --bg: #ffffff; --fg: #1f2933; --muted: #5f6b7a; --rule: #d9dce1; --code: #f3f4f6; --accent: #3d7bd9; }
+  :root { --bg: #ffffff; --fg: #1f2933; --muted: #5f6b7a; --rule: #d9dce1; --code: #f3f4f6; --accent: #3d7bd9; --logo-bg: #eef4fc; }
   @media (prefers-color-scheme: dark) {
-    :root { --bg: #1b1d21; --fg: #e4e7eb; --muted: #9aa5b4; --rule: #3a3f47; --code: #2b2e33; --accent: #5b9bf0; }
+    :root { --bg: #1b1d21; --fg: #e4e7eb; --muted: #9aa5b4; --rule: #3a3f47; --code: #2b2e33; --accent: #5b9bf0; --logo-bg: rgba(168, 200, 245, 0.15); }
   }
   body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.6 "Segoe UI", system-ui, sans-serif; }
   main { max-width: 860px; margin: 0 auto; padding: 32px 16px 64px; }
@@ -28,11 +28,17 @@
   nav.toc { border: 1px solid var(--rule); border-radius: 8px; padding: 8px 20px; margin: 24px 0; }
   nav.toc ol { margin: 6px 0; padding-left: 22px; }
   nav.toc li { margin: 2px 0; }
+  .brand { display: flex; align-items: center; gap: 14px; margin: 0 0 4px; }
+  .brand img { width: 44px; height: 44px; padding: 6px; border-radius: 10px; background: var(--logo-bg); flex: none; }
+  .brand h1 { margin: 0; }
 </style>
 </head>
 <body>
 <main>
+<header class="brand">
+<img src="UmlWizard.png" alt="UML Wizard logo">
 <h1>UML Wizard User Manual</h1>
+</header>
 <p class="lead">UML Wizard draws class, sequence, state machine, activity, use case, component and deployment diagrams,
 organised in projects. It turns class diagrams into source code and source code into class diagrams, and exchanges
 diagrams with OpenAPI and PlantUML. It runs on Windows, macOS and Linux.</p>

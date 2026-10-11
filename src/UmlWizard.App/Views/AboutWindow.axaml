@@ -2,7 +2,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:res="using:UmlWizard.App.Resources"
         xmlns:vm="using:UmlWizard.App.ViewModels"
-        xmlns:mi="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
         x:Class="UmlWizard.App.Views.AboutWindow"
         x:DataType="vm:AboutViewModel"
         Title="{Binding Title}"
@@ -24,8 +23,8 @@
 
     <StackPanel Spacing="16">
       <StackPanel Orientation="Horizontal" Spacing="14">
-        <Border Width="48" Height="48" CornerRadius="8" Background="{DynamicResource LogoBackgroundBrush}" BorderBrush="{DynamicResource IconForegroundBrush}" BorderThickness="1">
-          <mi:MaterialIcon Kind="SitemapOutline" Width="30" Height="30" Foreground="{DynamicResource IconForegroundBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <Border Width="64" Height="64" CornerRadius="10" Padding="6" Background="{DynamicResource LogoBackgroundBrush}">
+          <Image Source="/Assets/UmlWizard.png" />
         </Border>
         <StackPanel VerticalAlignment="Center" Spacing="2">
           <TextBlock Text="{Binding ProductName}" FontSize="20" FontWeight="SemiBold" />

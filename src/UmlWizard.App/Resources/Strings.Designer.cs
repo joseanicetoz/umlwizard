@@ -3697,7 +3697,7 @@ namespace UmlWizard.App.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bring _Forward.
+        ///   Looks up a localized string similar to Bring Forwa_rd.
         /// </summary>
         public static string Menu_Format_BringForward {
             get {
@@ -4480,6 +4480,26 @@ namespace UmlWizard.App.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The new language is shown once UML Wizard restarts. Restart now?
+        ///
+        ///You can save any unsaved changes first..
+        /// </summary>
+        public static string Message_RestartForLanguage {
+            get {
+                return ResourceManager.GetString("Message_RestartForLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restart UML Wizard.
+        /// </summary>
+        public static string Message_RestartForLanguage_Title {
+            get {
+                return ResourceManager.GetString("Message_RestartForLanguage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save changes to the following diagrams?
         ///
         ///{0}.
@@ -4941,7 +4961,16 @@ namespace UmlWizard.App.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The language of menus, panels and dialogs; type to find one. English only so far..
+        ///   Looks up a localized string similar to The new language is used the next time UML Wizard starts..
+        /// </summary>
+        public static string Preferences_DisplayLanguage_Restart {
+            get {
+                return ResourceManager.GetString("Preferences_DisplayLanguage_Restart", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The language of menus, panels and dialogs; type to find one. Takes effect the next time UML Wizard starts..
         /// </summary>
         public static string Preferences_DisplayLanguage_Tip {
             get {

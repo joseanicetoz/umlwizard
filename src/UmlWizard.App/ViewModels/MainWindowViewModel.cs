@@ -96,6 +96,12 @@ public sealed partial class MainWindowViewModel : ObservableObject
 
     public event EventHandler? ExitRequested;
 
+    /// <summary>
+    /// Asks for the application to close and start again (for a new display language): the main window closes as
+    /// File → Exit does, asking to save changes, and a new instance opens the same project.
+    /// </summary>
+    public event EventHandler? RestartRequested;
+
     /// <summary>The colour theme of View → Theme; saved when it changes. The application applies it (see App.axaml.cs).</summary>
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsSystemTheme), nameof(IsLightTheme), nameof(IsDarkTheme))]
@@ -148,12 +154,23 @@ public sealed partial class MainWindowViewModel : ObservableObject
     [ObservableProperty]
     public partial double? UiFontSize { get; set; }
 
-    /// <summary>Opens the Preferences window; every change in it applies at once and is saved.</summary>
+    /// <summary>
+    /// Opens the Preferences window; every change in it applies at once and is saved. When the user chose to restart
+    /// there for a new display language, the application restarts once the window has closed.
+    /// </summary>
     [RelayCommand]
-    private Task Preferences() => _dialogs.ShowPreferencesAsync(new PreferencesViewModel(
-        _settings.Load(), _dialogs, ApplySettings,
-        Avalonia.Application.Current?.ActualThemeVariant == Avalonia.Styling.ThemeVariant.Dark ? RenderTheme.Dark : RenderTheme.Light,
-        _secrets, _aiProviders));
+    private async Task Preferences()
+    {
+        var preferences = new PreferencesViewModel(
+            _settings.Load(), _dialogs, ApplySettings,
+            Avalonia.Application.Current?.ActualThemeVariant == Avalonia.Styling.ThemeVariant.Dark ? RenderTheme.Dark : RenderTheme.Light,
+            _secrets, _aiProviders);
+        await _dialogs.ShowPreferencesAsync(preferences);
+        if (preferences.IsRestartRequested)
+        {
+            RestartRequested?.Invoke(this, EventArgs.Empty);
+        }
+    }
 
     /// <summary>Applies preferences as they are changed in the Preferences window, and saves them.</summary>
     internal void ApplySettings(AppSettings settings)
@@ -2199,24 +2216,37 @@ public sealed partial class MainWindowViewModel : ObservableObject
     public static string HelpFolder { get; } = Path.Combine(AppContext.BaseDirectory, "Help");
 
     [RelayCommand]
-    private Task UserManual() => OpenHelpPageAsync("user-manual.html", Strings.Help_UserManual);
+    private Task UserManual() => OpenHelpPageAsync("user-manual", Strings.Help_UserManual);
 
     [RelayCommand]
-    private Task LearnUml() => OpenHelpPageAsync("learn-uml.html", Strings.Help_LearnUml);
+    private Task LearnUml() => OpenHelpPageAsync("learn-uml", Strings.Help_LearnUml);
 
     [RelayCommand]
-    private Task OpenApiHowTo() => OpenHelpPageAsync("openapi-how-to.html", Strings.Help_OpenApiHowTo);
+    private Task OpenApiHowTo() => OpenHelpPageAsync("openapi-how-to", Strings.Help_OpenApiHowTo);
 
     [RelayCommand]
-    private Task PlantUmlHowTo() => OpenHelpPageAsync("plantuml-how-to.html", Strings.Help_PlantUmlHowTo);
+    private Task PlantUmlHowTo() => OpenHelpPageAsync("plantuml-how-to", Strings.Help_PlantUmlHowTo);
 
     [RelayCommand]
-    private Task GeneratingCodeHowTo() => OpenHelpPageAsync("generating-code-how-to.html", Strings.Help_GeneratingCodeHowTo);
+    private Task GeneratingCodeHowTo() => OpenHelpPageAsync("generating-code-how-to", Strings.Help_GeneratingCodeHowTo);
 
-    /// <summary>Opens a page of <see cref="HelpFolder"/> in the browser; shows an error when it is missing or cannot be opened.</summary>
-    private async Task OpenHelpPageAsync(string fileName, string title)
+    /// <summary>
+    /// The file of a help page in a language: <c>&lt;page&gt;-&lt;language&gt;.html</c> in <see cref="HelpFolder"/>, or
+    /// the English one, <c>&lt;page&gt;-en.html</c>, when the page has not been translated into that language.
+    /// </summary>
+    public static string HelpPagePath(string page, string language)
     {
-        var path = Path.Combine(HelpFolder, fileName);
+        var translated = Path.Combine(HelpFolder, $"{page}-{language}.html");
+        return File.Exists(translated) ? translated : Path.Combine(HelpFolder, $"{page}-en.html");
+    }
+
+    /// <summary>
+    /// Opens a help page in the display language (see <see cref="HelpPagePath"/>) in the browser; shows an error when
+    /// it is missing or cannot be opened.
+    /// </summary>
+    private async Task OpenHelpPageAsync(string page, string title)
+    {
+        var path = HelpPagePath(page, Loc.DisplayLanguage);
         if (!File.Exists(path) || !await _dialogs.OpenFileAsync(path))
         {
             await _dialogs.ShowErrorAsync(title, Loc.Format(Strings.Message_HelpPageNotOpened, path));

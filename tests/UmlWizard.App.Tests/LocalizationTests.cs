@@ -91,6 +91,81 @@ public sealed partial class LocalizationTests
             + $"Missing: {string.Join(", ", missing)}. No longer in Strings.resx: {string.Join(", ", stale)}.");
     }
 
+    public static TheoryData<string> Translations => [.. Loc.DisplayLanguages.Select(l => l.Culture).Where(c => c != "en")];
+
+    [GeneratedRegex(@"\{\d+(:[^}]*)?\}")]
+    private static partial Regex Placeholder();
+
+    private static Dictionary<string, string> ResourceTexts(string file) =>
+        System.Xml.Linq.XDocument.Load(Path.Combine(AppFolder(), "Resources", file)).Root!.Elements("data")
+            .ToDictionary(d => (string)d.Attribute("name")!, d => (string)d.Element("value")!);
+
+    /// <summary>
+    /// A translation has every text of Strings.resx and nothing else, with the same placeholders, and an access key
+    /// (_) in a menu item when the English has one. A text missing from a translation would be shown in English.
+    /// </summary>
+    [Theory]
+    [MemberData(nameof(Translations))]
+    public void EveryTranslation_HasEveryText_WithTheSamePlaceholders(string culture)
+    {
+        var english = ResourceTexts("Strings.resx");
+        var translated = ResourceTexts($"Strings.{culture}.resx");
+
+        Assert.Empty(english.Keys.Except(translated.Keys));
+        Assert.Empty(translated.Keys.Except(english.Keys));
+        foreach (var (key, text) in english)
+        {
+            Assert.True(
+                Placeholder().Matches(text).Select(m => m.Value).Order().SequenceEqual(Placeholder().Matches(translated[key]).Select(m => m.Value).Order()),
+                $"{key} in Strings.{culture}.resx has other placeholders than in English: {translated[key]}");
+            Assert.True(!key.StartsWith("Menu_") || text.Contains('_') == translated[key].Contains('_'), $"{key} in Strings.{culture}.resx needs an access key (_) as in English");
+        }
+    }
+
+    public static TheoryData<string> AllLanguages => [.. Loc.DisplayLanguages.Select(l => l.Culture)];
+
+    /// <summary>
+    /// The items of each menu of the main window have different access keys in every language, so that Alt and a
+    /// letter picks one item.
+    /// </summary>
+    [Theory]
+    [MemberData(nameof(AllLanguages))]
+    public void TheItemsOfEachMenu_HaveDifferentAccessKeys(string culture)
+    {
+        var texts = ResourceTexts(culture == "en" ? "Strings.resx" : $"Strings.{culture}.resx");
+        var window = System.Xml.Linq.XDocument.Load(Path.Combine(AppFolder(), "Views", "MainWindow.axaml"));
+        var menus = window.Descendants().Where(e => e.Name.LocalName is "Menu" or "MenuItem");
+
+        foreach (var menu in menus)
+        {
+            var keys = menu.Elements().Where(e => e.Name.LocalName == "MenuItem")
+                .Select(e => Regex.Match((string?)e.Attribute("Header") ?? "", @"Strings\.(\w+)\}").Groups[1].Value)
+                .Where(key => key.Length > 0)
+                .Select(key => (Key: key, AccessKey: AccessKey(texts[key])))
+                .Where(k => k.AccessKey is not null)
+                .ToList();
+            var clashes = keys.GroupBy(k => k.AccessKey).Where(g => g.Count() > 1).Select(g => string.Join(" and ", g.Select(k => k.Key)));
+            Assert.True(!clashes.Any(), $"Same access key in Strings.{culture}: " + string.Join("; ", clashes));
+        }
+
+        static string? AccessKey(string text) =>
+            text.IndexOf('_') is var i and >= 0 && i + 1 < text.Length ? char.ToUpperInvariant(text[i + 1]).ToString() : null;
+    }
+
+    /// <summary>The translations are built into satellite assemblies, which the application finds by culture.</summary>
+    [Theory]
+    [InlineData("de", "Abbrechen")]
+    [InlineData("es", "Cancelar")]
+    [InlineData("fr", "Annuler")]
+    [InlineData("ms", "Batal")]
+    [InlineData("id", "Batal")]
+    [InlineData("fil", "Kanselahin")]
+    public void TheTranslations_AreShippedWithTheApplication(string culture, string cancel)
+    {
+        Assert.Equal(cancel, Strings.ResourceManager.GetString(nameof(Strings.Button_Cancel), CultureInfo.GetCultureInfo(culture)));
+        Assert.Equal("Cancel", Strings.ResourceManager.GetString(nameof(Strings.Button_Cancel), CultureInfo.GetCultureInfo("en")));
+    }
+
     [Fact]
     public void EnumValues_WithoutADisplayName_FallBackToTheirName()
     {

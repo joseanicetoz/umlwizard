@@ -1,0 +1,2281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="App_Name" xml:space="preserve">
+    <value>UML Wizard</value>
+  </data>
+  <data name="App_WindowTitleWithProject" xml:space="preserve">
+    <value>{0} — UML Wizard</value>
+  </data>
+  <data name="App_Untitled" xml:space="preserve">
+    <value>Walang pamagat</value>
+  </data>
+  <data name="Button_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Button_Cancel" xml:space="preserve">
+    <value>Kanselahin</value>
+  </data>
+  <data name="Button_Yes" xml:space="preserve">
+    <value>Oo</value>
+  </data>
+  <data name="Button_No" xml:space="preserve">
+    <value>Hindi</value>
+  </data>
+  <data name="Button_Continue" xml:space="preserve">
+    <value>Magpatuloy</value>
+  </data>
+  <data name="Button_Browse" xml:space="preserve">
+    <value>Mag-browse…</value>
+  </data>
+  <data name="Button_Close" xml:space="preserve">
+    <value>Isara</value>
+  </data>
+  <data name="Label_Name" xml:space="preserve">
+    <value>Pangalan</value>
+  </data>
+  <data name="Label_Kind" xml:space="preserve">
+    <value>Uri</value>
+  </data>
+  <data name="Label_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Label_Version" xml:space="preserve">
+    <value>Bersyon</value>
+  </data>
+  <data name="Dialog_ProjectProperties_Version_Watermark" xml:space="preserve">
+    <value>hal. 1.0.0</value>
+  </data>
+  <data name="Label_Author" xml:space="preserve">
+    <value>May-akda</value>
+  </data>
+  <data name="Label_Description" xml:space="preserve">
+    <value>Paglalarawan</value>
+  </data>
+  <data name="Label_Text" xml:space="preserve">
+    <value>Teksto</value>
+  </data>
+  <data name="Label_Label" xml:space="preserve">
+    <value>Label</value>
+  </data>
+  <data name="Label_Location" xml:space="preserve">
+    <value>Lokasyon</value>
+  </data>
+  <data name="Label_Folder" xml:space="preserve">
+    <value>Folder</value>
+  </data>
+  <data name="Label_Visibility" xml:space="preserve">
+    <value>Visibility</value>
+  </data>
+  <data name="Tip_Remove" xml:space="preserve">
+    <value>Alisin</value>
+  </data>
+  <data name="Tip_WithShortcut" xml:space="preserve">
+    <value>{0} ({1})</value>
+  </data>
+  <data name="Menu_File" xml:space="preserve">
+    <value>_File</value>
+  </data>
+  <data name="Menu_File_NewProject" xml:space="preserve">
+    <value>_Bagong proyekto…</value>
+  </data>
+  <data name="Menu_File_OpenProject" xml:space="preserve">
+    <value>B_uksan ang proyekto…</value>
+  </data>
+  <data name="Menu_File_ImportFolder" xml:space="preserve">
+    <value>_Mag-import ng source folder…</value>
+  </data>
+  <data name="Menu_File_RecentProjects" xml:space="preserve">
+    <value>Mga kamakailang _proyekto</value>
+  </data>
+  <data name="Menu_File_ClearRecentProjects" xml:space="preserve">
+    <value>_Burahin ang listahan</value>
+  </data>
+  <data name="Menu_File_SaveProject" xml:space="preserve">
+    <value>_I-save ang proyekto</value>
+  </data>
+  <data name="Menu_File_SaveProjectAs" xml:space="preserve">
+    <value>I-save ang proyekto bil_ang…</value>
+  </data>
+  <data name="Menu_File_NewFolder" xml:space="preserve">
+    <value>Bagong _folder…</value>
+  </data>
+  <data name="Menu_File_ProjectProperties" xml:space="preserve">
+    <value>Mga _katangian ng proyekto…</value>
+  </data>
+  <data name="Menu_File_Preferences" xml:space="preserve">
+    <value>Mga kagustu_han…</value>
+  </data>
+  <data name="Menu_File_Preferences_Tip" xml:space="preserve">
+    <value>Folder ng mga proyekto, wika ng display, tema, font at ang mga default na kulay ng mga diagram</value>
+  </data>
+  <data name="Preferences_Title" xml:space="preserve">
+    <value>Mga kagustuhan</value>
+  </data>
+  <data name="Preferences_General" xml:space="preserve">
+    <value>Pangkalahatan</value>
+  </data>
+  <data name="Preferences_Appearance" xml:space="preserve">
+    <value>Hitsura</value>
+  </data>
+  <data name="Preferences_Diagram" xml:space="preserve">
+    <value>Diagram</value>
+  </data>
+  <data name="Preferences_ProjectsFolder" xml:space="preserve">
+    <value>Folder ng mga proyekto</value>
+  </data>
+  <data name="Preferences_ProjectsFolder_Tip" xml:space="preserve">
+    <value>Kung saan ginagawa ang mga bagong proyekto at inilalagay ang mga in-import, maliban kung pumili ka ng ibang folder. Iwanang blangko para sa iyong Documents folder.</value>
+  </data>
+  <data name="Preferences_ProjectsFolder_Pick" xml:space="preserve">
+    <value>Folder ng mga proyekto</value>
+  </data>
+  <data name="Preferences_DisplayLanguage" xml:space="preserve">
+    <value>Wika ng display</value>
+  </data>
+  <data name="Preferences_DisplayLanguage_Tip" xml:space="preserve">
+    <value>Ang wika ng mga menu, panel at dialog; mag-type para maghanap. Magkakabisa ito sa susunod na pagsisimula ng UML Wizard.</value>
+  </data>
+  <data name="Preferences_DisplayLanguage_Restart" xml:space="preserve">
+    <value>Gagamitin ang bagong wika sa susunod na pagsisimula ng UML Wizard.</value>
+  </data>
+  <data name="Message_RestartForLanguage_Title" xml:space="preserve">
+    <value>I-restart ang UML Wizard</value>
+  </data>
+  <data name="Message_RestartForLanguage" xml:space="preserve">
+    <value>Makikita ang bagong wika kapag na-restart ang UML Wizard. I-restart ngayon?
+
+Maaari mo munang i-save ang mga pagbabagong hindi pa naise-save.</value>
+  </data>
+  <data name="Preferences_Theme" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="Preferences_Theme_System" xml:space="preserve">
+    <value>System (ayon sa operating system)</value>
+  </data>
+  <data name="Preferences_Theme_Light" xml:space="preserve">
+    <value>Maliwanag</value>
+  </data>
+  <data name="Preferences_Theme_Dark" xml:space="preserve">
+    <value>Madilim</value>
+  </data>
+  <data name="Preferences_Font" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="Preferences_Font_Tip" xml:space="preserve">
+    <value>Ang font ng mga menu, panel at dialog; mag-type para maghanap</value>
+  </data>
+  <data name="Preferences_FontSize" xml:space="preserve">
+    <value>Laki ng font</value>
+  </data>
+  <data name="Preferences_DefaultFont" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="Preferences_DefaultValue" xml:space="preserve">
+    <value>Default ({0})</value>
+  </data>
+  <data name="Preferences_Font_Note" xml:space="preserve">
+    <value>Ang font ng mga menu, panel at dialog. May sariling font ang mga diagram: Format → Font ng diagram.</value>
+  </data>
+  <data name="Preferences_Preview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="Preferences_Preview_Sample" xml:space="preserve">
+    <value>Ang mabilis na kayumangging soro ay tumalon sa tamad na aso. 0123456789</value>
+  </data>
+  <data name="Preferences_Preview_TextBox" xml:space="preserve">
+    <value>Text box</value>
+  </data>
+  <data name="Preferences_Preview_CheckBox" xml:space="preserve">
+    <value>Check box</value>
+  </data>
+  <data name="Preferences_Preview_Button" xml:space="preserve">
+    <value>Button</value>
+  </data>
+  <data name="Preferences_Diagram_Intro" xml:space="preserve">
+    <value>Ang mga kulay ng mga hugis na walang sariling kulay (Format → Hugis…). Ginagamit ang mga ito sa maliwanag at madilim na mode, at sa mga in-export na larawan.</value>
+  </data>
+  <data name="Preferences_Fill" xml:space="preserve">
+    <value>Fill</value>
+  </data>
+  <data name="Preferences_Border" xml:space="preserve">
+    <value>Border</value>
+  </data>
+  <data name="Preferences_Thickness" xml:space="preserve">
+    <value>Kapal</value>
+  </data>
+  <data name="Preferences_ResetDiagram" xml:space="preserve">
+    <value>Ibalik sa default</value>
+  </data>
+  <data name="Preferences_ResetDiagram_Tip" xml:space="preserve">
+    <value>Ibalik ang mga fill, border at kapal ng uri ng diagram na ito sa mga nasa tema</value>
+  </data>
+  <data name="Preferences_PickColor_Tip" xml:space="preserve">
+    <value>Pumili ng kulay</value>
+  </data>
+  <data name="Preferences_UseDefault_Tip" xml:space="preserve">
+    <value>Gamitin ang default na kulay</value>
+  </data>
+  <data name="Preferences_Color_Tip" xml:space="preserve">
+    <value>#RRGGBB, o blangko para sa default</value>
+  </data>
+  <data name="Preferences_Fill_Class" xml:space="preserve">
+    <value>Class</value>
+  </data>
+  <data name="Preferences_Fill_AbstractClass" xml:space="preserve">
+    <value>Abstract class</value>
+  </data>
+  <data name="Preferences_Fill_Interface" xml:space="preserve">
+    <value>Interface</value>
+  </data>
+  <data name="Preferences_Fill_Enumeration" xml:space="preserve">
+    <value>Enumeration</value>
+  </data>
+  <data name="Preferences_Fill_Lifeline" xml:space="preserve">
+    <value>Lifeline</value>
+  </data>
+  <data name="Preferences_Fill_State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="Preferences_Fill_Choice" xml:space="preserve">
+    <value>Choice</value>
+  </data>
+  <data name="Preferences_Fill_Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="Preferences_Fill_Decision" xml:space="preserve">
+    <value>Decision / merge</value>
+  </data>
+  <data name="Preferences_Fill_UseCase" xml:space="preserve">
+    <value>Use case</value>
+  </data>
+  <data name="Preferences_Fill_SystemBoundary" xml:space="preserve">
+    <value>Hangganan ng system</value>
+  </data>
+  <data name="Preferences_Fill_Component" xml:space="preserve">
+    <value>Component</value>
+  </data>
+  <data name="Preferences_Fill_Node" xml:space="preserve">
+    <value>Node</value>
+  </data>
+  <data name="Preferences_Fill_Device" xml:space="preserve">
+    <value>Device</value>
+  </data>
+  <data name="Preferences_Fill_ExecutionEnvironment" xml:space="preserve">
+    <value>Execution environment</value>
+  </data>
+  <data name="Preferences_Fill_Artifact" xml:space="preserve">
+    <value>Artifact</value>
+  </data>
+  <data name="Preferences_Fill_Note" xml:space="preserve">
+    <value>Tala</value>
+  </data>
+  <data name="Preferences_Ai" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="Preferences_Ai_Service" xml:space="preserve">
+    <value>Serbisyo</value>
+  </data>
+  <data name="Preferences_Ai_None" xml:space="preserve">
+    <value>Wala (naka-off ang AI)</value>
+  </data>
+  <data name="Preferences_Ai_Anthropic" xml:space="preserve">
+    <value>Anthropic (Claude)</value>
+  </data>
+  <data name="Preferences_Ai_OpenAi" xml:space="preserve">
+    <value>Compatible sa OpenAI (OpenAI, Ollama, LM Studio, …)</value>
+  </data>
+  <data name="Preferences_Ai_Endpoint" xml:space="preserve">
+    <value>Endpoint</value>
+  </data>
+  <data name="Preferences_Ai_Endpoint_Tip" xml:space="preserve">
+    <value>Ang address ng serbisyo; blangko para sa default. Para sa Ollama: http://localhost:11434/v1, para sa LM Studio: http://localhost:1234/v1</value>
+  </data>
+  <data name="Preferences_Ai_Model" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="Preferences_Ai_Model_Tip" xml:space="preserve">
+    <value>Ang model na gagamitin; blangko para sa default</value>
+  </data>
+  <data name="Preferences_Ai_Model_Example" xml:space="preserve">
+    <value>hal. gpt-4o-mini, o llama3.1 para sa Ollama</value>
+  </data>
+  <data name="Preferences_Ai_Changes" xml:space="preserve">
+    <value>Mga pagbabago</value>
+  </data>
+  <data name="Preferences_Ai_Changes_Tools" xml:space="preserve">
+    <value>Gamit ang mga tool call (inirerekomenda)</value>
+  </data>
+  <data name="Preferences_Ai_Changes_Whole" xml:space="preserve">
+    <value>Bilang buong diagram, para sa mga model na walang tool calling</value>
+  </data>
+  <data name="Preferences_Ai_Changes_Tip" xml:space="preserve">
+    <value>Kung paano binabago ng AI ang mga diagram sa chat. Piliin ang buong diagram kapag hindi kayang tumawag ng mga tool ng model, gaya ng ilang lokal na model: sasagot ito ng binagong diagram sa PlantUML, na itinutugma ayon sa pangalan.</value>
+  </data>
+  <data name="Preferences_Ai_ApiKey" xml:space="preserve">
+    <value>API key</value>
+  </data>
+  <data name="Preferences_Ai_Key_Stored" xml:space="preserve">
+    <value>Nakatago sa credential store ng iyong system, hindi sa mga setting. Kung wala nito, ginagamit ang environment variable na {0}; hindi kailangan ng mga lokal na server.</value>
+  </data>
+  <data name="Preferences_Ai_Key_NotStored" xml:space="preserve">
+    <value>Walang credential store ang system na ito na magagamit ng UML Wizard, kaya itinatago lang ang key hanggang isara ang UML Wizard; itakda na lang ang environment variable na {0}.</value>
+  </data>
+  <data name="Preferences_Ai_Test" xml:space="preserve">
+    <value>Subukan ang koneksyon</value>
+  </data>
+  <data name="Preferences_Ai_Testing" xml:space="preserve">
+    <value>Tinatanong ang {0}…</value>
+  </data>
+  <data name="Preferences_Ai_Test_Ok" xml:space="preserve">
+    <value>Sumagot ang {0}: gumagana ang koneksyon.</value>
+  </data>
+  <data name="Preferences_Ai_Privacy" xml:space="preserve">
+    <value>Ang mga AI command gaya ng Diagram → Gumawa gamit ang AI ay nagpapadala ng inilalarawan mo sa serbisyong ito, at kapag ginamit mo lang ang mga ito. Ang lokal na model (Ollama, LM Studio) ay nagtatago ng lahat sa computer na ito.</value>
+  </data>
+  <data name="Preferences_Ai_ShowKey" xml:space="preserve">
+    <value>Ipakita ang API key</value>
+  </data>
+  <data name="Preferences_Ai_HideKey" xml:space="preserve">
+    <value>Itago ang API key</value>
+  </data>
+  <data name="Preferences_Ai_Accept" xml:space="preserve">
+    <value>Tinatanggap ko</value>
+  </data>
+  <data name="Message_AiTurnOff_Title" xml:space="preserve">
+    <value>I-off ang AI</value>
+  </data>
+  <data name="Message_AiTurnOff" xml:space="preserve">
+    <value>Hindi magagamit ang AI service nang hindi tinatanggap ang babala.
+
+Kung magpapatuloy ka, aalisin ang configuration ng AI ({0}) at ang API key nito, at ibabalik sa Wala ang AI service.</value>
+  </data>
+  <data name="AiChat_Title" xml:space="preserve">
+    <value>AI Chat</value>
+  </data>
+  <data name="AiChat_Note_CanEdit" xml:space="preserve">
+    <value>Ipinapadala ang iyong mga mensahe at ang diagram na ito sa {0}. Sumasagot ito sa mga tanong at kaya nitong baguhin ang diagram; ikaw ang maglalapat ng mga pagbabago nito.</value>
+  </data>
+  <data name="AiChat_Consent" xml:space="preserve">
+    <value>Ipapadala sa {1} ang iyong mga mensahe at ang mga diagram ng proyektong "{0}". Payagan ito para sa proyektong ito?</value>
+  </data>
+  <data name="AiChat_Consent_Allow" xml:space="preserve">
+    <value>Payagan para sa proyektong ito</value>
+  </data>
+  <data name="AiChat_NotSetUp" xml:space="preserve">
+    <value>Wala pang naka-set up na AI service. Mag-set up ng isa para magtanong tungkol sa iyong mga diagram at ipabago ang mga ito.</value>
+  </data>
+  <data name="AiChat_SetUp" xml:space="preserve">
+    <value>I-set up ang AI…</value>
+  </data>
+  <data name="AiChat_Send_Tip" xml:space="preserve">
+    <value>Ipadala (Ctrl+Enter, o ⌘+Enter sa macOS)</value>
+  </data>
+  <data name="AiChat_Stop" xml:space="preserve">
+    <value>Ihinto</value>
+  </data>
+  <data name="AiChat_Stopped" xml:space="preserve">
+    <value>Inihinto; walang naitago mula sa request na iyon.</value>
+  </data>
+  <data name="AiChat_Input_Watermark" xml:space="preserve">
+    <value>Magtanong tungkol sa diagram, o humiling ng pagbabago, hal. Magdagdag ng class na Payment na bahagi ng Order.</value>
+  </data>
+  <data name="AiChat_Empty" xml:space="preserve">
+    <value>Magtanong tungkol sa diagram na ito, ipaliwanag o ipasuri ito, o humiling ng mga pagbabago.</value>
+  </data>
+  <data name="AiChat_Changes" xml:space="preserve">
+    <value>Mga iminumungkahing pagbabago</value>
+  </data>
+  <data name="AiChat_Apply" xml:space="preserve">
+    <value>Ilapat</value>
+  </data>
+  <data name="AiChat_Apply_Tip" xml:space="preserve">
+    <value>Ilapat ang mga pagbabago sa diagram; ibinabalik lahat ng I-undo</value>
+  </data>
+  <data name="AiChat_Discard" xml:space="preserve">
+    <value>Itapon</value>
+  </data>
+  <data name="AiChat_NoDiagram" xml:space="preserve">
+    <value>Magbukas ng diagram para pag-usapan ito.</value>
+  </data>
+  <data name="Menu_File_CloseProject" xml:space="preserve">
+    <value>I_sara ang proyekto</value>
+  </data>
+  <data name="Menu_File_Exit" xml:space="preserve">
+    <value>_Lumabas</value>
+  </data>
+  <data name="Menu_Edit" xml:space="preserve">
+    <value>_Edit</value>
+  </data>
+  <data name="Menu_Edit_Undo" xml:space="preserve">
+    <value>I-_undo</value>
+  </data>
+  <data name="Menu_Edit_Redo" xml:space="preserve">
+    <value>I-_redo</value>
+  </data>
+  <data name="Menu_Edit_Cut" xml:space="preserve">
+    <value>_Gupitin</value>
+  </data>
+  <data name="Menu_Edit_Copy" xml:space="preserve">
+    <value>_Kopyahin</value>
+  </data>
+  <data name="Menu_Edit_Paste" xml:space="preserve">
+    <value>I-_paste</value>
+  </data>
+  <data name="Menu_Edit_Delete" xml:space="preserve">
+    <value>_Burahin</value>
+  </data>
+  <data name="Menu_Edit_EditElement" xml:space="preserve">
+    <value>I-_edit ang elemento…</value>
+  </data>
+  <data name="Menu_View" xml:space="preserve">
+    <value>Ti_ngnan</value>
+  </data>
+  <data name="Menu_View_ProjectExplorer" xml:space="preserve">
+    <value>_Explorer ng proyekto</value>
+  </data>
+  <data name="Menu_View_ProjectExplorer_Tip" xml:space="preserve">
+    <value>Ipakita o itago ang mga folder at diagram ng proyekto sa kaliwa</value>
+  </data>
+  <data name="Menu_View_AiChat" xml:space="preserve">
+    <value>_AI Chat</value>
+  </data>
+  <data name="Menu_View_AiChat_Tip" xml:space="preserve">
+    <value>Ipakita o itago ang AI chat tungkol sa aktibong diagram, sa kanan</value>
+  </data>
+  <data name="Menu_View_Theme" xml:space="preserve">
+    <value>_Tema</value>
+  </data>
+  <data name="Menu_View_Theme_System" xml:space="preserve">
+    <value>_System</value>
+  </data>
+  <data name="Menu_View_Theme_System_Tip" xml:space="preserve">
+    <value>Maliwanag o madilim, ayon sa operating system</value>
+  </data>
+  <data name="Menu_View_Theme_Light" xml:space="preserve">
+    <value>_Maliwanag</value>
+  </data>
+  <data name="Menu_View_Theme_Dark" xml:space="preserve">
+    <value>Ma_dilim</value>
+  </data>
+  <data name="Menu_Format" xml:space="preserve">
+    <value>F_ormat</value>
+  </data>
+  <data name="Menu_Format_Font" xml:space="preserve">
+    <value>_Font…</value>
+  </data>
+  <data name="Menu_Format_Font_Tip" xml:space="preserve">
+    <value>Font ng napiling elemento (pumili muna ng elemento)</value>
+  </data>
+  <data name="Menu_Format_Shape" xml:space="preserve">
+    <value>_Hugis…</value>
+  </data>
+  <data name="Menu_Format_Shape_Tip" xml:space="preserve">
+    <value>Fill at border ng napiling elemento (pumili muna ng elemento)</value>
+  </data>
+  <data name="Menu_Format_Line" xml:space="preserve">
+    <value>_Linya…</value>
+  </data>
+  <data name="Menu_Format_Line_Tip" xml:space="preserve">
+    <value>Kulay at kapal ng napiling linya (pumili muna ng relationship, mensahe o connector)</value>
+  </data>
+  <data name="Menu_Format_DiagramFont" xml:space="preserve">
+    <value>Font ng _diagram…</value>
+  </data>
+  <data name="Menu_Format_DiagramFont_Tip" xml:space="preserve">
+    <value>Font ng lahat ng elementong walang sariling font</value>
+  </data>
+  <data name="Menu_Format_BringToFront" xml:space="preserve">
+    <value>Dalhin sa _pinakaharap</value>
+  </data>
+  <data name="Menu_Format_BringToFront_Tip" xml:space="preserve">
+    <value>Iguhit ang napiling node, tala o text box sa ibabaw ng lahat ng iba</value>
+  </data>
+  <data name="Menu_Format_BringForward" xml:space="preserve">
+    <value>Dalhin pa_sulong</value>
+  </data>
+  <data name="Menu_Format_BringForward_Tip" xml:space="preserve">
+    <value>Iguhit ang napiling node sa ibabaw ng susunod na node na pinapatungan nito</value>
+  </data>
+  <data name="Menu_Format_SendBackward" xml:space="preserve">
+    <value>Ipadala pa_atras</value>
+  </data>
+  <data name="Menu_Format_SendBackward_Tip" xml:space="preserve">
+    <value>Iguhit ang napiling node sa ilalim ng susunod na node na pinapatungan nito</value>
+  </data>
+  <data name="Menu_Format_SendToBack" xml:space="preserve">
+    <value>_Ipadala sa pinakalikod</value>
+  </data>
+  <data name="Menu_Format_SendToBack_Tip" xml:space="preserve">
+    <value>Iguhit ang napiling node, tala o text box sa ilalim ng lahat ng iba</value>
+  </data>
+  <data name="Menu_Format_Arrange" xml:space="preserve">
+    <value>Ay_usin ang diagram</value>
+  </data>
+  <data name="Menu_Format_Arrange_Tip" xml:space="preserve">
+    <value>Ayusin muli ang buong diagram para madaling basahin, na may pinakakaunting nagkukrus na linya (ibinabalik ito ng I-undo)</value>
+  </data>
+  <data name="Menu_Diagram" xml:space="preserve">
+    <value>_Diagram</value>
+  </data>
+  <data name="Menu_Diagram_NewDiagram" xml:space="preserve">
+    <value>_Bagong diagram</value>
+  </data>
+  <data name="Menu_Diagram_CreateWithAi" xml:space="preserve">
+    <value>_Gumawa gamit ang AI…</value>
+  </data>
+  <data name="Menu_Diagram_CreateWithAi_Tip" xml:space="preserve">
+    <value>Ilarawan ang isang diagram at hayaang iguhit ito ng AI service sa Mga kagustuhan → AI</value>
+  </data>
+  <data name="Dialog_AiDiagram_Title" xml:space="preserve">
+    <value>Gumawa ng diagram gamit ang AI</value>
+  </data>
+  <data name="Dialog_AiDiagram_Description" xml:space="preserve">
+    <value>Paglalarawan</value>
+  </data>
+  <data name="Dialog_AiDiagram_Description_Example" xml:space="preserve">
+    <value>hal. Ang lifecycle ng isang online na order: ginawa, binayaran, ipinadala at naihatid; maaari itong kanselahin hangga't hindi pa naipapadala.</value>
+  </data>
+  <data name="Dialog_AiDiagram_AnyType" xml:space="preserve">
+    <value>Hayaang pumili ang AI</value>
+  </data>
+  <data name="Dialog_AiDiagram_Service" xml:space="preserve">
+    <value>Ipinapadala ang paglalarawan sa {0}. Idinadagdag ang diagram sa napiling folder; suriin muna ito bago mo ito asahan.</value>
+  </data>
+  <data name="Dialog_AiDiagram_NeedsDescription" xml:space="preserve">
+    <value>Ilarawan ang diagram.</value>
+  </data>
+  <data name="Menu_Diagram_NewDiagramEntry" xml:space="preserve">
+    <value>{0}…</value>
+  </data>
+  <data name="Menu_Diagram_Rename" xml:space="preserve">
+    <value>_Palitan ang pangalan…</value>
+  </data>
+  <data name="Menu_Diagram_MoveTo" xml:space="preserve">
+    <value>_Ilipat sa…</value>
+  </data>
+  <data name="Menu_Diagram_Delete" xml:space="preserve">
+    <value>B_urahin…</value>
+  </data>
+  <data name="Menu_Diagram_ExportPng" xml:space="preserve">
+    <value>PNG na _larawan…</value>
+  </data>
+  <data name="Menu_Diagram_GenerateCode" xml:space="preserve">
+    <value>Bumuo ng _code…</value>
+  </data>
+  <data name="Menu_Diagram_GenerateCode_Tip" xml:space="preserve">
+    <value>Bumuo ng source code para sa class diagram na napili sa explorer</value>
+  </data>
+  <data name="Menu_Diagram_CloseAll" xml:space="preserve">
+    <value>Isara ang _lahat ng diagram</value>
+  </data>
+  <data name="Menu_Diagram_Properties" xml:space="preserve">
+    <value>Mga _katangian…</value>
+  </data>
+  <data name="Menu_Help" xml:space="preserve">
+    <value>_Tulong</value>
+  </data>
+  <data name="Menu_Help_About" xml:space="preserve">
+    <value>_Tungkol sa UML Wizard…</value>
+  </data>
+  <data name="AppMenu_About" xml:space="preserve">
+    <value>Tungkol sa UML Wizard</value>
+  </data>
+  <data name="AppMenu_Preferences" xml:space="preserve">
+    <value>Mga kagustuhan…</value>
+  </data>
+  <data name="Menu_Help_LearnUml" xml:space="preserve">
+    <value>Matuto ng _UML</value>
+  </data>
+  <data name="Menu_Help_UserManual" xml:space="preserve">
+    <value>_Manwal ng gumagamit</value>
+  </data>
+  <data name="Menu_Help_UserManual_Tip" xml:space="preserve">
+    <value>Paano gamitin ang UML Wizard: mga proyekto, pagguhit, pag-format, pag-import at pag-export, pagbuo ng code</value>
+  </data>
+  <data name="Menu_Help_OpenApiHowTo" xml:space="preserve">
+    <value>Paano mag-import at mag-export ng _OpenAPI</value>
+  </data>
+  <data name="Menu_Help_GeneratingCodeHowTo" xml:space="preserve">
+    <value>Paano _bumuo ng code</value>
+  </data>
+  <data name="Help_LearnUml" xml:space="preserve">
+    <value>Matuto ng UML</value>
+  </data>
+  <data name="Help_UserManual" xml:space="preserve">
+    <value>Manwal ng gumagamit</value>
+  </data>
+  <data name="Help_OpenApiHowTo" xml:space="preserve">
+    <value>Paano mag-import at mag-export ng OpenAPI</value>
+  </data>
+  <data name="Menu_Help_PlantUmlHowTo" xml:space="preserve">
+    <value>Paano mag-import at mag-export ng _PlantUML</value>
+  </data>
+  <data name="Help_PlantUmlHowTo" xml:space="preserve">
+    <value>Paano mag-import at mag-export ng PlantUML</value>
+  </data>
+  <data name="Help_GeneratingCodeHowTo" xml:space="preserve">
+    <value>Paano bumuo ng code</value>
+  </data>
+  <data name="Message_HelpPageNotOpened" xml:space="preserve">
+    <value>Hindi mabuksan ang help page:
+{0}</value>
+  </data>
+  <data name="Toolbar_NewProject" xml:space="preserve">
+    <value>Bagong proyekto</value>
+  </data>
+  <data name="Toolbar_OpenProject" xml:space="preserve">
+    <value>Buksan ang proyekto</value>
+  </data>
+  <data name="Toolbar_SaveProject" xml:space="preserve">
+    <value>I-save ang proyekto</value>
+  </data>
+  <data name="Toolbar_NewDiagram" xml:space="preserve">
+    <value>Bagong diagram</value>
+  </data>
+  <data name="Toolbar_Undo" xml:space="preserve">
+    <value>I-undo</value>
+  </data>
+  <data name="Toolbar_Redo" xml:space="preserve">
+    <value>I-redo</value>
+  </data>
+  <data name="Toolbar_Cut" xml:space="preserve">
+    <value>Gupitin</value>
+  </data>
+  <data name="Toolbar_Copy" xml:space="preserve">
+    <value>Kopyahin</value>
+  </data>
+  <data name="Toolbar_Paste" xml:space="preserve">
+    <value>I-paste</value>
+  </data>
+  <data name="Toolbar_ZoomOut" xml:space="preserve">
+    <value>Mag-zoom out</value>
+  </data>
+  <data name="Toolbar_ZoomIn" xml:space="preserve">
+    <value>Mag-zoom in</value>
+  </data>
+  <data name="Toolbar_ZoomLevel" xml:space="preserve">
+    <value>Antas ng zoom: i-click para bumalik sa 100%</value>
+  </data>
+  <data name="Toolbar_ActualSize" xml:space="preserve">
+    <value>Aktwal na laki</value>
+  </data>
+  <data name="Toolbar_Fit" xml:space="preserve">
+    <value>Ipagkasya ang diagram sa window</value>
+  </data>
+  <data name="Toolbar_Edit" xml:space="preserve">
+    <value>I-edit ang napiling elemento (Enter)</value>
+  </data>
+  <data name="Toolbar_Font" xml:space="preserve">
+    <value>Font ng napiling elemento</value>
+  </data>
+  <data name="Toolbar_Shape" xml:space="preserve">
+    <value>Fill at border ng napiling elemento</value>
+  </data>
+  <data name="Toolbar_Line" xml:space="preserve">
+    <value>Kulay at kapal ng napiling linya</value>
+  </data>
+  <data name="Toolbar_BringToFront" xml:space="preserve">
+    <value>Dalhin sa pinakaharap</value>
+  </data>
+  <data name="Toolbar_BringForward" xml:space="preserve">
+    <value>Dalhin pasulong</value>
+  </data>
+  <data name="Toolbar_SendBackward" xml:space="preserve">
+    <value>Ipadala paatras</value>
+  </data>
+  <data name="Toolbar_SendToBack" xml:space="preserve">
+    <value>Ipadala sa pinakalikod</value>
+  </data>
+  <data name="Explorer_ImportFolder_Tip" xml:space="preserve">
+    <value>Gumawa ng proyektong may class diagram mula sa isang folder ng mga source file na C#, C++, Java, Kotlin, Ruby o TypeScript</value>
+  </data>
+  <data name="Explorer_Title" xml:space="preserve">
+    <value>Explorer ng proyekto</value>
+  </data>
+  <data name="Explorer_Empty" xml:space="preserve">
+    <value>Wala pang diagram ang proyekto. Gamitin ang + sa toolbar (o Diagram → Bagong diagram) para gumawa ng isa; mag-right-click dito o gamitin ang File → Bagong folder para ayusin ang mga ito.</value>
+  </data>
+  <data name="Explorer_Open" xml:space="preserve">
+    <value>Buksan</value>
+  </data>
+  <data name="Explorer_NewFolder" xml:space="preserve">
+    <value>Bagong folder…</value>
+  </data>
+  <data name="Explorer_CopyDiagram" xml:space="preserve">
+    <value>Kopyahin ang diagram</value>
+  </data>
+  <data name="Explorer_CopyDiagram_Name" xml:space="preserve">
+    <value>{0} (kopya)</value>
+  </data>
+  <data name="Explorer_Rename" xml:space="preserve">
+    <value>Palitan ang pangalan…</value>
+  </data>
+  <data name="Explorer_MoveTo" xml:space="preserve">
+    <value>Ilipat sa…</value>
+  </data>
+  <data name="Explorer_Delete" xml:space="preserve">
+    <value>Burahin…</value>
+  </data>
+  <data name="Tab_Close" xml:space="preserve">
+    <value>Isara</value>
+  </data>
+  <data name="Placeholder_DiagramNotOpen" xml:space="preserve">
+    <value>Hindi nakabukas ang diagram na ito. I-click ito sa explorer para buksan, o pumili ng tab.</value>
+  </data>
+  <data name="Placeholder_NoDiagram" xml:space="preserve">
+    <value>Gumawa o magbukas ng proyekto, saka i-click ang isang diagram para buksan ito.</value>
+  </data>
+  <data name="Context_Cut" xml:space="preserve">
+    <value>Gupitin</value>
+  </data>
+  <data name="Context_Copy" xml:space="preserve">
+    <value>Kopyahin</value>
+  </data>
+  <data name="Context_Paste" xml:space="preserve">
+    <value>I-paste</value>
+  </data>
+  <data name="Context_Edit" xml:space="preserve">
+    <value>I-edit…</value>
+  </data>
+  <data name="Context_Font" xml:space="preserve">
+    <value>Font…</value>
+  </data>
+  <data name="Context_Shape" xml:space="preserve">
+    <value>Hugis…</value>
+  </data>
+  <data name="Context_Line" xml:space="preserve">
+    <value>Linya…</value>
+  </data>
+  <data name="Context_DiagramFont" xml:space="preserve">
+    <value>Font ng diagram…</value>
+  </data>
+  <data name="Context_Arrange" xml:space="preserve">
+    <value>Ayusin ang diagram</value>
+  </data>
+  <data name="Context_BringToFront" xml:space="preserve">
+    <value>Dalhin sa pinakaharap</value>
+  </data>
+  <data name="Context_BringForward" xml:space="preserve">
+    <value>Dalhin pasulong</value>
+  </data>
+  <data name="Context_SendBackward" xml:space="preserve">
+    <value>Ipadala paatras</value>
+  </data>
+  <data name="Context_SendToBack" xml:space="preserve">
+    <value>Ipadala sa pinakalikod</value>
+  </data>
+  <data name="Status_PlaceTool" xml:space="preserve">
+    <value>Mag-click sa canvas para ilagay: {0}. Esc para kanselahin.</value>
+  </data>
+  <data name="Status_ConnectorTool" xml:space="preserve">
+    <value>{0}. Esc para kanselahin.</value>
+  </data>
+  <data name="Status_Selected" xml:space="preserve">
+    <value>Napili: {0} — i-double-click para i-edit sa lugar, i-right-click para sa Gupitin / Kopyahin / I-edit</value>
+  </data>
+  <data name="Status_Idle" xml:space="preserve">
+    <value>I-double-click ang elemento para i-edit sa lugar · i-drag ang bakanteng espasyo para mag-pan · {0}+wheel para mag-zoom</value>
+  </data>
+  <data name="Describe_Named" xml:space="preserve">
+    <value>{0} {1}</value>
+  </data>
+  <data name="Describe_Connection" xml:space="preserve">
+    <value>{0} {1} → {2}</value>
+  </data>
+  <data name="Describe_Lifeline" xml:space="preserve">
+    <value>Lifeline {0}</value>
+  </data>
+  <data name="Describe_Message" xml:space="preserve">
+    <value>Mensahe {1} ({0})</value>
+  </data>
+  <data name="Describe_TextBox" xml:space="preserve">
+    <value>Text box "{0}"</value>
+  </data>
+  <data name="Describe_Note" xml:space="preserve">
+    <value>Tala "{0}"</value>
+  </data>
+  <data name="Describe_NoteAttachment" xml:space="preserve">
+    <value>Pagkakabit ng tala</value>
+  </data>
+  <data name="Tool_Select" xml:space="preserve">
+    <value>Pumili</value>
+  </data>
+  <data name="Tool_Select_Tip" xml:space="preserve">
+    <value>Pumili: pumili, maglipat at magbago ng laki ng mga elemento</value>
+  </data>
+  <data name="Tool_Note" xml:space="preserve">
+    <value>Tala</value>
+  </data>
+  <data name="Tool_Note_Tip" xml:space="preserve">
+    <value>Tala: magdagdag ng UML note (komento); i-drag ang hawakan sa sulok nito para baguhin ang laki</value>
+  </data>
+  <data name="Tool_AttachNote" xml:space="preserve">
+    <value>Ikabit ang tala</value>
+  </data>
+  <data name="Tool_AttachNote_Tip" xml:space="preserve">
+    <value>Ikabit ang tala: i-drag mula sa tala papunta sa elementong inilalarawan nito, o mula sa elemento papunta sa tala</value>
+  </data>
+  <data name="Tool_TextBox" xml:space="preserve">
+    <value>Text box</value>
+  </data>
+  <data name="Tool_TextBox_Tip" xml:space="preserve">
+    <value>Text box: magdagdag ng text label; i-drag ang hawakan sa sulok nito para baguhin ang laki</value>
+  </data>
+  <data name="Tool_Class" xml:space="preserve">
+    <value>Class</value>
+  </data>
+  <data name="Tool_Class_Tip" xml:space="preserve">
+    <value>Magdagdag ng class</value>
+  </data>
+  <data name="Tool_AbstractClass" xml:space="preserve">
+    <value>Abstract</value>
+  </data>
+  <data name="Tool_AbstractClass_Tip" xml:space="preserve">
+    <value>Magdagdag ng abstract class</value>
+  </data>
+  <data name="Tool_Interface" xml:space="preserve">
+    <value>Interface</value>
+  </data>
+  <data name="Tool_Interface_Tip" xml:space="preserve">
+    <value>Magdagdag ng interface</value>
+  </data>
+  <data name="Tool_Enumeration" xml:space="preserve">
+    <value>Enum</value>
+  </data>
+  <data name="Tool_Enumeration_Tip" xml:space="preserve">
+    <value>Magdagdag ng enumeration</value>
+  </data>
+  <data name="Tool_Association" xml:space="preserve">
+    <value>Association</value>
+  </data>
+  <data name="Tool_Association_Tip" xml:space="preserve">
+    <value>Association: i-drag mula sa isang class papunta sa isa pa</value>
+  </data>
+  <data name="Tool_DirectedAssociation" xml:space="preserve">
+    <value>Directed</value>
+  </data>
+  <data name="Tool_DirectedAssociation_Tip" xml:space="preserve">
+    <value>Directed association: i-drag mula sa may-ari papunta sa tinutukoy na class</value>
+  </data>
+  <data name="Tool_Inheritance" xml:space="preserve">
+    <value>Inheritance</value>
+  </data>
+  <data name="Tool_Inheritance_Tip" xml:space="preserve">
+    <value>Generalization: i-drag mula sa subclass papunta sa base class</value>
+  </data>
+  <data name="Tool_Realization" xml:space="preserve">
+    <value>Realization</value>
+  </data>
+  <data name="Tool_Realization_Tip" xml:space="preserve">
+    <value>Realization: i-drag mula sa nag-iimplement na class papunta sa interface</value>
+  </data>
+  <data name="Tool_Aggregation" xml:space="preserve">
+    <value>Aggregation</value>
+  </data>
+  <data name="Tool_Aggregation_Tip" xml:space="preserve">
+    <value>Aggregation: i-drag mula sa kabuuan papunta sa bahagi</value>
+  </data>
+  <data name="Tool_Composition" xml:space="preserve">
+    <value>Composition</value>
+  </data>
+  <data name="Tool_Composition_Tip" xml:space="preserve">
+    <value>Composition: i-drag mula sa kabuuan papunta sa bahagi</value>
+  </data>
+  <data name="Tool_Dependency" xml:space="preserve">
+    <value>Dependency</value>
+  </data>
+  <data name="Tool_Dependency_Tip" xml:space="preserve">
+    <value>Dependency: i-drag mula sa dependent na class papunta sa class na ginagamit nito</value>
+  </data>
+  <data name="Tool_Lifeline" xml:space="preserve">
+    <value>Lifeline</value>
+  </data>
+  <data name="Tool_Lifeline_Tip" xml:space="preserve">
+    <value>Magdagdag ng object lifeline</value>
+  </data>
+  <data name="Tool_Actor" xml:space="preserve">
+    <value>Actor</value>
+  </data>
+  <data name="Tool_Actor_Tip" xml:space="preserve">
+    <value>Magdagdag ng actor lifeline</value>
+  </data>
+  <data name="Tool_SyncMessage" xml:space="preserve">
+    <value>Sync</value>
+  </data>
+  <data name="Tool_SyncMessage_Tip" xml:space="preserve">
+    <value>Synchronous call: i-drag mula sa nagpapadala papunta sa tumatanggap</value>
+  </data>
+  <data name="Tool_AsyncMessage" xml:space="preserve">
+    <value>Async</value>
+  </data>
+  <data name="Tool_AsyncMessage_Tip" xml:space="preserve">
+    <value>Asynchronous message: i-drag mula sa nagpapadala papunta sa tumatanggap</value>
+  </data>
+  <data name="Tool_ReplyMessage" xml:space="preserve">
+    <value>Sagot</value>
+  </data>
+  <data name="Tool_ReplyMessage_Tip" xml:space="preserve">
+    <value>Sagot: i-drag mula sa tinawag pabalik sa tumawag</value>
+  </data>
+  <data name="Tool_CreateMessage" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Tool_CreateMessage_Tip" xml:space="preserve">
+    <value>Create message: i-drag mula sa gumagawa papunta sa ginawang object</value>
+  </data>
+  <data name="Tool_Node_Initial" xml:space="preserve">
+    <value>Initial</value>
+  </data>
+  <data name="Tool_Node_Final" xml:space="preserve">
+    <value>Final</value>
+  </data>
+  <data name="Tool_Node_ForkJoin" xml:space="preserve">
+    <value>Fork/Join</value>
+  </data>
+  <data name="Tool_Node_UseCase" xml:space="preserve">
+    <value>Use case</value>
+  </data>
+  <data name="Tool_Node_SystemBoundary" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="Tool_Node_ExecutionEnvironment" xml:space="preserve">
+    <value>Environment</value>
+  </data>
+  <data name="Tool_Node_Other_Tip" xml:space="preserve">
+    <value>Magdagdag: {0}</value>
+  </data>
+  <data name="Tool_Node_State_Tip" xml:space="preserve">
+    <value>Magdagdag ng state</value>
+  </data>
+  <data name="Tool_Node_InitialState_Tip" xml:space="preserve">
+    <value>Idagdag ang initial pseudostate, kung saan nagsisimula ang state machine</value>
+  </data>
+  <data name="Tool_Node_FinalState_Tip" xml:space="preserve">
+    <value>Magdagdag ng final state</value>
+  </data>
+  <data name="Tool_Node_Choice_Tip" xml:space="preserve">
+    <value>Magdagdag ng choice: may mga guard ang mga palabas na transition</value>
+  </data>
+  <data name="Tool_Node_Action_Tip" xml:space="preserve">
+    <value>Magdagdag ng action</value>
+  </data>
+  <data name="Tool_Node_InitialNode_Tip" xml:space="preserve">
+    <value>Idagdag ang initial node, kung saan nagsisimula ang activity</value>
+  </data>
+  <data name="Tool_Node_ActivityFinal_Tip" xml:space="preserve">
+    <value>Magdagdag ng activity final node</value>
+  </data>
+  <data name="Tool_Node_Decision_Tip" xml:space="preserve">
+    <value>Magdagdag ng decision o merge node</value>
+  </data>
+  <data name="Tool_Node_ForkJoin_Tip" xml:space="preserve">
+    <value>Magdagdag ng fork o join bar; i-drag ang hawakan sa sulok nito para pahabain ito o gawing patayo</value>
+  </data>
+  <data name="Tool_Node_Actor_Tip" xml:space="preserve">
+    <value>Magdagdag ng actor</value>
+  </data>
+  <data name="Tool_Node_UseCase_Tip" xml:space="preserve">
+    <value>Magdagdag ng use case</value>
+  </data>
+  <data name="Tool_Node_SystemBoundary_Tip" xml:space="preserve">
+    <value>Magdagdag ng hangganan ng system; sumasama rito ang mga use case na nasa loob nito</value>
+  </data>
+  <data name="Tool_Node_Component_Tip" xml:space="preserve">
+    <value>Magdagdag ng component</value>
+  </data>
+  <data name="Tool_Node_Interface_Tip" xml:space="preserve">
+    <value>Magdagdag ng interface (lollipop)</value>
+  </data>
+  <data name="Tool_Node_Node_Tip" xml:space="preserve">
+    <value>Magdagdag ng node (isang 3-D na kahon); sumasama rito ang anumang nasa loob nito</value>
+  </data>
+  <data name="Tool_Node_Device_Tip" xml:space="preserve">
+    <value>Magdagdag ng device node («device»); sumasama rito ang anumang nasa loob nito</value>
+  </data>
+  <data name="Tool_Node_ExecutionEnvironment_Tip" xml:space="preserve">
+    <value>Magdagdag ng execution environment («executionEnvironment»), hal. isang runtime o container, karaniwang nasa loob ng node</value>
+  </data>
+  <data name="Tool_Node_Artifact_Tip" xml:space="preserve">
+    <value>Magdagdag ng artifact («artifact»): isang file na idine-deploy, hal. isang program o database</value>
+  </data>
+  <data name="Tool_Edge_ControlFlow" xml:space="preserve">
+    <value>Flow</value>
+  </data>
+  <data name="Tool_Edge_CommunicationPath" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="Tool_Edge_Transition_Tip" xml:space="preserve">
+    <value>Transition: i-drag mula sa isang state papunta sa susunod (o pabalik sa parehong state)</value>
+  </data>
+  <data name="Tool_Edge_ControlFlow_Tip" xml:space="preserve">
+    <value>Control flow: i-drag mula sa isang node papunta sa susunod</value>
+  </data>
+  <data name="Tool_Edge_Association_Tip" xml:space="preserve">
+    <value>Association: i-drag sa pagitan ng dalawang elemento</value>
+  </data>
+  <data name="Tool_Edge_Include_Tip" xml:space="preserve">
+    <value>Include: i-drag mula sa use case na nagsasama papunta sa isinasamang use case</value>
+  </data>
+  <data name="Tool_Edge_Extend_Tip" xml:space="preserve">
+    <value>Extend: i-drag mula sa use case na nag-e-extend papunta sa ine-extend na use case</value>
+  </data>
+  <data name="Tool_Edge_Generalization_Tip" xml:space="preserve">
+    <value>Generalization: i-drag mula sa tiyak na actor o use case papunta sa pangkalahatan</value>
+  </data>
+  <data name="Tool_Edge_Dependency_Tip" xml:space="preserve">
+    <value>Dependency: i-drag mula sa dependent na elemento papunta sa elementong ginagamit nito</value>
+  </data>
+  <data name="Tool_Edge_Realization_Tip" xml:space="preserve">
+    <value>Realization: i-drag mula sa component papunta sa interface na ibinibigay nito</value>
+  </data>
+  <data name="Tool_Edge_CommunicationPath_Tip" xml:space="preserve">
+    <value>Communication path: i-drag sa pagitan ng dalawang node; lagyan ng label ng protocol, hal. HTTPS</value>
+  </data>
+  <data name="Tool_Edge_Deploy_Tip" xml:space="preserve">
+    <value>Deploy: i-drag mula sa artifact papunta sa node kung saan ito idine-deploy (o ilagay ito sa loob ng node)</value>
+  </data>
+  <data name="Tool_Edge_Manifest_Tip" xml:space="preserve">
+    <value>Manifest: i-drag mula sa artifact papunta sa component na ini-implement nito</value>
+  </data>
+  <data name="DiagramType_Class" xml:space="preserve">
+    <value>Class diagram</value>
+  </data>
+  <data name="DiagramType_Sequence" xml:space="preserve">
+    <value>Sequence diagram</value>
+  </data>
+  <data name="DiagramType_StateMachine" xml:space="preserve">
+    <value>State machine diagram</value>
+  </data>
+  <data name="DiagramType_Activity" xml:space="preserve">
+    <value>Activity diagram</value>
+  </data>
+  <data name="DiagramType_UseCase" xml:space="preserve">
+    <value>Use case diagram</value>
+  </data>
+  <data name="DiagramType_Component" xml:space="preserve">
+    <value>Component diagram</value>
+  </data>
+  <data name="DiagramType_Deployment" xml:space="preserve">
+    <value>Deployment diagram</value>
+  </data>
+  <data name="DiagramName_Class" xml:space="preserve">
+    <value>ClassDiagram</value>
+  </data>
+  <data name="DiagramName_Sequence" xml:space="preserve">
+    <value>SequenceDiagram</value>
+  </data>
+  <data name="DiagramName_StateMachine" xml:space="preserve">
+    <value>StateMachine</value>
+  </data>
+  <data name="DiagramName_Activity" xml:space="preserve">
+    <value>ActivityDiagram</value>
+  </data>
+  <data name="DiagramName_UseCase" xml:space="preserve">
+    <value>UseCaseDiagram</value>
+  </data>
+  <data name="DiagramName_Component" xml:space="preserve">
+    <value>ComponentDiagram</value>
+  </data>
+  <data name="DiagramName_Deployment" xml:space="preserve">
+    <value>DeploymentDiagram</value>
+  </data>
+  <data name="Enum_UmlVisibility_Public" xml:space="preserve">
+    <value>Public</value>
+  </data>
+  <data name="Enum_UmlVisibility_Private" xml:space="preserve">
+    <value>Private</value>
+  </data>
+  <data name="Enum_UmlVisibility_Protected" xml:space="preserve">
+    <value>Protected</value>
+  </data>
+  <data name="Enum_UmlVisibility_Package" xml:space="preserve">
+    <value>Package</value>
+  </data>
+  <data name="Enum_ClassifierKind_Class" xml:space="preserve">
+    <value>Class</value>
+  </data>
+  <data name="Enum_ClassifierKind_AbstractClass" xml:space="preserve">
+    <value>Abstract class</value>
+  </data>
+  <data name="Enum_ClassifierKind_Interface" xml:space="preserve">
+    <value>Interface</value>
+  </data>
+  <data name="Enum_ClassifierKind_Enumeration" xml:space="preserve">
+    <value>Enumeration</value>
+  </data>
+  <data name="Enum_RelationshipKind_Association" xml:space="preserve">
+    <value>Association</value>
+  </data>
+  <data name="Enum_RelationshipKind_DirectedAssociation" xml:space="preserve">
+    <value>Directed association</value>
+  </data>
+  <data name="Enum_RelationshipKind_Inheritance" xml:space="preserve">
+    <value>Inheritance</value>
+  </data>
+  <data name="Enum_RelationshipKind_Realization" xml:space="preserve">
+    <value>Realization</value>
+  </data>
+  <data name="Enum_RelationshipKind_Aggregation" xml:space="preserve">
+    <value>Aggregation</value>
+  </data>
+  <data name="Enum_RelationshipKind_Composition" xml:space="preserve">
+    <value>Composition</value>
+  </data>
+  <data name="Enum_RelationshipKind_Dependency" xml:space="preserve">
+    <value>Dependency</value>
+  </data>
+  <data name="Enum_LifelineKind_Object" xml:space="preserve">
+    <value>Object</value>
+  </data>
+  <data name="Enum_LifelineKind_Actor" xml:space="preserve">
+    <value>Actor</value>
+  </data>
+  <data name="Enum_MessageKind_Synchronous" xml:space="preserve">
+    <value>Synchronous</value>
+  </data>
+  <data name="Enum_MessageKind_Asynchronous" xml:space="preserve">
+    <value>Asynchronous</value>
+  </data>
+  <data name="Enum_MessageKind_Reply" xml:space="preserve">
+    <value>Sagot</value>
+  </data>
+  <data name="Enum_MessageKind_Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Enum_HorizontalTextAlignment_Left" xml:space="preserve">
+    <value>Kaliwa</value>
+  </data>
+  <data name="Enum_HorizontalTextAlignment_Center" xml:space="preserve">
+    <value>Gitna</value>
+  </data>
+  <data name="Enum_HorizontalTextAlignment_Right" xml:space="preserve">
+    <value>Kanan</value>
+  </data>
+  <data name="Enum_VerticalTextAlignment_Top" xml:space="preserve">
+    <value>Itaas</value>
+  </data>
+  <data name="Enum_VerticalTextAlignment_Middle" xml:space="preserve">
+    <value>Gitna</value>
+  </data>
+  <data name="Enum_VerticalTextAlignment_Bottom" xml:space="preserve">
+    <value>Ibaba</value>
+  </data>
+  <data name="Enum_GraphNodeKind_State" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="Enum_GraphNodeKind_InitialState" xml:space="preserve">
+    <value>Initial state</value>
+  </data>
+  <data name="Enum_GraphNodeKind_FinalState" xml:space="preserve">
+    <value>Final state</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Choice" xml:space="preserve">
+    <value>Choice</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="Enum_GraphNodeKind_InitialNode" xml:space="preserve">
+    <value>Initial node</value>
+  </data>
+  <data name="Enum_GraphNodeKind_ActivityFinal" xml:space="preserve">
+    <value>Activity final</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Decision" xml:space="preserve">
+    <value>Decision</value>
+  </data>
+  <data name="Enum_GraphNodeKind_ForkJoin" xml:space="preserve">
+    <value>Fork/Join</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Actor" xml:space="preserve">
+    <value>Actor</value>
+  </data>
+  <data name="Enum_GraphNodeKind_UseCase" xml:space="preserve">
+    <value>Use case</value>
+  </data>
+  <data name="Enum_GraphNodeKind_SystemBoundary" xml:space="preserve">
+    <value>Hangganan ng system</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Component" xml:space="preserve">
+    <value>Component</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Interface" xml:space="preserve">
+    <value>Interface</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Node" xml:space="preserve">
+    <value>Node</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Device" xml:space="preserve">
+    <value>Device</value>
+  </data>
+  <data name="Enum_GraphNodeKind_ExecutionEnvironment" xml:space="preserve">
+    <value>Execution environment</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Artifact" xml:space="preserve">
+    <value>Artifact</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Transition" xml:space="preserve">
+    <value>Transition</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_ControlFlow" xml:space="preserve">
+    <value>Control flow</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Association" xml:space="preserve">
+    <value>Association</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Include" xml:space="preserve">
+    <value>Include</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Extend" xml:space="preserve">
+    <value>Extend</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Generalization" xml:space="preserve">
+    <value>Generalization</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Dependency" xml:space="preserve">
+    <value>Dependency</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Realization" xml:space="preserve">
+    <value>Realization</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_CommunicationPath" xml:space="preserve">
+    <value>Communication path</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Deploy" xml:space="preserve">
+    <value>Deploy</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Manifest" xml:space="preserve">
+    <value>Manifest</value>
+  </data>
+  <data name="Message_UnsavedChanges_Title" xml:space="preserve">
+    <value>Mga pagbabagong hindi naka-save</value>
+  </data>
+  <data name="Message_UnsavedChanges_Many" xml:space="preserve">
+    <value>I-save ang mga pagbabago sa mga sumusunod na diagram?
+
+{0}</value>
+  </data>
+  <data name="Message_UnsavedChanges_One" xml:space="preserve">
+    <value>I-save ang mga pagbabago sa '{0}'?</value>
+  </data>
+  <data name="Message_ProjectExists" xml:space="preserve">
+    <value>May proyekto na sa
+{0}</value>
+  </data>
+  <data name="Message_ProjectNotCreated" xml:space="preserve">
+    <value>Hindi magawa ang proyekto.
+{0}</value>
+  </data>
+  <data name="Message_ProjectNotOpened" xml:space="preserve">
+    <value>Hindi mabuksan ang proyekto.
+{0}</value>
+  </data>
+  <data name="Message_ProjectNotSaved" xml:space="preserve">
+    <value>Hindi ma-save ang file ng proyekto.
+{0}</value>
+  </data>
+  <data name="Message_RecentProjectMissing_Title" xml:space="preserve">
+    <value>Buksan ang kamakailang proyekto</value>
+  </data>
+  <data name="Recent_CopyProject" xml:space="preserve">
+    <value>Kopyahin ang proyekto</value>
+  </data>
+  <data name="Recent_CopyProject_Name" xml:space="preserve">
+    <value>{0} (kopya)</value>
+  </data>
+  <data name="Recent_CopyProject_NameNumbered" xml:space="preserve">
+    <value>{0} (kopya {1})</value>
+  </data>
+  <data name="Message_ProjectNotCopied" xml:space="preserve">
+    <value>Hindi makopya ang proyekto:
+{0}
+
+{1}</value>
+  </data>
+  <data name="Recent_DeleteFile" xml:space="preserve">
+    <value>Burahin ang file ng proyekto…</value>
+  </data>
+  <data name="Message_DeleteProjectFile_Title" xml:space="preserve">
+    <value>Burahin ang file ng proyekto</value>
+  </data>
+  <data name="Message_DeleteProjectFile" xml:space="preserve">
+    <value>Permanenteng burahin ang proyektong '{0}'?
+{1}
+
+Tuluyang binubura ang file, hindi inililipat sa Recycle Bin o Trash. Hindi na ito maa-undo, at hindi na maibabalik ang file.</value>
+  </data>
+  <data name="Message_ProjectFileNotDeleted" xml:space="preserve">
+    <value>Hindi mabura ang file ng proyekto:
+{0}
+
+{1}</value>
+  </data>
+  <data name="Message_RecentProjectMissing" xml:space="preserve">
+    <value>Hindi mahanap ang proyekto:
+{0}
+
+Alisin ito sa listahan ng mga kamakailang proyekto?</value>
+  </data>
+  <data name="Message_InvalidDiagram" xml:space="preserve">
+    <value>Hindi wastong diagram ang file.
+{0}</value>
+  </data>
+  <data name="Message_DiagramNotAdded" xml:space="preserve">
+    <value>Hindi maidagdag ang diagram sa proyekto.
+{0}</value>
+  </data>
+  <data name="Message_DeleteFolder_Title" xml:space="preserve">
+    <value>Burahin ang folder</value>
+  </data>
+  <data name="Message_DeleteFolder" xml:space="preserve">
+    <value>Burahin ang folder na '{0}'?
+Ilalipat ang mga diagram at subfolder nito sa {1}.</value>
+  </data>
+  <data name="Message_DeleteFolder_ToFolder" xml:space="preserve">
+    <value>'{0}'</value>
+  </data>
+  <data name="Message_DeleteFolder_ToTopLevel" xml:space="preserve">
+    <value>pinakamataas na antas</value>
+  </data>
+  <data name="Message_DeleteDiagram_Title" xml:space="preserve">
+    <value>Burahin ang diagram</value>
+  </data>
+  <data name="Message_DeleteDiagram" xml:space="preserve">
+    <value>Burahin ang '{0}' mula sa proyekto?
+Hindi na ito maa-undo.</value>
+  </data>
+  <data name="Message_ReplaceFile" xml:space="preserve">
+    <value>Mayroon nang file na '{0}' sa
+{1}
+
+Gusto mo ba itong palitan?</value>
+  </data>
+  <data name="Picker_OpenProject" xml:space="preserve">
+    <value>Buksan ang proyekto</value>
+  </data>
+  <data name="Picker_SaveProjectAs" xml:space="preserve">
+    <value>I-save ang proyekto bilang</value>
+  </data>
+  <data name="Picker_ImportDiagram" xml:space="preserve">
+    <value>Mag-import ng diagram</value>
+  </data>
+  <data name="Picker_ProjectFiles" xml:space="preserve">
+    <value>Proyekto ng UML Wizard</value>
+  </data>
+  <data name="Picker_DiagramFiles" xml:space="preserve">
+    <value>Diagram ng UML Wizard</value>
+  </data>
+  <data name="Picker_ProjectLocation" xml:space="preserve">
+    <value>Piliin ang lokasyon ng proyekto</value>
+  </data>
+  <data name="Picker_OutputFolder" xml:space="preserve">
+    <value>Piliin ang output folder</value>
+  </data>
+  <data name="Dialog_NewProject_Title" xml:space="preserve">
+    <value>Bagong proyekto</value>
+  </data>
+  <data name="Dialog_NewProject_DefaultName" xml:space="preserve">
+    <value>BagongProyekto</value>
+  </data>
+  <data name="Dialog_ProjectProperties_Title" xml:space="preserve">
+    <value>Mga katangian ng proyekto</value>
+  </data>
+  <data name="Dialog_ProjectProperties_CopyFolder_Tip" xml:space="preserve">
+    <value>Ang folder ng file ng proyekto. I-click para kopyahin ito sa clipboard.</value>
+  </data>
+  <data name="Dialog_ProjectProperties_Copied" xml:space="preserve">
+    <value>Nakopya</value>
+  </data>
+  <data name="Dialog_SaveProject_Title" xml:space="preserve">
+    <value>I-save ang proyekto</value>
+  </data>
+  <data name="Dialog_Project_NeedsName" xml:space="preserve">
+    <value>Kailangan ng pangalan ng proyekto.</value>
+  </data>
+  <data name="Dialog_Project_NeedsLocation" xml:space="preserve">
+    <value>Pumili ng umiiral na folder bilang lokasyon.</value>
+  </data>
+  <data name="Dialog_NewDiagram_Title" xml:space="preserve">
+    <value>Bagong diagram</value>
+  </data>
+  <data name="Dialog_NewDiagram_NeedsName" xml:space="preserve">
+    <value>Kailangan ng pangalan ng diagram.</value>
+  </data>
+  <data name="Dialog_DiagramProperties_Title" xml:space="preserve">
+    <value>Mga katangian ng diagram</value>
+  </data>
+  <data name="Dialog_DiagramProperties_NeedsName" xml:space="preserve">
+    <value>Maglagay ng pangalan para sa diagram.</value>
+  </data>
+  <data name="Dialog_NewFolder_Title" xml:space="preserve">
+    <value>Bagong folder</value>
+  </data>
+  <data name="Dialog_NewFolder_DefaultName" xml:space="preserve">
+    <value>Bagong folder</value>
+  </data>
+  <data name="Dialog_RenameFolder_Title" xml:space="preserve">
+    <value>Palitan ang pangalan ng folder</value>
+  </data>
+  <data name="Dialog_RenameDiagram_Title" xml:space="preserve">
+    <value>Palitan ang pangalan ng diagram</value>
+  </data>
+  <data name="Dialog_FolderName" xml:space="preserve">
+    <value>Pangalan ng folder</value>
+  </data>
+  <data name="Dialog_DiagramName" xml:space="preserve">
+    <value>Pangalan ng diagram</value>
+  </data>
+  <data name="Recent_Title" xml:space="preserve">
+    <value>Mga kamakailang proyekto</value>
+  </data>
+  <data name="Recent_None" xml:space="preserve">
+    <value>Wala pang kamakailang proyekto. Nakalista rito ang mga proyektong ginagawa o binubuksan mo.</value>
+  </data>
+  <data name="Start_NewProject" xml:space="preserve">
+    <value>Gumawa ng bagong proyekto</value>
+  </data>
+  <data name="Start_NewProject_Description" xml:space="preserve">
+    <value>Magsimula sa isang walang lamang proyekto, saka magdagdag ng mga diagram dito.</value>
+  </data>
+  <data name="Start_OpenProject" xml:space="preserve">
+    <value>Buksan ang umiiral na proyekto</value>
+  </data>
+  <data name="Start_OpenProject_Description" xml:space="preserve">
+    <value>Buksan ang isang file ng proyekto ng UML Wizard (.umlwiz).</value>
+  </data>
+  <data name="Start_ImportFolder" xml:space="preserve">
+    <value>Mag-import ng source folder</value>
+  </data>
+  <data name="Start_ImportFolder_Description" xml:space="preserve">
+    <value>Gumawa ng class diagram mula sa isang folder ng code na C#, C++, Java, Kotlin, Ruby o TypeScript.</value>
+  </data>
+  <data name="Splash_Loading" xml:space="preserve">
+    <value>Nagsisimula…</value>
+  </data>
+  <data name="Dialog_RenameProject_Title" xml:space="preserve">
+    <value>Palitan ang pangalan ng proyekto</value>
+  </data>
+  <data name="Dialog_ProjectName" xml:space="preserve">
+    <value>Pangalan ng proyekto</value>
+  </data>
+  <data name="Dialog_TextInput_NeedsValue" xml:space="preserve">
+    <value>Maglagay ng value.</value>
+  </data>
+  <data name="Dialog_MoveTo_Title" xml:space="preserve">
+    <value>Ilipat sa</value>
+  </data>
+  <data name="Dialog_MoveTo_Prompt" xml:space="preserve">
+    <value>Ilipat ang '{0}' sa:</value>
+  </data>
+  <data name="Dialog_MoveTo_TopLevel" xml:space="preserve">
+    <value>(Pinakamataas na antas)</value>
+  </data>
+  <data name="Dialog_MoveTo_NeedsDestination" xml:space="preserve">
+    <value>Pumili ng patutunguhan.</value>
+  </data>
+  <data name="Dialog_EditClass_Title" xml:space="preserve">
+    <value>I-edit ang class</value>
+  </data>
+  <data name="Dialog_EditClass_Stereotype" xml:space="preserve">
+    <value>Stereotype</value>
+  </data>
+  <data name="Dialog_EditClass_Stereotype_Hint" xml:space="preserve">
+    <value>opsyonal, hal. entity</value>
+  </data>
+  <data name="Dialog_EditClass_Attributes" xml:space="preserve">
+    <value>Mga attribute</value>
+  </data>
+  <data name="Dialog_EditClass_AddAttribute" xml:space="preserve">
+    <value>+ Magdagdag ng attribute</value>
+  </data>
+  <data name="Dialog_EditClass_Operations" xml:space="preserve">
+    <value>Mga operation</value>
+  </data>
+  <data name="Dialog_EditClass_AddOperation" xml:space="preserve">
+    <value>+ Magdagdag ng operation</value>
+  </data>
+  <data name="Dialog_EditClass_DefaultValue" xml:space="preserve">
+    <value>Default na value</value>
+  </data>
+  <data name="Dialog_EditClass_Static" xml:space="preserve">
+    <value>Static</value>
+  </data>
+  <data name="Dialog_EditClass_Abstract" xml:space="preserve">
+    <value>Abstract</value>
+  </data>
+  <data name="Dialog_EditClass_Parameters" xml:space="preserve">
+    <value>Mga parameter (pangalan: Type, …)</value>
+  </data>
+  <data name="Dialog_EditClass_ReturnType" xml:space="preserve">
+    <value>Return type</value>
+  </data>
+  <data name="Dialog_EditClass_NewAttributeName" xml:space="preserve">
+    <value>attribute{0}</value>
+  </data>
+  <data name="Dialog_EditClass_NewOperationName" xml:space="preserve">
+    <value>operation{0}</value>
+  </data>
+  <data name="Dialog_EditClass_NeedsName" xml:space="preserve">
+    <value>Kailangan ng pangalan ng class.</value>
+  </data>
+  <data name="Dialog_EditClass_AttributeNeedsName" xml:space="preserve">
+    <value>Kailangan ng pangalan ng bawat attribute.</value>
+  </data>
+  <data name="Dialog_EditClass_OperationNeedsName" xml:space="preserve">
+    <value>Kailangan ng pangalan ng bawat operation.</value>
+  </data>
+  <data name="Dialog_EditRelationship_Title" xml:space="preserve">
+    <value>I-edit ang relationship</value>
+  </data>
+  <data name="Dialog_EditRelationship_FromTo" xml:space="preserve">
+    <value>Mula → Papunta</value>
+  </data>
+  <data name="Dialog_EditRelationship_SourceMultiplicity" xml:space="preserve">
+    <value>Multiplicity ng source</value>
+  </data>
+  <data name="Dialog_EditRelationship_SourceMultiplicity_Hint" xml:space="preserve">
+    <value>hal. 1</value>
+  </data>
+  <data name="Dialog_EditRelationship_TargetMultiplicity" xml:space="preserve">
+    <value>Multiplicity ng target</value>
+  </data>
+  <data name="Dialog_EditRelationship_TargetMultiplicity_Hint" xml:space="preserve">
+    <value>hal. 0..*</value>
+  </data>
+  <data name="Dialog_EditLifeline_Title" xml:space="preserve">
+    <value>I-edit ang lifeline</value>
+  </data>
+  <data name="Dialog_EditLifeline_Type_Hint" xml:space="preserve">
+    <value>classifier, hal. OrderService</value>
+  </data>
+  <data name="Dialog_EditLifeline_NeedsNameOrType" xml:space="preserve">
+    <value>Maglagay ng pangalan, type, o pareho.</value>
+  </data>
+  <data name="Dialog_EditMessage_Title" xml:space="preserve">
+    <value>I-edit ang mensahe</value>
+  </data>
+  <data name="Dialog_EditMessage_Text_Hint" xml:space="preserve">
+    <value>hal. placeOrder(order)</value>
+  </data>
+  <data name="Dialog_EditMessage_From" xml:space="preserve">
+    <value>Mula</value>
+  </data>
+  <data name="Dialog_EditMessage_To" xml:space="preserve">
+    <value>Papunta</value>
+  </data>
+  <data name="Dialog_EditMessage_NeedsLifelines" xml:space="preserve">
+    <value>Piliin ang nagpapadala at tumatanggap na lifeline.</value>
+  </data>
+  <data name="Dialog_EditNote_Title" xml:space="preserve">
+    <value>I-edit ang tala</value>
+  </data>
+  <data name="Dialog_EditTextBox_Title" xml:space="preserve">
+    <value>I-edit ang text box</value>
+  </data>
+  <data name="Dialog_EditTextBox_Text_Hint" xml:space="preserve">
+    <value>Teksto; pindutin ang Enter para sa bagong linya</value>
+  </data>
+  <data name="Dialog_EditTextBox_Horizontal" xml:space="preserve">
+    <value>Pahalang</value>
+  </data>
+  <data name="Dialog_EditTextBox_Vertical" xml:space="preserve">
+    <value>Patayo</value>
+  </data>
+  <data name="Dialog_RenameElement_Title" xml:space="preserve">
+    <value>Palitan ang pangalan: {0}</value>
+  </data>
+  <data name="Dialog_EditEdge_Title" xml:space="preserve">
+    <value>I-edit: {0}</value>
+  </data>
+  <data name="Dialog_EditEdge_TransitionLabel" xml:space="preserve">
+    <value>Label (trigger [guard] / effect)</value>
+  </data>
+  <data name="Dialog_EditEdge_GuardLabel" xml:space="preserve">
+    <value>Guard, hal. [approved]</value>
+  </data>
+  <data name="Dialog_Font_Title" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="Dialog_Font_ElementTitle" xml:space="preserve">
+    <value>Font — {0}</value>
+  </data>
+  <data name="Dialog_Shape_Title" xml:space="preserve">
+    <value>I-format ang hugis — {0}</value>
+  </data>
+  <data name="ColorPicker_Title" xml:space="preserve">
+    <value>I-edit ang kulay — {0}</value>
+  </data>
+  <data name="ColorPicker_Hex_Tip" xml:space="preserve">
+    <value>Ang kulay bilang #RRGGBB</value>
+  </data>
+  <data name="ColorPicker_Hex" xml:space="preserve">
+    <value>Hex</value>
+  </data>
+  <data name="ColorPicker_Red" xml:space="preserve">
+    <value>Pula</value>
+  </data>
+  <data name="ColorPicker_Green" xml:space="preserve">
+    <value>Berde</value>
+  </data>
+  <data name="ColorPicker_Blue" xml:space="preserve">
+    <value>Asul</value>
+  </data>
+  <data name="ColorPicker_Hue" xml:space="preserve">
+    <value>Hue</value>
+  </data>
+  <data name="ColorPicker_Saturation" xml:space="preserve">
+    <value>Saturation</value>
+  </data>
+  <data name="ColorPicker_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ColorPicker_BasicColors" xml:space="preserve">
+    <value>Mga pangunahing kulay</value>
+  </data>
+  <data name="ColorPicker_CustomColors" xml:space="preserve">
+    <value>Mga custom na kulay</value>
+  </data>
+  <data name="ColorPicker_AddCustom" xml:space="preserve">
+    <value>Idagdag sa mga custom na kulay</value>
+  </data>
+  <data name="ColorPicker_AddCustom_Tip" xml:space="preserve">
+    <value>Idagdag ang kulay sa mga custom na kulay</value>
+  </data>
+  <data name="ColorBox_Edit_Tip" xml:space="preserve">
+    <value>Pumili ng kulay</value>
+  </data>
+  <data name="Dialog_Shape_Fill" xml:space="preserve">
+    <value>Fill</value>
+  </data>
+  <data name="Dialog_Shape_Border" xml:space="preserve">
+    <value>Border</value>
+  </data>
+  <data name="Dialog_Line_Title" xml:space="preserve">
+    <value>I-format ang linya — {0}</value>
+  </data>
+  <data name="Dialog_Shape_Line" xml:space="preserve">
+    <value>Linya</value>
+  </data>
+  <data name="Dialog_Shape_DefaultFill" xml:space="preserve">
+    <value>Default na fill</value>
+  </data>
+  <data name="Dialog_Shape_DefaultBorder" xml:space="preserve">
+    <value>Default na kulay</value>
+  </data>
+  <data name="Dialog_Shape_DefaultColor_Tip" xml:space="preserve">
+    <value>Ang kulay ng kasalukuyang scheme para sa ganitong uri ng elemento</value>
+  </data>
+  <data name="Dialog_Shape_None" xml:space="preserve">
+    <value>(wala)</value>
+  </data>
+  <data name="Dialog_Shape_Thickness" xml:space="preserve">
+    <value>Kapal</value>
+  </data>
+  <data name="Dialog_Shape_Sample" xml:space="preserve">
+    <value>Halimbawa</value>
+  </data>
+  <data name="Dialog_Shape_Reset" xml:space="preserve">
+    <value>Ibalik sa default</value>
+  </data>
+  <data name="Dialog_Shape_InvalidColor" xml:space="preserve">
+    <value>Ilagay ang mga kulay bilang #RRGGBB, hal. #E8EEF9.</value>
+  </data>
+  <data name="Dialog_Shape_WidthRange" xml:space="preserve">
+    <value>Dapat nasa pagitan ng {0} at {1} ang kapal.</value>
+  </data>
+  <data name="Dialog_Font_DiagramTitle" xml:space="preserve">
+    <value>Font ng diagram</value>
+  </data>
+  <data name="Dialog_Font_Font" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="Dialog_Font_Size" xml:space="preserve">
+    <value>Laki</value>
+  </data>
+  <data name="Dialog_Font_Style" xml:space="preserve">
+    <value>Estilo</value>
+  </data>
+  <data name="Dialog_Font_Bold" xml:space="preserve">
+    <value>Bold</value>
+  </data>
+  <data name="Dialog_Font_Italic" xml:space="preserve">
+    <value>Italic</value>
+  </data>
+  <data name="Dialog_Font_Sample" xml:space="preserve">
+    <value>Order  +total: decimal  #pay(amount): bool</value>
+  </data>
+  <data name="Dialog_Font_DefaultFamily" xml:space="preserve">
+    <value>(Default)</value>
+  </data>
+  <data name="Dialog_Font_UseDiagramFont" xml:space="preserve">
+    <value>Gamitin ang font ng diagram</value>
+  </data>
+  <data name="Dialog_Font_UseDefaultFont" xml:space="preserve">
+    <value>Gamitin ang default na font</value>
+  </data>
+  <data name="Dialog_Font_SizeRange" xml:space="preserve">
+    <value>Maglagay ng laki sa pagitan ng {0} at {1}.</value>
+  </data>
+  <data name="Dialog_Export_Title" xml:space="preserve">
+    <value>I-export bilang PNG</value>
+  </data>
+  <data name="Dialog_Export_Prompt" xml:space="preserve">
+    <value>I-export ang '{0}' bilang PNG na larawan.</value>
+  </data>
+  <data name="Dialog_Export_OutputFolder" xml:space="preserve">
+    <value>Output folder</value>
+  </data>
+  <data name="Dialog_Export_Browse_Tip" xml:space="preserve">
+    <value>Piliin ang folder</value>
+  </data>
+  <data name="Dialog_Export_OutputFolder_Hint" xml:space="preserve">
+    <value>Buong path ng isang folder</value>
+  </data>
+  <data name="Dialog_Export_FileName" xml:space="preserve">
+    <value>Pangalan ng file</value>
+  </data>
+  <data name="Dialog_Export_FileName_Hint" xml:space="preserve">
+    <value>diagram.png</value>
+  </data>
+  <data name="Dialog_Export_FileExists" xml:space="preserve">
+    <value>Mayroon nang file</value>
+  </data>
+  <data name="Dialog_Export_FileExists_Tip" xml:space="preserve">
+    <value>May file na may ganitong pangalan sa folder</value>
+  </data>
+  <data name="Dialog_Export_Transparent" xml:space="preserve">
+    <value>Transparent na background</value>
+  </data>
+  <data name="Dialog_Export_Transparent_Note" xml:space="preserve">
+    <value>Nananatiling puti ang mga hugis na puti ang fill at ang mga background ng label.</value>
+  </data>
+  <data name="Dialog_Export_NeedsFolder" xml:space="preserve">
+    <value>Ilagay o piliin ang output folder.</value>
+  </data>
+  <data name="Dialog_Export_NeedsFileName" xml:space="preserve">
+    <value>Maglagay ng pangalan ng file.</value>
+  </data>
+  <data name="Dialog_Export_InvalidFileName" xml:space="preserve">
+    <value>May mga karakter na hindi pinapayagan sa pangalan ng file.</value>
+  </data>
+  <data name="Dialog_Export_FolderMissing" xml:space="preserve">
+    <value>Hindi umiiral ang output folder.</value>
+  </data>
+  <data name="About_Title" xml:space="preserve">
+    <value>Tungkol sa {0}</value>
+  </data>
+  <data name="About_Description" xml:space="preserve">
+    <value>Isang UML designer para sa mga class, sequence, state machine, activity, use case, component at deployment diagram, na may pagbuo ng code at pag-import ng code.</value>
+  </data>
+  <data name="About_General" xml:space="preserve">
+    <value>Pangkalahatan</value>
+  </data>
+  <data name="About_Languages" xml:space="preserve">
+    <value>Mga wika</value>
+  </data>
+  <data name="About_Languages_Intro" xml:space="preserve">
+    <value>Ang mga code generator at code importer na naka-install mula sa mga plugin folder. Bawat wika ay isang plugin DLL; i-hover ang isang row para makita ang file nito.</value>
+  </data>
+  <data name="About_Languages_Language" xml:space="preserve">
+    <value>Wika</value>
+  </data>
+  <data name="About_Languages_Kind" xml:space="preserve">
+    <value>Plugin</value>
+  </data>
+  <data name="About_Languages_Version" xml:space="preserve">
+    <value>Bersyon</value>
+  </data>
+  <data name="About_Languages_Provider" xml:space="preserve">
+    <value>Provider</value>
+  </data>
+  <data name="About_Languages_Generation" xml:space="preserve">
+    <value>Pagbuo ng code</value>
+  </data>
+  <data name="About_Languages_Import" xml:space="preserve">
+    <value>Pag-import ng code</value>
+  </data>
+  <data name="About_Languages_NoProvider" xml:space="preserve">
+    <value>Hindi tinukoy</value>
+  </data>
+  <data name="About_Languages_None" xml:space="preserve">
+    <value>Walang naka-install na language plugin.</value>
+  </data>
+  <data name="About_Languages_Problems" xml:space="preserve">
+    <value>Hindi ma-load ang mga plugin na ito:</value>
+  </data>
+  <data name="About_Acknowledgements" xml:space="preserve">
+    <value>Pagkilala</value>
+  </data>
+  <data name="About_Uml" xml:space="preserve">
+    <value>UML</value>
+  </data>
+  <data name="About_OperatingSystem" xml:space="preserve">
+    <value>Operating system</value>
+  </data>
+  <data name="About_Architecture" xml:space="preserve">
+    <value>Arkitektura</value>
+  </data>
+  <data name="About_ProcessArchitecture" xml:space="preserve">
+    <value>{0} na proseso sa {1}</value>
+  </data>
+  <data name="About_Runtime" xml:space="preserve">
+    <value>Runtime</value>
+  </data>
+  <data name="About_UiFramework" xml:space="preserve">
+    <value>UI framework</value>
+  </data>
+  <data name="About_Licence" xml:space="preserve">
+    <value>Lisensya</value>
+  </data>
+  <data name="About_Website" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="About_NotSpecified" xml:space="preserve">
+    <value>Hindi pa tinukoy</value>
+  </data>
+  <data name="About_UnknownVersion" xml:space="preserve">
+    <value>hindi alam</value>
+  </data>
+  <data name="About_Version" xml:space="preserve">
+    <value>Bersyon {0}</value>
+  </data>
+  <data name="About_UmlSupport" xml:space="preserve">
+    <value>UML 2.5.1 na notation (subset): mga class, sequence, state machine, activity, use case, component at deployment diagram</value>
+  </data>
+  <data name="About_AcknowledgementsIntro" xml:space="preserve">
+    <value>Binuo ang UML Wizard gamit ang mga open source na component na ito. Mga icon: Material Design Icons ng Pictogrammers.</value>
+  </data>
+  <data name="About_ThirdPartyNotices" xml:space="preserve">
+    <value>Mga paunawa ng third party…</value>
+  </data>
+  <data name="About_ThirdPartyNotices_Tip" xml:space="preserve">
+    <value>Ang buong teksto ng lisensya ng bawat third-party na component</value>
+  </data>
+  <data name="About_CopyDetails" xml:space="preserve">
+    <value>Kopyahin ang mga detalye</value>
+  </data>
+  <data name="About_CopyDetails_Tip" xml:space="preserve">
+    <value>Kopyahin ang impormasyon ng bersyon at system</value>
+  </data>
+  <data name="About_Copied" xml:space="preserve">
+    <value>Nakopya sa clipboard.</value>
+  </data>
+  <data name="About_DetailLine" xml:space="preserve">
+    <value>{0}: {1}</value>
+  </data>
+  <data name="Dialog_GenerateCode_Title" xml:space="preserve">
+    <value>Bumuo ng code</value>
+  </data>
+  <data name="Dialog_GenerateCode_Prompt" xml:space="preserve">
+    <value>Bumuo ng source code para sa mga class ng '{0}'.</value>
+  </data>
+  <data name="Dialog_GenerateCode_Language" xml:space="preserve">
+    <value>Wika</value>
+  </data>
+  <data name="Dialog_GenerateCode_Namespace" xml:space="preserve">
+    <value>Namespace</value>
+  </data>
+  <data name="Dialog_GenerateCode_Package" xml:space="preserve">
+    <value>Package</value>
+  </data>
+  <data name="Dialog_GenerateCode_Module" xml:space="preserve">
+    <value>Module</value>
+  </data>
+  <data name="Dialog_GenerateCode_Namespace_Hint" xml:space="preserve">
+    <value>opsyonal, hal. Shop.Domain</value>
+  </data>
+  <data name="Dialog_GenerateCode_OutputFolder" xml:space="preserve">
+    <value>Output folder</value>
+  </data>
+  <data name="Dialog_GenerateCode_OutputFolder_Hint" xml:space="preserve">
+    <value>Buong path ng isang folder; gagawin ito kung kailangan</value>
+  </data>
+  <data name="Dialog_GenerateCode_Browse_Tip" xml:space="preserve">
+    <value>Piliin ang folder</value>
+  </data>
+  <data name="Dialog_GenerateCode_FileCount" xml:space="preserve">
+    <value>Mga file na isusulat: {0}</value>
+  </data>
+  <data name="Dialog_GenerateCode_ExistingCount" xml:space="preserve">
+    <value>Mga file na isusulat: {0} · Papalitang umiiral na file: {1}</value>
+  </data>
+  <data name="Dialog_GenerateCode_Replaces" xml:space="preserve">
+    <value>papalitan ang umiiral na file</value>
+  </data>
+  <data name="Dialog_GenerateCode_Warnings" xml:space="preserve">
+    <value>Mga tala tungkol sa nabuong code</value>
+  </data>
+  <data name="Dialog_GenerateCode_NoWarnings" xml:space="preserve">
+    <value>Maipapahayag sa wikang ito ang lahat ng nasa diagram.</value>
+  </data>
+  <data name="Dialog_GenerateCode_NeedsFolder" xml:space="preserve">
+    <value>Ilagay o piliin ang output folder.</value>
+  </data>
+  <data name="Dialog_GenerateCode_InvalidFolder" xml:space="preserve">
+    <value>Hindi wastong buong path ang output folder.</value>
+  </data>
+  <data name="Dialog_GenerateCode_InvalidNamespace" xml:space="preserve">
+    <value>Gumamit ng mga titik, numero at underscore, na pinaghihiwalay ang mga bahagi ng . o ::</value>
+  </data>
+  <data name="Dialog_GenerateCode_NoClasses" xml:space="preserve">
+    <value>Walang class, interface o enumeration ang diagram na mabubuo.</value>
+  </data>
+  <data name="Message_ReplaceGeneratedFiles" xml:space="preserve">
+    <value>{0} sa mga file ang mayroon na sa
+{1}
+
+Gusto mo bang palitan ang mga ito?</value>
+  </data>
+  <data name="Message_CodeGenerated" xml:space="preserve">
+    <value>Mga file na naisulat: {0}
+Folder: {1}</value>
+  </data>
+  <data name="Message_NoCodeGenerators" xml:space="preserve">
+    <value>Walang nahanap na code generator plugin sa
+{0}
+
+Maglagay ng code generator plugin DLL sa isa sa mga folder na ito at simulan muli ang UML Wizard.</value>
+  </data>
+  <data name="Message_CodeGeneratorFailed" xml:space="preserve">
+    <value>Pumalya ang {0} code generator: {1}</value>
+  </data>
+  <data name="Dialog_TaggedValues" xml:space="preserve">
+    <value>Mga tagged value</value>
+  </data>
+  <data name="Dialog_TaggedValues_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="Dialog_TaggedValues_Add" xml:space="preserve">
+    <value>Magdagdag ng tagged value</value>
+  </data>
+  <data name="Dialog_TaggedValues_None" xml:space="preserve">
+    <value>Walang tagged value.</value>
+  </data>
+  <data name="Dialog_EditClass_TaggedValuesOf" xml:space="preserve">
+    <value>Mga tagged value ng {0}</value>
+  </data>
+  <data name="Dialog_EditClass_TheClass" xml:space="preserve">
+    <value>class</value>
+  </data>
+  <data name="Dialog_EditClass_AttributeOwner" xml:space="preserve">
+    <value>attribute na {0}</value>
+  </data>
+  <data name="Dialog_EditClass_OperationOwner" xml:space="preserve">
+    <value>operation na {0}</value>
+  </data>
+  <data name="Dialog_EditClass_Method" xml:space="preserve">
+    <value>Method</value>
+  </data>
+  <data name="Dialog_EditClass_Method_Tip" xml:space="preserve">
+    <value>Ang HTTP method kapag web API endpoint ang operation</value>
+  </data>
+  <data name="Dialog_EditClass_Path" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="Dialog_EditClass_Path_Hint" xml:space="preserve">
+    <value>/orders/{id}</value>
+  </data>
+  <data name="Menu_Diagram_ImportOpenApi" xml:space="preserve">
+    <value>_OpenAPI…</value>
+  </data>
+  <data name="Menu_Diagram_ImportOpenApi_Tip" xml:space="preserve">
+    <value>Gumawa ng class diagram mula sa isang OpenAPI 3.x o Swagger 2.0 na paglalarawan (YAML o JSON)</value>
+  </data>
+  <data name="Menu_Diagram_ExportOpenApi" xml:space="preserve">
+    <value>_OpenAPI…</value>
+  </data>
+  <data name="Menu_Diagram_ExportOpenApi_Tip" xml:space="preserve">
+    <value>Isulat ang napiling class diagram bilang OpenAPI 3.0 na paglalarawan</value>
+  </data>
+  <data name="Menu_Diagram_Import" xml:space="preserve">
+    <value>I-i_mport</value>
+  </data>
+  <data name="Menu_Diagram_Export" xml:space="preserve">
+    <value>I-e_xport</value>
+  </data>
+  <data name="Menu_Diagram_ExportPng_Tip" xml:space="preserve">
+    <value>I-save ang napiling diagram bilang PNG na larawan</value>
+  </data>
+  <data name="Menu_Diagram_ImportPlantUml" xml:space="preserve">
+    <value>_PlantUML…</value>
+  </data>
+  <data name="Menu_Diagram_ImportPlantUml_Tip" xml:space="preserve">
+    <value>Gumawa ng mga diagram mula sa isang PlantUML file: mga class, sequence, state, activity, use case, component at deployment diagram</value>
+  </data>
+  <data name="Menu_Diagram_ExportPlantUml" xml:space="preserve">
+    <value>_PlantUML…</value>
+  </data>
+  <data name="Menu_Diagram_ExportPlantUml_Tip" xml:space="preserve">
+    <value>Isulat ang napiling diagram bilang PlantUML</value>
+  </data>
+  <data name="Picker_ImportPlantUml" xml:space="preserve">
+    <value>Mag-import ng PlantUML</value>
+  </data>
+  <data name="Picker_ExportPlantUml" xml:space="preserve">
+    <value>Mag-export ng PlantUML</value>
+  </data>
+  <data name="Picker_PlantUmlFiles" xml:space="preserve">
+    <value>Mga PlantUML file</value>
+  </data>
+  <data name="Message_InvalidPlantUml" xml:space="preserve">
+    <value>Hindi mabasa ang file bilang PlantUML: {0}</value>
+  </data>
+  <data name="Message_PlantUmlImportNotes" xml:space="preserve">
+    <value>Nagawa: {0}. Hindi napanatili ang ilang bahagi ng PlantUML:
+
+{1}</value>
+  </data>
+  <data name="Message_AiNotSetUp" xml:space="preserve">
+    <value>Wala pang naka-set up na AI service. I-set up ngayon sa Mga kagustuhan → AI?</value>
+  </data>
+  <data name="Message_FindingSourceFiles" xml:space="preserve">
+    <value>Naghahanap ng mga source file sa {0}…</value>
+  </data>
+  <data name="Message_ImportReading" xml:space="preserve">
+    <value>Binabasa ang {0:N0} sa {1:N0} source file…</value>
+  </data>
+  <data name="Message_ImportParsing" xml:space="preserve">
+    <value>Binabasa ang mga deklarasyon sa {0:N0} {1} file…</value>
+  </data>
+  <data name="Message_ImportLayingOut" xml:space="preserve">
+    <value>Inaayos ang {0:N0} class…</value>
+  </data>
+  <data name="Message_Arranging" xml:space="preserve">
+    <value>Inaayos ang '{0}'…</value>
+  </data>
+  <data name="Message_WritingFiles" xml:space="preserve">
+    <value>Isinusulat ang {0:N0} sa {1:N0} file…</value>
+  </data>
+  <data name="Message_CodeGenerationCancelled" xml:space="preserve">
+    <value>Kinansela ang pagbuo ng code. Maaaring naisulat na ang ilang file sa:
+{0}</value>
+  </data>
+  <data name="Message_AiWorking" xml:space="preserve">
+    <value>Ginagawa ang diagram gamit ang {0}…</value>
+  </data>
+  <data name="Message_AiDiagramDescription" xml:space="preserve">
+    <value>Ginawa gamit ang {0} mula sa: {1}</value>
+  </data>
+  <data name="Message_PlantUmlExported" xml:space="preserve">
+    <value>Naisulat ang PlantUML sa {0}.</value>
+  </data>
+  <data name="Message_PlantUmlExportedWithNotes" xml:space="preserve">
+    <value>Naisulat ang PlantUML sa {0}. Mga tala:
+
+{1}</value>
+  </data>
+  <data name="Picker_ImportOpenApi" xml:space="preserve">
+    <value>Mag-import ng OpenAPI</value>
+  </data>
+  <data name="Picker_OpenApiFiles" xml:space="preserve">
+    <value>OpenAPI na paglalarawan</value>
+  </data>
+  <data name="Dialog_ImportCode_Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="Dialog_ImportCode_DefaultDescription" xml:space="preserve">
+    <value>In-import mula sa {0}.</value>
+  </data>
+  <data name="Dialog_ImportCode_Language" xml:space="preserve">
+    <value>Wika</value>
+  </data>
+  <data name="Dialog_ImportCode_Files" xml:space="preserve">
+    <value>Mga file</value>
+  </data>
+  <data name="Dialog_ImportCode_LanguageLine" xml:space="preserve">
+    <value>{0} ({1} file)</value>
+  </data>
+  <data name="Dialog_ImportCode_FilesLine" xml:space="preserve">
+    <value>{0} {1} file</value>
+  </data>
+  <data name="Dialog_ImportCode_LanguageLine_One" xml:space="preserve">
+    <value>{0} (1 file)</value>
+  </data>
+  <data name="Dialog_ImportCode_FilesLine_One" xml:space="preserve">
+    <value>1 {0} file</value>
+  </data>
+  <data name="Dialog_ImportCode_Notice" xml:space="preserve">
+    <value>Nagiging class diagram ang code ng mga class, interface at enumeration nito. Ang mga {0} source file ({1}) lang ang binabasa: nilalaktawan ang ibang file. Hindi bina-build ang code, kaya hindi kasama ang laman ng mga method, mga komento at iba pang detalyeng hindi maipapakita ng class diagram. Kapag tapos na ang import, ililista ng isang buod ang lahat ng hindi isinama.</value>
+  </data>
+  <data name="Dialog_ImportFolder_Title" xml:space="preserve">
+    <value>Mag-import ng source folder</value>
+  </data>
+  <data name="Picker_ImportFolder" xml:space="preserve">
+    <value>Mag-import ng source folder</value>
+  </data>
+  <data name="Message_NoSourceFiles" xml:space="preserve">
+    <value>Walang source file ang {0} sa wikang maaaring i-import ({1}).</value>
+  </data>
+  <data name="Message_NoCodeImporter" xml:space="preserve">
+    <value>Hindi ma-import ang {0}: walang code import plugin para sa {1} sa {2} o {3}.</value>
+  </data>
+  <data name="Message_NoCodeImporter_AnyLanguage" xml:space="preserve">
+    <value>anumang wika</value>
+  </data>
+  <data name="Message_NoTypesFound" xml:space="preserve">
+    <value>Walang nahanap na class, interface, enumeration, struct o record sa {0}, kaya walang nagawang proyekto.</value>
+  </data>
+  <data name="Message_CodeImported" xml:space="preserve">
+    <value>Na-import: {0}
+
+Hindi na-import, o iba ang pagkakapakita:
+{1}</value>
+  </data>
+  <data name="Message_InvalidOpenApi" xml:space="preserve">
+    <value>Hindi mabasa ang file bilang OpenAPI na paglalarawan: {0}</value>
+  </data>
+  <data name="Message_OpenApiImportNotes" xml:space="preserve">
+    <value>Nagawa ang diagram na '{0}'. Hindi napanatili ang ilang bahagi ng paglalarawan:
+
+{1}</value>
+  </data>
+  <data name="Dialog_ExportOpenApi_Title" xml:space="preserve">
+    <value>Mag-export ng OpenAPI</value>
+  </data>
+  <data name="Dialog_ExportOpenApi_Prompt" xml:space="preserve">
+    <value>I-export ang '{0}' bilang OpenAPI 3.0 na paglalarawan: ang mga class at enumeration nito bilang mga schema, at ang mga operation ng mga «api» interface bilang mga endpoint.</value>
+  </data>
+  <data name="Dialog_ExportOpenApi_FileName_Hint" xml:space="preserve">
+    <value>openapi.yaml</value>
+  </data>
+  <data name="Dialog_ExportOpenApi_Format_Note" xml:space="preserve">
+    <value>Ang extension ang pumipili ng format: .yaml o .yml para sa YAML, .json para sa JSON.</value>
+  </data>
+  <data name="Dialog_ExportOpenApi_ApiTitle" xml:space="preserve">
+    <value>Pamagat ng API</value>
+  </data>
+  <data name="Dialog_ExportOpenApi_Version" xml:space="preserve">
+    <value>Bersyon</value>
+  </data>
+  <data name="Dialog_ExportOpenApi_NeedsTitle" xml:space="preserve">
+    <value>Ilagay ang pamagat ng API.</value>
+  </data>
+  <data name="Dialog_ExportOpenApi_NeedsVersion" xml:space="preserve">
+    <value>Ilagay ang bersyon ng API.</value>
+  </data>
+  <data name="Message_OpenApiExported" xml:space="preserve">
+    <value>Naisulat ang OpenAPI na paglalarawan sa {0}.</value>
+  </data>
+  <data name="Message_OpenApiExportedWithNotes" xml:space="preserve">
+    <value>Naisulat ang OpenAPI na paglalarawan sa {0}. Mga tala:
+
+{1}</value>
+  </data>
+</root>

@@ -91,9 +91,13 @@ internal sealed class FakeServices : IDialogService, IClipboardService
 
     public List<PreferencesViewModel> ShownPreferences { get; } = [];
 
+    /// <summary>What the user does in the Preferences window while it is open.</summary>
+    public Action<PreferencesViewModel>? InPreferences { get; set; }
+
     public Task ShowPreferencesAsync(PreferencesViewModel viewModel)
     {
         ShownPreferences.Add(viewModel);
+        InPreferences?.Invoke(viewModel);
         return Task.CompletedTask;
     }
 

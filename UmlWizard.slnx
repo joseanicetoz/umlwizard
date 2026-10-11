@@ -3,12 +3,17 @@
     <File Path="build/Plugins.targets" />
   </Folder>
   <Folder Name="/docs/" />
+  <Folder Name="/docs/design/">
+    <File Path="docs/design/ai-assistant.md" />
+    <File Path="docs/design/architecture.md" />
+    <File Path="docs/design/file-format.md" />
+  </Folder>
   <Folder Name="/docs/help/">
-    <File Path="docs/help/generating-code-how-to.html" />
-    <File Path="docs/help/learn-uml.html" />
-    <File Path="docs/help/openapi-how-to.html" />
-    <File Path="docs/help/plantuml-how-to.html" />
-    <File Path="docs/help/user-manual.html" />
+    <File Path="docs/help/generating-code-how-to-en.html" />
+    <File Path="docs/help/learn-uml-en.html" />
+    <File Path="docs/help/openapi-how-to-en.html" />
+    <File Path="docs/help/plantuml-how-to-en.html" />
+    <File Path="docs/help/user-manual-en.html" />
   </Folder>
   <Folder Name="/docs/plugins/">
     <File Path="docs/plugins/writing-a-codegeneration-plugin.md" />

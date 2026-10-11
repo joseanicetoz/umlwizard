@@ -50,15 +50,30 @@ public sealed class HelpMenuTests
 
         Assert.Equal(
             [
-                Path.Combine(MainWindowViewModel.HelpFolder, "user-manual.html"),
-                Path.Combine(MainWindowViewModel.HelpFolder, "learn-uml.html"),
-                Path.Combine(MainWindowViewModel.HelpFolder, "openapi-how-to.html"),
-                Path.Combine(MainWindowViewModel.HelpFolder, "plantuml-how-to.html"),
-                Path.Combine(MainWindowViewModel.HelpFolder, "generating-code-how-to.html"),
+                Path.Combine(MainWindowViewModel.HelpFolder, "user-manual-en.html"),
+                Path.Combine(MainWindowViewModel.HelpFolder, "learn-uml-en.html"),
+                Path.Combine(MainWindowViewModel.HelpFolder, "openapi-how-to-en.html"),
+                Path.Combine(MainWindowViewModel.HelpFolder, "plantuml-how-to-en.html"),
+                Path.Combine(MainWindowViewModel.HelpFolder, "generating-code-how-to-en.html"),
             ],
             services.OpenedFiles);
         Assert.All(services.OpenedFiles, path => Assert.True(File.Exists(path), path));
         Assert.Empty(services.Errors);
+    }
+
+    /// <summary>Each help page is in English; another language has its page when translated, else it gets the English one.</summary>
+    [Fact]
+    public void HelpPages_AreInTheDisplayLanguage_OrElseInEnglish()
+    {
+        var english = Path.Combine(MainWindowViewModel.HelpFolder, "user-manual-en.html");
+        Assert.True(File.Exists(english), english);
+        Assert.Equal(english, MainWindowViewModel.HelpPagePath("user-manual", "en"));
+
+        foreach (var (culture, _) in Loc.DisplayLanguages)
+        {
+            var translated = Path.Combine(MainWindowViewModel.HelpFolder, $"user-manual-{culture}.html");
+            Assert.Equal(File.Exists(translated) ? translated : english, MainWindowViewModel.HelpPagePath("user-manual", culture));
+        }
     }
 
     [AvaloniaFact]
@@ -78,7 +93,7 @@ public sealed class HelpMenuTests
 
         window.KeyPress(Key.F1, RawInputModifiers.None, PhysicalKey.F1, null);
         Dispatcher.UIThread.RunJobs();
-        Assert.Equal([Path.Combine(MainWindowViewModel.HelpFolder, "user-manual.html")], services.OpenedFiles);
+        Assert.Equal([Path.Combine(MainWindowViewModel.HelpFolder, "user-manual-en.html")], services.OpenedFiles);
         window.Close();
     }
 
@@ -90,7 +105,7 @@ public sealed class HelpMenuTests
     {
         // Every text of the main menus, without its access key and ellipsis, appears in the manual, so that new
         // commands are documented and renamed ones are not left behind.
-        var manual = WebUtility.HtmlDecode(File.ReadAllText(RepositoryFile("docs/help/user-manual.html")));
+        var manual = WebUtility.HtmlDecode(File.ReadAllText(RepositoryFile("docs/help/user-manual-en.html")));
         var missing = typeof(Strings).GetProperties(BindingFlags.Public | BindingFlags.Static)
             .Where(p => p.PropertyType == typeof(string) && p.Name.StartsWith("Menu_") && !p.Name.EndsWith("_Tip"))
             .Select(p => ((string)p.GetValue(null)!).Replace("_", string.Empty).Replace("…", string.Empty).Trim())
@@ -105,10 +120,10 @@ public sealed class HelpMenuTests
     [Fact]
     public void TheUserManualsLinks_AndTheReadmesLinksIntoIt_LeadToItsSections()
     {
-        var manual = File.ReadAllText(RepositoryFile("docs/help/user-manual.html"));
+        var manual = File.ReadAllText(RepositoryFile("docs/help/user-manual-en.html"));
         var ids = Regex.Matches(manual, "id=\"([^\"]+)\"").Select(m => m.Groups[1].Value).ToHashSet();
         var internalLinks = Regex.Matches(manual, "href=\"#([^\"]+)\"").Select(m => m.Groups[1].Value).ToList();
-        var readmeLinks = Regex.Matches(File.ReadAllText(RepositoryFile("README.md")), @"user-manual\.html#([\w-]+)").Select(m => m.Groups[1].Value).ToList();
+        var readmeLinks = Regex.Matches(File.ReadAllText(RepositoryFile("README.md")), @"user-manual-en\.html#([\w-]+)").Select(m => m.Groups[1].Value).ToList();
 
         Assert.NotEmpty(internalLinks);
         Assert.NotEmpty(readmeLinks);

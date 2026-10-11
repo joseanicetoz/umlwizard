@@ -90,13 +90,44 @@ public sealed partial class PreferencesViewModel : ObservableObject
         }
     }
 
-    /// <summary>The languages the user interface can be shown in: English only, so far.</summary>
-    public IReadOnlyList<DisplayLanguageOption> DisplayLanguages { get; } = [new("en", "English")];
+    /// <summary>The languages the user interface can be shown in, each by its own name; see <see cref="Loc.DisplayLanguages"/>.</summary>
+    public IReadOnlyList<DisplayLanguageOption> DisplayLanguages { get; } =
+        [.. Loc.DisplayLanguages.Select(l => new DisplayLanguageOption(l.Culture, l.Name))];
 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(IsRestartNeededForDisplayLanguage))]
     public partial DisplayLanguageOption SelectedDisplayLanguage { get; set; }
 
-    partial void OnSelectedDisplayLanguageChanged(DisplayLanguageOption value) => Apply(s => s with { DisplayLanguage = value.Culture });
+    partial void OnSelectedDisplayLanguageChanged(DisplayLanguageOption value)
+    {
+        Apply(s => s with { DisplayLanguage = value.Culture });
+        if (!_loading && IsRestartNeededForDisplayLanguage)
+        {
+            _ = OfferRestartAsync();
+        }
+    }
+
+    /// <summary>Whether the chosen language differs from the one shown: it is only applied at start-up.</summary>
+    public bool IsRestartNeededForDisplayLanguage => SelectedDisplayLanguage.Culture != Loc.DisplayLanguage;
+
+    /// <summary>
+    /// Set when the user chose to restart for a new display language; the window then closes, and the main window
+    /// restarts the application.
+    /// </summary>
+    public bool IsRestartRequested { get; private set; }
+
+    /// <summary>Asks the window to close, as its Close button does.</summary>
+    public event EventHandler? CloseRequested;
+
+    /// <summary>Asks whether to restart now to show the new display language; when not, the note in the window stays.</summary>
+    private async Task OfferRestartAsync()
+    {
+        if (await _dialogs.ConfirmAsync(Strings.Message_RestartForLanguage_Title, Strings.Message_RestartForLanguage) == ConfirmResult.Yes)
+        {
+            IsRestartRequested = true;
+            CloseRequested?.Invoke(this, EventArgs.Empty);
+        }
+    }
 
     #endregion
 

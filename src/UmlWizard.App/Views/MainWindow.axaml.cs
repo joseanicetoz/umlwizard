@@ -3,6 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.VisualTree;
+using UmlWizard.App.Services;
 using UmlWizard.App.ViewModels;
 
 namespace UmlWizard.App.Views;
@@ -126,8 +127,16 @@ public sealed partial class MainWindow : Window
         if (ViewModel is { } vm)
         {
             vm.ExitRequested += (_, _) => Close();
+            vm.RestartRequested += (_, _) =>
+            {
+                _restartWhenClosed = true;
+                Close();
+            };
         }
     }
+
+    /// <summary>Set while closing to restart; cleared when the user cancels closing.</summary>
+    private bool _restartWhenClosed;
 
     protected override async void OnClosing(WindowClosingEventArgs e)
     {
@@ -146,12 +155,27 @@ public sealed partial class MainWindow : Window
                 _closeConfirmed = true;
                 Close();
             }
+            else
+            {
+                _restartWhenClosed = false;
+            }
 
             return;
         }
 
         // The project stays open until the application exits; remember its tabs and expanded folders for next time.
         vm.SaveUserState();
+    }
+
+    protected override void OnClosed(EventArgs e)
+    {
+        base.OnClosed(e);
+
+        // After the project's state was saved, so that the new instance opens it as it was left.
+        if (_restartWhenClosed)
+        {
+            AppRestart.StartNewInstance(ViewModel?.ProjectPath);
+        }
     }
 
     /// <summary>Enter opens the diagram selected in the explorer, as a click does.</summary>

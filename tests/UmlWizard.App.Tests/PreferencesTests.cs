@@ -5,6 +5,7 @@ using Avalonia.Headless.XUnit;
 using Avalonia.Input;
 using Avalonia.LogicalTree;
 using Avalonia.Threading;
+using UmlWizard.App.Resources;
 using UmlWizard.App.Services;
 using UmlWizard.App.ViewModels;
 using UmlWizard.App.ViewModels.Dialogs;
@@ -92,6 +93,61 @@ public sealed class PreferencesTests
     }
 
     [AvaloniaFact]
+    public void ADisplayLanguage_IsSaved_AndShownAfterARestart()
+    {
+        var services = new FakeServices { ConfirmAnswer = ConfirmResult.No };
+        var applied = new List<AppSettings>();
+        var preferences = new PreferencesViewModel(new AppSettings(), services, applied.Add);
+        var closeRequests = 0;
+        preferences.CloseRequested += (_, _) => closeRequests++;
+        Assert.Equal("en", preferences.SelectedDisplayLanguage.Culture);
+        Assert.False(preferences.IsRestartNeededForDisplayLanguage);
+
+        // Another language is saved at once, and the user is asked whether to restart; not now leaves the note shown.
+        preferences.SelectedDisplayLanguage = preferences.DisplayLanguages.Single(l => l.Culture == "de");
+        Assert.Equal("de", applied.Last().DisplayLanguage);
+        Assert.Equal([Strings.Message_RestartForLanguage], services.ConfirmMessages);
+        Assert.True(preferences.IsRestartNeededForDisplayLanguage);
+        Assert.False(preferences.IsRestartRequested);
+        Assert.Equal(0, closeRequests);
+
+        // Going back to the language shown asks nothing.
+        preferences.SelectedDisplayLanguage = preferences.DisplayLanguages[0];
+        Assert.False(preferences.IsRestartNeededForDisplayLanguage);
+        Assert.Single(services.ConfirmMessages);
+
+        // Restarting now closes the window.
+        services.ConfirmAnswer = ConfirmResult.Yes;
+        preferences.SelectedDisplayLanguage = preferences.DisplayLanguages.Single(l => l.Culture == "fr");
+        Assert.True(preferences.IsRestartRequested);
+        Assert.Equal(1, closeRequests);
+
+        // Opening the window with a language saved but not shown yet asks nothing; nor does an unknown one, shown as English.
+        var saved = new PreferencesViewModel(new AppSettings { DisplayLanguage = "es" }, services, _ => { });
+        Assert.True(saved.IsRestartNeededForDisplayLanguage);
+        var unknown = new PreferencesViewModel(new AppSettings { DisplayLanguage = "xx" }, services, _ => { });
+        Assert.Equal("en", unknown.SelectedDisplayLanguage.Culture);
+        Assert.Equal(2, services.ConfirmMessages.Count);
+    }
+
+    [AvaloniaFact]
+    public void RestartingForANewLanguage_ClosesTheMainWindow_OnceThePreferencesAreClosed()
+    {
+        var services = new FakeServices { ConfirmAnswer = ConfirmResult.Yes };
+        var main = new MainWindowViewModel(services, services, settings: new InMemorySettingsStore());
+        var restarts = 0;
+        main.RestartRequested += (_, _) => restarts++;
+
+        services.InPreferences = p => p.SelectedTheme = p.Themes.Single(t => t.Theme == AppTheme.Dark);
+        main.PreferencesCommand.Execute(null);
+        Assert.Equal(0, restarts);
+
+        services.InPreferences = p => p.SelectedDisplayLanguage = p.DisplayLanguages.Single(l => l.Culture == "de");
+        main.PreferencesCommand.Execute(null);
+        Assert.Equal(1, restarts);
+    }
+
+    [AvaloniaFact]
     public void NewProjects_AreCreatedInTheProjectsFolder()
     {
         var folder = Directory.CreateTempSubdirectory().FullName;
@@ -128,11 +184,12 @@ public sealed class PreferencesTests
         Assert.Equal(["General", "Appearance", "Diagram", "AI"], tabs.Items.OfType<TabItem>().Select(t => (string)t.Header!));
         Assert.Empty(applied);
 
-        // General: the projects folder with a browse button, and the display language (English only, typeahead).
+        // General: the projects folder with a browse button, and the display language (typeahead, each by its own name).
         Assert.NotNull(window.FindControl<TextBox>("ProjectsFolderBox")!.InnerRightContent);
         var language = window.FindControl<ComboBox>("DisplayLanguageBox")!;
         Assert.True(language.IsTextSearchEnabled);
-        Assert.Equal(["English"], language.Items.Select(i => i!.ToString()));
+        Assert.Equal(["English", "Bahasa Indonesia", "Bahasa Melayu", "Deutsch", "Español", "Filipino", "Français"], language.Items.Select(i => i!.ToString()));
+        Assert.False(window.FindControl<TextBlock>("DisplayLanguageRestartNote")!.IsVisible);
 
         // Appearance: theme, font (typeahead, the default first) and size.
         tabs.SelectedItem = window.FindControl<TabItem>("AppearanceTab");

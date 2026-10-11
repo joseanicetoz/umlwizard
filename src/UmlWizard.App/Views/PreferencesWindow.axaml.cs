@@ -17,6 +17,15 @@ public sealed partial class PreferencesWindow : Window
         Closing += OnClosing;
     }
 
+    protected override void OnDataContextChanged(EventArgs e)
+    {
+        base.OnDataContextChanged(e);
+        if (DataContext is PreferencesViewModel preferences)
+        {
+            preferences.CloseRequested += (_, _) => Close();
+        }
+    }
+
     private async void OnClosing(object? sender, WindowClosingEventArgs e)
     {
         if (DataContext is not PreferencesViewModel preferences)

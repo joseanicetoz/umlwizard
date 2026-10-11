@@ -32,7 +32,7 @@
           <SolidColorBrush x:Key="WarningBackgroundBrush" Color="#FFF4C2" />
           <SolidColorBrush x:Key="WarningBorderBrush" Color="#EBCF6E" />
           <SolidColorBrush x:Key="SuccessForegroundBrush" Color="#2E7D32" />
-          <SolidColorBrush x:Key="LogoBackgroundBrush" Color="#E8EEF9" />
+          <SolidColorBrush x:Key="LogoBackgroundBrush" Color="#EEF4FC" />
           <SolidColorBrush x:Key="DiagramBackgroundBrush" Color="#FFFFFF" />
           <SolidColorBrush x:Key="DiagramTextBrush" Color="#1F2933" />
         </ResourceDictionary>
@@ -54,7 +54,8 @@
           <SolidColorBrush x:Key="WarningBackgroundBrush" Color="#3D3414" />
           <SolidColorBrush x:Key="WarningBorderBrush" Color="#6B5A1E" />
           <SolidColorBrush x:Key="SuccessForegroundBrush" Color="#66BB6A" />
-          <SolidColorBrush x:Key="LogoBackgroundBrush" Color="#2B3A52" />
+          <!-- A light blue at 15% opacity, which lifts the dark blue hat off the dark window -->
+          <SolidColorBrush x:Key="LogoBackgroundBrush" Color="#26A8C8F5" />
           <SolidColorBrush x:Key="DiagramBackgroundBrush" Color="#1E2126" />
           <SolidColorBrush x:Key="DiagramTextBrush" Color="#E6EAF0" />
         </ResourceDictionary>
@@ -71,9 +72,11 @@
     <FluentTheme />
     <materialIcons:MaterialIconStyles />
 
-    <!-- Fluent's dark windows are black; a dark grey matches the panels and the canvas -->
+    <!-- Fluent's dark windows are black; a dark grey matches the panels and the canvas. Every window has the wizard's hat
+         as its icon. -->
     <Style Selector=":is(Window)">
       <Setter Property="Background" Value="{DynamicResource WindowBackgroundBrush}" />
+      <Setter Property="Icon" Value="/Assets/UmlWizard.ico" />
     </Style>
 
     <Style Selector="ListBox.toolbox">

@@ -14,7 +14,7 @@ public sealed record AppSettings
     /// <summary>The folder new projects are created in by default; the Documents folder when not set.</summary>
     public string? ProjectsFolder { get; init; }
 
-    /// <summary>The language of the user interface, as a culture name; only English (<c>en</c>) so far.</summary>
+    /// <summary>The language of the user interface, as a culture name of <see cref="Loc.DisplayLanguages"/>; applied at start-up.</summary>
     public string DisplayLanguage { get; init; } = "en";
 
     /// <summary>The font of the user interface (menus, panels, dialogs); the application's default when not set.</summary>

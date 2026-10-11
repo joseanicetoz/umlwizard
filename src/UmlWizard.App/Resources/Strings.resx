@@ -255,7 +255,20 @@
     <value>Display language</value>
   </data>
   <data name="Preferences_DisplayLanguage_Tip" xml:space="preserve">
-    <value>The language of menus, panels and dialogs; type to find one. English only so far.</value>
+    <value>The language of menus, panels and dialogs; type to find one. Takes effect the next time UML Wizard starts.</value>
+  </data>
+  <data name="Preferences_DisplayLanguage_Restart" xml:space="preserve">
+    <value>The new language is used the next time UML Wizard starts.</value>
+    <comment>Shown in Preferences after the display language was changed.</comment>
+  </data>
+  <data name="Message_RestartForLanguage_Title" xml:space="preserve">
+    <value>Restart UML Wizard</value>
+  </data>
+  <data name="Message_RestartForLanguage" xml:space="preserve">
+    <value>The new language is shown once UML Wizard restarts. Restart now?
+
+You can save any unsaved changes first.</value>
+    <comment>Asked in Preferences when the display language was changed; Yes closes UML Wizard and starts it again.</comment>
   </data>
   <data name="Preferences_Theme" xml:space="preserve">
     <value>Theme</value>
@@ -610,7 +623,7 @@ If you continue, the AI configuration ({0}) and its API key are removed, and the
     <value>Draw the selected node, note or text box above all others</value>
   </data>
   <data name="Menu_Format_BringForward" xml:space="preserve">
-    <value>Bring _Forward</value>
+    <value>Bring Forwa_rd</value>
   </data>
   <data name="Menu_Format_BringForward_Tip" xml:space="preserve">
     <value>Draw the selected node above the next one it overlaps</value>

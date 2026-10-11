@@ -46,7 +46,7 @@
     <TabControl x:Name="PreferencesTabs" Classes="dialog" Padding="0,16,0,0">
       <!-- General -->
       <TabItem x:Name="GeneralTab" Header="{x:Static res:Strings.Preferences_General}">
-        <Grid ColumnDefinitions="120,*" RowDefinitions="Auto,12,Auto" VerticalAlignment="Top">
+        <Grid ColumnDefinitions="120,*" RowDefinitions="Auto,12,Auto,8,Auto" VerticalAlignment="Top">
           <TextBlock Classes="caption label" Text="{x:Static res:Strings.Preferences_ProjectsFolder}" />
           <TextBox x:Name="ProjectsFolderBox" Grid.Column="1" Text="{Binding ProjectsFolder}" Watermark="{Binding ProjectsFolderWatermark}"
                    ToolTip.Tip="{x:Static res:Strings.Preferences_ProjectsFolder_Tip}">
@@ -61,6 +61,8 @@
           <ComboBox x:Name="DisplayLanguageBox" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" IsTextSearchEnabled="True"
                     ItemsSource="{Binding DisplayLanguages}" SelectedItem="{Binding SelectedDisplayLanguage}"
                     ToolTip.Tip="{x:Static res:Strings.Preferences_DisplayLanguage_Tip}" />
+          <TextBlock x:Name="DisplayLanguageRestartNote" Grid.Row="4" Grid.Column="1" Classes="caption" TextWrapping="Wrap"
+                     IsVisible="{Binding IsRestartNeededForDisplayLanguage}" Text="{x:Static res:Strings.Preferences_DisplayLanguage_Restart}" />
         </Grid>
       </TabItem>
 

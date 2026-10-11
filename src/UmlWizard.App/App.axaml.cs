@@ -31,11 +31,15 @@ public sealed class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
+            // The display language is applied before any window is made: the views take their text when they load.
+            var settings = new SettingsFileStore(SettingsFileStore.DefaultFilePath);
+            Loc.SetDisplayLanguage(settings.Load().DisplayLanguage);
+
             var window = new MainWindow();
             var services = new WindowServices(window);
             var viewModel = new MainWindowViewModel(
                 services, services, new RecentProjectsFileStore(RecentProjectsFileStore.DefaultFilePath),
-                settings: new SettingsFileStore(SettingsFileStore.DefaultFilePath), secrets: SystemSecretStore.Create(),
+                settings: settings, secrets: SystemSecretStore.Create(),
                 projectStates: new ProjectStateFileStore(ProjectStateFileStore.DefaultFolder));
 
             // The saved theme is applied before the window shows, so it does not flash in the other one.

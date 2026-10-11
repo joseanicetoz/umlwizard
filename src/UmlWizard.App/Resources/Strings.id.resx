@@ -1,0 +1,2281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="App_Name" xml:space="preserve">
+    <value>UML Wizard</value>
+  </data>
+  <data name="App_WindowTitleWithProject" xml:space="preserve">
+    <value>{0} — UML Wizard</value>
+  </data>
+  <data name="App_Untitled" xml:space="preserve">
+    <value>Tanpa judul</value>
+  </data>
+  <data name="Button_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Button_Cancel" xml:space="preserve">
+    <value>Batal</value>
+  </data>
+  <data name="Button_Yes" xml:space="preserve">
+    <value>Ya</value>
+  </data>
+  <data name="Button_No" xml:space="preserve">
+    <value>Tidak</value>
+  </data>
+  <data name="Button_Continue" xml:space="preserve">
+    <value>Lanjutkan</value>
+  </data>
+  <data name="Button_Browse" xml:space="preserve">
+    <value>Telusuri…</value>
+  </data>
+  <data name="Button_Close" xml:space="preserve">
+    <value>Tutup</value>
+  </data>
+  <data name="Label_Name" xml:space="preserve">
+    <value>Nama</value>
+  </data>
+  <data name="Label_Kind" xml:space="preserve">
+    <value>Jenis</value>
+  </data>
+  <data name="Label_Type" xml:space="preserve">
+    <value>Tipe</value>
+  </data>
+  <data name="Label_Version" xml:space="preserve">
+    <value>Versi</value>
+  </data>
+  <data name="Dialog_ProjectProperties_Version_Watermark" xml:space="preserve">
+    <value>mis. 1.0.0</value>
+  </data>
+  <data name="Label_Author" xml:space="preserve">
+    <value>Penulis</value>
+  </data>
+  <data name="Label_Description" xml:space="preserve">
+    <value>Deskripsi</value>
+  </data>
+  <data name="Label_Text" xml:space="preserve">
+    <value>Teks</value>
+  </data>
+  <data name="Label_Label" xml:space="preserve">
+    <value>Label</value>
+  </data>
+  <data name="Label_Location" xml:space="preserve">
+    <value>Lokasi</value>
+  </data>
+  <data name="Label_Folder" xml:space="preserve">
+    <value>Folder</value>
+  </data>
+  <data name="Label_Visibility" xml:space="preserve">
+    <value>Visibilitas</value>
+  </data>
+  <data name="Tip_Remove" xml:space="preserve">
+    <value>Hapus</value>
+  </data>
+  <data name="Tip_WithShortcut" xml:space="preserve">
+    <value>{0} ({1})</value>
+  </data>
+  <data name="Menu_File" xml:space="preserve">
+    <value>_File</value>
+  </data>
+  <data name="Menu_File_NewProject" xml:space="preserve">
+    <value>Proyek _baru…</value>
+  </data>
+  <data name="Menu_File_OpenProject" xml:space="preserve">
+    <value>B_uka proyek…</value>
+  </data>
+  <data name="Menu_File_ImportFolder" xml:space="preserve">
+    <value>_Impor folder sumber…</value>
+  </data>
+  <data name="Menu_File_RecentProjects" xml:space="preserve">
+    <value>Proyek t_erbaru</value>
+  </data>
+  <data name="Menu_File_ClearRecentProjects" xml:space="preserve">
+    <value>_Kosongkan daftar</value>
+  </data>
+  <data name="Menu_File_SaveProject" xml:space="preserve">
+    <value>_Simpan proyek</value>
+  </data>
+  <data name="Menu_File_SaveProjectAs" xml:space="preserve">
+    <value>Simpan proyek seb_agai…</value>
+  </data>
+  <data name="Menu_File_NewFolder" xml:space="preserve">
+    <value>_Folder baru…</value>
+  </data>
+  <data name="Menu_File_ProjectProperties" xml:space="preserve">
+    <value>_Properti proyek…</value>
+  </data>
+  <data name="Menu_File_Preferences" xml:space="preserve">
+    <value>P_referensi…</value>
+  </data>
+  <data name="Menu_File_Preferences_Tip" xml:space="preserve">
+    <value>Folder proyek, bahasa tampilan, tema, font, dan warna bawaan diagram</value>
+  </data>
+  <data name="Preferences_Title" xml:space="preserve">
+    <value>Preferensi</value>
+  </data>
+  <data name="Preferences_General" xml:space="preserve">
+    <value>Umum</value>
+  </data>
+  <data name="Preferences_Appearance" xml:space="preserve">
+    <value>Tampilan</value>
+  </data>
+  <data name="Preferences_Diagram" xml:space="preserve">
+    <value>Diagram</value>
+  </data>
+  <data name="Preferences_ProjectsFolder" xml:space="preserve">
+    <value>Folder proyek</value>
+  </data>
+  <data name="Preferences_ProjectsFolder_Tip" xml:space="preserve">
+    <value>Tempat proyek baru dibuat dan proyek hasil impor disimpan, kecuali Anda memilih folder lain. Kosongkan untuk folder Dokumen Anda.</value>
+  </data>
+  <data name="Preferences_ProjectsFolder_Pick" xml:space="preserve">
+    <value>Folder proyek</value>
+  </data>
+  <data name="Preferences_DisplayLanguage" xml:space="preserve">
+    <value>Bahasa tampilan</value>
+  </data>
+  <data name="Preferences_DisplayLanguage_Tip" xml:space="preserve">
+    <value>Bahasa menu, panel, dan dialog; ketik untuk mencarinya. Berlaku saat UML Wizard dimulai ulang.</value>
+  </data>
+  <data name="Preferences_DisplayLanguage_Restart" xml:space="preserve">
+    <value>Bahasa baru akan digunakan saat UML Wizard dimulai ulang.</value>
+  </data>
+  <data name="Message_RestartForLanguage_Title" xml:space="preserve">
+    <value>Mulai ulang UML Wizard</value>
+  </data>
+  <data name="Message_RestartForLanguage" xml:space="preserve">
+    <value>Bahasa baru ditampilkan setelah UML Wizard dimulai ulang. Mulai ulang sekarang?
+
+Anda dapat menyimpan perubahan yang belum disimpan terlebih dahulu.</value>
+  </data>
+  <data name="Preferences_Theme" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="Preferences_Theme_System" xml:space="preserve">
+    <value>Sistem (sesuai sistem operasi)</value>
+  </data>
+  <data name="Preferences_Theme_Light" xml:space="preserve">
+    <value>Terang</value>
+  </data>
+  <data name="Preferences_Theme_Dark" xml:space="preserve">
+    <value>Gelap</value>
+  </data>
+  <data name="Preferences_Font" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="Preferences_Font_Tip" xml:space="preserve">
+    <value>Font menu, panel, dan dialog; ketik untuk mencarinya</value>
+  </data>
+  <data name="Preferences_FontSize" xml:space="preserve">
+    <value>Ukuran font</value>
+  </data>
+  <data name="Preferences_DefaultFont" xml:space="preserve">
+    <value>Bawaan</value>
+  </data>
+  <data name="Preferences_DefaultValue" xml:space="preserve">
+    <value>Bawaan ({0})</value>
+  </data>
+  <data name="Preferences_Font_Note" xml:space="preserve">
+    <value>Font menu, panel, dan dialog. Diagram memiliki font sendiri: Format → Font diagram.</value>
+  </data>
+  <data name="Preferences_Preview" xml:space="preserve">
+    <value>Pratinjau</value>
+  </data>
+  <data name="Preferences_Preview_Sample" xml:space="preserve">
+    <value>Jangan lewatkan kopi hangat, roti bakar, dan sup zaitun Bu Fiqih. 0123456789</value>
+  </data>
+  <data name="Preferences_Preview_TextBox" xml:space="preserve">
+    <value>Kotak teks</value>
+  </data>
+  <data name="Preferences_Preview_CheckBox" xml:space="preserve">
+    <value>Kotak centang</value>
+  </data>
+  <data name="Preferences_Preview_Button" xml:space="preserve">
+    <value>Tombol</value>
+  </data>
+  <data name="Preferences_Diagram_Intro" xml:space="preserve">
+    <value>Warna yang diberikan pada bentuk yang tidak memiliki warna sendiri (Format → Bentuk…). Warna ini berlaku dalam mode terang dan gelap, serta pada gambar yang diekspor.</value>
+  </data>
+  <data name="Preferences_Fill" xml:space="preserve">
+    <value>Isian</value>
+  </data>
+  <data name="Preferences_Border" xml:space="preserve">
+    <value>Batas</value>
+  </data>
+  <data name="Preferences_Thickness" xml:space="preserve">
+    <value>Ketebalan</value>
+  </data>
+  <data name="Preferences_ResetDiagram" xml:space="preserve">
+    <value>Kembalikan ke bawaan</value>
+  </data>
+  <data name="Preferences_ResetDiagram_Tip" xml:space="preserve">
+    <value>Kembalikan isian, batas, dan ketebalan jenis diagram ini ke pengaturan tema</value>
+  </data>
+  <data name="Preferences_PickColor_Tip" xml:space="preserve">
+    <value>Pilih warna</value>
+  </data>
+  <data name="Preferences_UseDefault_Tip" xml:space="preserve">
+    <value>Gunakan warna bawaan</value>
+  </data>
+  <data name="Preferences_Color_Tip" xml:space="preserve">
+    <value>#RRGGBB, atau kosong untuk bawaan</value>
+  </data>
+  <data name="Preferences_Fill_Class" xml:space="preserve">
+    <value>Kelas</value>
+  </data>
+  <data name="Preferences_Fill_AbstractClass" xml:space="preserve">
+    <value>Kelas abstrak</value>
+  </data>
+  <data name="Preferences_Fill_Interface" xml:space="preserve">
+    <value>Antarmuka</value>
+  </data>
+  <data name="Preferences_Fill_Enumeration" xml:space="preserve">
+    <value>Enumerasi</value>
+  </data>
+  <data name="Preferences_Fill_Lifeline" xml:space="preserve">
+    <value>Garis hidup</value>
+  </data>
+  <data name="Preferences_Fill_State" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Preferences_Fill_Choice" xml:space="preserve">
+    <value>Pilihan</value>
+  </data>
+  <data name="Preferences_Fill_Action" xml:space="preserve">
+    <value>Aksi</value>
+  </data>
+  <data name="Preferences_Fill_Decision" xml:space="preserve">
+    <value>Keputusan / penggabungan</value>
+  </data>
+  <data name="Preferences_Fill_UseCase" xml:space="preserve">
+    <value>Use case</value>
+  </data>
+  <data name="Preferences_Fill_SystemBoundary" xml:space="preserve">
+    <value>Batas sistem</value>
+  </data>
+  <data name="Preferences_Fill_Component" xml:space="preserve">
+    <value>Komponen</value>
+  </data>
+  <data name="Preferences_Fill_Node" xml:space="preserve">
+    <value>Node</value>
+  </data>
+  <data name="Preferences_Fill_Device" xml:space="preserve">
+    <value>Perangkat</value>
+  </data>
+  <data name="Preferences_Fill_ExecutionEnvironment" xml:space="preserve">
+    <value>Lingkungan eksekusi</value>
+  </data>
+  <data name="Preferences_Fill_Artifact" xml:space="preserve">
+    <value>Artefak</value>
+  </data>
+  <data name="Preferences_Fill_Note" xml:space="preserve">
+    <value>Catatan</value>
+  </data>
+  <data name="Preferences_Ai" xml:space="preserve">
+    <value>AI</value>
+  </data>
+  <data name="Preferences_Ai_Service" xml:space="preserve">
+    <value>Layanan</value>
+  </data>
+  <data name="Preferences_Ai_None" xml:space="preserve">
+    <value>Tidak ada (AI nonaktif)</value>
+  </data>
+  <data name="Preferences_Ai_Anthropic" xml:space="preserve">
+    <value>Anthropic (Claude)</value>
+  </data>
+  <data name="Preferences_Ai_OpenAi" xml:space="preserve">
+    <value>Kompatibel OpenAI (OpenAI, Ollama, LM Studio, …)</value>
+  </data>
+  <data name="Preferences_Ai_Endpoint" xml:space="preserve">
+    <value>Endpoint</value>
+  </data>
+  <data name="Preferences_Ai_Endpoint_Tip" xml:space="preserve">
+    <value>Alamat layanan; kosongkan untuk bawaan. Untuk Ollama: http://localhost:11434/v1, untuk LM Studio: http://localhost:1234/v1</value>
+  </data>
+  <data name="Preferences_Ai_Model" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="Preferences_Ai_Model_Tip" xml:space="preserve">
+    <value>Model yang digunakan; kosongkan untuk bawaan</value>
+  </data>
+  <data name="Preferences_Ai_Model_Example" xml:space="preserve">
+    <value>mis. gpt-4o-mini, atau llama3.1 untuk Ollama</value>
+  </data>
+  <data name="Preferences_Ai_Changes" xml:space="preserve">
+    <value>Perubahan</value>
+  </data>
+  <data name="Preferences_Ai_Changes_Tools" xml:space="preserve">
+    <value>Dengan pemanggilan alat (disarankan)</value>
+  </data>
+  <data name="Preferences_Ai_Changes_Whole" xml:space="preserve">
+    <value>Sebagai diagram utuh, untuk model tanpa pemanggilan alat</value>
+  </data>
+  <data name="Preferences_Ai_Changes_Tip" xml:space="preserve">
+    <value>Cara AI mengubah diagram dalam obrolan. Pilih diagram utuh jika model tidak dapat memanggil alat, seperti beberapa model lokal: model kemudian menjawab dengan diagram yang direvisi dalam PlantUML, dicocokkan berdasarkan nama.</value>
+  </data>
+  <data name="Preferences_Ai_ApiKey" xml:space="preserve">
+    <value>Kunci API</value>
+  </data>
+  <data name="Preferences_Ai_Key_Stored" xml:space="preserve">
+    <value>Disimpan di penyimpanan kredensial sistem Anda, bukan di pengaturan. Tanpa kunci, variabel lingkungan {0} digunakan; server lokal tidak memerlukannya.</value>
+  </data>
+  <data name="Preferences_Ai_Key_NotStored" xml:space="preserve">
+    <value>Sistem ini tidak memiliki penyimpanan kredensial yang dapat digunakan UML Wizard, sehingga kunci hanya disimpan sampai UML Wizard ditutup; sebagai gantinya, atur variabel lingkungan {0}.</value>
+  </data>
+  <data name="Preferences_Ai_Test" xml:space="preserve">
+    <value>Uji koneksi</value>
+  </data>
+  <data name="Preferences_Ai_Testing" xml:space="preserve">
+    <value>Menghubungi {0}…</value>
+  </data>
+  <data name="Preferences_Ai_Test_Ok" xml:space="preserve">
+    <value>{0} menjawab: koneksi berfungsi.</value>
+  </data>
+  <data name="Preferences_Ai_Privacy" xml:space="preserve">
+    <value>Perintah AI seperti Diagram → Buat dengan AI mengirim apa yang Anda jelaskan ke layanan ini, dan hanya saat Anda menggunakannya. Model lokal (Ollama, LM Studio) menyimpan semuanya di komputer ini.</value>
+  </data>
+  <data name="Preferences_Ai_ShowKey" xml:space="preserve">
+    <value>Tampilkan kunci API</value>
+  </data>
+  <data name="Preferences_Ai_HideKey" xml:space="preserve">
+    <value>Sembunyikan kunci API</value>
+  </data>
+  <data name="Preferences_Ai_Accept" xml:space="preserve">
+    <value>Saya setuju</value>
+  </data>
+  <data name="Message_AiTurnOff_Title" xml:space="preserve">
+    <value>Nonaktifkan AI</value>
+  </data>
+  <data name="Message_AiTurnOff" xml:space="preserve">
+    <value>Layanan AI tidak dapat digunakan tanpa menyetujui peringatan.
+
+Jika Anda melanjutkan, konfigurasi AI ({0}) dan kunci API-nya dihapus, dan layanan AI dikembalikan ke Tidak ada.</value>
+  </data>
+  <data name="AiChat_Title" xml:space="preserve">
+    <value>Obrolan AI</value>
+  </data>
+  <data name="AiChat_Note_CanEdit" xml:space="preserve">
+    <value>Pesan Anda dan diagram ini dikirim ke {0}. Layanan ini menjawab pertanyaan dan dapat mengubah diagram; Anda yang menerapkan perubahannya.</value>
+  </data>
+  <data name="AiChat_Consent" xml:space="preserve">
+    <value>Pesan Anda dan diagram proyek "{0}" akan dikirim ke {1}. Izinkan untuk proyek ini?</value>
+  </data>
+  <data name="AiChat_Consent_Allow" xml:space="preserve">
+    <value>Izinkan untuk proyek ini</value>
+  </data>
+  <data name="AiChat_NotSetUp" xml:space="preserve">
+    <value>Belum ada layanan AI yang diatur. Atur satu untuk bertanya tentang diagram Anda dan memintanya diubah.</value>
+  </data>
+  <data name="AiChat_SetUp" xml:space="preserve">
+    <value>Atur AI…</value>
+  </data>
+  <data name="AiChat_Send_Tip" xml:space="preserve">
+    <value>Kirim (Ctrl+Enter, atau ⌘+Enter di macOS)</value>
+  </data>
+  <data name="AiChat_Stop" xml:space="preserve">
+    <value>Hentikan</value>
+  </data>
+  <data name="AiChat_Stopped" xml:space="preserve">
+    <value>Dihentikan; tidak ada yang disimpan dari permintaan itu.</value>
+  </data>
+  <data name="AiChat_Input_Watermark" xml:space="preserve">
+    <value>Tanyakan tentang diagram, atau minta perubahan, mis. Tambahkan kelas Payment yang menjadi bagian dari Order.</value>
+  </data>
+  <data name="AiChat_Empty" xml:space="preserve">
+    <value>Ajukan pertanyaan tentang diagram ini, minta penjelasan atau tinjauan, atau minta perubahan.</value>
+  </data>
+  <data name="AiChat_Changes" xml:space="preserve">
+    <value>Perubahan yang diusulkan</value>
+  </data>
+  <data name="AiChat_Apply" xml:space="preserve">
+    <value>Terapkan</value>
+  </data>
+  <data name="AiChat_Apply_Tip" xml:space="preserve">
+    <value>Terapkan perubahan ke diagram; Batalkan mengembalikan semuanya</value>
+  </data>
+  <data name="AiChat_Discard" xml:space="preserve">
+    <value>Buang</value>
+  </data>
+  <data name="AiChat_NoDiagram" xml:space="preserve">
+    <value>Buka diagram untuk mengobrol tentangnya.</value>
+  </data>
+  <data name="Menu_File_CloseProject" xml:space="preserve">
+    <value>_Tutup proyek</value>
+  </data>
+  <data name="Menu_File_Exit" xml:space="preserve">
+    <value>_Keluar</value>
+  </data>
+  <data name="Menu_Edit" xml:space="preserve">
+    <value>_Edit</value>
+  </data>
+  <data name="Menu_Edit_Undo" xml:space="preserve">
+    <value>_Batalkan</value>
+  </data>
+  <data name="Menu_Edit_Redo" xml:space="preserve">
+    <value>_Ulangi</value>
+  </data>
+  <data name="Menu_Edit_Cut" xml:space="preserve">
+    <value>_Potong</value>
+  </data>
+  <data name="Menu_Edit_Copy" xml:space="preserve">
+    <value>_Salin</value>
+  </data>
+  <data name="Menu_Edit_Paste" xml:space="preserve">
+    <value>_Tempel</value>
+  </data>
+  <data name="Menu_Edit_Delete" xml:space="preserve">
+    <value>_Hapus</value>
+  </data>
+  <data name="Menu_Edit_EditElement" xml:space="preserve">
+    <value>_Edit elemen…</value>
+  </data>
+  <data name="Menu_View" xml:space="preserve">
+    <value>_Tampilan</value>
+  </data>
+  <data name="Menu_View_ProjectExplorer" xml:space="preserve">
+    <value>_Penjelajah proyek</value>
+  </data>
+  <data name="Menu_View_ProjectExplorer_Tip" xml:space="preserve">
+    <value>Tampilkan atau sembunyikan folder dan diagram proyek di sebelah kiri</value>
+  </data>
+  <data name="Menu_View_AiChat" xml:space="preserve">
+    <value>Obrolan _AI</value>
+  </data>
+  <data name="Menu_View_AiChat_Tip" xml:space="preserve">
+    <value>Tampilkan atau sembunyikan obrolan AI tentang diagram aktif, di sebelah kanan</value>
+  </data>
+  <data name="Menu_View_Theme" xml:space="preserve">
+    <value>_Tema</value>
+  </data>
+  <data name="Menu_View_Theme_System" xml:space="preserve">
+    <value>_Sistem</value>
+  </data>
+  <data name="Menu_View_Theme_System_Tip" xml:space="preserve">
+    <value>Terang atau gelap, sesuai sistem operasi</value>
+  </data>
+  <data name="Menu_View_Theme_Light" xml:space="preserve">
+    <value>_Terang</value>
+  </data>
+  <data name="Menu_View_Theme_Dark" xml:space="preserve">
+    <value>_Gelap</value>
+  </data>
+  <data name="Menu_Format" xml:space="preserve">
+    <value>F_ormat</value>
+  </data>
+  <data name="Menu_Format_Font" xml:space="preserve">
+    <value>_Font…</value>
+  </data>
+  <data name="Menu_Format_Font_Tip" xml:space="preserve">
+    <value>Font elemen yang dipilih (pilih elemen terlebih dahulu)</value>
+  </data>
+  <data name="Menu_Format_Shape" xml:space="preserve">
+    <value>_Bentuk…</value>
+  </data>
+  <data name="Menu_Format_Shape_Tip" xml:space="preserve">
+    <value>Isian dan batas elemen yang dipilih (pilih elemen terlebih dahulu)</value>
+  </data>
+  <data name="Menu_Format_Line" xml:space="preserve">
+    <value>_Garis…</value>
+  </data>
+  <data name="Menu_Format_Line_Tip" xml:space="preserve">
+    <value>Warna dan ketebalan garis yang dipilih (pilih relasi, pesan, atau konektor terlebih dahulu)</value>
+  </data>
+  <data name="Menu_Format_DiagramFont" xml:space="preserve">
+    <value>Font _diagram…</value>
+  </data>
+  <data name="Menu_Format_DiagramFont_Tip" xml:space="preserve">
+    <value>Font semua elemen yang tidak memiliki font sendiri</value>
+  </data>
+  <data name="Menu_Format_BringToFront" xml:space="preserve">
+    <value>Bawa ke _paling depan</value>
+  </data>
+  <data name="Menu_Format_BringToFront_Tip" xml:space="preserve">
+    <value>Gambar node, catatan, atau kotak teks yang dipilih di atas semua yang lain</value>
+  </data>
+  <data name="Menu_Format_BringForward" xml:space="preserve">
+    <value>Bawa ke dep_an</value>
+  </data>
+  <data name="Menu_Format_BringForward_Tip" xml:space="preserve">
+    <value>Gambar node yang dipilih di atas node berikutnya yang ditumpangnya</value>
+  </data>
+  <data name="Menu_Format_SendBackward" xml:space="preserve">
+    <value>_Kirim ke belakang</value>
+  </data>
+  <data name="Menu_Format_SendBackward_Tip" xml:space="preserve">
+    <value>Gambar node yang dipilih di bawah node berikutnya yang ditumpangnya</value>
+  </data>
+  <data name="Menu_Format_SendToBack" xml:space="preserve">
+    <value>Kirim ke paling belaka_ng</value>
+  </data>
+  <data name="Menu_Format_SendToBack_Tip" xml:space="preserve">
+    <value>Gambar node, catatan, atau kotak teks yang dipilih di bawah semua yang lain</value>
+  </data>
+  <data name="Menu_Format_Arrange" xml:space="preserve">
+    <value>_Susun diagram</value>
+  </data>
+  <data name="Menu_Format_Arrange_Tip" xml:space="preserve">
+    <value>Susun ulang seluruh diagram agar mudah dibaca, dengan sesedikit mungkin garis yang bersilangan (Batalkan mengembalikannya)</value>
+  </data>
+  <data name="Menu_Diagram" xml:space="preserve">
+    <value>_Diagram</value>
+  </data>
+  <data name="Menu_Diagram_NewDiagram" xml:space="preserve">
+    <value>Diagram _baru</value>
+  </data>
+  <data name="Menu_Diagram_CreateWithAi" xml:space="preserve">
+    <value>Bu_at dengan AI…</value>
+  </data>
+  <data name="Menu_Diagram_CreateWithAi_Tip" xml:space="preserve">
+    <value>Jelaskan diagram dan biarkan layanan AI dari Preferensi → AI menggambarnya</value>
+  </data>
+  <data name="Dialog_AiDiagram_Title" xml:space="preserve">
+    <value>Buat diagram dengan AI</value>
+  </data>
+  <data name="Dialog_AiDiagram_Description" xml:space="preserve">
+    <value>Deskripsi</value>
+  </data>
+  <data name="Dialog_AiDiagram_Description_Example" xml:space="preserve">
+    <value>mis. Siklus hidup pesanan daring: dibuat, dibayar, dikirim, dan diterima; pesanan dapat dibatalkan sampai dikirim.</value>
+  </data>
+  <data name="Dialog_AiDiagram_AnyType" xml:space="preserve">
+    <value>Biarkan AI memilih</value>
+  </data>
+  <data name="Dialog_AiDiagram_Service" xml:space="preserve">
+    <value>Deskripsi dikirim ke {0}. Diagram ditambahkan ke folder yang dipilih; periksa terlebih dahulu sebelum Anda mengandalkannya.</value>
+  </data>
+  <data name="Dialog_AiDiagram_NeedsDescription" xml:space="preserve">
+    <value>Jelaskan diagramnya.</value>
+  </data>
+  <data name="Menu_Diagram_NewDiagramEntry" xml:space="preserve">
+    <value>{0}…</value>
+  </data>
+  <data name="Menu_Diagram_Rename" xml:space="preserve">
+    <value>_Ganti nama…</value>
+  </data>
+  <data name="Menu_Diagram_MoveTo" xml:space="preserve">
+    <value>_Pindahkan ke…</value>
+  </data>
+  <data name="Menu_Diagram_Delete" xml:space="preserve">
+    <value>_Hapus…</value>
+  </data>
+  <data name="Menu_Diagram_ExportPng" xml:space="preserve">
+    <value>_Gambar PNG…</value>
+  </data>
+  <data name="Menu_Diagram_GenerateCode" xml:space="preserve">
+    <value>Hasilkan _kode…</value>
+  </data>
+  <data name="Menu_Diagram_GenerateCode_Tip" xml:space="preserve">
+    <value>Hasilkan kode sumber untuk diagram kelas yang dipilih di penjelajah</value>
+  </data>
+  <data name="Menu_Diagram_CloseAll" xml:space="preserve">
+    <value>_Tutup semua diagram</value>
+  </data>
+  <data name="Menu_Diagram_Properties" xml:space="preserve">
+    <value>P_roperti…</value>
+  </data>
+  <data name="Menu_Help" xml:space="preserve">
+    <value>_Bantuan</value>
+  </data>
+  <data name="Menu_Help_About" xml:space="preserve">
+    <value>_Tentang UML Wizard…</value>
+  </data>
+  <data name="AppMenu_About" xml:space="preserve">
+    <value>Tentang UML Wizard</value>
+  </data>
+  <data name="AppMenu_Preferences" xml:space="preserve">
+    <value>Preferensi…</value>
+  </data>
+  <data name="Menu_Help_LearnUml" xml:space="preserve">
+    <value>Belajar _UML</value>
+  </data>
+  <data name="Menu_Help_UserManual" xml:space="preserve">
+    <value>_Panduan pengguna</value>
+  </data>
+  <data name="Menu_Help_UserManual_Tip" xml:space="preserve">
+    <value>Cara menggunakan UML Wizard: proyek, menggambar, memformat, mengimpor dan mengekspor, pembuatan kode</value>
+  </data>
+  <data name="Menu_Help_OpenApiHowTo" xml:space="preserve">
+    <value>Cara impor dan ekspor _OpenAPI</value>
+  </data>
+  <data name="Menu_Help_GeneratingCodeHowTo" xml:space="preserve">
+    <value>Cara _menghasilkan kode</value>
+  </data>
+  <data name="Help_LearnUml" xml:space="preserve">
+    <value>Belajar UML</value>
+  </data>
+  <data name="Help_UserManual" xml:space="preserve">
+    <value>Panduan pengguna</value>
+  </data>
+  <data name="Help_OpenApiHowTo" xml:space="preserve">
+    <value>Cara impor dan ekspor OpenAPI</value>
+  </data>
+  <data name="Menu_Help_PlantUmlHowTo" xml:space="preserve">
+    <value>Cara impor dan ekspor P_lantUML</value>
+  </data>
+  <data name="Help_PlantUmlHowTo" xml:space="preserve">
+    <value>Cara impor dan ekspor PlantUML</value>
+  </data>
+  <data name="Help_GeneratingCodeHowTo" xml:space="preserve">
+    <value>Cara menghasilkan kode</value>
+  </data>
+  <data name="Message_HelpPageNotOpened" xml:space="preserve">
+    <value>Halaman bantuan tidak dapat dibuka:
+{0}</value>
+  </data>
+  <data name="Toolbar_NewProject" xml:space="preserve">
+    <value>Proyek baru</value>
+  </data>
+  <data name="Toolbar_OpenProject" xml:space="preserve">
+    <value>Buka proyek</value>
+  </data>
+  <data name="Toolbar_SaveProject" xml:space="preserve">
+    <value>Simpan proyek</value>
+  </data>
+  <data name="Toolbar_NewDiagram" xml:space="preserve">
+    <value>Diagram baru</value>
+  </data>
+  <data name="Toolbar_Undo" xml:space="preserve">
+    <value>Batalkan</value>
+  </data>
+  <data name="Toolbar_Redo" xml:space="preserve">
+    <value>Ulangi</value>
+  </data>
+  <data name="Toolbar_Cut" xml:space="preserve">
+    <value>Potong</value>
+  </data>
+  <data name="Toolbar_Copy" xml:space="preserve">
+    <value>Salin</value>
+  </data>
+  <data name="Toolbar_Paste" xml:space="preserve">
+    <value>Tempel</value>
+  </data>
+  <data name="Toolbar_ZoomOut" xml:space="preserve">
+    <value>Perkecil</value>
+  </data>
+  <data name="Toolbar_ZoomIn" xml:space="preserve">
+    <value>Perbesar</value>
+  </data>
+  <data name="Toolbar_ZoomLevel" xml:space="preserve">
+    <value>Tingkat zoom: klik untuk kembali ke 100%</value>
+  </data>
+  <data name="Toolbar_ActualSize" xml:space="preserve">
+    <value>Ukuran sebenarnya</value>
+  </data>
+  <data name="Toolbar_Fit" xml:space="preserve">
+    <value>Sesuaikan diagram dengan jendela</value>
+  </data>
+  <data name="Toolbar_Edit" xml:space="preserve">
+    <value>Edit elemen yang dipilih (Enter)</value>
+  </data>
+  <data name="Toolbar_Font" xml:space="preserve">
+    <value>Font elemen yang dipilih</value>
+  </data>
+  <data name="Toolbar_Shape" xml:space="preserve">
+    <value>Isian dan batas elemen yang dipilih</value>
+  </data>
+  <data name="Toolbar_Line" xml:space="preserve">
+    <value>Warna dan ketebalan garis yang dipilih</value>
+  </data>
+  <data name="Toolbar_BringToFront" xml:space="preserve">
+    <value>Bawa ke paling depan</value>
+  </data>
+  <data name="Toolbar_BringForward" xml:space="preserve">
+    <value>Bawa ke depan</value>
+  </data>
+  <data name="Toolbar_SendBackward" xml:space="preserve">
+    <value>Kirim ke belakang</value>
+  </data>
+  <data name="Toolbar_SendToBack" xml:space="preserve">
+    <value>Kirim ke paling belakang</value>
+  </data>
+  <data name="Explorer_ImportFolder_Tip" xml:space="preserve">
+    <value>Buat proyek dengan diagram kelas dari folder berisi file sumber C#, C++, Java, Kotlin, Ruby, atau TypeScript</value>
+  </data>
+  <data name="Explorer_Title" xml:space="preserve">
+    <value>Penjelajah proyek</value>
+  </data>
+  <data name="Explorer_Empty" xml:space="preserve">
+    <value>Proyek belum memiliki diagram. Gunakan + di bilah alat (atau Diagram → Diagram baru) untuk membuatnya; klik kanan di sini atau gunakan File → Folder baru untuk menatanya.</value>
+  </data>
+  <data name="Explorer_Open" xml:space="preserve">
+    <value>Buka</value>
+  </data>
+  <data name="Explorer_NewFolder" xml:space="preserve">
+    <value>Folder baru…</value>
+  </data>
+  <data name="Explorer_CopyDiagram" xml:space="preserve">
+    <value>Salin diagram</value>
+  </data>
+  <data name="Explorer_CopyDiagram_Name" xml:space="preserve">
+    <value>{0} (salinan)</value>
+  </data>
+  <data name="Explorer_Rename" xml:space="preserve">
+    <value>Ganti nama…</value>
+  </data>
+  <data name="Explorer_MoveTo" xml:space="preserve">
+    <value>Pindahkan ke…</value>
+  </data>
+  <data name="Explorer_Delete" xml:space="preserve">
+    <value>Hapus…</value>
+  </data>
+  <data name="Tab_Close" xml:space="preserve">
+    <value>Tutup</value>
+  </data>
+  <data name="Placeholder_DiagramNotOpen" xml:space="preserve">
+    <value>Diagram ini tidak terbuka. Klik diagram di penjelajah untuk membukanya, atau pilih tab.</value>
+  </data>
+  <data name="Placeholder_NoDiagram" xml:space="preserve">
+    <value>Buat atau buka proyek, lalu klik diagram untuk membukanya.</value>
+  </data>
+  <data name="Context_Cut" xml:space="preserve">
+    <value>Potong</value>
+  </data>
+  <data name="Context_Copy" xml:space="preserve">
+    <value>Salin</value>
+  </data>
+  <data name="Context_Paste" xml:space="preserve">
+    <value>Tempel</value>
+  </data>
+  <data name="Context_Edit" xml:space="preserve">
+    <value>Edit…</value>
+  </data>
+  <data name="Context_Font" xml:space="preserve">
+    <value>Font…</value>
+  </data>
+  <data name="Context_Shape" xml:space="preserve">
+    <value>Bentuk…</value>
+  </data>
+  <data name="Context_Line" xml:space="preserve">
+    <value>Garis…</value>
+  </data>
+  <data name="Context_DiagramFont" xml:space="preserve">
+    <value>Font diagram…</value>
+  </data>
+  <data name="Context_Arrange" xml:space="preserve">
+    <value>Susun diagram</value>
+  </data>
+  <data name="Context_BringToFront" xml:space="preserve">
+    <value>Bawa ke paling depan</value>
+  </data>
+  <data name="Context_BringForward" xml:space="preserve">
+    <value>Bawa ke depan</value>
+  </data>
+  <data name="Context_SendBackward" xml:space="preserve">
+    <value>Kirim ke belakang</value>
+  </data>
+  <data name="Context_SendToBack" xml:space="preserve">
+    <value>Kirim ke paling belakang</value>
+  </data>
+  <data name="Status_PlaceTool" xml:space="preserve">
+    <value>Klik pada kanvas untuk menempatkan: {0}. Esc untuk membatalkan.</value>
+  </data>
+  <data name="Status_ConnectorTool" xml:space="preserve">
+    <value>{0}. Esc untuk membatalkan.</value>
+  </data>
+  <data name="Status_Selected" xml:space="preserve">
+    <value>Dipilih: {0} — klik dua kali untuk mengedit langsung, klik kanan untuk Potong / Salin / Edit</value>
+  </data>
+  <data name="Status_Idle" xml:space="preserve">
+    <value>Klik dua kali elemen untuk mengedit langsung · seret area kosong untuk menggeser · {0}+roda untuk zoom</value>
+  </data>
+  <data name="Describe_Named" xml:space="preserve">
+    <value>{0} {1}</value>
+  </data>
+  <data name="Describe_Connection" xml:space="preserve">
+    <value>{0} {1} → {2}</value>
+  </data>
+  <data name="Describe_Lifeline" xml:space="preserve">
+    <value>Garis hidup {0}</value>
+  </data>
+  <data name="Describe_Message" xml:space="preserve">
+    <value>Pesan {1} ({0})</value>
+  </data>
+  <data name="Describe_TextBox" xml:space="preserve">
+    <value>Kotak teks "{0}"</value>
+  </data>
+  <data name="Describe_Note" xml:space="preserve">
+    <value>Catatan "{0}"</value>
+  </data>
+  <data name="Describe_NoteAttachment" xml:space="preserve">
+    <value>Lampiran catatan</value>
+  </data>
+  <data name="Tool_Select" xml:space="preserve">
+    <value>Pilih</value>
+  </data>
+  <data name="Tool_Select_Tip" xml:space="preserve">
+    <value>Pilih: pilih, pindahkan, dan ubah ukuran elemen</value>
+  </data>
+  <data name="Tool_Note" xml:space="preserve">
+    <value>Catatan</value>
+  </data>
+  <data name="Tool_Note_Tip" xml:space="preserve">
+    <value>Catatan: tambahkan catatan UML (komentar); seret pegangan sudutnya untuk mengubah ukuran</value>
+  </data>
+  <data name="Tool_AttachNote" xml:space="preserve">
+    <value>Lampirkan catatan</value>
+  </data>
+  <data name="Tool_AttachNote_Tip" xml:space="preserve">
+    <value>Lampirkan catatan: seret dari catatan ke elemen yang dijelaskannya, atau dari elemen ke catatan</value>
+  </data>
+  <data name="Tool_TextBox" xml:space="preserve">
+    <value>Kotak teks</value>
+  </data>
+  <data name="Tool_TextBox_Tip" xml:space="preserve">
+    <value>Kotak teks: tambahkan label teks; seret pegangan sudutnya untuk mengubah ukuran</value>
+  </data>
+  <data name="Tool_Class" xml:space="preserve">
+    <value>Kelas</value>
+  </data>
+  <data name="Tool_Class_Tip" xml:space="preserve">
+    <value>Tambahkan kelas</value>
+  </data>
+  <data name="Tool_AbstractClass" xml:space="preserve">
+    <value>Abstrak</value>
+  </data>
+  <data name="Tool_AbstractClass_Tip" xml:space="preserve">
+    <value>Tambahkan kelas abstrak</value>
+  </data>
+  <data name="Tool_Interface" xml:space="preserve">
+    <value>Antarmuka</value>
+  </data>
+  <data name="Tool_Interface_Tip" xml:space="preserve">
+    <value>Tambahkan antarmuka</value>
+  </data>
+  <data name="Tool_Enumeration" xml:space="preserve">
+    <value>Enum</value>
+  </data>
+  <data name="Tool_Enumeration_Tip" xml:space="preserve">
+    <value>Tambahkan enumerasi</value>
+  </data>
+  <data name="Tool_Association" xml:space="preserve">
+    <value>Asosiasi</value>
+  </data>
+  <data name="Tool_Association_Tip" xml:space="preserve">
+    <value>Asosiasi: seret dari satu kelas ke kelas lain</value>
+  </data>
+  <data name="Tool_DirectedAssociation" xml:space="preserve">
+    <value>Berarah</value>
+  </data>
+  <data name="Tool_DirectedAssociation_Tip" xml:space="preserve">
+    <value>Asosiasi berarah: seret dari pemilik ke kelas yang dirujuk</value>
+  </data>
+  <data name="Tool_Inheritance" xml:space="preserve">
+    <value>Pewarisan</value>
+  </data>
+  <data name="Tool_Inheritance_Tip" xml:space="preserve">
+    <value>Generalisasi: seret dari subkelas ke kelas dasar</value>
+  </data>
+  <data name="Tool_Realization" xml:space="preserve">
+    <value>Realisasi</value>
+  </data>
+  <data name="Tool_Realization_Tip" xml:space="preserve">
+    <value>Realisasi: seret dari kelas yang mengimplementasikan ke antarmuka</value>
+  </data>
+  <data name="Tool_Aggregation" xml:space="preserve">
+    <value>Agregasi</value>
+  </data>
+  <data name="Tool_Aggregation_Tip" xml:space="preserve">
+    <value>Agregasi: seret dari keseluruhan ke bagian</value>
+  </data>
+  <data name="Tool_Composition" xml:space="preserve">
+    <value>Komposisi</value>
+  </data>
+  <data name="Tool_Composition_Tip" xml:space="preserve">
+    <value>Komposisi: seret dari keseluruhan ke bagian</value>
+  </data>
+  <data name="Tool_Dependency" xml:space="preserve">
+    <value>Dependensi</value>
+  </data>
+  <data name="Tool_Dependency_Tip" xml:space="preserve">
+    <value>Dependensi: seret dari kelas yang bergantung ke kelas yang digunakannya</value>
+  </data>
+  <data name="Tool_Lifeline" xml:space="preserve">
+    <value>Garis hidup</value>
+  </data>
+  <data name="Tool_Lifeline_Tip" xml:space="preserve">
+    <value>Tambahkan garis hidup objek</value>
+  </data>
+  <data name="Tool_Actor" xml:space="preserve">
+    <value>Aktor</value>
+  </data>
+  <data name="Tool_Actor_Tip" xml:space="preserve">
+    <value>Tambahkan garis hidup aktor</value>
+  </data>
+  <data name="Tool_SyncMessage" xml:space="preserve">
+    <value>Sinkron</value>
+  </data>
+  <data name="Tool_SyncMessage_Tip" xml:space="preserve">
+    <value>Panggilan sinkron: seret dari pengirim ke penerima</value>
+  </data>
+  <data name="Tool_AsyncMessage" xml:space="preserve">
+    <value>Asinkron</value>
+  </data>
+  <data name="Tool_AsyncMessage_Tip" xml:space="preserve">
+    <value>Pesan asinkron: seret dari pengirim ke penerima</value>
+  </data>
+  <data name="Tool_ReplyMessage" xml:space="preserve">
+    <value>Balasan</value>
+  </data>
+  <data name="Tool_ReplyMessage_Tip" xml:space="preserve">
+    <value>Balasan: seret dari yang dipanggil kembali ke pemanggil</value>
+  </data>
+  <data name="Tool_CreateMessage" xml:space="preserve">
+    <value>Buat</value>
+  </data>
+  <data name="Tool_CreateMessage_Tip" xml:space="preserve">
+    <value>Pesan pembuatan: seret dari pembuat ke objek yang dibuat</value>
+  </data>
+  <data name="Tool_Node_Initial" xml:space="preserve">
+    <value>Awal</value>
+  </data>
+  <data name="Tool_Node_Final" xml:space="preserve">
+    <value>Akhir</value>
+  </data>
+  <data name="Tool_Node_ForkJoin" xml:space="preserve">
+    <value>Fork/Join</value>
+  </data>
+  <data name="Tool_Node_UseCase" xml:space="preserve">
+    <value>Use case</value>
+  </data>
+  <data name="Tool_Node_SystemBoundary" xml:space="preserve">
+    <value>Sistem</value>
+  </data>
+  <data name="Tool_Node_ExecutionEnvironment" xml:space="preserve">
+    <value>Lingkungan</value>
+  </data>
+  <data name="Tool_Node_Other_Tip" xml:space="preserve">
+    <value>Tambahkan: {0}</value>
+  </data>
+  <data name="Tool_Node_State_Tip" xml:space="preserve">
+    <value>Tambahkan status</value>
+  </data>
+  <data name="Tool_Node_InitialState_Tip" xml:space="preserve">
+    <value>Tambahkan pseudostatus awal, tempat mesin status dimulai</value>
+  </data>
+  <data name="Tool_Node_FinalState_Tip" xml:space="preserve">
+    <value>Tambahkan status akhir</value>
+  </data>
+  <data name="Tool_Node_Choice_Tip" xml:space="preserve">
+    <value>Tambahkan pilihan: transisi keluar membawa kondisi penjaga</value>
+  </data>
+  <data name="Tool_Node_Action_Tip" xml:space="preserve">
+    <value>Tambahkan aksi</value>
+  </data>
+  <data name="Tool_Node_InitialNode_Tip" xml:space="preserve">
+    <value>Tambahkan node awal, tempat aktivitas dimulai</value>
+  </data>
+  <data name="Tool_Node_ActivityFinal_Tip" xml:space="preserve">
+    <value>Tambahkan node akhir aktivitas</value>
+  </data>
+  <data name="Tool_Node_Decision_Tip" xml:space="preserve">
+    <value>Tambahkan node keputusan atau penggabungan</value>
+  </data>
+  <data name="Tool_Node_ForkJoin_Tip" xml:space="preserve">
+    <value>Tambahkan batang fork atau join; seret pegangan sudutnya untuk memanjangkan atau membuatnya vertikal</value>
+  </data>
+  <data name="Tool_Node_Actor_Tip" xml:space="preserve">
+    <value>Tambahkan aktor</value>
+  </data>
+  <data name="Tool_Node_UseCase_Tip" xml:space="preserve">
+    <value>Tambahkan use case</value>
+  </data>
+  <data name="Tool_Node_SystemBoundary_Tip" xml:space="preserve">
+    <value>Tambahkan batas sistem; use case di dalamnya ikut berpindah</value>
+  </data>
+  <data name="Tool_Node_Component_Tip" xml:space="preserve">
+    <value>Tambahkan komponen</value>
+  </data>
+  <data name="Tool_Node_Interface_Tip" xml:space="preserve">
+    <value>Tambahkan antarmuka (lollipop)</value>
+  </data>
+  <data name="Tool_Node_Node_Tip" xml:space="preserve">
+    <value>Tambahkan node (kotak 3-D); isinya ikut berpindah bersamanya</value>
+  </data>
+  <data name="Tool_Node_Device_Tip" xml:space="preserve">
+    <value>Tambahkan node perangkat («device»); isinya ikut berpindah bersamanya</value>
+  </data>
+  <data name="Tool_Node_ExecutionEnvironment_Tip" xml:space="preserve">
+    <value>Tambahkan lingkungan eksekusi («executionEnvironment»), mis. runtime atau kontainer, biasanya di dalam node</value>
+  </data>
+  <data name="Tool_Node_Artifact_Tip" xml:space="preserve">
+    <value>Tambahkan artefak («artifact»): file yang di-deploy, mis. program atau basis data</value>
+  </data>
+  <data name="Tool_Edge_ControlFlow" xml:space="preserve">
+    <value>Alur</value>
+  </data>
+  <data name="Tool_Edge_CommunicationPath" xml:space="preserve">
+    <value>Jalur</value>
+  </data>
+  <data name="Tool_Edge_Transition_Tip" xml:space="preserve">
+    <value>Transisi: seret dari satu status ke status berikutnya (atau kembali ke status yang sama)</value>
+  </data>
+  <data name="Tool_Edge_ControlFlow_Tip" xml:space="preserve">
+    <value>Alur kontrol: seret dari satu node ke node berikutnya</value>
+  </data>
+  <data name="Tool_Edge_Association_Tip" xml:space="preserve">
+    <value>Asosiasi: seret di antara dua elemen</value>
+  </data>
+  <data name="Tool_Edge_Include_Tip" xml:space="preserve">
+    <value>Include: seret dari use case yang menyertakan ke use case yang disertakan</value>
+  </data>
+  <data name="Tool_Edge_Extend_Tip" xml:space="preserve">
+    <value>Extend: seret dari use case yang memperluas ke use case yang diperluas</value>
+  </data>
+  <data name="Tool_Edge_Generalization_Tip" xml:space="preserve">
+    <value>Generalisasi: seret dari aktor atau use case yang spesifik ke yang umum</value>
+  </data>
+  <data name="Tool_Edge_Dependency_Tip" xml:space="preserve">
+    <value>Dependensi: seret dari elemen yang bergantung ke elemen yang digunakannya</value>
+  </data>
+  <data name="Tool_Edge_Realization_Tip" xml:space="preserve">
+    <value>Realisasi: seret dari komponen ke antarmuka yang disediakannya</value>
+  </data>
+  <data name="Tool_Edge_CommunicationPath_Tip" xml:space="preserve">
+    <value>Jalur komunikasi: seret di antara dua node; beri label protokol, mis. HTTPS</value>
+  </data>
+  <data name="Tool_Edge_Deploy_Tip" xml:space="preserve">
+    <value>Deploy: seret dari artefak ke node tempat ia di-deploy (atau letakkan di dalam node)</value>
+  </data>
+  <data name="Tool_Edge_Manifest_Tip" xml:space="preserve">
+    <value>Manifestasi: seret dari artefak ke komponen yang diimplementasikannya</value>
+  </data>
+  <data name="DiagramType_Class" xml:space="preserve">
+    <value>Diagram kelas</value>
+  </data>
+  <data name="DiagramType_Sequence" xml:space="preserve">
+    <value>Diagram sekuens</value>
+  </data>
+  <data name="DiagramType_StateMachine" xml:space="preserve">
+    <value>Diagram mesin status</value>
+  </data>
+  <data name="DiagramType_Activity" xml:space="preserve">
+    <value>Diagram aktivitas</value>
+  </data>
+  <data name="DiagramType_UseCase" xml:space="preserve">
+    <value>Diagram use case</value>
+  </data>
+  <data name="DiagramType_Component" xml:space="preserve">
+    <value>Diagram komponen</value>
+  </data>
+  <data name="DiagramType_Deployment" xml:space="preserve">
+    <value>Diagram deployment</value>
+  </data>
+  <data name="DiagramName_Class" xml:space="preserve">
+    <value>DiagramKelas</value>
+  </data>
+  <data name="DiagramName_Sequence" xml:space="preserve">
+    <value>DiagramSekuens</value>
+  </data>
+  <data name="DiagramName_StateMachine" xml:space="preserve">
+    <value>MesinStatus</value>
+  </data>
+  <data name="DiagramName_Activity" xml:space="preserve">
+    <value>DiagramAktivitas</value>
+  </data>
+  <data name="DiagramName_UseCase" xml:space="preserve">
+    <value>DiagramUseCase</value>
+  </data>
+  <data name="DiagramName_Component" xml:space="preserve">
+    <value>DiagramKomponen</value>
+  </data>
+  <data name="DiagramName_Deployment" xml:space="preserve">
+    <value>DiagramDeployment</value>
+  </data>
+  <data name="Enum_UmlVisibility_Public" xml:space="preserve">
+    <value>Publik</value>
+  </data>
+  <data name="Enum_UmlVisibility_Private" xml:space="preserve">
+    <value>Privat</value>
+  </data>
+  <data name="Enum_UmlVisibility_Protected" xml:space="preserve">
+    <value>Terlindungi</value>
+  </data>
+  <data name="Enum_UmlVisibility_Package" xml:space="preserve">
+    <value>Paket</value>
+  </data>
+  <data name="Enum_ClassifierKind_Class" xml:space="preserve">
+    <value>Kelas</value>
+  </data>
+  <data name="Enum_ClassifierKind_AbstractClass" xml:space="preserve">
+    <value>Kelas abstrak</value>
+  </data>
+  <data name="Enum_ClassifierKind_Interface" xml:space="preserve">
+    <value>Antarmuka</value>
+  </data>
+  <data name="Enum_ClassifierKind_Enumeration" xml:space="preserve">
+    <value>Enumerasi</value>
+  </data>
+  <data name="Enum_RelationshipKind_Association" xml:space="preserve">
+    <value>Asosiasi</value>
+  </data>
+  <data name="Enum_RelationshipKind_DirectedAssociation" xml:space="preserve">
+    <value>Asosiasi berarah</value>
+  </data>
+  <data name="Enum_RelationshipKind_Inheritance" xml:space="preserve">
+    <value>Pewarisan</value>
+  </data>
+  <data name="Enum_RelationshipKind_Realization" xml:space="preserve">
+    <value>Realisasi</value>
+  </data>
+  <data name="Enum_RelationshipKind_Aggregation" xml:space="preserve">
+    <value>Agregasi</value>
+  </data>
+  <data name="Enum_RelationshipKind_Composition" xml:space="preserve">
+    <value>Komposisi</value>
+  </data>
+  <data name="Enum_RelationshipKind_Dependency" xml:space="preserve">
+    <value>Dependensi</value>
+  </data>
+  <data name="Enum_LifelineKind_Object" xml:space="preserve">
+    <value>Objek</value>
+  </data>
+  <data name="Enum_LifelineKind_Actor" xml:space="preserve">
+    <value>Aktor</value>
+  </data>
+  <data name="Enum_MessageKind_Synchronous" xml:space="preserve">
+    <value>Sinkron</value>
+  </data>
+  <data name="Enum_MessageKind_Asynchronous" xml:space="preserve">
+    <value>Asinkron</value>
+  </data>
+  <data name="Enum_MessageKind_Reply" xml:space="preserve">
+    <value>Balasan</value>
+  </data>
+  <data name="Enum_MessageKind_Create" xml:space="preserve">
+    <value>Pembuatan</value>
+  </data>
+  <data name="Enum_HorizontalTextAlignment_Left" xml:space="preserve">
+    <value>Kiri</value>
+  </data>
+  <data name="Enum_HorizontalTextAlignment_Center" xml:space="preserve">
+    <value>Tengah</value>
+  </data>
+  <data name="Enum_HorizontalTextAlignment_Right" xml:space="preserve">
+    <value>Kanan</value>
+  </data>
+  <data name="Enum_VerticalTextAlignment_Top" xml:space="preserve">
+    <value>Atas</value>
+  </data>
+  <data name="Enum_VerticalTextAlignment_Middle" xml:space="preserve">
+    <value>Tengah</value>
+  </data>
+  <data name="Enum_VerticalTextAlignment_Bottom" xml:space="preserve">
+    <value>Bawah</value>
+  </data>
+  <data name="Enum_GraphNodeKind_State" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Enum_GraphNodeKind_InitialState" xml:space="preserve">
+    <value>Status awal</value>
+  </data>
+  <data name="Enum_GraphNodeKind_FinalState" xml:space="preserve">
+    <value>Status akhir</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Choice" xml:space="preserve">
+    <value>Pilihan</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Action" xml:space="preserve">
+    <value>Aksi</value>
+  </data>
+  <data name="Enum_GraphNodeKind_InitialNode" xml:space="preserve">
+    <value>Node awal</value>
+  </data>
+  <data name="Enum_GraphNodeKind_ActivityFinal" xml:space="preserve">
+    <value>Akhir aktivitas</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Decision" xml:space="preserve">
+    <value>Keputusan</value>
+  </data>
+  <data name="Enum_GraphNodeKind_ForkJoin" xml:space="preserve">
+    <value>Fork/Join</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Actor" xml:space="preserve">
+    <value>Aktor</value>
+  </data>
+  <data name="Enum_GraphNodeKind_UseCase" xml:space="preserve">
+    <value>Use case</value>
+  </data>
+  <data name="Enum_GraphNodeKind_SystemBoundary" xml:space="preserve">
+    <value>Batas sistem</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Component" xml:space="preserve">
+    <value>Komponen</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Interface" xml:space="preserve">
+    <value>Antarmuka</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Node" xml:space="preserve">
+    <value>Node</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Device" xml:space="preserve">
+    <value>Perangkat</value>
+  </data>
+  <data name="Enum_GraphNodeKind_ExecutionEnvironment" xml:space="preserve">
+    <value>Lingkungan eksekusi</value>
+  </data>
+  <data name="Enum_GraphNodeKind_Artifact" xml:space="preserve">
+    <value>Artefak</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Transition" xml:space="preserve">
+    <value>Transisi</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_ControlFlow" xml:space="preserve">
+    <value>Alur kontrol</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Association" xml:space="preserve">
+    <value>Asosiasi</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Include" xml:space="preserve">
+    <value>Include</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Extend" xml:space="preserve">
+    <value>Extend</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Generalization" xml:space="preserve">
+    <value>Generalisasi</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Dependency" xml:space="preserve">
+    <value>Dependensi</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Realization" xml:space="preserve">
+    <value>Realisasi</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_CommunicationPath" xml:space="preserve">
+    <value>Jalur komunikasi</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Deploy" xml:space="preserve">
+    <value>Deploy</value>
+  </data>
+  <data name="Enum_GraphEdgeKind_Manifest" xml:space="preserve">
+    <value>Manifestasi</value>
+  </data>
+  <data name="Message_UnsavedChanges_Title" xml:space="preserve">
+    <value>Perubahan belum disimpan</value>
+  </data>
+  <data name="Message_UnsavedChanges_Many" xml:space="preserve">
+    <value>Simpan perubahan pada diagram berikut?
+
+{0}</value>
+  </data>
+  <data name="Message_UnsavedChanges_One" xml:space="preserve">
+    <value>Simpan perubahan pada '{0}'?</value>
+  </data>
+  <data name="Message_ProjectExists" xml:space="preserve">
+    <value>Proyek sudah ada di
+{0}</value>
+  </data>
+  <data name="Message_ProjectNotCreated" xml:space="preserve">
+    <value>Proyek tidak dapat dibuat.
+{0}</value>
+  </data>
+  <data name="Message_ProjectNotOpened" xml:space="preserve">
+    <value>Proyek tidak dapat dibuka.
+{0}</value>
+  </data>
+  <data name="Message_ProjectNotSaved" xml:space="preserve">
+    <value>File proyek tidak dapat disimpan.
+{0}</value>
+  </data>
+  <data name="Message_RecentProjectMissing_Title" xml:space="preserve">
+    <value>Buka proyek terbaru</value>
+  </data>
+  <data name="Recent_CopyProject" xml:space="preserve">
+    <value>Salin proyek</value>
+  </data>
+  <data name="Recent_CopyProject_Name" xml:space="preserve">
+    <value>{0} (salinan)</value>
+  </data>
+  <data name="Recent_CopyProject_NameNumbered" xml:space="preserve">
+    <value>{0} (salinan {1})</value>
+  </data>
+  <data name="Message_ProjectNotCopied" xml:space="preserve">
+    <value>Proyek tidak dapat disalin:
+{0}
+
+{1}</value>
+  </data>
+  <data name="Recent_DeleteFile" xml:space="preserve">
+    <value>Hapus file proyek…</value>
+  </data>
+  <data name="Message_DeleteProjectFile_Title" xml:space="preserve">
+    <value>Hapus file proyek</value>
+  </data>
+  <data name="Message_DeleteProjectFile" xml:space="preserve">
+    <value>Hapus proyek '{0}' secara permanen?
+{1}
+
+File dihapus selamanya, tidak dipindahkan ke Recycle Bin atau Tempat Sampah. Tindakan ini tidak dapat dibatalkan, dan file tidak dapat dipulihkan.</value>
+  </data>
+  <data name="Message_ProjectFileNotDeleted" xml:space="preserve">
+    <value>File proyek tidak dapat dihapus:
+{0}
+
+{1}</value>
+  </data>
+  <data name="Message_RecentProjectMissing" xml:space="preserve">
+    <value>Proyek tidak ditemukan:
+{0}
+
+Hapus dari daftar proyek terbaru?</value>
+  </data>
+  <data name="Message_InvalidDiagram" xml:space="preserve">
+    <value>File ini bukan diagram yang valid.
+{0}</value>
+  </data>
+  <data name="Message_DiagramNotAdded" xml:space="preserve">
+    <value>Diagram tidak dapat ditambahkan ke proyek.
+{0}</value>
+  </data>
+  <data name="Message_DeleteFolder_Title" xml:space="preserve">
+    <value>Hapus folder</value>
+  </data>
+  <data name="Message_DeleteFolder" xml:space="preserve">
+    <value>Hapus folder '{0}'?
+Diagram dan subfoldernya dipindahkan ke {1}.</value>
+  </data>
+  <data name="Message_DeleteFolder_ToFolder" xml:space="preserve">
+    <value>'{0}'</value>
+  </data>
+  <data name="Message_DeleteFolder_ToTopLevel" xml:space="preserve">
+    <value>tingkat teratas</value>
+  </data>
+  <data name="Message_DeleteDiagram_Title" xml:space="preserve">
+    <value>Hapus diagram</value>
+  </data>
+  <data name="Message_DeleteDiagram" xml:space="preserve">
+    <value>Hapus '{0}' dari proyek?
+Tindakan ini tidak dapat dibatalkan.</value>
+  </data>
+  <data name="Message_ReplaceFile" xml:space="preserve">
+    <value>File '{0}' sudah ada di
+{1}
+
+Apakah Anda ingin menggantinya?</value>
+  </data>
+  <data name="Picker_OpenProject" xml:space="preserve">
+    <value>Buka proyek</value>
+  </data>
+  <data name="Picker_SaveProjectAs" xml:space="preserve">
+    <value>Simpan proyek sebagai</value>
+  </data>
+  <data name="Picker_ImportDiagram" xml:space="preserve">
+    <value>Impor diagram</value>
+  </data>
+  <data name="Picker_ProjectFiles" xml:space="preserve">
+    <value>Proyek UML Wizard</value>
+  </data>
+  <data name="Picker_DiagramFiles" xml:space="preserve">
+    <value>Diagram UML Wizard</value>
+  </data>
+  <data name="Picker_ProjectLocation" xml:space="preserve">
+    <value>Pilih lokasi proyek</value>
+  </data>
+  <data name="Picker_OutputFolder" xml:space="preserve">
+    <value>Pilih folder keluaran</value>
+  </data>
+  <data name="Dialog_NewProject_Title" xml:space="preserve">
+    <value>Proyek baru</value>
+  </data>
+  <data name="Dialog_NewProject_DefaultName" xml:space="preserve">
+    <value>ProyekBaru</value>
+  </data>
+  <data name="Dialog_ProjectProperties_Title" xml:space="preserve">
+    <value>Properti proyek</value>
+  </data>
+  <data name="Dialog_ProjectProperties_CopyFolder_Tip" xml:space="preserve">
+    <value>Folder file proyek. Klik untuk menyalinnya ke papan klip.</value>
+  </data>
+  <data name="Dialog_ProjectProperties_Copied" xml:space="preserve">
+    <value>Disalin</value>
+  </data>
+  <data name="Dialog_SaveProject_Title" xml:space="preserve">
+    <value>Simpan proyek</value>
+  </data>
+  <data name="Dialog_Project_NeedsName" xml:space="preserve">
+    <value>Proyek memerlukan nama.</value>
+  </data>
+  <data name="Dialog_Project_NeedsLocation" xml:space="preserve">
+    <value>Pilih folder yang sudah ada sebagai lokasi.</value>
+  </data>
+  <data name="Dialog_NewDiagram_Title" xml:space="preserve">
+    <value>Diagram baru</value>
+  </data>
+  <data name="Dialog_NewDiagram_NeedsName" xml:space="preserve">
+    <value>Diagram memerlukan nama.</value>
+  </data>
+  <data name="Dialog_DiagramProperties_Title" xml:space="preserve">
+    <value>Properti diagram</value>
+  </data>
+  <data name="Dialog_DiagramProperties_NeedsName" xml:space="preserve">
+    <value>Masukkan nama untuk diagram.</value>
+  </data>
+  <data name="Dialog_NewFolder_Title" xml:space="preserve">
+    <value>Folder baru</value>
+  </data>
+  <data name="Dialog_NewFolder_DefaultName" xml:space="preserve">
+    <value>Folder baru</value>
+  </data>
+  <data name="Dialog_RenameFolder_Title" xml:space="preserve">
+    <value>Ganti nama folder</value>
+  </data>
+  <data name="Dialog_RenameDiagram_Title" xml:space="preserve">
+    <value>Ganti nama diagram</value>
+  </data>
+  <data name="Dialog_FolderName" xml:space="preserve">
+    <value>Nama folder</value>
+  </data>
+  <data name="Dialog_DiagramName" xml:space="preserve">
+    <value>Nama diagram</value>
+  </data>
+  <data name="Recent_Title" xml:space="preserve">
+    <value>Proyek terbaru</value>
+  </data>
+  <data name="Recent_None" xml:space="preserve">
+    <value>Belum ada proyek terbaru. Proyek yang Anda buat atau buka akan tercantum di sini.</value>
+  </data>
+  <data name="Start_NewProject" xml:space="preserve">
+    <value>Buat proyek baru</value>
+  </data>
+  <data name="Start_NewProject_Description" xml:space="preserve">
+    <value>Mulai dengan proyek kosong, lalu tambahkan diagram ke dalamnya.</value>
+  </data>
+  <data name="Start_OpenProject" xml:space="preserve">
+    <value>Buka proyek yang ada</value>
+  </data>
+  <data name="Start_OpenProject_Description" xml:space="preserve">
+    <value>Buka file proyek UML Wizard (.umlwiz).</value>
+  </data>
+  <data name="Start_ImportFolder" xml:space="preserve">
+    <value>Impor folder sumber</value>
+  </data>
+  <data name="Start_ImportFolder_Description" xml:space="preserve">
+    <value>Buat diagram kelas dari folder berisi kode C#, C++, Java, Kotlin, Ruby, atau TypeScript.</value>
+  </data>
+  <data name="Splash_Loading" xml:space="preserve">
+    <value>Memulai…</value>
+  </data>
+  <data name="Dialog_RenameProject_Title" xml:space="preserve">
+    <value>Ganti nama proyek</value>
+  </data>
+  <data name="Dialog_ProjectName" xml:space="preserve">
+    <value>Nama proyek</value>
+  </data>
+  <data name="Dialog_TextInput_NeedsValue" xml:space="preserve">
+    <value>Masukkan nilai.</value>
+  </data>
+  <data name="Dialog_MoveTo_Title" xml:space="preserve">
+    <value>Pindahkan ke</value>
+  </data>
+  <data name="Dialog_MoveTo_Prompt" xml:space="preserve">
+    <value>Pindahkan '{0}' ke:</value>
+  </data>
+  <data name="Dialog_MoveTo_TopLevel" xml:space="preserve">
+    <value>(Tingkat teratas)</value>
+  </data>
+  <data name="Dialog_MoveTo_NeedsDestination" xml:space="preserve">
+    <value>Pilih tujuan.</value>
+  </data>
+  <data name="Dialog_EditClass_Title" xml:space="preserve">
+    <value>Edit kelas</value>
+  </data>
+  <data name="Dialog_EditClass_Stereotype" xml:space="preserve">
+    <value>Stereotipe</value>
+  </data>
+  <data name="Dialog_EditClass_Stereotype_Hint" xml:space="preserve">
+    <value>opsional, mis. entity</value>
+  </data>
+  <data name="Dialog_EditClass_Attributes" xml:space="preserve">
+    <value>Atribut</value>
+  </data>
+  <data name="Dialog_EditClass_AddAttribute" xml:space="preserve">
+    <value>+ Tambah atribut</value>
+  </data>
+  <data name="Dialog_EditClass_Operations" xml:space="preserve">
+    <value>Operasi</value>
+  </data>
+  <data name="Dialog_EditClass_AddOperation" xml:space="preserve">
+    <value>+ Tambah operasi</value>
+  </data>
+  <data name="Dialog_EditClass_DefaultValue" xml:space="preserve">
+    <value>Nilai bawaan</value>
+  </data>
+  <data name="Dialog_EditClass_Static" xml:space="preserve">
+    <value>Statis</value>
+  </data>
+  <data name="Dialog_EditClass_Abstract" xml:space="preserve">
+    <value>Abstrak</value>
+  </data>
+  <data name="Dialog_EditClass_Parameters" xml:space="preserve">
+    <value>Parameter (nama: Tipe, …)</value>
+  </data>
+  <data name="Dialog_EditClass_ReturnType" xml:space="preserve">
+    <value>Tipe kembalian</value>
+  </data>
+  <data name="Dialog_EditClass_NewAttributeName" xml:space="preserve">
+    <value>atribut{0}</value>
+  </data>
+  <data name="Dialog_EditClass_NewOperationName" xml:space="preserve">
+    <value>operasi{0}</value>
+  </data>
+  <data name="Dialog_EditClass_NeedsName" xml:space="preserve">
+    <value>Kelas memerlukan nama.</value>
+  </data>
+  <data name="Dialog_EditClass_AttributeNeedsName" xml:space="preserve">
+    <value>Setiap atribut memerlukan nama.</value>
+  </data>
+  <data name="Dialog_EditClass_OperationNeedsName" xml:space="preserve">
+    <value>Setiap operasi memerlukan nama.</value>
+  </data>
+  <data name="Dialog_EditRelationship_Title" xml:space="preserve">
+    <value>Edit relasi</value>
+  </data>
+  <data name="Dialog_EditRelationship_FromTo" xml:space="preserve">
+    <value>Dari → Ke</value>
+  </data>
+  <data name="Dialog_EditRelationship_SourceMultiplicity" xml:space="preserve">
+    <value>Multiplisitas sumber</value>
+  </data>
+  <data name="Dialog_EditRelationship_SourceMultiplicity_Hint" xml:space="preserve">
+    <value>mis. 1</value>
+  </data>
+  <data name="Dialog_EditRelationship_TargetMultiplicity" xml:space="preserve">
+    <value>Multiplisitas target</value>
+  </data>
+  <data name="Dialog_EditRelationship_TargetMultiplicity_Hint" xml:space="preserve">
+    <value>mis. 0..*</value>
+  </data>
+  <data name="Dialog_EditLifeline_Title" xml:space="preserve">
+    <value>Edit garis hidup</value>
+  </data>
+  <data name="Dialog_EditLifeline_Type_Hint" xml:space="preserve">
+    <value>classifier, mis. OrderService</value>
+  </data>
+  <data name="Dialog_EditLifeline_NeedsNameOrType" xml:space="preserve">
+    <value>Masukkan nama, tipe, atau keduanya.</value>
+  </data>
+  <data name="Dialog_EditMessage_Title" xml:space="preserve">
+    <value>Edit pesan</value>
+  </data>
+  <data name="Dialog_EditMessage_Text_Hint" xml:space="preserve">
+    <value>mis. placeOrder(order)</value>
+  </data>
+  <data name="Dialog_EditMessage_From" xml:space="preserve">
+    <value>Dari</value>
+  </data>
+  <data name="Dialog_EditMessage_To" xml:space="preserve">
+    <value>Ke</value>
+  </data>
+  <data name="Dialog_EditMessage_NeedsLifelines" xml:space="preserve">
+    <value>Pilih garis hidup pengirim dan penerima.</value>
+  </data>
+  <data name="Dialog_EditNote_Title" xml:space="preserve">
+    <value>Edit catatan</value>
+  </data>
+  <data name="Dialog_EditTextBox_Title" xml:space="preserve">
+    <value>Edit kotak teks</value>
+  </data>
+  <data name="Dialog_EditTextBox_Text_Hint" xml:space="preserve">
+    <value>Teks; tekan Enter untuk baris baru</value>
+  </data>
+  <data name="Dialog_EditTextBox_Horizontal" xml:space="preserve">
+    <value>Horizontal</value>
+  </data>
+  <data name="Dialog_EditTextBox_Vertical" xml:space="preserve">
+    <value>Vertikal</value>
+  </data>
+  <data name="Dialog_RenameElement_Title" xml:space="preserve">
+    <value>Ganti nama {0}</value>
+  </data>
+  <data name="Dialog_EditEdge_Title" xml:space="preserve">
+    <value>Edit {0}</value>
+  </data>
+  <data name="Dialog_EditEdge_TransitionLabel" xml:space="preserve">
+    <value>Label (pemicu [penjaga] / efek)</value>
+  </data>
+  <data name="Dialog_EditEdge_GuardLabel" xml:space="preserve">
+    <value>Penjaga, mis. [disetujui]</value>
+  </data>
+  <data name="Dialog_Font_Title" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="Dialog_Font_ElementTitle" xml:space="preserve">
+    <value>Font — {0}</value>
+  </data>
+  <data name="Dialog_Shape_Title" xml:space="preserve">
+    <value>Format bentuk — {0}</value>
+  </data>
+  <data name="ColorPicker_Title" xml:space="preserve">
+    <value>Edit warna — {0}</value>
+  </data>
+  <data name="ColorPicker_Hex_Tip" xml:space="preserve">
+    <value>Warna sebagai #RRGGBB</value>
+  </data>
+  <data name="ColorPicker_Hex" xml:space="preserve">
+    <value>Hex</value>
+  </data>
+  <data name="ColorPicker_Red" xml:space="preserve">
+    <value>Merah</value>
+  </data>
+  <data name="ColorPicker_Green" xml:space="preserve">
+    <value>Hijau</value>
+  </data>
+  <data name="ColorPicker_Blue" xml:space="preserve">
+    <value>Biru</value>
+  </data>
+  <data name="ColorPicker_Hue" xml:space="preserve">
+    <value>Rona</value>
+  </data>
+  <data name="ColorPicker_Saturation" xml:space="preserve">
+    <value>Saturasi</value>
+  </data>
+  <data name="ColorPicker_Value" xml:space="preserve">
+    <value>Nilai</value>
+  </data>
+  <data name="ColorPicker_BasicColors" xml:space="preserve">
+    <value>Warna dasar</value>
+  </data>
+  <data name="ColorPicker_CustomColors" xml:space="preserve">
+    <value>Warna kustom</value>
+  </data>
+  <data name="ColorPicker_AddCustom" xml:space="preserve">
+    <value>Tambahkan ke warna kustom</value>
+  </data>
+  <data name="ColorPicker_AddCustom_Tip" xml:space="preserve">
+    <value>Tambahkan warna ini ke warna kustom</value>
+  </data>
+  <data name="ColorBox_Edit_Tip" xml:space="preserve">
+    <value>Pilih warna</value>
+  </data>
+  <data name="Dialog_Shape_Fill" xml:space="preserve">
+    <value>Isian</value>
+  </data>
+  <data name="Dialog_Shape_Border" xml:space="preserve">
+    <value>Batas</value>
+  </data>
+  <data name="Dialog_Line_Title" xml:space="preserve">
+    <value>Format garis — {0}</value>
+  </data>
+  <data name="Dialog_Shape_Line" xml:space="preserve">
+    <value>Garis</value>
+  </data>
+  <data name="Dialog_Shape_DefaultFill" xml:space="preserve">
+    <value>Isian bawaan</value>
+  </data>
+  <data name="Dialog_Shape_DefaultBorder" xml:space="preserve">
+    <value>Warna bawaan</value>
+  </data>
+  <data name="Dialog_Shape_DefaultColor_Tip" xml:space="preserve">
+    <value>Warna skema saat ini untuk jenis elemen ini</value>
+  </data>
+  <data name="Dialog_Shape_None" xml:space="preserve">
+    <value>(tidak ada)</value>
+  </data>
+  <data name="Dialog_Shape_Thickness" xml:space="preserve">
+    <value>Ketebalan</value>
+  </data>
+  <data name="Dialog_Shape_Sample" xml:space="preserve">
+    <value>Contoh</value>
+  </data>
+  <data name="Dialog_Shape_Reset" xml:space="preserve">
+    <value>Kembalikan ke bawaan</value>
+  </data>
+  <data name="Dialog_Shape_InvalidColor" xml:space="preserve">
+    <value>Masukkan warna sebagai #RRGGBB, mis. #E8EEF9.</value>
+  </data>
+  <data name="Dialog_Shape_WidthRange" xml:space="preserve">
+    <value>Ketebalan harus antara {0} dan {1}.</value>
+  </data>
+  <data name="Dialog_Font_DiagramTitle" xml:space="preserve">
+    <value>Font diagram</value>
+  </data>
+  <data name="Dialog_Font_Font" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="Dialog_Font_Size" xml:space="preserve">
+    <value>Ukuran</value>
+  </data>
+  <data name="Dialog_Font_Style" xml:space="preserve">
+    <value>Gaya</value>
+  </data>
+  <data name="Dialog_Font_Bold" xml:space="preserve">
+    <value>Tebal</value>
+  </data>
+  <data name="Dialog_Font_Italic" xml:space="preserve">
+    <value>Miring</value>
+  </data>
+  <data name="Dialog_Font_Sample" xml:space="preserve">
+    <value>Order  +total: decimal  #pay(amount): bool</value>
+  </data>
+  <data name="Dialog_Font_DefaultFamily" xml:space="preserve">
+    <value>(Bawaan)</value>
+  </data>
+  <data name="Dialog_Font_UseDiagramFont" xml:space="preserve">
+    <value>Gunakan font diagram</value>
+  </data>
+  <data name="Dialog_Font_UseDefaultFont" xml:space="preserve">
+    <value>Gunakan font bawaan</value>
+  </data>
+  <data name="Dialog_Font_SizeRange" xml:space="preserve">
+    <value>Masukkan ukuran antara {0} dan {1}.</value>
+  </data>
+  <data name="Dialog_Export_Title" xml:space="preserve">
+    <value>Ekspor sebagai PNG</value>
+  </data>
+  <data name="Dialog_Export_Prompt" xml:space="preserve">
+    <value>Ekspor '{0}' sebagai gambar PNG.</value>
+  </data>
+  <data name="Dialog_Export_OutputFolder" xml:space="preserve">
+    <value>Folder keluaran</value>
+  </data>
+  <data name="Dialog_Export_Browse_Tip" xml:space="preserve">
+    <value>Pilih folder</value>
+  </data>
+  <data name="Dialog_Export_OutputFolder_Hint" xml:space="preserve">
+    <value>Jalur lengkap folder</value>
+  </data>
+  <data name="Dialog_Export_FileName" xml:space="preserve">
+    <value>Nama file</value>
+  </data>
+  <data name="Dialog_Export_FileName_Hint" xml:space="preserve">
+    <value>diagram.png</value>
+  </data>
+  <data name="Dialog_Export_FileExists" xml:space="preserve">
+    <value>File sudah ada</value>
+  </data>
+  <data name="Dialog_Export_FileExists_Tip" xml:space="preserve">
+    <value>File dengan nama ini sudah ada di folder</value>
+  </data>
+  <data name="Dialog_Export_Transparent" xml:space="preserve">
+    <value>Latar belakang transparan</value>
+  </data>
+  <data name="Dialog_Export_Transparent_Note" xml:space="preserve">
+    <value>Bentuk berisi putih dan latar belakang label tetap putih.</value>
+  </data>
+  <data name="Dialog_Export_NeedsFolder" xml:space="preserve">
+    <value>Masukkan atau pilih folder keluaran.</value>
+  </data>
+  <data name="Dialog_Export_NeedsFileName" xml:space="preserve">
+    <value>Masukkan nama file.</value>
+  </data>
+  <data name="Dialog_Export_InvalidFileName" xml:space="preserve">
+    <value>Nama file berisi karakter yang tidak diizinkan.</value>
+  </data>
+  <data name="Dialog_Export_FolderMissing" xml:space="preserve">
+    <value>Folder keluaran tidak ada.</value>
+  </data>
+  <data name="About_Title" xml:space="preserve">
+    <value>Tentang {0}</value>
+  </data>
+  <data name="About_Description" xml:space="preserve">
+    <value>Perancang UML untuk diagram kelas, sekuens, mesin status, aktivitas, use case, komponen, dan deployment, dengan pembuatan kode dan impor kode.</value>
+  </data>
+  <data name="About_General" xml:space="preserve">
+    <value>Umum</value>
+  </data>
+  <data name="About_Languages" xml:space="preserve">
+    <value>Bahasa</value>
+  </data>
+  <data name="About_Languages_Intro" xml:space="preserve">
+    <value>Generator kode dan pengimpor kode yang dipasang dari folder plugin. Setiap bahasa adalah DLL plugin; arahkan kursor ke baris untuk melihat filenya.</value>
+  </data>
+  <data name="About_Languages_Language" xml:space="preserve">
+    <value>Bahasa</value>
+  </data>
+  <data name="About_Languages_Kind" xml:space="preserve">
+    <value>Plugin</value>
+  </data>
+  <data name="About_Languages_Version" xml:space="preserve">
+    <value>Versi</value>
+  </data>
+  <data name="About_Languages_Provider" xml:space="preserve">
+    <value>Penyedia</value>
+  </data>
+  <data name="About_Languages_Generation" xml:space="preserve">
+    <value>Pembuatan kode</value>
+  </data>
+  <data name="About_Languages_Import" xml:space="preserve">
+    <value>Impor kode</value>
+  </data>
+  <data name="About_Languages_NoProvider" xml:space="preserve">
+    <value>Tidak ditentukan</value>
+  </data>
+  <data name="About_Languages_None" xml:space="preserve">
+    <value>Tidak ada plugin bahasa yang terpasang.</value>
+  </data>
+  <data name="About_Languages_Problems" xml:space="preserve">
+    <value>Plugin berikut tidak dapat dimuat:</value>
+  </data>
+  <data name="About_Acknowledgements" xml:space="preserve">
+    <value>Ucapan terima kasih</value>
+  </data>
+  <data name="About_Uml" xml:space="preserve">
+    <value>UML</value>
+  </data>
+  <data name="About_OperatingSystem" xml:space="preserve">
+    <value>Sistem operasi</value>
+  </data>
+  <data name="About_Architecture" xml:space="preserve">
+    <value>Arsitektur</value>
+  </data>
+  <data name="About_ProcessArchitecture" xml:space="preserve">
+    <value>Proses {0} pada {1}</value>
+  </data>
+  <data name="About_Runtime" xml:space="preserve">
+    <value>Runtime</value>
+  </data>
+  <data name="About_UiFramework" xml:space="preserve">
+    <value>Framework UI</value>
+  </data>
+  <data name="About_Licence" xml:space="preserve">
+    <value>Lisensi</value>
+  </data>
+  <data name="About_Website" xml:space="preserve">
+    <value>Situs web</value>
+  </data>
+  <data name="About_NotSpecified" xml:space="preserve">
+    <value>Belum ditentukan</value>
+  </data>
+  <data name="About_UnknownVersion" xml:space="preserve">
+    <value>tidak diketahui</value>
+  </data>
+  <data name="About_Version" xml:space="preserve">
+    <value>Versi {0}</value>
+  </data>
+  <data name="About_UmlSupport" xml:space="preserve">
+    <value>Notasi UML 2.5.1 (subset): diagram kelas, sekuens, mesin status, aktivitas, use case, komponen, dan deployment</value>
+  </data>
+  <data name="About_AcknowledgementsIntro" xml:space="preserve">
+    <value>UML Wizard dibangun dengan komponen sumber terbuka berikut. Ikon: Material Design Icons oleh Pictogrammers.</value>
+  </data>
+  <data name="About_ThirdPartyNotices" xml:space="preserve">
+    <value>Pemberitahuan pihak ketiga…</value>
+  </data>
+  <data name="About_ThirdPartyNotices_Tip" xml:space="preserve">
+    <value>Teks lisensi lengkap setiap komponen pihak ketiga</value>
+  </data>
+  <data name="About_CopyDetails" xml:space="preserve">
+    <value>Salin detail</value>
+  </data>
+  <data name="About_CopyDetails_Tip" xml:space="preserve">
+    <value>Salin informasi versi dan sistem</value>
+  </data>
+  <data name="About_Copied" xml:space="preserve">
+    <value>Disalin ke papan klip.</value>
+  </data>
+  <data name="About_DetailLine" xml:space="preserve">
+    <value>{0}: {1}</value>
+  </data>
+  <data name="Dialog_GenerateCode_Title" xml:space="preserve">
+    <value>Hasilkan kode</value>
+  </data>
+  <data name="Dialog_GenerateCode_Prompt" xml:space="preserve">
+    <value>Hasilkan kode sumber untuk kelas-kelas di '{0}'.</value>
+  </data>
+  <data name="Dialog_GenerateCode_Language" xml:space="preserve">
+    <value>Bahasa</value>
+  </data>
+  <data name="Dialog_GenerateCode_Namespace" xml:space="preserve">
+    <value>Namespace</value>
+  </data>
+  <data name="Dialog_GenerateCode_Package" xml:space="preserve">
+    <value>Paket</value>
+  </data>
+  <data name="Dialog_GenerateCode_Module" xml:space="preserve">
+    <value>Modul</value>
+  </data>
+  <data name="Dialog_GenerateCode_Namespace_Hint" xml:space="preserve">
+    <value>opsional, mis. Shop.Domain</value>
+  </data>
+  <data name="Dialog_GenerateCode_OutputFolder" xml:space="preserve">
+    <value>Folder keluaran</value>
+  </data>
+  <data name="Dialog_GenerateCode_OutputFolder_Hint" xml:space="preserve">
+    <value>Jalur lengkap folder; dibuat jika perlu</value>
+  </data>
+  <data name="Dialog_GenerateCode_Browse_Tip" xml:space="preserve">
+    <value>Pilih folder</value>
+  </data>
+  <data name="Dialog_GenerateCode_FileCount" xml:space="preserve">
+    <value>File yang akan ditulis: {0}</value>
+  </data>
+  <data name="Dialog_GenerateCode_ExistingCount" xml:space="preserve">
+    <value>File yang akan ditulis: {0} · Mengganti file yang ada: {1}</value>
+  </data>
+  <data name="Dialog_GenerateCode_Replaces" xml:space="preserve">
+    <value>mengganti file yang ada</value>
+  </data>
+  <data name="Dialog_GenerateCode_Warnings" xml:space="preserve">
+    <value>Catatan tentang kode yang dihasilkan</value>
+  </data>
+  <data name="Dialog_GenerateCode_NoWarnings" xml:space="preserve">
+    <value>Semua isi diagram dapat dinyatakan dalam bahasa ini.</value>
+  </data>
+  <data name="Dialog_GenerateCode_NeedsFolder" xml:space="preserve">
+    <value>Masukkan atau pilih folder keluaran.</value>
+  </data>
+  <data name="Dialog_GenerateCode_InvalidFolder" xml:space="preserve">
+    <value>Folder keluaran bukan jalur lengkap yang valid.</value>
+  </data>
+  <data name="Dialog_GenerateCode_InvalidNamespace" xml:space="preserve">
+    <value>Gunakan huruf, angka, dan garis bawah, dengan bagian-bagian dipisahkan oleh . atau ::</value>
+  </data>
+  <data name="Dialog_GenerateCode_NoClasses" xml:space="preserve">
+    <value>Diagram tidak memiliki kelas, antarmuka, atau enumerasi untuk dihasilkan.</value>
+  </data>
+  <data name="Message_ReplaceGeneratedFiles" xml:space="preserve">
+    <value>{0} file sudah ada di
+{1}
+
+Apakah Anda ingin menggantinya?</value>
+  </data>
+  <data name="Message_CodeGenerated" xml:space="preserve">
+    <value>File ditulis: {0}
+Folder: {1}</value>
+  </data>
+  <data name="Message_NoCodeGenerators" xml:space="preserve">
+    <value>Tidak ditemukan plugin generator kode di
+{0}
+
+Letakkan DLL plugin generator kode di salah satu folder ini dan mulai ulang UML Wizard.</value>
+  </data>
+  <data name="Message_CodeGeneratorFailed" xml:space="preserve">
+    <value>Generator kode {0} gagal: {1}</value>
+  </data>
+  <data name="Dialog_TaggedValues" xml:space="preserve">
+    <value>Nilai bertag</value>
+  </data>
+  <data name="Dialog_TaggedValues_Value" xml:space="preserve">
+    <value>Nilai</value>
+  </data>
+  <data name="Dialog_TaggedValues_Add" xml:space="preserve">
+    <value>Tambah nilai bertag</value>
+  </data>
+  <data name="Dialog_TaggedValues_None" xml:space="preserve">
+    <value>Tidak ada nilai bertag.</value>
+  </data>
+  <data name="Dialog_EditClass_TaggedValuesOf" xml:space="preserve">
+    <value>Nilai bertag dari {0}</value>
+  </data>
+  <data name="Dialog_EditClass_TheClass" xml:space="preserve">
+    <value>kelas</value>
+  </data>
+  <data name="Dialog_EditClass_AttributeOwner" xml:space="preserve">
+    <value>atribut {0}</value>
+  </data>
+  <data name="Dialog_EditClass_OperationOwner" xml:space="preserve">
+    <value>operasi {0}</value>
+  </data>
+  <data name="Dialog_EditClass_Method" xml:space="preserve">
+    <value>Metode</value>
+  </data>
+  <data name="Dialog_EditClass_Method_Tip" xml:space="preserve">
+    <value>Metode HTTP jika operasi adalah endpoint API web</value>
+  </data>
+  <data name="Dialog_EditClass_Path" xml:space="preserve">
+    <value>Jalur</value>
+  </data>
+  <data name="Dialog_EditClass_Path_Hint" xml:space="preserve">
+    <value>/orders/{id}</value>
+  </data>
+  <data name="Menu_Diagram_ImportOpenApi" xml:space="preserve">
+    <value>_OpenAPI…</value>
+  </data>
+  <data name="Menu_Diagram_ImportOpenApi_Tip" xml:space="preserve">
+    <value>Buat diagram kelas dari deskripsi OpenAPI 3.x atau Swagger 2.0 (YAML atau JSON)</value>
+  </data>
+  <data name="Menu_Diagram_ExportOpenApi" xml:space="preserve">
+    <value>_OpenAPI…</value>
+  </data>
+  <data name="Menu_Diagram_ExportOpenApi_Tip" xml:space="preserve">
+    <value>Tulis diagram kelas yang dipilih sebagai deskripsi OpenAPI 3.0</value>
+  </data>
+  <data name="Menu_Diagram_Import" xml:space="preserve">
+    <value>_Impor</value>
+  </data>
+  <data name="Menu_Diagram_Export" xml:space="preserve">
+    <value>_Ekspor</value>
+  </data>
+  <data name="Menu_Diagram_ExportPng_Tip" xml:space="preserve">
+    <value>Simpan diagram yang dipilih sebagai gambar PNG</value>
+  </data>
+  <data name="Menu_Diagram_ImportPlantUml" xml:space="preserve">
+    <value>_PlantUML…</value>
+  </data>
+  <data name="Menu_Diagram_ImportPlantUml_Tip" xml:space="preserve">
+    <value>Buat diagram dari file PlantUML: diagram kelas, sekuens, status, aktivitas, use case, komponen, dan deployment</value>
+  </data>
+  <data name="Menu_Diagram_ExportPlantUml" xml:space="preserve">
+    <value>_PlantUML…</value>
+  </data>
+  <data name="Menu_Diagram_ExportPlantUml_Tip" xml:space="preserve">
+    <value>Tulis diagram yang dipilih sebagai PlantUML</value>
+  </data>
+  <data name="Picker_ImportPlantUml" xml:space="preserve">
+    <value>Impor PlantUML</value>
+  </data>
+  <data name="Picker_ExportPlantUml" xml:space="preserve">
+    <value>Ekspor PlantUML</value>
+  </data>
+  <data name="Picker_PlantUmlFiles" xml:space="preserve">
+    <value>File PlantUML</value>
+  </data>
+  <data name="Message_InvalidPlantUml" xml:space="preserve">
+    <value>File tidak dapat dibaca sebagai PlantUML: {0}</value>
+  </data>
+  <data name="Message_PlantUmlImportNotes" xml:space="preserve">
+    <value>Dibuat: {0}. Beberapa bagian PlantUML tidak dapat dipertahankan:
+
+{1}</value>
+  </data>
+  <data name="Message_AiNotSetUp" xml:space="preserve">
+    <value>Belum ada layanan AI yang diatur. Atur sekarang di Preferensi → AI?</value>
+  </data>
+  <data name="Message_FindingSourceFiles" xml:space="preserve">
+    <value>Mencari file sumber di {0}…</value>
+  </data>
+  <data name="Message_ImportReading" xml:space="preserve">
+    <value>Membaca {0:N0} dari {1:N0} file sumber…</value>
+  </data>
+  <data name="Message_ImportParsing" xml:space="preserve">
+    <value>Membaca deklarasi di {0:N0} file {1}…</value>
+  </data>
+  <data name="Message_ImportLayingOut" xml:space="preserve">
+    <value>Menata {0:N0} kelas…</value>
+  </data>
+  <data name="Message_Arranging" xml:space="preserve">
+    <value>Menyusun '{0}'…</value>
+  </data>
+  <data name="Message_WritingFiles" xml:space="preserve">
+    <value>Menulis {0:N0} dari {1:N0} file…</value>
+  </data>
+  <data name="Message_CodeGenerationCancelled" xml:space="preserve">
+    <value>Pembuatan kode dibatalkan. Beberapa file mungkin sudah ditulis ke:
+{0}</value>
+  </data>
+  <data name="Message_AiWorking" xml:space="preserve">
+    <value>Membuat diagram dengan {0}…</value>
+  </data>
+  <data name="Message_AiDiagramDescription" xml:space="preserve">
+    <value>Dibuat dengan {0} dari: {1}</value>
+  </data>
+  <data name="Message_PlantUmlExported" xml:space="preserve">
+    <value>PlantUML telah ditulis ke {0}.</value>
+  </data>
+  <data name="Message_PlantUmlExportedWithNotes" xml:space="preserve">
+    <value>PlantUML telah ditulis ke {0}. Catatan:
+
+{1}</value>
+  </data>
+  <data name="Picker_ImportOpenApi" xml:space="preserve">
+    <value>Impor OpenAPI</value>
+  </data>
+  <data name="Picker_OpenApiFiles" xml:space="preserve">
+    <value>Deskripsi OpenAPI</value>
+  </data>
+  <data name="Dialog_ImportCode_Source" xml:space="preserve">
+    <value>Sumber</value>
+  </data>
+  <data name="Dialog_ImportCode_DefaultDescription" xml:space="preserve">
+    <value>Diimpor dari {0}.</value>
+  </data>
+  <data name="Dialog_ImportCode_Language" xml:space="preserve">
+    <value>Bahasa</value>
+  </data>
+  <data name="Dialog_ImportCode_Files" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="Dialog_ImportCode_LanguageLine" xml:space="preserve">
+    <value>{0} ({1} file)</value>
+  </data>
+  <data name="Dialog_ImportCode_FilesLine" xml:space="preserve">
+    <value>{0} file {1}</value>
+  </data>
+  <data name="Dialog_ImportCode_LanguageLine_One" xml:space="preserve">
+    <value>{0} (1 file)</value>
+  </data>
+  <data name="Dialog_ImportCode_FilesLine_One" xml:space="preserve">
+    <value>1 file {0}</value>
+  </data>
+  <data name="Dialog_ImportCode_Notice" xml:space="preserve">
+    <value>Kode menjadi diagram kelas dari kelas, antarmuka, dan enumerasinya. Hanya file sumber {0} ({1}) yang dibaca: file lain dilewati. Kode tidak dikompilasi, sehingga isi metode, komentar, dan detail lain yang tidak dapat ditampilkan diagram kelas dihilangkan. Setelah impor selesai, ringkasan mencantumkan semua yang dihilangkan.</value>
+  </data>
+  <data name="Dialog_ImportFolder_Title" xml:space="preserve">
+    <value>Impor folder sumber</value>
+  </data>
+  <data name="Picker_ImportFolder" xml:space="preserve">
+    <value>Impor folder sumber</value>
+  </data>
+  <data name="Message_NoSourceFiles" xml:space="preserve">
+    <value>{0} tidak berisi file sumber dalam bahasa yang dapat diimpor ({1}).</value>
+  </data>
+  <data name="Message_NoCodeImporter" xml:space="preserve">
+    <value>{0} tidak dapat diimpor: tidak ada plugin impor kode untuk {1} di {2} atau {3}.</value>
+  </data>
+  <data name="Message_NoCodeImporter_AnyLanguage" xml:space="preserve">
+    <value>bahasa apa pun</value>
+  </data>
+  <data name="Message_NoTypesFound" xml:space="preserve">
+    <value>Tidak ditemukan kelas, antarmuka, enumerasi, struct, atau record di {0}, sehingga tidak ada proyek yang dibuat.</value>
+  </data>
+  <data name="Message_CodeImported" xml:space="preserve">
+    <value>Diimpor: {0}
+
+Tidak diimpor, atau ditampilkan berbeda:
+{1}</value>
+  </data>
+  <data name="Message_InvalidOpenApi" xml:space="preserve">
+    <value>File tidak dapat dibaca sebagai deskripsi OpenAPI: {0}</value>
+  </data>
+  <data name="Message_OpenApiImportNotes" xml:space="preserve">
+    <value>Diagram '{0}' telah dibuat. Beberapa bagian deskripsi tidak dapat dipertahankan:
+
+{1}</value>
+  </data>
+  <data name="Dialog_ExportOpenApi_Title" xml:space="preserve">
+    <value>Ekspor OpenAPI</value>
+  </data>
+  <data name="Dialog_ExportOpenApi_Prompt" xml:space="preserve">
+    <value>Ekspor '{0}' sebagai deskripsi OpenAPI 3.0: kelas dan enumerasinya sebagai skema, dan operasi antarmuka «api» sebagai endpoint.</value>
+  </data>
+  <data name="Dialog_ExportOpenApi_FileName_Hint" xml:space="preserve">
+    <value>openapi.yaml</value>
+  </data>
+  <data name="Dialog_ExportOpenApi_Format_Note" xml:space="preserve">
+    <value>Ekstensi menentukan format: .yaml atau .yml untuk YAML, .json untuk JSON.</value>
+  </data>
+  <data name="Dialog_ExportOpenApi_ApiTitle" xml:space="preserve">
+    <value>Judul API</value>
+  </data>
+  <data name="Dialog_ExportOpenApi_Version" xml:space="preserve">
+    <value>Versi</value>
+  </data>
+  <data name="Dialog_ExportOpenApi_NeedsTitle" xml:space="preserve">
+    <value>Masukkan judul API.</value>
+  </data>
+  <data name="Dialog_ExportOpenApi_NeedsVersion" xml:space="preserve">
+    <value>Masukkan versi API.</value>
+  </data>
+  <data name="Message_OpenApiExported" xml:space="preserve">
+    <value>Deskripsi OpenAPI telah ditulis ke {0}.</value>
+  </data>
+  <data name="Message_OpenApiExportedWithNotes" xml:space="preserve">
+    <value>Deskripsi OpenAPI telah ditulis ke {0}. Catatan:
+
+{1}</value>
+  </data>
+</root>
