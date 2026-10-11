@@ -1,0 +1,82 @@
+# Publishes self-contained builds of UML Wizard for Windows, Linux and macOS and attaches them to a GitHub release.
+# Triggered by pushing a version tag, e.g.:  git tag v1.0.0 && git push origin v1.0.0
+# The tag (without the "v") becomes the application's version, shown in Help -> About.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - run: dotnet test UmlWizard.slnx -c Release
+
+  publish:
+    needs: test
+    strategy:
+      matrix:
+        rid: [win-x64, win-arm64, linux-x64, linux-arm64, osx-x64, osx-arm64]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Publish
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          dotnet publish src/UmlWizard.App -c Release -r ${{ matrix.rid }} --self-contained \
+            -p:Version="$version" -o "publish/UmlWizard-$version-${{ matrix.rid }}"
+
+      # The built-in code generators and importers must be next to the executable, or the app has none.
+      - name: Check the plug-ins are included
+        run: |
+          count=$(ls publish/*/plugins/*.dll | wc -l)
+          echo "$count plug-ins"
+          test "$count" -gt 0
+
+      # zip keeps the executable bit of the Linux and macOS binaries.
+      - name: Zip
+        working-directory: publish
+        run: |
+          name=$(ls)
+          zip -qr "../$name.zip" "$name"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.rid }}
+          path: '*.zip'
+
+  release:
+    needs: publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+
+      - name: Create the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          prerelease=""
+          if [[ "$GITHUB_REF_NAME" == *-* ]]; then prerelease="--prerelease"; fi
+          gh release create "$GITHUB_REF_NAME" dist/*.zip --repo "$GITHUB_REPOSITORY" \
+            --title "UML Wizard ${GITHUB_REF_NAME#v}" --generate-notes $prerelease

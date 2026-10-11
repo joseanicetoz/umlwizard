@@ -11,7 +11,10 @@
     <ProjectReference Include="@(BuiltInPlugin)" ReferenceOutputAssembly="false" Private="false" />
   </ItemGroup>
   <Target Name="CopyBuiltInPlugins" AfterTargets="Build">
-    <MSBuild Projects="@(BuiltInPlugin)" Targets="GetTargetPath" Properties="Configuration=$(Configuration)">
+    <!-- The plug-ins are built without a runtime identifier (they are RID-agnostic libraries), so ask for their path the
+         same way, or a publish with -r looks for them in bin/<Configuration>/<tfm>/<rid>/ and finds nothing. -->
+    <MSBuild Projects="@(BuiltInPlugin)" Targets="GetTargetPath" Properties="Configuration=$(Configuration)"
+             RemoveProperties="RuntimeIdentifier;SelfContained">
       <Output TaskParameter="TargetOutputs" ItemName="_PluginAssembly" />
     </MSBuild>
     <ItemGroup>
