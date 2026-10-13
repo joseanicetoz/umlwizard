@@ -53,11 +53,18 @@ public static class SystemSecretStore
         : OperatingSystem.IsLinux() ? new CommandSecretStore(SecretTool)
         : new InMemorySecretStore();
 
-    /// <summary>The macOS Keychain, through the <c>security</c> tool.</summary>
-    private static readonly SecretCommands MacKeychain = new(
+    /// <summary>
+    /// The macOS Keychain, through the <c>security</c> tool. The secret is set through its interactive mode, which reads
+    /// the command from its input: as an argument, any user of the Mac could see the secret in <c>ps</c> while it runs.
+    /// </summary>
+    internal static readonly SecretCommands MacKeychain = new(
         Get: name => ("security", ["find-generic-password", "-s", Service, "-a", name, "-w"], null),
-        Set: (name, value) => ("security", ["add-generic-password", "-U", "-s", Service, "-a", name, "-w", value], null),
+        Set: (name, value) => ("security", ["-i"],
+            $"add-generic-password -U -s {Quote(Service)} -a {Quote(name)} -w {Quote(value)}\n"),
         Delete: name => ("security", ["delete-generic-password", "-s", Service, "-a", name], null));
+
+    /// <summary>A word of a <c>security -i</c> command line: in double quotes, with <c>\</c> and <c>"</c> escaped.</summary>
+    internal static string Quote(string word) => "\"" + word.Replace("\\", "\\\\").Replace("\"", "\\\"") + "\"";
 
     /// <summary>The Secret Service of Linux desktops (GNOME Keyring, KWallet), through <c>secret-tool</c> (libsecret-tools).</summary>
     private static readonly SecretCommands SecretTool = new(
@@ -93,8 +100,15 @@ internal sealed class CommandSecretStore(SecretCommands commands) : ISecretStore
             return true;
         }
 
+        // A line break would end the secret early in the tool's input (and on macOS start another command); keys have none.
+        if (value.Any(char.IsControl))
+        {
+            return false;
+        }
+
+        // Read back: "security -i" does not report a failed command in its exit code.
         var (started, exitCode, _) = Run(commands.Set(name, value));
-        return started && exitCode == 0;
+        return started && exitCode == 0 && Get(name) == value;
     }
 
     private static (bool Started, int ExitCode, string Output) Run((string File, string[] Arguments, string? Input) command)

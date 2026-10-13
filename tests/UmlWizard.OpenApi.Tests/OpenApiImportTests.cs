@@ -187,6 +187,28 @@ public sealed class OpenApiImportTests
     }
 
     [Fact]
+    public void AliasesThatExpandWithoutEnd_AreRefused()
+    {
+        // "Billion laughs": each level uses the one before ten times, 10^9 values once expanded.
+        var yaml = new System.Text.StringBuilder("openapi: 3.0.0\na0: &a0 [lol]\n");
+        for (var i = 1; i <= 9; i++)
+        {
+            yaml.Append($"a{i}: &a{i} [{string.Join(", ", Enumerable.Repeat($"*a{i - 1}", 10))}]\n");
+        }
+
+        var ex = Assert.Throws<InvalidDataException>(() => YamlJson.Parse(yaml.ToString()));
+        Assert.Contains("too large", ex.Message);
+    }
+
+    [Fact]
+    public void DeeplyNestedYaml_IsRefused()
+    {
+        var yaml = string.Concat(Enumerable.Repeat("[", YamlJson.MaxDepth + 10)) + string.Concat(Enumerable.Repeat("]", YamlJson.MaxDepth + 10));
+
+        Assert.Throws<InvalidDataException>(() => YamlJson.Parse("x: " + yaml));
+    }
+
+    [Fact]
     public void Layout_PutsApisFirst_AndNothingOverlaps()
     {
         var result = OpenApiImporter.ImportFile(Fixture("petstore-3.0.yaml"));

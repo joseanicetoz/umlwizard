@@ -93,7 +93,20 @@ public static class ProjectSerializer
                 throw new InvalidDataException("The project references diagram files, but its location is unknown.");
             }
 
-            var path = Path.GetFullPath(Path.Combine(projectDirectory, relativePath));
+            // Only files inside the project's folder: an absolute, UNC ("\\server\share") or "../" path in a project
+            // from elsewhere could read any file of the user, or make Windows connect to another machine and sign in.
+            if (Path.IsPathRooted(relativePath))
+            {
+                throw new InvalidDataException($"The diagram file '{relativePath}' is not inside the project's folder.");
+            }
+
+            var folder = Path.TrimEndingDirectorySeparator(Path.GetFullPath(projectDirectory)) + Path.DirectorySeparatorChar;
+            var path = Path.GetFullPath(Path.Combine(folder, relativePath));
+            if (!path.StartsWith(folder,OperatingSystem.IsLinux() ? StringComparison.Ordinal : StringComparison.OrdinalIgnoreCase))
+            {
+                throw new InvalidDataException($"The diagram file '{relativePath}' is not inside the project's folder.");
+            }
+
             try
             {
                 diagrams.Add(JsonNode.Parse(File.ReadAllText(path)));
