@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  The file type of UML Wizard projects for shared-mime-info. Installed as
+    share/mime/packages/io.github.joseanicetoz.umlwizard.xml
+  followed by update-mime-database share/mime. Projects are JSON; *.umlproj is the extension of earlier versions.
+-->
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-umlwizard">
+    <comment>UML Wizard project</comment>
+    <sub-class-of type="application/json"/>
+    <!-- The application's icon, so projects show it in the file manager without an icon of their own -->
+    <icon name="io.github.joseanicetoz.umlwizard"/>
+    <glob pattern="*.umlwiz"/>
+    <glob pattern="*.umlproj"/>
+  </mime-type>
+</mime-info>

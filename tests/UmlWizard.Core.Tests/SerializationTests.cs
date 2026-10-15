@@ -139,6 +139,41 @@ public sealed class SerializationTests
     }
 
     [Theory]
+    [InlineData("../outside.json")]
+    [InlineData("Diagrams/../../outside.json")]
+    [InlineData(@"\\server\share\diagram.json")]
+    [InlineData("/etc/diagram.json")]
+    public void Project_Schema1_RejectsDiagramFilesOutsideTheProjectFolder(string path)
+    {
+        if (path.StartsWith(@"\\", StringComparison.Ordinal) && !OperatingSystem.IsWindows())
+        {
+            return; // Only Windows reads "\\server\share" as another machine; elsewhere it is an odd file name.
+        }
+
+        var directory = Path.Combine(Path.GetTempPath(), $"umlwizard-{Guid.NewGuid():N}");
+        var projectDirectory = Path.Combine(directory, "Project");
+        try
+        {
+            Directory.CreateDirectory(projectDirectory);
+            File.WriteAllText(Path.Combine(directory, "outside.json"), "{}");
+            var json = $$"""
+                {
+                  "schemaVersion": 1,
+                  "name": "Old",
+                  "diagrams": [ { "path": {{System.Text.Json.JsonSerializer.Serialize(path)}} } ]
+                }
+                """;
+
+            var ex = Assert.Throws<InvalidDataException>(() => ProjectSerializer.Deserialize(json, projectDirectory));
+            Assert.Contains("not inside the project's folder", ex.Message);
+        }
+        finally
+        {
+            Directory.Delete(directory, recursive: true);
+        }
+    }
+
+    [Theory]
     [InlineData("Shop.umlwiz", true)]
     [InlineData(@"C:WorkSHOP.UMLWIZ", true)]
     [InlineData("Old.umlproj", true)]

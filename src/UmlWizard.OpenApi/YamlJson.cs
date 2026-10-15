@@ -33,7 +33,7 @@ public static class YamlJson
 
             var stream = new YamlStream();
             stream.Load(new StringReader(text));
-            return stream.Documents.Count == 0 ? null : ToJson(stream.Documents[0].RootNode);
+            return stream.Documents.Count == 0 ? null : ToJson(stream.Documents[0].RootNode, new Budget(), 0);
         }
         catch (Exception ex) when (ex is JsonException or YamlException)
         {
@@ -56,15 +56,39 @@ public static class YamlJson
         return writer.ToString();
     }
 
-    private static JsonNode? ToJson(YamlNode node)
+    /// <summary>
+    /// The most nodes a YAML document may become: an alias is copied each time it is used, so a few lines of anchors
+    /// that use each other ("billion laughs") would otherwise grow without end. Real OpenAPI documents stay far below.
+    /// </summary>
+    internal const int MaxNodes = 1_000_000;
+
+    /// <summary>The deepest nesting a YAML document may have, which also stops an anchor that contains itself.</summary>
+    internal const int MaxDepth = 256;
+
+    private sealed class Budget
     {
+        public int Nodes;
+    }
+
+    private static JsonNode? ToJson(YamlNode node, Budget budget, int depth)
+    {
+        if (++budget.Nodes > MaxNodes)
+        {
+            throw new InvalidDataException($"The document is too large: it has more than {MaxNodes:N0} values once its aliases are expanded.");
+        }
+
+        if (depth > MaxDepth)
+        {
+            throw new InvalidDataException($"The document is nested more than {MaxDepth} levels deep.");
+        }
+
         switch (node)
         {
             case YamlMappingNode mapping:
                 var obj = new JsonObject();
                 foreach (var (key, value) in mapping.Children)
                 {
-                    obj[key is YamlScalarNode scalarKey ? scalarKey.Value ?? string.Empty : key.ToString()] = ToJson(value);
+                    obj[key is YamlScalarNode scalarKey ? scalarKey.Value ?? string.Empty : key.ToString()] = ToJson(value, budget, depth + 1);
                 }
 
                 return obj;
@@ -73,7 +97,7 @@ public static class YamlJson
                 var array = new JsonArray();
                 foreach (var item in sequence.Children)
                 {
-                    array.Add(ToJson(item));
+                    array.Add(ToJson(item, budget, depth + 1));
                 }
 
                 return array;
