@@ -1,0 +1,20 @@
+# The menu entry of UML Wizard on Linux. Installed as
+#   share/applications/io.github.joseanicetoz.umlwizard.desktop
+# next to share/mime/packages/io.github.joseanicetoz.umlwizard.xml (the .umlwiz file type) and the icons in
+# share/icons/hicolor/<size>x<size>/apps/io.github.joseanicetoz.umlwizard.png, under /usr (a .deb or .rpm, with
+# UmlWizard on the PATH), ~/.local or the AppDir of an AppImage. The file is named after the application ID, as
+# Flatpak and AppStream expect.
+[Desktop Entry]
+Type=Application
+Name=UML Wizard
+GenericName=UML Designer
+Comment=Design class, sequence, state machine, activity, use case, component and deployment diagrams
+Icon=io.github.joseanicetoz.umlwizard
+# %f: the project double-clicked in the file manager, which the app opens at start-up
+Exec=UmlWizard %f
+TryExec=UmlWizard
+Terminal=false
+Categories=Development;Graphics;
+Keywords=UML;diagram;class;sequence;modeling;code generation;PlantUML;OpenAPI;
+MimeType=application/x-umlwizard;
+StartupNotify=true

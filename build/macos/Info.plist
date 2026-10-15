@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Info.plist of UmlWizard.app, the macOS bundle:
+
+    UmlWizard.app/Contents/Info.plist                  this file
+    UmlWizard.app/Contents/MacOS/                      the output of dotnet publish -r osx-*, with UmlWizard in it
+    UmlWizard.app/Contents/Resources/UmlWizard.icns    build/macos/UmlWizard.icns
+
+  The release sets both versions from the tag, e.g.
+    plutil -replace CFBundleShortVersionString -string 1.2.0 UmlWizard.app/Contents/Info.plist
+  Both must be numeric (1.2.0): drop a pre-release suffix such as -beta1.
+-->
+<plist version="1.0">
+<dict>
+  <key>CFBundleIdentifier</key>
+  <string>io.github.joseanicetoz.umlwizard</string>
+  <key>CFBundleName</key>
+  <string>UML Wizard</string>
+  <key>CFBundleDisplayName</key>
+  <string>UML Wizard</string>
+  <key>CFBundleExecutable</key>
+  <string>UmlWizard</string>
+  <key>CFBundleIconFile</key>
+  <string>UmlWizard</string>
+  <key>CFBundlePackageType</key>
+  <string>APPL</string>
+  <key>CFBundleInfoDictionaryVersion</key>
+  <string>6.0</string>
+  <key>CFBundleShortVersionString</key>
+  <string>1.0.0</string>
+  <key>CFBundleVersion</key>
+  <string>1.0.0</string>
+  <key>NSHumanReadableCopyright</key>
+  <string>Copyright 2026 Jose Aniceto. Apache License 2.0.</string>
+
+  <key>LSApplicationCategoryType</key>
+  <string>public.app-category.developer-tools</string>
+  <!-- The oldest macOS that .NET 9 supports -->
+  <key>LSMinimumSystemVersion</key>
+  <string>12.0</string>
+  <key>NSPrincipalClass</key>
+  <string>NSApplication</string>
+  <key>NSHighResolutionCapable</key>
+  <true/>
+  <key>NSSupportsAutomaticGraphicsSwitching</key>
+  <true/>
+
+  <!-- The languages of the user interface (Resources/Strings.<culture>.resx), so macOS reports the user's language
+       to the app instead of falling back to English. -->
+  <key>CFBundleDevelopmentRegion</key>
+  <string>en</string>
+  <key>CFBundleLocalizations</key>
+  <array>
+    <string>en</string>
+    <string>de</string>
+    <string>es</string>
+    <string>fil</string>
+    <string>fr</string>
+    <string>id</string>
+    <string>ms</string>
+  </array>
+
+  <!-- Projects: *.umlwiz, and *.umlproj saved by earlier versions. Both are JSON. -->
+  <key>UTExportedTypeDeclarations</key>
+  <array>
+    <dict>
+      <key>UTTypeIdentifier</key>
+      <string>io.github.joseanicetoz.umlwizard.project</string>
+      <key>UTTypeDescription</key>
+      <string>UML Wizard Project</string>
+      <key>UTTypeIconFile</key>
+      <string>UmlWizard</string>
+      <key>UTTypeConformsTo</key>
+      <array>
+        <string>public.json</string>
+        <string>public.data</string>
+      </array>
+      <key>UTTypeTagSpecification</key>
+      <dict>
+        <key>public.filename-extension</key>
+        <array>
+          <string>umlwiz</string>
+        </array>
+      </dict>
+    </dict>
+    <dict>
+      <key>UTTypeIdentifier</key>
+      <string>io.github.joseanicetoz.umlwizard.legacy-project</string>
+      <key>UTTypeDescription</key>
+      <string>UML Wizard Project (earlier version)</string>
+      <key>UTTypeIconFile</key>
+      <string>UmlWizard</string>
+      <key>UTTypeConformsTo</key>
+      <array>
+        <string>public.json</string>
+        <string>public.data</string>
+      </array>
+      <key>UTTypeTagSpecification</key>
+      <dict>
+        <key>public.filename-extension</key>
+        <array>
+          <string>umlproj</string>
+        </array>
+      </dict>
+    </dict>
+  </array>
+  <key>CFBundleDocumentTypes</key>
+  <array>
+    <dict>
+      <key>CFBundleTypeName</key>
+      <string>UML Wizard Project</string>
+      <key>CFBundleTypeRole</key>
+      <string>Editor</string>
+      <key>LSHandlerRank</key>
+      <string>Owner</string>
+      <key>CFBundleTypeIconFile</key>
+      <string>UmlWizard</string>
+      <key>LSItemContentTypes</key>
+      <array>
+        <string>io.github.joseanicetoz.umlwizard.project</string>
+        <string>io.github.joseanicetoz.umlwizard.legacy-project</string>
+      </array>
+    </dict>
+  </array>
+</dict>
+</plist>

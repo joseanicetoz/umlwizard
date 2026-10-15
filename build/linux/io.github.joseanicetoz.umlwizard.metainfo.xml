@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  AppStream metadata of UML Wizard, which software centres (GNOME Software, KDE Discover) and Flathub show. Installed as
+    share/metainfo/io.github.joseanicetoz.umlwizard.metainfo.xml
+  Add a <release> at the top of <releases> for each version.
+-->
+<component type="desktop-application">
+  <id>io.github.joseanicetoz.umlwizard</id>
+  <name>UML Wizard</name>
+  <summary>Design UML diagrams and generate code from them</summary>
+  <developer id="io.github.joseanicetoz">
+    <name>Jose Aniceto</name>
+  </developer>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>Apache-2.0</project_license>
+
+  <description>
+    <p>
+      UML Wizard is a UML designer for class, sequence, state machine, activity, use case, component and deployment
+      diagrams, organised in projects and folders.
+    </p>
+    <ul>
+      <li>Edit diagrams in UML notation, with undo and redo, light and dark themes, and automatic layout</li>
+      <li>Generate C#, Java, Kotlin, TypeScript, Ruby or C++ code from class diagrams</li>
+      <li>Create class diagrams from existing source code</li>
+      <li>Import and export OpenAPI and PlantUML, and export diagrams as PNG</li>
+      <li>Draw and change diagrams with an optional AI assistant, using Claude, an OpenAI-compatible service or a local model</li>
+      <li>Add code generation and import languages with plug-ins</li>
+    </ul>
+  </description>
+
+  <launchable type="desktop-id">io.github.joseanicetoz.umlwizard.desktop</launchable>
+  <provides>
+    <binary>UmlWizard</binary>
+    <mediatype>application/x-umlwizard</mediatype>
+  </provides>
+
+  <categories>
+    <category>Development</category>
+    <category>Graphics</category>
+  </categories>
+  <keywords>
+    <keyword>UML</keyword>
+    <keyword>diagram</keyword>
+    <keyword>modeling</keyword>
+    <keyword>code generation</keyword>
+    <keyword>PlantUML</keyword>
+    <keyword>OpenAPI</keyword>
+  </keywords>
+
+  <url type="homepage">https://github.com/joseanicetoz/umlwizard</url>
+  <url type="bugtracker">https://github.com/joseanicetoz/umlwizard/issues</url>
+  <url type="vcs-browser">https://github.com/joseanicetoz/umlwizard</url>
+
+  <screenshots>
+    <screenshot type="default">
+      <caption>A class diagram of the OnlineShop sample</caption>
+      <image>https://raw.githubusercontent.com/joseanicetoz/umlwizard/main/screenshots/sample.png</image>
+    </screenshot>
+  </screenshots>
+
+  <!-- No violence, drugs, chat with strangers or the like. The AI assistant talks only to the service the user
+       configures. -->
+  <content_rating type="oars-1.1"/>
+
+  <requires>
+    <display_length compare="ge">768</display_length>
+  </requires>
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+  </supports>
+
+  <releases>
+    <release version="1.0.0" date="2026-10-11">
+      <url type="details">https://github.com/joseanicetoz/umlwizard/releases/tag/v1.0.0</url>
+    </release>
+  </releases>
+</component>
