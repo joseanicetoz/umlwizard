@@ -9,8 +9,8 @@
     <PackageVersion Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Skia" Version="$(AvaloniaVersion)" />
     <PackageVersion Include="Avalonia.Headless.XUnit" Version="$(AvaloniaVersion)" />
-    <PackageVersion Include="SkiaSharp" Version="2.88.9" />
-    <PackageVersion Include="SkiaSharp.NativeAssets.Linux" Version="2.88.9" />
+    <PackageVersion Include="SkiaSharp" Version="4.153.1" />
+    <PackageVersion Include="SkiaSharp.NativeAssets.Linux" Version="4.153.1" />
     <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.2" />
     <PackageVersion Include="Material.Icons.Avalonia" Version="2.4.1" />
     <!-- OpenAPI import/export: reads and writes YAML -->
