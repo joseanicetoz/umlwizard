@@ -6,6 +6,10 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    ignore:
+      # Avalonia 11 is built against SkiaSharp 2.88; 3.x+ removed the SKPaint text API and needs Avalonia 12.
+      - dependency-name: "SkiaSharp*"
+        update-types: ["version-update:semver-major"]
     groups:
       avalonia:
         patterns: ["Avalonia*"]
