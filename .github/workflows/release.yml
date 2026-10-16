@@ -28,18 +28,29 @@ jobs:
     needs: test
     strategy:
       matrix:
-        rid: [win-x64, win-arm64, linux-x64, linux-arm64, osx-x64, osx-arm64]
-    runs-on: ubuntu-latest
+        include:
+          - { rid: win-x64, os: ubuntu-latest }
+          - { rid: win-arm64, os: ubuntu-latest }
+          - { rid: linux-x64, os: ubuntu-latest }
+          - { rid: linux-arm64, os: ubuntu-latest }
+          # On a Mac the SDK signs the executable (ad hoc), without which Apple Silicon does not run it.
+          - { rid: osx-x64, os: macos-latest }
+          - { rid: osx-arm64, os: macos-latest }
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-dotnet@v6
         with:
           dotnet-version: 9.0.x
 
+      # One executable per platform, with the runtime, the application's assemblies and the native libraries (Skia,
+      # HarfBuzz; extracted on first run) inside it, and the symbols embedded. Next to it stay the files that are
+      # opened from disk: plugins/, Help/ and the licence texts.
       - name: Publish
         run: |
           version="${GITHUB_REF_NAME#v}"
           dotnet publish src/UmlWizard.App -c Release -r ${{ matrix.rid }} --self-contained \
+            -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:DebugType=embedded \
             -p:Version="$version" -o "publish/UmlWizard-$version-${{ matrix.rid }}"
 
       # The built-in code generators and importers must be next to the executable, or the app has none.
@@ -48,6 +59,10 @@ jobs:
           count=$(ls publish/*/plugins/*.dll | wc -l)
           echo "$count plug-ins"
           test "$count" -gt 0
+
+      - name: Check the executable is signed
+        if: runner.os == 'macOS'
+        run: codesign --verify --verbose publish/*/UmlWizard
 
       # zip keeps the executable bit of the Linux and macOS binaries.
       - name: Zip
