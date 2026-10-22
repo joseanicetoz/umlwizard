@@ -10,7 +10,7 @@ security issues privately: see [SECURITY.md](SECURITY.md).
 
 ## Building and testing
 
-Requires the .NET 9 SDK (or later).
+Requires the .NET 10 SDK (or later).
 
 ```bash
 dotnet build

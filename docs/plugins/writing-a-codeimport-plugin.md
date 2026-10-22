@@ -90,11 +90,11 @@ out.
 
 ## Step 1 — Create the project
 
-You need the [.NET 9 SDK](https://dotnet.microsoft.com/download) and a UML Wizard installation (or a build of this
+You need the [.NET 10 SDK](https://dotnet.microsoft.com/download) and a UML Wizard installation (or a build of this
 repository). Create a class library:
 
 ```sh
-dotnet new classlib -n Acme.UmlWizard.PhpImport -f net9.0
+dotnet new classlib -n Acme.UmlWizard.PhpImport -f net10.0
 ```
 
 Replace `Acme.UmlWizard.PhpImport.csproj` with:
@@ -103,7 +103,7 @@ Replace `Acme.UmlWizard.PhpImport.csproj` with:
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <!-- Built to be loaded by UML Wizard at run time -->
@@ -513,7 +513,7 @@ dotnet build -c Release -p:UmlWizardDir="C:\Program Files\UML Wizard"
 dotnet build -c Release -p:UmlWizardDir="/path/to/UML Wizard"
 ```
 
-Copy `bin/Release/net9.0/Acme.UmlWizard.PhpImport.dll` into a folder of the same name in **your** plug-ins folder
+Copy `bin/Release/net10.0/Acme.UmlWizard.PhpImport.dll` into a folder of the same name in **your** plug-ins folder
 (see [How plug-ins are loaded](#how-plug-ins-are-loaded)). If you added NuGet packages, copy their DLLs into the same
 folder too:
 
@@ -521,13 +521,13 @@ folder too:
 # Windows (PowerShell)
 $dir = "$env:APPDATA\UmlWizard\plugins\Acme.UmlWizard.PhpImport"
 New-Item -ItemType Directory -Force $dir
-Copy-Item bin\Release\net9.0\Acme.UmlWizard.PhpImport.dll $dir
+Copy-Item bin\Release\net10.0\Acme.UmlWizard.PhpImport.dll $dir
 ```
 
 ```sh
 # macOS and Linux
 mkdir -p ~/.config/UmlWizard/plugins/Acme.UmlWizard.PhpImport
-cp bin/Release/net9.0/Acme.UmlWizard.PhpImport.dll ~/.config/UmlWizard/plugins/Acme.UmlWizard.PhpImport/
+cp bin/Release/net10.0/Acme.UmlWizard.PhpImport.dll ~/.config/UmlWizard/plugins/Acme.UmlWizard.PhpImport/
 ```
 
 ```
