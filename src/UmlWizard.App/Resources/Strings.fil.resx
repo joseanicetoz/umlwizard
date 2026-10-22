@@ -2278,4 +2278,34 @@ Hindi na-import, o iba ang pagkakapakita:
 
 {1}</value>
   </data>
+  <data name="Dialog_ImportProjectDiagrams_Title" xml:space="preserve">
+    <value>Mag-import ng mga Diagram mula sa Proyekto</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_Source" xml:space="preserve">
+    <value>Pinagmulang proyekto</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_Diagrams" xml:space="preserve">
+    <value>Mga Diagram</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_SelectAll" xml:space="preserve">
+    <value>Piliin Lahat</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_DeselectAll" xml:space="preserve">
+    <value>Huwag Piliin Lahat</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_NoDiagrams" xml:space="preserve">
+    <value>Walang mga diagram ang napiling proyekto.</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_NoneSelected" xml:space="preserve">
+    <value>Pumili ng kahit isang diagram na ii-import.</value>
+  </data>
+  <data name="Menu_Diagram_ImportProject" xml:space="preserve">
+    <value>Mga _Diagram mula sa Proyekto…</value>
+  </data>
+  <data name="Menu_Diagram_ImportProject_Tip" xml:space="preserve">
+    <value>Mag-import ng isa o higit pang mga diagram mula sa isa pang proyekto ng UML Wizard</value>
+  </data>
+  <data name="Picker_ImportProject" xml:space="preserve">
+    <value>Mag-import ng mga Diagram mula sa Proyekto</value>
+  </data>
 </root>

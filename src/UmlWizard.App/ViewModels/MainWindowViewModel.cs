@@ -1541,6 +1541,62 @@ public sealed partial class MainWindowViewModel : ObservableObject
     }
 
     /// <summary>
+    /// Imports one or more diagrams selected from another project file into the project, ensuring diagram names
+    /// and internal IDs are not in conflict.
+    /// </summary>
+    [RelayCommand]
+    private async Task ImportProjectDiagrams()
+    {
+        if (Project is null)
+        {
+            return;
+        }
+
+        var path = await _dialogs.PickOpenFileAsync(Strings.Picker_ImportProject, Strings.Picker_ProjectFiles, UmlProject.FilePatterns);
+        if (path is null)
+        {
+            return;
+        }
+
+        UmlProject sourceProject;
+        try
+        {
+            sourceProject = ProjectSerializer.Load(path);
+        }
+        catch (Exception ex) when (ex is IOException or InvalidDataException or UnauthorizedAccessException)
+        {
+            await _dialogs.ShowErrorAsync(Strings.Picker_ImportProject, Loc.Format(Strings.Message_ProjectNotOpened, ex.Message));
+            return;
+        }
+
+        var dialog = new ImportProjectDiagramsViewModel(_dialogs, path, sourceProject.Diagrams);
+        if (!await _dialogs.ShowDialogAsync(dialog))
+        {
+            return;
+        }
+
+        var selected = dialog.SelectedDiagrams.ToList();
+        if (selected.Count == 0)
+        {
+            return;
+        }
+
+        var existingNames = Project.Diagrams.Select(d => d.Name).ToHashSet(StringComparer.OrdinalIgnoreCase);
+        foreach (var diagram in selected)
+        {
+            var cloned = DiagramSerializer.Clone(diagram);
+            cloned.Name = DiagramDocument.EnsureUniqueName(cloned.Name, existingNames);
+            existingNames.Add(cloned.Name);
+            cloned.RegenerateIds();
+
+            if (!await AddDiagramAsync(cloned, Strings.Picker_ImportProject))
+            {
+                return;
+            }
+        }
+    }
+
+    /// <summary>
     /// Creates a class diagram from an OpenAPI 3.x or Swagger 2.0 description in the folder of the selection, and lists
     /// what could not be kept.
     /// </summary>

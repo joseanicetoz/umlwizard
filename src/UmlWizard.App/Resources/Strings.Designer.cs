@@ -6444,5 +6444,95 @@ namespace UmlWizard.App.Resources {
                 return ResourceManager.GetString("Toolbar_ZoomOut", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import Diagrams from Project.
+        /// </summary>
+        public static string Dialog_ImportProjectDiagrams_Title {
+            get {
+                return ResourceManager.GetString("Dialog_ImportProjectDiagrams_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Source project.
+        /// </summary>
+        public static string Dialog_ImportProjectDiagrams_Source {
+            get {
+                return ResourceManager.GetString("Dialog_ImportProjectDiagrams_Source", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Diagrams.
+        /// </summary>
+        public static string Dialog_ImportProjectDiagrams_Diagrams {
+            get {
+                return ResourceManager.GetString("Dialog_ImportProjectDiagrams_Diagrams", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select All.
+        /// </summary>
+        public static string Dialog_ImportProjectDiagrams_SelectAll {
+            get {
+                return ResourceManager.GetString("Dialog_ImportProjectDiagrams_SelectAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deselect All.
+        /// </summary>
+        public static string Dialog_ImportProjectDiagrams_DeselectAll {
+            get {
+                return ResourceManager.GetString("Dialog_ImportProjectDiagrams_DeselectAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The selected project has no diagrams..
+        /// </summary>
+        public static string Dialog_ImportProjectDiagrams_NoDiagrams {
+            get {
+                return ResourceManager.GetString("Dialog_ImportProjectDiagrams_NoDiagrams", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select at least one diagram to import..
+        /// </summary>
+        public static string Dialog_ImportProjectDiagrams_NoneSelected {
+            get {
+                return ResourceManager.GetString("Dialog_ImportProjectDiagrams_NoneSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _Diagrams from Project….
+        /// </summary>
+        public static string Menu_Diagram_ImportProject {
+            get {
+                return ResourceManager.GetString("Menu_Diagram_ImportProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import one or more diagrams from another UML Wizard project.
+        /// </summary>
+        public static string Menu_Diagram_ImportProject_Tip {
+            get {
+                return ResourceManager.GetString("Menu_Diagram_ImportProject_Tip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import Diagrams from Project.
+        /// </summary>
+        public static string Picker_ImportProject {
+            get {
+                return ResourceManager.GetString("Picker_ImportProject", resourceCulture);
+            }
+        }
     }
 }

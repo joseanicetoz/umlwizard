@@ -1,0 +1,49 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:res="using:UmlWizard.App.Resources"
+             xmlns:dvm="using:UmlWizard.App.ViewModels.Dialogs"
+             xmlns:mi="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             x:Class="UmlWizard.App.Views.Dialogs.ImportProjectDiagramsView"
+             x:DataType="dvm:ImportProjectDiagramsViewModel"
+             Width="540">
+  <StackPanel Spacing="14">
+    <!-- Source project file -->
+    <Grid ColumnDefinitions="100,*" RowDefinitions="Auto">
+      <TextBlock Classes="caption" Text="{x:Static res:Strings.Dialog_ImportProjectDiagrams_Source}" VerticalAlignment="Center" />
+      <DockPanel Grid.Column="1">
+        <Button DockPanel.Dock="Right" Content="{x:Static res:Strings.Button_Browse}" Margin="6,0,0,0" Command="{Binding BrowseSourceCommand}" />
+        <TextBox Text="{Binding SourcePath}" IsReadOnly="True" />
+      </DockPanel>
+    </Grid>
+
+    <!-- Diagrams list header -->
+    <DockPanel>
+      <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Spacing="6">
+        <Button Classes="flat" Content="{x:Static res:Strings.Dialog_ImportProjectDiagrams_SelectAll}" Command="{Binding SelectAllCommand}" Padding="6,2" />
+        <Button Classes="flat" Content="{x:Static res:Strings.Dialog_ImportProjectDiagrams_DeselectAll}" Command="{Binding DeselectAllCommand}" Padding="6,2" />
+      </StackPanel>
+      <TextBlock Classes="caption" Text="{x:Static res:Strings.Dialog_ImportProjectDiagrams_Diagrams}" VerticalAlignment="Center" />
+    </DockPanel>
+
+    <!-- Diagrams list -->
+    <Border Background="{DynamicResource ChromeBackgroundBrush}" BorderBrush="{DynamicResource DividerBrush}" BorderThickness="1" CornerRadius="4" Padding="6" MinHeight="160" MaxHeight="260">
+      <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+        <ItemsControl ItemsSource="{Binding Diagrams}">
+          <ItemsControl.ItemTemplate>
+            <DataTemplate x:DataType="dvm:ImportProjectDiagramEntryViewModel">
+              <CheckBox IsChecked="{Binding IsSelected}" Margin="4,2" HorizontalAlignment="Stretch">
+                <DockPanel LastChildFill="True">
+                  <TextBlock DockPanel.Dock="Right" Text="{Binding TypeName}" Classes="caption" VerticalAlignment="Center" Margin="12,0,0,0" />
+                  <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                    <mi:MaterialIcon Kind="{Binding Icon}" Width="18" Height="18" VerticalAlignment="Center" Foreground="{DynamicResource IconForegroundBrush}" />
+                    <TextBlock Text="{Binding Name}" FontWeight="SemiBold" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" />
+                  </StackPanel>
+                </DockPanel>
+              </CheckBox>
+            </DataTemplate>
+          </ItemsControl.ItemTemplate>
+        </ItemsControl>
+      </ScrollViewer>
+    </Border>
+  </StackPanel>
+</UserControl>

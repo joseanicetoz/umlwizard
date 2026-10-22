@@ -2278,4 +2278,34 @@ Nicht importiert oder anders dargestellt:
 
 {1}</value>
   </data>
+  <data name="Dialog_ImportProjectDiagrams_Title" xml:space="preserve">
+    <value>Diagramme aus Projekt importieren</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_Source" xml:space="preserve">
+    <value>Quellprojekt</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_Diagrams" xml:space="preserve">
+    <value>Diagramme</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_SelectAll" xml:space="preserve">
+    <value>Alle auswählen</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_DeselectAll" xml:space="preserve">
+    <value>Auswahl aufheben</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_NoDiagrams" xml:space="preserve">
+    <value>Das ausgewählte Projekt enthält keine Diagramme.</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_NoneSelected" xml:space="preserve">
+    <value>Wählen Sie mindestens ein zu importierendes Diagramm aus.</value>
+  </data>
+  <data name="Menu_Diagram_ImportProject" xml:space="preserve">
+    <value>_Diagramme aus Projekt…</value>
+  </data>
+  <data name="Menu_Diagram_ImportProject_Tip" xml:space="preserve">
+    <value>Ein oder mehrere Diagramme aus einem anderen UML-Wizard-Projekt importieren</value>
+  </data>
+  <data name="Picker_ImportProject" xml:space="preserve">
+    <value>Diagramme aus Projekt importieren</value>
+  </data>
 </root>

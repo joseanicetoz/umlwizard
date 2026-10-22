@@ -561,7 +561,7 @@ public sealed class ToolbarStateTests
         // Imports and exports are grouped by what they do, then by format.
         IEnumerable<string?> Submenu(string header) =>
             diagram.Items.OfType<MenuItem>().Single(m => (string?)m.Header == header).Items.OfType<MenuItem>().Select(m => (string?)m.Header);
-        Assert.Equal(["_OpenAPI…", "_PlantUML…"], Submenu("_Import"));
+        Assert.Equal(["_Diagrams from Project…", "_OpenAPI…", "_PlantUML…"], Submenu("_Import"));
         Assert.Equal(["PNG _Image…", "_OpenAPI…", "_PlantUML…"], Submenu("_Export"));
         var newDiagram = diagram.Items.OfType<MenuItem>().First();
         Assert.Same(main.NewDiagramMenu, newDiagram.ItemsSource);
