@@ -31,6 +31,7 @@
     <DataTemplate DataType="dvm:ExportPngViewModel"><dialogs:ExportPngView /></DataTemplate>
     <DataTemplate DataType="dvm:GenerateCodeViewModel"><dialogs:GenerateCodeView /></DataTemplate>
     <DataTemplate DataType="dvm:ExportOpenApiViewModel"><dialogs:ExportOpenApiView /></DataTemplate>
+    <DataTemplate DataType="dvm:ImportProjectDiagramsViewModel"><dialogs:ImportProjectDiagramsView /></DataTemplate>
   </Window.DataTemplates>
 
   <DockPanel Margin="20">

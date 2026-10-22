@@ -2398,4 +2398,34 @@ Not imported, or shown differently:
 {1}</value>
     <comment>{0} = file path, {1} = one note per line.</comment>
   </data>
+  <data name="Dialog_ImportProjectDiagrams_Title" xml:space="preserve">
+    <value>Import Diagrams from Project</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_Source" xml:space="preserve">
+    <value>Source project</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_Diagrams" xml:space="preserve">
+    <value>Diagrams</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_SelectAll" xml:space="preserve">
+    <value>Select All</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_DeselectAll" xml:space="preserve">
+    <value>Deselect All</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_NoDiagrams" xml:space="preserve">
+    <value>The selected project has no diagrams.</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_NoneSelected" xml:space="preserve">
+    <value>Select at least one diagram to import.</value>
+  </data>
+  <data name="Menu_Diagram_ImportProject" xml:space="preserve">
+    <value>_Diagrams from Project…</value>
+  </data>
+  <data name="Menu_Diagram_ImportProject_Tip" xml:space="preserve">
+    <value>Import one or more diagrams from another UML Wizard project</value>
+  </data>
+  <data name="Picker_ImportProject" xml:space="preserve">
+    <value>Import Diagrams from Project</value>
+  </data>
 </root>

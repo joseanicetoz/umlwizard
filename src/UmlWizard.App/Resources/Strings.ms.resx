@@ -2278,4 +2278,34 @@ Tidak diimport, atau ditunjukkan secara berbeza:
 
 {1}</value>
   </data>
+  <data name="Dialog_ImportProjectDiagrams_Title" xml:space="preserve">
+    <value>Import Rajah daripada Projek</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_Source" xml:space="preserve">
+    <value>Projek sumber</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_Diagrams" xml:space="preserve">
+    <value>Rajah</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_SelectAll" xml:space="preserve">
+    <value>Pilih Semua</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_DeselectAll" xml:space="preserve">
+    <value>Nyahpilih Semua</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_NoDiagrams" xml:space="preserve">
+    <value>Projek yang dipilih tidak mempunyai rajah.</value>
+  </data>
+  <data name="Dialog_ImportProjectDiagrams_NoneSelected" xml:space="preserve">
+    <value>Pilih sekurang-kurangnya satu rajah untuk diimport.</value>
+  </data>
+  <data name="Menu_Diagram_ImportProject" xml:space="preserve">
+    <value>_Rajah daripada Projek…</value>
+  </data>
+  <data name="Menu_Diagram_ImportProject_Tip" xml:space="preserve">
+    <value>Import satu atau lebih rajah daripada projek UML Wizard yang lain</value>
+  </data>
+  <data name="Picker_ImportProject" xml:space="preserve">
+    <value>Import Rajah daripada Projek</value>
+  </data>
 </root>

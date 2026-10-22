@@ -125,6 +125,8 @@
         <Separator />
         <!-- Import creates diagrams from other formats; Export writes the selected diagram in one. -->
         <MenuItem x:Name="ImportMenu" Header="{x:Static res:Strings.Menu_Diagram_Import}" Icon="{mi:MaterialIconExt Kind=FileImportOutline}">
+          <MenuItem Header="{x:Static res:Strings.Menu_Diagram_ImportProject}" Command="{Binding ImportProjectDiagramsCommand}"
+                    ToolTip.Tip="{x:Static res:Strings.Menu_Diagram_ImportProject_Tip}" Icon="{mi:MaterialIconExt Kind=BriefcaseDownloadOutline}" />
           <MenuItem Header="{x:Static res:Strings.Menu_Diagram_ImportOpenApi}" Command="{Binding ImportOpenApiCommand}"
                     ToolTip.Tip="{x:Static res:Strings.Menu_Diagram_ImportOpenApi_Tip}" Icon="{mi:MaterialIconExt Kind=Api}" />
           <MenuItem Header="{x:Static res:Strings.Menu_Diagram_ImportPlantUml}" Command="{Binding ImportPlantUmlCommand}"

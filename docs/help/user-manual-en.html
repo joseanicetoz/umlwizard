@@ -56,6 +56,7 @@ diagrams with OpenAPI and PlantUML. It runs on Windows, macOS and Linux.</p>
   <li><a href="#export-image">Exporting an image</a></li>
   <li><a href="#generate-code">Generating code</a></li>
   <li><a href="#import-code">Importing code</a></li>
+  <li><a href="#import-project-diagrams">Import Diagrams from Other Projects</a></li>
   <li><a href="#openapi">OpenAPI</a></li>
   <li><a href="#plantuml">PlantUML</a></li>
   <li><a href="#ai">AI assistant</a></li>
@@ -580,7 +581,11 @@ Kotlin, decorators and type aliases in TypeScript, destructors, friends and free
 run time in Ruby. Ruby declares no types, so Ruby classes are linked only by inheritance and mixins, not by associations.</p>
 
 <!-- ============================================================ -->
-<h2 id="openapi">11. OpenAPI</h2>
+<h2 id="import-project-diagrams">11. Import Diagrams from Other Projects</h2>
+<p><span class="ui">Diagram → Import → Diagrams from Project…</span> adds one or more diagrams from another UML Wizard project into the current project, ensuring diagram names and internal identifiers do not conflict.</p>
+
+<!-- ============================================================ -->
+<h2 id="openapi">12. OpenAPI</h2>
 <p><span class="ui">Diagram → Import → OpenAPI…</span> reads an OpenAPI 3.0 or 3.1, or Swagger 2.0, description
 (<code>.yaml</code>, <code>.yml</code> or <code>.json</code>) and adds a class diagram to the folder of the Project
 Explorer selection, laid out automatically. <span class="ui">Diagram → Export → OpenAPI…</span> writes the selected
@@ -604,7 +609,7 @@ lists anything it could not keep. <span class="ui">Help → How to Import and Ex
 including how the Method and Path of an operation become an endpoint.</p>
 
 <!-- ============================================================ -->
-<h2 id="plantuml">12. PlantUML</h2>
+<h2 id="plantuml">13. PlantUML</h2>
 <p><span class="ui">Diagram → Import → PlantUML…</span> reads a PlantUML file: each diagram in it, from
 <code>@startuml</code> to <code>@enduml</code>, is added to the folder of the Project Explorer selection and laid out
 automatically. Its kind is recognised from its content, as PlantUML does, and its <code>title</code> names it.
@@ -616,7 +621,7 @@ kept) and <code>!include</code>. <span class="ui">Help → How to Import and Exp
 diagram maps.</p>
 
 <!-- ============================================================ -->
-<h2 id="ai">13. AI assistant</h2>
+<h2 id="ai">14. AI assistant</h2>
 <p>UML Wizard can use an AI service to draw a diagram from a description, and to talk about and change your diagrams in a chat. The AI is optional and off until you set it up:
 nothing is sent anywhere before that, and afterwards only when you use an AI command.</p>
 
@@ -730,7 +735,7 @@ about; and is subject to its terms. Choose a local model (Ollama, LM Studio) to 
 computer. Your API key is only sent to that service.</p>
 
 <!-- ============================================================ -->
-<h2 id="languages">14. Adding languages</h2>
+<h2 id="languages">15. Adding languages</h2>
 <p>Every code generation and code import language is a plug-in: a DLL loaded at start-up from two
 <code>plugins</code> folders. The built-in ones are in the application's folder. To add a language, put its DLL in your
 own plug-ins folder and restart UML Wizard:</p>
@@ -745,7 +750,7 @@ its folder). When both folders have a DLL with the same name, the application's 
 provider, and the plug-ins that could not be loaded, with the reason.</p>
 
 <!-- ============================================================ -->
-<h2 id="menus">15. Menus</h2>
+<h2 id="menus">16. Menus</h2>
 <div class="table-wrap">
 <table>
   <tr><th>Menu</th><th>Items</th></tr>
@@ -753,7 +758,7 @@ provider, and the plug-ins that could not be loaded, with the reason.</p>
   <tr><td>Edit</td><td>Undo, Redo │ Cut, Copy, Paste, Delete │ Edit Element</td></tr>
   <tr><td>View</td><td>Project Explorer, AI Chat │ Theme ▸ (System, Light, Dark)</td></tr>
   <tr><td>Format</td><td>Font, Diagram Font, Shape, Line │ Bring to Front, Bring Forward, Send Backward, Send to Back │ Arrange Diagram</td></tr>
-  <tr><td>Diagram</td><td>New Diagram ▸ (every type), Create with AI, Rename, Move To, Delete │ Import ▸ (OpenAPI, PlantUML), Export ▸ (PNG Image, OpenAPI, PlantUML), Generate Code │ Close All Diagrams │ Properties</td></tr>
+  <tr><td>Diagram</td><td>New Diagram ▸ (every type), Create with AI, Rename, Move To, Delete │ Import ▸ (Diagrams from Project, OpenAPI, PlantUML), Export ▸ (PNG Image, OpenAPI, PlantUML), Generate Code │ Close All Diagrams │ Properties</td></tr>
   <tr><td>Help</td><td>User Manual, Learn UML │ How to Import and Export OpenAPI, How to Import and Export PlantUML, How to Generate Code │ About UML Wizard</td></tr>
 </table>
 </div>
@@ -761,7 +766,7 @@ provider, and the plug-ins that could not be loaded, with the reason.</p>
 diagram selected in the Project Explorer.</p>
 
 <!-- ============================================================ -->
-<h2 id="keyboard">16. Keyboard shortcuts</h2>
+<h2 id="keyboard">17. Keyboard shortcuts</h2>
 <p>Shortcuts use <kbd>Ctrl</kbd> on Windows and Linux and <kbd>⌘</kbd> on macOS.</p>
 <div class="table-wrap">
 <table>
@@ -785,7 +790,7 @@ diagram selected in the Project Explorer.</p>
 </div>
 
 <!-- ============================================================ -->
-<h2 id="preferences">17. Preferences</h2>
+<h2 id="preferences">18. Preferences</h2>
 <p>The Preferences window sets how UML Wizard works and looks for you: where new projects go, the language and font of
 the application, and the colours diagrams are drawn in. Preferences belong to you, not to a project: they apply to every
 project you open, and a project you share keeps its own look for others.</p>
@@ -911,7 +916,7 @@ kept in your system's credential store when you close the window, not in the set
 </ul>
 
 <!-- ============================================================ -->
-<h2 id="settings">18. Where settings are kept</h2>
+<h2 id="settings">19. Where settings are kept</h2>
 <p>The recent projects list (<code>recent-projects.json</code>), your preferences (<code>settings.json</code>)
 and your plug-ins (<code>plugins</code>) are kept in:</p>
 <ul>
