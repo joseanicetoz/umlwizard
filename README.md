@@ -57,7 +57,7 @@ The builds are not code-signed, so the system warns the first time you run one:
 
 ## Build and run
 
-Requires the .NET 9 SDK (or later).
+Requires the .NET 10 SDK (or later).
 
 ```bash
 dotnet build

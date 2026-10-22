@@ -62,11 +62,11 @@ The built-in languages are plug-ins too; their sources are good examples:
 
 ## Step 1 — Create the project
 
-You need the [.NET 9 SDK](https://dotnet.microsoft.com/download) and a UML Wizard installation (or a build of this
+You need the [.NET 10 SDK](https://dotnet.microsoft.com/download) and a UML Wizard installation (or a build of this
 repository). Create a class library:
 
 ```sh
-dotnet new classlib -n Acme.UmlWizard.PhpGeneration -f net9.0
+dotnet new classlib -n Acme.UmlWizard.PhpGeneration -f net10.0
 ```
 
 Replace `Acme.UmlWizard.PhpGeneration.csproj` with:
@@ -75,7 +75,7 @@ Replace `Acme.UmlWizard.PhpGeneration.csproj` with:
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <!-- Built to be loaded by UML Wizard at run time -->
@@ -483,7 +483,7 @@ dotnet build -c Release -p:UmlWizardDir="C:\Program Files\UML Wizard"
 dotnet build -c Release -p:UmlWizardDir="/path/to/UML Wizard"
 ```
 
-Copy `bin/Release/net9.0/Acme.UmlWizard.PhpGeneration.dll` into a folder of the same name in **your** plug-ins
+Copy `bin/Release/net10.0/Acme.UmlWizard.PhpGeneration.dll` into a folder of the same name in **your** plug-ins
 folder (see [How plug-ins are loaded](#how-plug-ins-are-loaded)). If you added NuGet packages, copy their DLLs into
 the same folder too:
 
@@ -491,13 +491,13 @@ the same folder too:
 # Windows (PowerShell)
 $dir = "$env:APPDATA\UmlWizard\plugins\Acme.UmlWizard.PhpGeneration"
 New-Item -ItemType Directory -Force $dir
-Copy-Item bin\Release\net9.0\Acme.UmlWizard.PhpGeneration.dll $dir
+Copy-Item bin\Release\net10.0\Acme.UmlWizard.PhpGeneration.dll $dir
 ```
 
 ```sh
 # macOS and Linux
 mkdir -p ~/.config/UmlWizard/plugins/Acme.UmlWizard.PhpGeneration
-cp bin/Release/net9.0/Acme.UmlWizard.PhpGeneration.dll ~/.config/UmlWizard/plugins/Acme.UmlWizard.PhpGeneration/
+cp bin/Release/net10.0/Acme.UmlWizard.PhpGeneration.dll ~/.config/UmlWizard/plugins/Acme.UmlWizard.PhpGeneration/
 ```
 
 ```
