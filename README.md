@@ -1,3 +1,4 @@
+![app_logo](src/UmlWizard.App/Assets/Icons/icon-48.png)
 # UML Wizard
 
 [![CI](https://github.com/joseanicetoz/umlwizard/actions/workflows/ci.yml/badge.svg)](https://github.com/joseanicetoz/umlwizard/actions/workflows/ci.yml)
