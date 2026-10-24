@@ -76,7 +76,7 @@
          as its icon. -->
     <Style Selector=":is(Window)">
       <Setter Property="Background" Value="{DynamicResource WindowBackgroundBrush}" />
-      <Setter Property="Icon" Value="/Assets/UmlWizard.ico" />
+      <Setter Property="Icon" Value="/Assets/Icons/icon.ico" />
     </Style>
 
     <Style Selector="ListBox.toolbox">

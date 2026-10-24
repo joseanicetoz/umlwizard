@@ -11,7 +11,7 @@
          never shows. The app's own translations (Resources/Strings.<culture>.resx) are not affected. -->
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
     <!-- The icon of the executable on Windows; the windows take theirs from App.axaml -->
-    <ApplicationIcon>Assets\UmlWizard.ico</ApplicationIcon>
+    <ApplicationIcon>Assets\Icons\icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <!-- Shown in Help → About. The licence is LICENSE at the root of the repository; the website is the GitHub
@@ -45,8 +45,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <!-- The application icon and logo, used by the windows, the splash screen and Help → About -->
-    <AvaloniaResource Include="Assets\**" />
+    <!-- The application icon and logo, used by the windows, the splash screen and Help → About. The other files in
+         Assets\Icons (the SVG source, the PNG of each size and the macOS .icns) are for packaging, not the app. -->
+    <AvaloniaResource Include="Assets\**" Exclude="Assets\Icons\icon.svg;Assets\Icons\icon-*.png;Assets\Icons\icon.icns" />
   </ItemGroup>
   <ItemGroup>
     <InternalsVisibleTo Include="UmlWizard.App.Tests" />
@@ -63,7 +64,7 @@
     <None Include="..\..\docs\help\*.html" Link="Help\%(Filename)%(Extension)"
           CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
     <!-- The logo in the header of the help pages -->
-    <None Include="Assets\UmlWizard.png" Link="Help\UmlWizard.png"
+    <None Include="Assets\Icons\icon.png" Link="Help\UmlWizard.png"
           CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
   <ItemGroup>

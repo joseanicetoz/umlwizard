@@ -1,7 +1,8 @@
 # The menu entry of UML Wizard on Linux. Installed as
 #   share/applications/io.github.joseanicetoz.umlwizard.desktop
 # next to share/mime/packages/io.github.joseanicetoz.umlwizard.xml (the .umlwiz file type) and the icons in
-# share/icons/hicolor/<size>x<size>/apps/io.github.joseanicetoz.umlwizard.png, under /usr (a .deb or .rpm, with
+# share/icons/hicolor/<size>x<size>/apps/io.github.joseanicetoz.umlwizard.png and
+# share/icons/hicolor/scalable/apps/io.github.joseanicetoz.umlwizard.svg, under /usr (a .deb or .rpm, with
 # UmlWizard on the PATH), ~/.local or the AppDir of an AppImage. The file is named after the application ID, as
 # Flatpak and AppStream expect.
 [Desktop Entry]
