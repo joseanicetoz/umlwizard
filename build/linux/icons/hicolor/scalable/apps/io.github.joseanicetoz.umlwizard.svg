@@ -1,18 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect x="16" y="16" width="480" height="480" rx="108" fill="#F3F7F6"/>
-  <rect x="17" y="17" width="478" height="478" rx="107" fill="none" stroke="#D3DEDB" stroke-width="2"/>
-  <path d="M150 260V372H232" fill="none" stroke="#1C2B33" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M232 342l52 30-52 30z" fill="#1C2B33"/>
-  <rect x="62" y="98" width="196" height="162" rx="22" fill="#0F9D8A"/>
-  <rect x="62" y="150" width="196" height="8" fill="#F3F7F6"/>
-  <rect x="88" y="118" width="110" height="16" rx="8" fill="#F3F7F6"/>
-  <rect x="88" y="184" width="120" height="14" rx="7" fill="#B6E6DE"/>
-  <rect x="88" y="214" width="84" height="14" rx="7" fill="#B6E6DE"/>
-  <rect x="284" y="262" width="174" height="194" rx="24" fill="#EF6A4C"/>
-  <rect x="284" y="318" width="174" height="8" fill="#F3F7F6"/>
-  <rect x="310" y="284" width="104" height="16" rx="8" fill="#F3F7F6"/>
-  <rect x="310" y="352" width="112" height="14" rx="7" fill="#FBD0C5"/>
-  <rect x="310" y="382" width="78" height="14" rx="7" fill="#FBD0C5"/>
-  <rect x="310" y="412" width="96" height="14" rx="7" fill="#FBD0C5"/>
-  <path d="M392 64c6 34 14 42 48 48c-34 6-42 14-48 48c-6-34-14-42-48-48c34-6 42-14 48-48z" fill="#F2B544"/>
+  <rect x="32" y="32" width="448" height="448" rx="96" fill="#ECEFF1"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <g stroke="#00897B" stroke-width="24">
+      <rect x="84" y="100" width="180" height="148" rx="20"/>
+      <path d="M84 154H264"/>
+    </g>
+    <g stroke="#00897B" stroke-width="16">
+      <path d="M118 188H210M118 216H176"/>
+    </g>
+    <path d="M150 248V368H262" stroke="#37474F" stroke-width="22"/>
+    <path d="M240 340l32 28-32 28" stroke="#37474F" stroke-width="22"/>
+    <g stroke="#F4511E" stroke-width="24">
+      <rect x="290" y="268" width="148" height="164" rx="20"/>
+      <path d="M290 322H438"/>
+    </g>
+    <g stroke="#F4511E" stroke-width="16">
+      <path d="M322 356H400M322 384H372M322 410H388" />
+    </g>
+    <path d="M384 76c5 30 12 37 42 42c-30 5-37 12-42 42c-5-30-12-37-42-42c30-5 37-12 42-42z" stroke="#FFB300" stroke-width="16"/>
+  </g>
 </svg>
