@@ -24,7 +24,7 @@
     <StackPanel Spacing="16">
       <StackPanel Orientation="Horizontal" Spacing="14">
         <Border Width="64" Height="64" CornerRadius="10" Padding="6" Background="{DynamicResource LogoBackgroundBrush}">
-          <Image Source="/Assets/Icons/UmlWizard.png" />
+          <Image Source="/Assets/Icons/icon.png" />
         </Border>
         <StackPanel VerticalAlignment="Center" Spacing="2">
           <TextBlock Text="{Binding ProductName}" FontSize="20" FontWeight="SemiBold" />

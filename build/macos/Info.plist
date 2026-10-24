@@ -5,7 +5,7 @@
 
     UmlWizard.app/Contents/Info.plist                  this file
     UmlWizard.app/Contents/MacOS/                      the output of dotnet publish -r osx-*, with UmlWizard in it
-    UmlWizard.app/Contents/Resources/UmlWizard.icns    build/macos/UmlWizard.icns
+    UmlWizard.app/Contents/Resources/UmlWizard.icns    src/UmlWizard.App/Assets/Icons/icon.icns
 
   The release sets both versions from the tag, e.g.
     plutil -replace CFBundleShortVersionString -string 1.2.0 UmlWizard.app/Contents/Info.plist
