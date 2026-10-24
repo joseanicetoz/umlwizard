@@ -45,6 +45,30 @@ public sealed class StartScreenTests
     }
 
     [AvaloniaFact]
+    public void AboveTheCards_TheAppIconNameAndDescription_LineUpWithTheFirstCard()
+    {
+        var services = new FakeServices();
+        var window = new MainWindow { DataContext = new MainWindowViewModel(services, services), Width = 1200, Height = 800 };
+        window.Show();
+        Dispatcher.UIThread.RunJobs();
+
+        var header = window.GetLogicalDescendants().OfType<StackPanel>().Single(p => p.Name == "StartHeader");
+        Assert.True(header.IsEffectivelyVisible);
+        Assert.NotNull(Assert.Single(header.GetLogicalChildren().OfType<Image>()).Source);
+        Assert.Equal(
+            ["UML Wizard", Resources.Strings.About_Description],
+            header.GetLogicalChildren().OfType<TextBlock>().Select(t => t.Text));
+
+        var headerAt = header.TranslatePoint(default, window)!.Value;
+        var cards = window.GetLogicalDescendants().OfType<WrapPanel>().Single(p => p.Name == "StartCards");
+        var firstCardAt = Card(window, "NewProjectCard").TranslatePoint(default, window)!.Value;
+        Assert.Equal(firstCardAt.X, headerAt.X, 0.5);
+        Assert.True(headerAt.Y + header.Bounds.Height < firstCardAt.Y);
+        Assert.Equal(cards.Bounds.Width, header.Bounds.Width, 0.5);
+        window.Close();
+    }
+
+    [AvaloniaFact]
     public void TheNewProjectCard_StartsANewProject()
     {
         var services = new FakeServices();
