@@ -11,7 +11,7 @@
          never shows. The app's own translations (Resources/Strings.<culture>.resx) are not affected. -->
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
     <!-- The icon of the executable on Windows; the windows take theirs from App.axaml -->
-    <ApplicationIcon>Assets\UmlWizard.ico</ApplicationIcon>
+    <ApplicationIcon>Assets\Icons\UmlWizard.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <!-- Shown in Help → About. The licence is LICENSE at the root of the repository; the website is the GitHub
@@ -63,7 +63,7 @@
     <None Include="..\..\docs\help\*.html" Link="Help\%(Filename)%(Extension)"
           CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
     <!-- The logo in the header of the help pages -->
-    <None Include="Assets\UmlWizard.png" Link="Help\UmlWizard.png"
+    <None Include="Assets\Icons\UmlWizard.png" Link="Help\UmlWizard.png"
           CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
   <ItemGroup>
