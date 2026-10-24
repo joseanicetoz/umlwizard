@@ -328,29 +328,37 @@
       <Panel Grid.Column="1">
         <!-- Start screen, while no project is open: create, open or import one -->
         <Grid x:Name="StartScreen" IsVisible="{Binding !HasProject}" RowDefinitions="2*,Auto,3*" Margin="24">
-          <WrapPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" ItemSpacing="24" LineSpacing="24">
-            <Button x:Name="NewProjectCard" Classes="startCard" Command="{Binding NewProjectCommand}">
-              <StackPanel Spacing="10">
-                <mi:MaterialIcon Kind="FilePlusOutline" HorizontalAlignment="Left" />
-                <TextBlock Text="{x:Static res:Strings.Start_NewProject}" FontWeight="SemiBold" TextWrapping="Wrap" />
-                <TextBlock Text="{x:Static res:Strings.Start_NewProject_Description}" Classes="caption" TextWrapping="Wrap" />
-              </StackPanel>
-            </Button>
-            <Button x:Name="OpenProjectCard" Classes="startCard" Command="{Binding OpenProjectCommand}">
-              <StackPanel Spacing="10">
-                <mi:MaterialIcon Kind="FolderOpenOutline" HorizontalAlignment="Left" />
-                <TextBlock Text="{x:Static res:Strings.Start_OpenProject}" FontWeight="SemiBold" TextWrapping="Wrap" />
-                <TextBlock Text="{x:Static res:Strings.Start_OpenProject_Description}" Classes="caption" TextWrapping="Wrap" />
-              </StackPanel>
-            </Button>
-            <Button x:Name="ImportFolderCard" Classes="startCard" Command="{Binding ImportFolderCommand}">
-              <StackPanel Spacing="10">
-                <mi:MaterialIcon Kind="FolderDownloadOutline" HorizontalAlignment="Left" />
-                <TextBlock Text="{x:Static res:Strings.Start_ImportFolder}" FontWeight="SemiBold" TextWrapping="Wrap" />
-                <TextBlock Text="{x:Static res:Strings.Start_ImportFolder_Description}" Classes="caption" TextWrapping="Wrap" />
-              </StackPanel>
-            </Button>
-          </WrapPanel>
+          <StackPanel Grid.Row="1" HorizontalAlignment="Center" Spacing="28">
+            <!-- The app's icon, name and what it does, above the cards and as wide as them -->
+            <StackPanel x:Name="StartHeader" Spacing="12" Width="{Binding #StartCards.Bounds.Width}">
+              <Image Source="/Assets/Icons/icon.png" Width="72" Height="72" HorizontalAlignment="Left" />
+              <TextBlock Text="{x:Static res:Strings.App_Name}" FontSize="32" FontWeight="SemiBold" />
+              <TextBlock Text="{x:Static res:Strings.About_Description}" Foreground="{DynamicResource CaptionForegroundBrush}" TextWrapping="Wrap" />
+            </StackPanel>
+            <WrapPanel x:Name="StartCards" Orientation="Horizontal" HorizontalAlignment="Center" ItemSpacing="24" LineSpacing="24">
+              <Button x:Name="NewProjectCard" Classes="startCard" Command="{Binding NewProjectCommand}">
+                <StackPanel Spacing="10">
+                  <mi:MaterialIcon Kind="FilePlusOutline" HorizontalAlignment="Left" />
+                  <TextBlock Text="{x:Static res:Strings.Start_NewProject}" FontWeight="SemiBold" TextWrapping="Wrap" />
+                  <TextBlock Text="{x:Static res:Strings.Start_NewProject_Description}" Classes="caption" TextWrapping="Wrap" />
+                </StackPanel>
+              </Button>
+              <Button x:Name="OpenProjectCard" Classes="startCard" Command="{Binding OpenProjectCommand}">
+                <StackPanel Spacing="10">
+                  <mi:MaterialIcon Kind="FolderOpenOutline" HorizontalAlignment="Left" />
+                  <TextBlock Text="{x:Static res:Strings.Start_OpenProject}" FontWeight="SemiBold" TextWrapping="Wrap" />
+                  <TextBlock Text="{x:Static res:Strings.Start_OpenProject_Description}" Classes="caption" TextWrapping="Wrap" />
+                </StackPanel>
+              </Button>
+              <Button x:Name="ImportFolderCard" Classes="startCard" Command="{Binding ImportFolderCommand}">
+                <StackPanel Spacing="10">
+                  <mi:MaterialIcon Kind="FolderDownloadOutline" HorizontalAlignment="Left" />
+                  <TextBlock Text="{x:Static res:Strings.Start_ImportFolder}" FontWeight="SemiBold" TextWrapping="Wrap" />
+                  <TextBlock Text="{x:Static res:Strings.Start_ImportFolder_Description}" Classes="caption" TextWrapping="Wrap" />
+                </StackPanel>
+              </Button>
+            </WrapPanel>
+          </StackPanel>
         </Grid>
 
         <!-- A project without an active diagram: how to open one -->
